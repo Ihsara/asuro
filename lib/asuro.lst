@@ -1,0 +1,1350 @@
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 1
+
+
+   1               		.file	"asuro.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	__vector_2
+  17               		.type	__vector_2, @function
+  18               	__vector_2:
+  19               	.LFB4:
+  20               	.LM1:
+  21 0000 1F92      		push __zero_reg__
+  22 0002 0F92      		push r0
+  23 0004 0FB6      		in r0,__SREG__
+  24 0006 0F92      		push r0
+  25 0008 1124      		clr __zero_reg__
+  26 000a 8F93      		push r24
+  27 000c 9F93      		push r25
+  28               	/* prologue: Signal */
+  29               	/* frame size = 0 */
+  30               	.LM2:
+  31 000e 81E0      		ldi r24,lo8(1)
+  32 0010 90E0      		ldi r25,hi8(1)
+  33 0012 9093 0000 		sts (switched)+1,r25
+  34 0016 8093 0000 		sts switched,r24
+  35               	.LM3:
+  36 001a 8BB7      		in r24,91-32
+  37 001c 8F77      		andi r24,lo8(127)
+  38 001e 8BBF      		out 91-32,r24
+  39               	/* epilogue start */
+  40               	.LM4:
+  41 0020 9F91      		pop r25
+  42 0022 8F91      		pop r24
+  43 0024 0F90      		pop r0
+  44 0026 0FBE      		out __SREG__,r0
+  45 0028 0F90      		pop r0
+  46 002a 1F90      		pop __zero_reg__
+  47 002c 1895      		reti
+  48               	.LFE4:
+  49               		.size	__vector_2, .-__vector_2
+  50               	.global	__vector_14
+  51               		.type	__vector_14, @function
+  52               	__vector_14:
+  53               	.LFB5:
+  54               	.LM5:
+  55 002e 1F92      		push __zero_reg__
+  56 0030 0F92      		push r0
+  57 0032 0FB6      		in r0,__SREG__
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 2
+
+
+  58 0034 0F92      		push r0
+  59 0036 1124      		clr __zero_reg__
+  60 0038 2F93      		push r18
+  61 003a 3F93      		push r19
+  62 003c 4F93      		push r20
+  63 003e 8F93      		push r24
+  64 0040 9F93      		push r25
+  65 0042 AF93      		push r26
+  66 0044 BF93      		push r27
+  67 0046 EF93      		push r30
+  68 0048 FF93      		push r31
+  69               	/* prologue: Signal */
+  70               	/* frame size = 0 */
+  71               	.LM6:
+  72 004a 8091 0000 		lds r24,autoencode
+  73 004e 9091 0000 		lds r25,(autoencode)+1
+  74 0052 892B      		or r24,r25
+  75 0054 01F0      		breq .L9
+  76               	.LM7:
+  77 0056 4091 0000 		lds r20,toggle.1458
+  78 005a 242F      		mov r18,r20
+  79 005c 30E0      		ldi r19,lo8(0)
+  80 005e 95B1      		in r25,37-32
+  81 0060 F901      		movw r30,r18
+  82 0062 E050      		subi r30,lo8(-(tmp.1456))
+  83 0064 F040      		sbci r31,hi8(-(tmp.1456))
+  84 0066 9083      		st Z,r25
+  85               	.LM8:
+  86 0068 4423      		tst r20
+  87 006a 01F0      		breq .L5
+  88               	.LM9:
+  89 006c 80E6      		ldi r24,lo8(96)
+  90 006e 00C0      		rjmp .L10
+  91               	.L5:
+  92               	.LM10:
+  93 0070 81E6      		ldi r24,lo8(97)
+  94               	.L10:
+  95 0072 87B9      		out 39-32,r24
+  96               	.LM11:
+  97 0074 9C38      		cpi r25,lo8(-116)
+  98 0076 00F4      		brsh .L7
+  99 0078 D901      		movw r26,r18
+ 100 007a A050      		subi r26,lo8(-(flag.1457))
+ 101 007c B040      		sbci r27,hi8(-(flag.1457))
+ 102 007e 8C91      		ld r24,X
+ 103 0080 8130      		cpi r24,lo8(1)
+ 104 0082 01F4      		brne .L8
+ 105               	.LM12:
+ 106 0084 F901      		movw r30,r18
+ 107 0086 EE0F      		lsl r30
+ 108 0088 FF1F      		rol r31
+ 109 008a E050      		subi r30,lo8(-(encoder))
+ 110 008c F040      		sbci r31,hi8(-(encoder))
+ 111 008e 8081      		ld r24,Z
+ 112 0090 9181      		ldd r25,Z+1
+ 113 0092 0196      		adiw r24,1
+ 114 0094 9183      		std Z+1,r25
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 3
+
+
+ 115 0096 8083      		st Z,r24
+ 116               	.LM13:
+ 117 0098 1C92      		st X,__zero_reg__
+ 118 009a 00C0      		rjmp .L8
+ 119               	.L7:
+ 120               	.LM14:
+ 121 009c 913A      		cpi r25,lo8(-95)
+ 122 009e 00F0      		brlo .L8
+ 123 00a0 D901      		movw r26,r18
+ 124 00a2 A050      		subi r26,lo8(-(flag.1457))
+ 125 00a4 B040      		sbci r27,hi8(-(flag.1457))
+ 126 00a6 8C91      		ld r24,X
+ 127 00a8 8823      		tst r24
+ 128 00aa 01F4      		brne .L8
+ 129               	.LM15:
+ 130 00ac F901      		movw r30,r18
+ 131 00ae EE0F      		lsl r30
+ 132 00b0 FF1F      		rol r31
+ 133 00b2 E050      		subi r30,lo8(-(encoder))
+ 134 00b4 F040      		sbci r31,hi8(-(encoder))
+ 135 00b6 8081      		ld r24,Z
+ 136 00b8 9181      		ldd r25,Z+1
+ 137 00ba 0196      		adiw r24,1
+ 138 00bc 9183      		std Z+1,r25
+ 139 00be 8083      		st Z,r24
+ 140               	.LM16:
+ 141 00c0 81E0      		ldi r24,lo8(1)
+ 142 00c2 8C93      		st X,r24
+ 143               	.L8:
+ 144               	.LM17:
+ 145 00c4 81E0      		ldi r24,lo8(1)
+ 146 00c6 4827      		eor r20,r24
+ 147 00c8 4093 0000 		sts toggle.1458,r20
+ 148               	.L9:
+ 149               	/* epilogue start */
+ 150               	.LM18:
+ 151 00cc FF91      		pop r31
+ 152 00ce EF91      		pop r30
+ 153 00d0 BF91      		pop r27
+ 154 00d2 AF91      		pop r26
+ 155 00d4 9F91      		pop r25
+ 156 00d6 8F91      		pop r24
+ 157 00d8 4F91      		pop r20
+ 158 00da 3F91      		pop r19
+ 159 00dc 2F91      		pop r18
+ 160 00de 0F90      		pop r0
+ 161 00e0 0FBE      		out __SREG__,r0
+ 162 00e2 0F90      		pop r0
+ 163 00e4 1F90      		pop __zero_reg__
+ 164 00e6 1895      		reti
+ 165               	.LFE5:
+ 166               		.size	__vector_14, .-__vector_14
+ 167               	.global	__vector_4
+ 168               		.type	__vector_4, @function
+ 169               	__vector_4:
+ 170               	.LFB3:
+ 171               	.LM19:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 4
+
+
+ 172 00e8 1F92      		push __zero_reg__
+ 173 00ea 0F92      		push r0
+ 174 00ec 0FB6      		in r0,__SREG__
+ 175 00ee 0F92      		push r0
+ 176 00f0 1124      		clr __zero_reg__
+ 177 00f2 2F93      		push r18
+ 178 00f4 3F93      		push r19
+ 179 00f6 4F93      		push r20
+ 180 00f8 5F93      		push r21
+ 181 00fa 6F93      		push r22
+ 182 00fc 7F93      		push r23
+ 183 00fe 8F93      		push r24
+ 184 0100 9F93      		push r25
+ 185 0102 AF93      		push r26
+ 186 0104 BF93      		push r27
+ 187 0106 EF93      		push r30
+ 188 0108 FF93      		push r31
+ 189               	/* prologue: Signal */
+ 190               	/* frame size = 0 */
+ 191               	.LM20:
+ 192 010a 84B5      		in r24,68-32
+ 193 010c 8B5D      		subi r24,lo8(-(37))
+ 194 010e 84BD      		out 68-32,r24
+ 195               	.LM21:
+ 196 0110 8091 0000 		lds r24,count36kHz
+ 197 0114 8F5F      		subi r24,lo8(-(1))
+ 198 0116 8093 0000 		sts count36kHz,r24
+ 199               	.LM22:
+ 200 011a 8091 0000 		lds r24,count36kHz
+ 201 011e 8823      		tst r24
+ 202 0120 01F4      		brne .L12
+ 203               	.LM23:
+ 204 0122 8091 0000 		lds r24,timebase
+ 205 0126 9091 0000 		lds r25,(timebase)+1
+ 206 012a A091 0000 		lds r26,(timebase)+2
+ 207 012e B091 0000 		lds r27,(timebase)+3
+ 208 0132 0196      		adiw r24,1
+ 209 0134 A11D      		adc r26,__zero_reg__
+ 210 0136 B11D      		adc r27,__zero_reg__
+ 211 0138 8093 0000 		sts timebase,r24
+ 212 013c 9093 0000 		sts (timebase)+1,r25
+ 213 0140 A093 0000 		sts (timebase)+2,r26
+ 214 0144 B093 0000 		sts (timebase)+3,r27
+ 215               	.L12:
+ 216               	.LM24:
+ 217 0148 8091 0000 		lds r24,enableRC5
+ 218 014c 8823      		tst r24
+ 219 014e 01F0      		breq .L14
+ 220 0150 8091 0000 		lds r24,count36kHz
+ 221 0154 90E0      		ldi r25,lo8(0)
+ 222 0156 8770      		andi r24,lo8(7)
+ 223 0158 9070      		andi r25,hi8(7)
+ 224 015a 892B      		or r24,r25
+ 225 015c 01F4      		brne .L14
+ 226               	.LM25:
+ 227 015e 00D0      		rcall IsrRC5
+ 228               	.L14:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 5
+
+
+ 229               	/* epilogue start */
+ 230               	.LM26:
+ 231 0160 FF91      		pop r31
+ 232 0162 EF91      		pop r30
+ 233 0164 BF91      		pop r27
+ 234 0166 AF91      		pop r26
+ 235 0168 9F91      		pop r25
+ 236 016a 8F91      		pop r24
+ 237 016c 7F91      		pop r23
+ 238 016e 6F91      		pop r22
+ 239 0170 5F91      		pop r21
+ 240 0172 4F91      		pop r20
+ 241 0174 3F91      		pop r19
+ 242 0176 2F91      		pop r18
+ 243 0178 0F90      		pop r0
+ 244 017a 0FBE      		out __SREG__,r0
+ 245 017c 0F90      		pop r0
+ 246 017e 1F90      		pop __zero_reg__
+ 247 0180 1895      		reti
+ 248               	.LFE3:
+ 249               		.size	__vector_4, .-__vector_4
+ 250               	.global	Init
+ 251               		.type	Init, @function
+ 252               	Init:
+ 253               	.LFB2:
+ 254               	.LM27:
+ 255               	/* prologue: function */
+ 256               	/* frame size = 0 */
+ 257               	.LM28:
+ 258 0182 89E7      		ldi r24,lo8(121)
+ 259 0184 85BD      		out 69-32,r24
+ 260               	.LM29:
+ 261 0186 81E9      		ldi r24,lo8(-111)
+ 262 0188 83BD      		out 67-32,r24
+ 263               	.LM30:
+ 264 018a 89B7      		in r24,89-32
+ 265 018c 8064      		ori r24,lo8(64)
+ 266 018e 89BF      		out 89-32,r24
+ 267               	.LM31:
+ 268 0190 1BB8      		out 43-32,__zero_reg__
+ 269               	.LM32:
+ 270 0192 1AB8      		out 42-32,__zero_reg__
+ 271               	.LM33:
+ 272 0194 96E8      		ldi r25,lo8(-122)
+ 273 0196 90BD      		out 64-32,r25
+ 274               	.LM34:
+ 275 0198 8FEC      		ldi r24,lo8(-49)
+ 276 019a 89B9      		out 41-32,r24
+ 277               	.LM35:
+ 278 019c 8FE3      		ldi r24,lo8(63)
+ 279 019e 87BB      		out 55-32,r24
+ 280               	.LM36:
+ 281 01a0 84EF      		ldi r24,lo8(-12)
+ 282 01a2 81BB      		out 49-32,r24
+ 283               	.LM37:
+ 284 01a4 81EA      		ldi r24,lo8(-95)
+ 285 01a6 8FBD      		out 79-32,r24
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 6
+
+
+ 286               	.LM38:
+ 287 01a8 82E0      		ldi r24,lo8(2)
+ 288 01aa 8EBD      		out 78-32,r24
+ 289               	.LM39:
+ 290 01ac 96B9      		out 38-32,r25
+ 291               	.LM40:
+ 292 01ae 9798      		cbi 50-32,7
+ 293               	.LM41:
+ 294 01b0 80E0      		ldi r24,lo8(0)
+ 295 01b2 00D0      		rcall FrontLED
+ 296               	.LM42:
+ 297 01b4 81E0      		ldi r24,lo8(1)
+ 298 01b6 61E0      		ldi r22,lo8(1)
+ 299 01b8 00D0      		rcall BackLED
+ 300               	.LM43:
+ 301 01ba 80E0      		ldi r24,lo8(0)
+ 302 01bc 60E0      		ldi r22,lo8(0)
+ 303 01be 00D0      		rcall BackLED
+ 304               	.LM44:
+ 305 01c0 81E0      		ldi r24,lo8(1)
+ 306 01c2 00D0      		rcall StatusLED
+ 307               	.LM45:
+ 308 01c4 80E2      		ldi r24,lo8(32)
+ 309 01c6 60E2      		ldi r22,lo8(32)
+ 310 01c8 00D0      		rcall MotorDir
+ 311               	.LM46:
+ 312 01ca 80E0      		ldi r24,lo8(0)
+ 313 01cc 60E0      		ldi r22,lo8(0)
+ 314 01ce 00D0      		rcall MotorSpeed
+ 315               	.LM47:
+ 316 01d0 1092 0000 		sts (autoencode)+1,__zero_reg__
+ 317 01d4 1092 0000 		sts autoencode,__zero_reg__
+ 318               	.LM48:
+ 319               	/* #APP */
+ 320               	 ;  180 "../lib/asuro.c" 1
+ 321 01d8 7894      		sei
+ 322               	 ;  0 "" 2
+ 323               	/* epilogue start */
+ 324               	.LM49:
+ 325               	/* #NOAPP */
+ 326 01da 0895      		ret
+ 327               	.LFE2:
+ 328               		.size	Init, .-Init
+ 329               		.lcomm toggle.1458,1
+ 330               		.lcomm flag.1457,2
+ 331               		.lcomm tmp.1456,2
+ 332               		.section	.debug_frame,"",@progbits
+ 333               	.Lframe0:
+ 334 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 335               	.LSCIE0:
+ 336 0004 FFFF FFFF 		.long	0xffffffff
+ 337 0008 01        		.byte	0x1
+ 338 0009 00        		.string	""
+ 339 000a 01        		.uleb128 0x1
+ 340 000b 7F        		.sleb128 -1
+ 341 000c 24        		.byte	0x24
+ 342 000d 0C        		.byte	0xc
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 7
+
+
+ 343 000e 20        		.uleb128 0x20
+ 344 000f 00        		.uleb128 0x0
+ 345               		.p2align	2
+ 346               	.LECIE0:
+ 347               	.LSFDE0:
+ 348 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 349               	.LASFDE0:
+ 350 0014 0000 0000 		.long	.Lframe0
+ 351 0018 0000 0000 		.long	.LFB4
+ 352 001c 2E00 0000 		.long	.LFE4-.LFB4
+ 353               		.p2align	2
+ 354               	.LEFDE0:
+ 355               	.LSFDE2:
+ 356 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 357               	.LASFDE2:
+ 358 0024 0000 0000 		.long	.Lframe0
+ 359 0028 0000 0000 		.long	.LFB5
+ 360 002c BA00 0000 		.long	.LFE5-.LFB5
+ 361               		.p2align	2
+ 362               	.LEFDE2:
+ 363               	.LSFDE4:
+ 364 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 365               	.LASFDE4:
+ 366 0034 0000 0000 		.long	.Lframe0
+ 367 0038 0000 0000 		.long	.LFB3
+ 368 003c 9A00 0000 		.long	.LFE3-.LFB3
+ 369               		.p2align	2
+ 370               	.LEFDE4:
+ 371               	.LSFDE6:
+ 372 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 373               	.LASFDE6:
+ 374 0044 0000 0000 		.long	.Lframe0
+ 375 0048 0000 0000 		.long	.LFB2
+ 376 004c 5A00 0000 		.long	.LFE2-.LFB2
+ 377               		.p2align	2
+ 378               	.LEFDE6:
+ 379               		.text
+ 380               	.Letext0:
+ 381               		.section	.debug_info
+ 382 0000 9801 0000 		.long	0x198
+ 383 0004 0200      		.word	0x2
+ 384 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 385 000a 04        		.byte	0x4
+ 386 000b 01        		.uleb128 0x1
+ 387 000c 0000 0000 		.long	.LASF20
+ 388 0010 01        		.byte	0x1
+ 389 0011 0000 0000 		.long	.LASF21
+ 390 0015 0000 0000 		.long	.LASF22
+ 391 0019 0000 0000 		.long	.Ltext0
+ 392 001d 0000 0000 		.long	.Letext0
+ 393 0021 0000 0000 		.long	.Ldebug_line0
+ 394 0025 02        		.uleb128 0x2
+ 395 0026 01        		.byte	0x1
+ 396 0027 06        		.byte	0x6
+ 397 0028 0000 0000 		.long	.LASF0
+ 398 002c 03        		.uleb128 0x3
+ 399 002d 0000 0000 		.long	.LASF23
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 8
+
+
+ 400 0031 04        		.byte	0x4
+ 401 0032 7A        		.byte	0x7a
+ 402 0033 3700 0000 		.long	0x37
+ 403 0037 02        		.uleb128 0x2
+ 404 0038 01        		.byte	0x1
+ 405 0039 08        		.byte	0x8
+ 406 003a 0000 0000 		.long	.LASF1
+ 407 003e 04        		.uleb128 0x4
+ 408 003f 02        		.byte	0x2
+ 409 0040 05        		.byte	0x5
+ 410 0041 696E 7400 		.string	"int"
+ 411 0045 02        		.uleb128 0x2
+ 412 0046 02        		.byte	0x2
+ 413 0047 07        		.byte	0x7
+ 414 0048 0000 0000 		.long	.LASF2
+ 415 004c 02        		.uleb128 0x2
+ 416 004d 04        		.byte	0x4
+ 417 004e 05        		.byte	0x5
+ 418 004f 0000 0000 		.long	.LASF3
+ 419 0053 02        		.uleb128 0x2
+ 420 0054 04        		.byte	0x4
+ 421 0055 07        		.byte	0x7
+ 422 0056 0000 0000 		.long	.LASF4
+ 423 005a 02        		.uleb128 0x2
+ 424 005b 08        		.byte	0x8
+ 425 005c 05        		.byte	0x5
+ 426 005d 0000 0000 		.long	.LASF5
+ 427 0061 02        		.uleb128 0x2
+ 428 0062 08        		.byte	0x8
+ 429 0063 07        		.byte	0x7
+ 430 0064 0000 0000 		.long	.LASF6
+ 431 0068 05        		.uleb128 0x5
+ 432 0069 01        		.byte	0x1
+ 433 006a 0000 0000 		.long	.LASF11
+ 434 006e 01        		.byte	0x1
+ 435 006f F9        		.byte	0xf9
+ 436 0070 01        		.byte	0x1
+ 437 0071 0000 0000 		.long	.LFB4
+ 438 0075 0000 0000 		.long	.LFE4
+ 439 0079 02        		.byte	0x2
+ 440 007a 90        		.byte	0x90
+ 441 007b 20        		.uleb128 0x20
+ 442 007c 06        		.uleb128 0x6
+ 443 007d 01        		.byte	0x1
+ 444 007e 0000 0000 		.long	.LASF24
+ 445 0082 01        		.byte	0x1
+ 446 0083 1901      		.word	0x119
+ 447 0085 01        		.byte	0x1
+ 448 0086 0000 0000 		.long	.LFB5
+ 449 008a 0000 0000 		.long	.LFE5
+ 450 008e 02        		.byte	0x2
+ 451 008f 90        		.byte	0x90
+ 452 0090 20        		.uleb128 0x20
+ 453 0091 E400 0000 		.long	0xe4
+ 454 0095 07        		.uleb128 0x7
+ 455 0096 0000 0000 		.long	.LASF7
+ 456 009a 01        		.byte	0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 9
+
+
+ 457 009b 1B01      		.word	0x11b
+ 458 009d 3700 0000 		.long	0x37
+ 459 00a1 07        		.uleb128 0x7
+ 460 00a2 0000 0000 		.long	.LASF8
+ 461 00a6 01        		.byte	0x1
+ 462 00a7 1B01      		.word	0x11b
+ 463 00a9 3700 0000 		.long	0x37
+ 464 00ad 08        		.uleb128 0x8
+ 465 00ae 746D 7000 		.string	"tmp"
+ 466 00b2 01        		.byte	0x1
+ 467 00b3 1A01      		.word	0x11a
+ 468 00b5 0C01 0000 		.long	0x10c
+ 469 00b9 05        		.byte	0x5
+ 470 00ba 03        		.byte	0x3
+ 471 00bb 0000 0000 		.long	tmp.1456
+ 472 00bf 09        		.uleb128 0x9
+ 473 00c0 0000 0000 		.long	.LASF9
+ 474 00c4 01        		.byte	0x1
+ 475 00c5 1A01      		.word	0x11a
+ 476 00c7 0C01 0000 		.long	0x10c
+ 477 00cb 05        		.byte	0x5
+ 478 00cc 03        		.byte	0x3
+ 479 00cd 0000 0000 		.long	flag.1457
+ 480 00d1 09        		.uleb128 0x9
+ 481 00d2 0000 0000 		.long	.LASF10
+ 482 00d6 01        		.byte	0x1
+ 483 00d7 1A01      		.word	0x11a
+ 484 00d9 3700 0000 		.long	0x37
+ 485 00dd 05        		.byte	0x5
+ 486 00de 03        		.byte	0x3
+ 487 00df 0000 0000 		.long	toggle.1458
+ 488 00e3 00        		.byte	0x0
+ 489 00e4 05        		.uleb128 0x5
+ 490 00e5 01        		.byte	0x1
+ 491 00e6 0000 0000 		.long	.LASF12
+ 492 00ea 01        		.byte	0x1
+ 493 00eb D1        		.byte	0xd1
+ 494 00ec 01        		.byte	0x1
+ 495 00ed 0000 0000 		.long	.LFB3
+ 496 00f1 0000 0000 		.long	.LFE3
+ 497 00f5 02        		.byte	0x2
+ 498 00f6 90        		.byte	0x90
+ 499 00f7 20        		.uleb128 0x20
+ 500 00f8 05        		.uleb128 0x5
+ 501 00f9 01        		.byte	0x1
+ 502 00fa 0000 0000 		.long	.LASF13
+ 503 00fe 01        		.byte	0x1
+ 504 00ff 77        		.byte	0x77
+ 505 0100 01        		.byte	0x1
+ 506 0101 0000 0000 		.long	.LFB2
+ 507 0105 0000 0000 		.long	.LFE2
+ 508 0109 02        		.byte	0x2
+ 509 010a 90        		.byte	0x90
+ 510 010b 20        		.uleb128 0x20
+ 511 010c 0A        		.uleb128 0xa
+ 512 010d 3700 0000 		.long	0x37
+ 513 0111 1C01 0000 		.long	0x11c
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 10
+
+
+ 514 0115 0B        		.uleb128 0xb
+ 515 0116 1C01 0000 		.long	0x11c
+ 516 011a 01        		.byte	0x1
+ 517 011b 00        		.byte	0x0
+ 518 011c 0C        		.uleb128 0xc
+ 519 011d 02        		.byte	0x2
+ 520 011e 07        		.byte	0x7
+ 521 011f 0D        		.uleb128 0xd
+ 522 0120 0000 0000 		.long	.LASF14
+ 523 0124 02        		.byte	0x2
+ 524 0125 1A01      		.word	0x11a
+ 525 0127 2D01 0000 		.long	0x12d
+ 526 012b 01        		.byte	0x1
+ 527 012c 01        		.byte	0x1
+ 528 012d 0E        		.uleb128 0xe
+ 529 012e 3E00 0000 		.long	0x3e
+ 530 0132 0A        		.uleb128 0xa
+ 531 0133 3E00 0000 		.long	0x3e
+ 532 0137 4201 0000 		.long	0x142
+ 533 013b 0B        		.uleb128 0xb
+ 534 013c 1C01 0000 		.long	0x11c
+ 535 0140 01        		.byte	0x1
+ 536 0141 00        		.byte	0x0
+ 537 0142 0D        		.uleb128 0xd
+ 538 0143 0000 0000 		.long	.LASF15
+ 539 0147 02        		.byte	0x2
+ 540 0148 2701      		.word	0x127
+ 541 014a 5001 0000 		.long	0x150
+ 542 014e 01        		.byte	0x1
+ 543 014f 01        		.byte	0x1
+ 544 0150 0E        		.uleb128 0xe
+ 545 0151 3201 0000 		.long	0x132
+ 546 0155 0D        		.uleb128 0xd
+ 547 0156 0000 0000 		.long	.LASF16
+ 548 015a 02        		.byte	0x2
+ 549 015b 2E01      		.word	0x12e
+ 550 015d 6301 0000 		.long	0x163
+ 551 0161 01        		.byte	0x1
+ 552 0162 01        		.byte	0x1
+ 553 0163 0E        		.uleb128 0xe
+ 554 0164 3700 0000 		.long	0x37
+ 555 0168 0D        		.uleb128 0xd
+ 556 0169 0000 0000 		.long	.LASF17
+ 557 016d 02        		.byte	0x2
+ 558 016e 3501      		.word	0x135
+ 559 0170 7601 0000 		.long	0x176
+ 560 0174 01        		.byte	0x1
+ 561 0175 01        		.byte	0x1
+ 562 0176 0E        		.uleb128 0xe
+ 563 0177 5300 0000 		.long	0x53
+ 564 017b 0D        		.uleb128 0xd
+ 565 017c 0000 0000 		.long	.LASF18
+ 566 0180 02        		.byte	0x2
+ 567 0181 3D01      		.word	0x13d
+ 568 0183 2D01 0000 		.long	0x12d
+ 569 0187 01        		.byte	0x1
+ 570 0188 01        		.byte	0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 11
+
+
+ 571 0189 0F        		.uleb128 0xf
+ 572 018a 0000 0000 		.long	.LASF19
+ 573 018e 03        		.byte	0x3
+ 574 018f 2A        		.byte	0x2a
+ 575 0190 9601 0000 		.long	0x196
+ 576 0194 01        		.byte	0x1
+ 577 0195 01        		.byte	0x1
+ 578 0196 0E        		.uleb128 0xe
+ 579 0197 2C00 0000 		.long	0x2c
+ 580 019b 00        		.byte	0x0
+ 581               		.section	.debug_abbrev
+ 582 0000 01        		.uleb128 0x1
+ 583 0001 11        		.uleb128 0x11
+ 584 0002 01        		.byte	0x1
+ 585 0003 25        		.uleb128 0x25
+ 586 0004 0E        		.uleb128 0xe
+ 587 0005 13        		.uleb128 0x13
+ 588 0006 0B        		.uleb128 0xb
+ 589 0007 03        		.uleb128 0x3
+ 590 0008 0E        		.uleb128 0xe
+ 591 0009 1B        		.uleb128 0x1b
+ 592 000a 0E        		.uleb128 0xe
+ 593 000b 11        		.uleb128 0x11
+ 594 000c 01        		.uleb128 0x1
+ 595 000d 12        		.uleb128 0x12
+ 596 000e 01        		.uleb128 0x1
+ 597 000f 10        		.uleb128 0x10
+ 598 0010 06        		.uleb128 0x6
+ 599 0011 00        		.byte	0x0
+ 600 0012 00        		.byte	0x0
+ 601 0013 02        		.uleb128 0x2
+ 602 0014 24        		.uleb128 0x24
+ 603 0015 00        		.byte	0x0
+ 604 0016 0B        		.uleb128 0xb
+ 605 0017 0B        		.uleb128 0xb
+ 606 0018 3E        		.uleb128 0x3e
+ 607 0019 0B        		.uleb128 0xb
+ 608 001a 03        		.uleb128 0x3
+ 609 001b 0E        		.uleb128 0xe
+ 610 001c 00        		.byte	0x0
+ 611 001d 00        		.byte	0x0
+ 612 001e 03        		.uleb128 0x3
+ 613 001f 16        		.uleb128 0x16
+ 614 0020 00        		.byte	0x0
+ 615 0021 03        		.uleb128 0x3
+ 616 0022 0E        		.uleb128 0xe
+ 617 0023 3A        		.uleb128 0x3a
+ 618 0024 0B        		.uleb128 0xb
+ 619 0025 3B        		.uleb128 0x3b
+ 620 0026 0B        		.uleb128 0xb
+ 621 0027 49        		.uleb128 0x49
+ 622 0028 13        		.uleb128 0x13
+ 623 0029 00        		.byte	0x0
+ 624 002a 00        		.byte	0x0
+ 625 002b 04        		.uleb128 0x4
+ 626 002c 24        		.uleb128 0x24
+ 627 002d 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 12
+
+
+ 628 002e 0B        		.uleb128 0xb
+ 629 002f 0B        		.uleb128 0xb
+ 630 0030 3E        		.uleb128 0x3e
+ 631 0031 0B        		.uleb128 0xb
+ 632 0032 03        		.uleb128 0x3
+ 633 0033 08        		.uleb128 0x8
+ 634 0034 00        		.byte	0x0
+ 635 0035 00        		.byte	0x0
+ 636 0036 05        		.uleb128 0x5
+ 637 0037 2E        		.uleb128 0x2e
+ 638 0038 00        		.byte	0x0
+ 639 0039 3F        		.uleb128 0x3f
+ 640 003a 0C        		.uleb128 0xc
+ 641 003b 03        		.uleb128 0x3
+ 642 003c 0E        		.uleb128 0xe
+ 643 003d 3A        		.uleb128 0x3a
+ 644 003e 0B        		.uleb128 0xb
+ 645 003f 3B        		.uleb128 0x3b
+ 646 0040 0B        		.uleb128 0xb
+ 647 0041 27        		.uleb128 0x27
+ 648 0042 0C        		.uleb128 0xc
+ 649 0043 11        		.uleb128 0x11
+ 650 0044 01        		.uleb128 0x1
+ 651 0045 12        		.uleb128 0x12
+ 652 0046 01        		.uleb128 0x1
+ 653 0047 40        		.uleb128 0x40
+ 654 0048 0A        		.uleb128 0xa
+ 655 0049 00        		.byte	0x0
+ 656 004a 00        		.byte	0x0
+ 657 004b 06        		.uleb128 0x6
+ 658 004c 2E        		.uleb128 0x2e
+ 659 004d 01        		.byte	0x1
+ 660 004e 3F        		.uleb128 0x3f
+ 661 004f 0C        		.uleb128 0xc
+ 662 0050 03        		.uleb128 0x3
+ 663 0051 0E        		.uleb128 0xe
+ 664 0052 3A        		.uleb128 0x3a
+ 665 0053 0B        		.uleb128 0xb
+ 666 0054 3B        		.uleb128 0x3b
+ 667 0055 05        		.uleb128 0x5
+ 668 0056 27        		.uleb128 0x27
+ 669 0057 0C        		.uleb128 0xc
+ 670 0058 11        		.uleb128 0x11
+ 671 0059 01        		.uleb128 0x1
+ 672 005a 12        		.uleb128 0x12
+ 673 005b 01        		.uleb128 0x1
+ 674 005c 40        		.uleb128 0x40
+ 675 005d 0A        		.uleb128 0xa
+ 676 005e 01        		.uleb128 0x1
+ 677 005f 13        		.uleb128 0x13
+ 678 0060 00        		.byte	0x0
+ 679 0061 00        		.byte	0x0
+ 680 0062 07        		.uleb128 0x7
+ 681 0063 34        		.uleb128 0x34
+ 682 0064 00        		.byte	0x0
+ 683 0065 03        		.uleb128 0x3
+ 684 0066 0E        		.uleb128 0xe
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 13
+
+
+ 685 0067 3A        		.uleb128 0x3a
+ 686 0068 0B        		.uleb128 0xb
+ 687 0069 3B        		.uleb128 0x3b
+ 688 006a 05        		.uleb128 0x5
+ 689 006b 49        		.uleb128 0x49
+ 690 006c 13        		.uleb128 0x13
+ 691 006d 00        		.byte	0x0
+ 692 006e 00        		.byte	0x0
+ 693 006f 08        		.uleb128 0x8
+ 694 0070 34        		.uleb128 0x34
+ 695 0071 00        		.byte	0x0
+ 696 0072 03        		.uleb128 0x3
+ 697 0073 08        		.uleb128 0x8
+ 698 0074 3A        		.uleb128 0x3a
+ 699 0075 0B        		.uleb128 0xb
+ 700 0076 3B        		.uleb128 0x3b
+ 701 0077 05        		.uleb128 0x5
+ 702 0078 49        		.uleb128 0x49
+ 703 0079 13        		.uleb128 0x13
+ 704 007a 02        		.uleb128 0x2
+ 705 007b 0A        		.uleb128 0xa
+ 706 007c 00        		.byte	0x0
+ 707 007d 00        		.byte	0x0
+ 708 007e 09        		.uleb128 0x9
+ 709 007f 34        		.uleb128 0x34
+ 710 0080 00        		.byte	0x0
+ 711 0081 03        		.uleb128 0x3
+ 712 0082 0E        		.uleb128 0xe
+ 713 0083 3A        		.uleb128 0x3a
+ 714 0084 0B        		.uleb128 0xb
+ 715 0085 3B        		.uleb128 0x3b
+ 716 0086 05        		.uleb128 0x5
+ 717 0087 49        		.uleb128 0x49
+ 718 0088 13        		.uleb128 0x13
+ 719 0089 02        		.uleb128 0x2
+ 720 008a 0A        		.uleb128 0xa
+ 721 008b 00        		.byte	0x0
+ 722 008c 00        		.byte	0x0
+ 723 008d 0A        		.uleb128 0xa
+ 724 008e 01        		.uleb128 0x1
+ 725 008f 01        		.byte	0x1
+ 726 0090 49        		.uleb128 0x49
+ 727 0091 13        		.uleb128 0x13
+ 728 0092 01        		.uleb128 0x1
+ 729 0093 13        		.uleb128 0x13
+ 730 0094 00        		.byte	0x0
+ 731 0095 00        		.byte	0x0
+ 732 0096 0B        		.uleb128 0xb
+ 733 0097 21        		.uleb128 0x21
+ 734 0098 00        		.byte	0x0
+ 735 0099 49        		.uleb128 0x49
+ 736 009a 13        		.uleb128 0x13
+ 737 009b 2F        		.uleb128 0x2f
+ 738 009c 0B        		.uleb128 0xb
+ 739 009d 00        		.byte	0x0
+ 740 009e 00        		.byte	0x0
+ 741 009f 0C        		.uleb128 0xc
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 14
+
+
+ 742 00a0 24        		.uleb128 0x24
+ 743 00a1 00        		.byte	0x0
+ 744 00a2 0B        		.uleb128 0xb
+ 745 00a3 0B        		.uleb128 0xb
+ 746 00a4 3E        		.uleb128 0x3e
+ 747 00a5 0B        		.uleb128 0xb
+ 748 00a6 00        		.byte	0x0
+ 749 00a7 00        		.byte	0x0
+ 750 00a8 0D        		.uleb128 0xd
+ 751 00a9 34        		.uleb128 0x34
+ 752 00aa 00        		.byte	0x0
+ 753 00ab 03        		.uleb128 0x3
+ 754 00ac 0E        		.uleb128 0xe
+ 755 00ad 3A        		.uleb128 0x3a
+ 756 00ae 0B        		.uleb128 0xb
+ 757 00af 3B        		.uleb128 0x3b
+ 758 00b0 05        		.uleb128 0x5
+ 759 00b1 49        		.uleb128 0x49
+ 760 00b2 13        		.uleb128 0x13
+ 761 00b3 3F        		.uleb128 0x3f
+ 762 00b4 0C        		.uleb128 0xc
+ 763 00b5 3C        		.uleb128 0x3c
+ 764 00b6 0C        		.uleb128 0xc
+ 765 00b7 00        		.byte	0x0
+ 766 00b8 00        		.byte	0x0
+ 767 00b9 0E        		.uleb128 0xe
+ 768 00ba 35        		.uleb128 0x35
+ 769 00bb 00        		.byte	0x0
+ 770 00bc 49        		.uleb128 0x49
+ 771 00bd 13        		.uleb128 0x13
+ 772 00be 00        		.byte	0x0
+ 773 00bf 00        		.byte	0x0
+ 774 00c0 0F        		.uleb128 0xf
+ 775 00c1 34        		.uleb128 0x34
+ 776 00c2 00        		.byte	0x0
+ 777 00c3 03        		.uleb128 0x3
+ 778 00c4 0E        		.uleb128 0xe
+ 779 00c5 3A        		.uleb128 0x3a
+ 780 00c6 0B        		.uleb128 0xb
+ 781 00c7 3B        		.uleb128 0x3b
+ 782 00c8 0B        		.uleb128 0xb
+ 783 00c9 49        		.uleb128 0x49
+ 784 00ca 13        		.uleb128 0x13
+ 785 00cb 3F        		.uleb128 0x3f
+ 786 00cc 0C        		.uleb128 0xc
+ 787 00cd 3C        		.uleb128 0x3c
+ 788 00ce 0C        		.uleb128 0xc
+ 789 00cf 00        		.byte	0x0
+ 790 00d0 00        		.byte	0x0
+ 791 00d1 00        		.byte	0x0
+ 792               		.section	.debug_pubnames,"",@progbits
+ 793 0000 4500 0000 		.long	0x45
+ 794 0004 0200      		.word	0x2
+ 795 0006 0000 0000 		.long	.Ldebug_info0
+ 796 000a 9C01 0000 		.long	0x19c
+ 797 000e 6800 0000 		.long	0x68
+ 798 0012 5F5F 7665 		.string	"__vector_2"
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 15
+
+
+ 798      6374 6F72 
+ 798      5F32 00
+ 799 001d 7C00 0000 		.long	0x7c
+ 800 0021 5F5F 7665 		.string	"__vector_14"
+ 800      6374 6F72 
+ 800      5F31 3400 
+ 801 002d E400 0000 		.long	0xe4
+ 802 0031 5F5F 7665 		.string	"__vector_4"
+ 802      6374 6F72 
+ 802      5F34 00
+ 803 003c F800 0000 		.long	0xf8
+ 804 0040 496E 6974 		.string	"Init"
+ 804      00
+ 805 0045 0000 0000 		.long	0x0
+ 806               		.section	.debug_aranges,"",@progbits
+ 807 0000 1C00 0000 		.long	0x1c
+ 808 0004 0200      		.word	0x2
+ 809 0006 0000 0000 		.long	.Ldebug_info0
+ 810 000a 04        		.byte	0x4
+ 811 000b 00        		.byte	0x0
+ 812 000c 0000      		.word	0x0
+ 813 000e 0000      		.word	0x0
+ 814 0010 0000 0000 		.long	.Ltext0
+ 815 0014 DC01 0000 		.long	.Letext0-.Ltext0
+ 816 0018 0000 0000 		.long	0x0
+ 817 001c 0000 0000 		.long	0x0
+ 818               		.section	.debug_line
+ 819 0000 2302 0000 		.long	.LELT0-.LSLT0
+ 820               	.LSLT0:
+ 821 0004 0200      		.word	0x2
+ 822 0006 8200 0000 		.long	.LELTP0-.LASLTP0
+ 823               	.LASLTP0:
+ 824 000a 01        		.byte	0x1
+ 825 000b 01        		.byte	0x1
+ 826 000c F6        		.byte	0xf6
+ 827 000d F5        		.byte	0xf5
+ 828 000e 0A        		.byte	0xa
+ 829 000f 00        		.byte	0x0
+ 830 0010 01        		.byte	0x1
+ 831 0011 01        		.byte	0x1
+ 832 0012 01        		.byte	0x1
+ 833 0013 01        		.byte	0x1
+ 834 0014 00        		.byte	0x0
+ 835 0015 00        		.byte	0x0
+ 836 0016 00        		.byte	0x0
+ 837 0017 01        		.byte	0x1
+ 838 0018 2E2E 2F6C 		.ascii	"../lib"
+ 838      6962 
+ 839 001e 00        		.byte	0
+ 840 001f 2E2E 2F6C 		.ascii	"../lib/inc"
+ 840      6962 2F69 
+ 840      6E63 
+ 841 0029 00        		.byte	0
+ 842 002a 633A 2F77 		.ascii	"c:/winavr-20100110/lib/gcc/../../avr/include"
+ 842      696E 6176 
+ 842      722D 3230 
+ 842      3130 3031 
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 16
+
+
+ 842      3130 2F6C 
+ 843 0056 00        		.byte	0
+ 844 0057 00        		.byte	0x0
+ 845 0058 6173 7572 		.string	"asuro.c"
+ 845      6F2E 6300 
+ 846 0060 01        		.uleb128 0x1
+ 847 0061 00        		.uleb128 0x0
+ 848 0062 00        		.uleb128 0x0
+ 849 0063 696E 632F 		.string	"inc/asuro.h"
+ 849      6173 7572 
+ 849      6F2E 6800 
+ 850 006f 01        		.uleb128 0x1
+ 851 0070 00        		.uleb128 0x0
+ 852 0071 00        		.uleb128 0x0
+ 853 0072 696E 632F 		.string	"inc/rc5.h"
+ 853      7263 352E 
+ 853      6800 
+ 854 007c 01        		.uleb128 0x1
+ 855 007d 00        		.uleb128 0x0
+ 856 007e 00        		.uleb128 0x0
+ 857 007f 7374 6469 		.string	"stdint.h"
+ 857      6E74 2E68 
+ 857      00
+ 858 0088 03        		.uleb128 0x3
+ 859 0089 00        		.uleb128 0x0
+ 860 008a 00        		.uleb128 0x0
+ 861 008b 00        		.byte	0x0
+ 862               	.LELTP0:
+ 863 008c 00        		.byte	0x0
+ 864 008d 05        		.uleb128 0x5
+ 865 008e 02        		.byte	0x2
+ 866 008f 0000 0000 		.long	.LM1
+ 867 0093 03        		.byte	0x3
+ 868 0094 F801      		.sleb128 248
+ 869 0096 01        		.byte	0x1
+ 870 0097 00        		.byte	0x0
+ 871 0098 05        		.uleb128 0x5
+ 872 0099 02        		.byte	0x2
+ 873 009a 0000 0000 		.long	.LM2
+ 874 009e 15        		.byte	0x15
+ 875 009f 00        		.byte	0x0
+ 876 00a0 05        		.uleb128 0x5
+ 877 00a1 02        		.byte	0x2
+ 878 00a2 0000 0000 		.long	.LM3
+ 879 00a6 15        		.byte	0x15
+ 880 00a7 00        		.byte	0x0
+ 881 00a8 05        		.uleb128 0x5
+ 882 00a9 02        		.byte	0x2
+ 883 00aa 0000 0000 		.long	.LM4
+ 884 00ae 16        		.byte	0x16
+ 885 00af 00        		.byte	0x0
+ 886 00b0 05        		.uleb128 0x5
+ 887 00b1 02        		.byte	0x2
+ 888 00b2 0000 0000 		.long	.LM5
+ 889 00b6 30        		.byte	0x30
+ 890 00b7 00        		.byte	0x0
+ 891 00b8 05        		.uleb128 0x5
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 17
+
+
+ 892 00b9 02        		.byte	0x2
+ 893 00ba 0000 0000 		.long	.LM6
+ 894 00be 18        		.byte	0x18
+ 895 00bf 00        		.byte	0x0
+ 896 00c0 05        		.uleb128 0x5
+ 897 00c1 02        		.byte	0x2
+ 898 00c2 0000 0000 		.long	.LM7
+ 899 00c6 16        		.byte	0x16
+ 900 00c7 00        		.byte	0x0
+ 901 00c8 05        		.uleb128 0x5
+ 902 00c9 02        		.byte	0x2
+ 903 00ca 0000 0000 		.long	.LM8
+ 904 00ce 15        		.byte	0x15
+ 905 00cf 00        		.byte	0x0
+ 906 00d0 05        		.uleb128 0x5
+ 907 00d1 02        		.byte	0x2
+ 908 00d2 0000 0000 		.long	.LM9
+ 909 00d6 16        		.byte	0x16
+ 910 00d7 00        		.byte	0x0
+ 911 00d8 05        		.uleb128 0x5
+ 912 00d9 02        		.byte	0x2
+ 913 00da 0000 0000 		.long	.LM10
+ 914 00de 1A        		.byte	0x1a
+ 915 00df 00        		.byte	0x0
+ 916 00e0 05        		.uleb128 0x5
+ 917 00e1 02        		.byte	0x2
+ 918 00e2 0000 0000 		.long	.LM11
+ 919 00e6 19        		.byte	0x19
+ 920 00e7 00        		.byte	0x0
+ 921 00e8 05        		.uleb128 0x5
+ 922 00e9 02        		.byte	0x2
+ 923 00ea 0000 0000 		.long	.LM12
+ 924 00ee 16        		.byte	0x16
+ 925 00ef 00        		.byte	0x0
+ 926 00f0 05        		.uleb128 0x5
+ 927 00f1 02        		.byte	0x2
+ 928 00f2 0000 0000 		.long	.LM13
+ 929 00f6 15        		.byte	0x15
+ 930 00f7 00        		.byte	0x0
+ 931 00f8 05        		.uleb128 0x5
+ 932 00f9 02        		.byte	0x2
+ 933 00fa 0000 0000 		.long	.LM14
+ 934 00fe 16        		.byte	0x16
+ 935 00ff 00        		.byte	0x0
+ 936 0100 05        		.uleb128 0x5
+ 937 0101 02        		.byte	0x2
+ 938 0102 0000 0000 		.long	.LM15
+ 939 0106 16        		.byte	0x16
+ 940 0107 00        		.byte	0x0
+ 941 0108 05        		.uleb128 0x5
+ 942 0109 02        		.byte	0x2
+ 943 010a 0000 0000 		.long	.LM16
+ 944 010e 15        		.byte	0x15
+ 945 010f 00        		.byte	0x0
+ 946 0110 05        		.uleb128 0x5
+ 947 0111 02        		.byte	0x2
+ 948 0112 0000 0000 		.long	.LM17
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 18
+
+
+ 949 0116 16        		.byte	0x16
+ 950 0117 00        		.byte	0x0
+ 951 0118 05        		.uleb128 0x5
+ 952 0119 02        		.byte	0x2
+ 953 011a 0000 0000 		.long	.LM18
+ 954 011e 16        		.byte	0x16
+ 955 011f 00        		.byte	0x0
+ 956 0120 05        		.uleb128 0x5
+ 957 0121 02        		.byte	0x2
+ 958 0122 0000 0000 		.long	.LM19
+ 959 0126 03        		.byte	0x3
+ 960 0127 987F      		.sleb128 -104
+ 961 0129 01        		.byte	0x1
+ 962 012a 00        		.byte	0x0
+ 963 012b 05        		.uleb128 0x5
+ 964 012c 02        		.byte	0x2
+ 965 012d 0000 0000 		.long	.LM20
+ 966 0131 15        		.byte	0x15
+ 967 0132 00        		.byte	0x0
+ 968 0133 05        		.uleb128 0x5
+ 969 0134 02        		.byte	0x2
+ 970 0135 0000 0000 		.long	.LM21
+ 971 0139 15        		.byte	0x15
+ 972 013a 00        		.byte	0x0
+ 973 013b 05        		.uleb128 0x5
+ 974 013c 02        		.byte	0x2
+ 975 013d 0000 0000 		.long	.LM22
+ 976 0141 15        		.byte	0x15
+ 977 0142 00        		.byte	0x0
+ 978 0143 05        		.uleb128 0x5
+ 979 0144 02        		.byte	0x2
+ 980 0145 0000 0000 		.long	.LM23
+ 981 0149 15        		.byte	0x15
+ 982 014a 00        		.byte	0x0
+ 983 014b 05        		.uleb128 0x5
+ 984 014c 02        		.byte	0x2
+ 985 014d 0000 0000 		.long	.LM24
+ 986 0151 16        		.byte	0x16
+ 987 0152 00        		.byte	0x0
+ 988 0153 05        		.uleb128 0x5
+ 989 0154 02        		.byte	0x2
+ 990 0155 0000 0000 		.long	.LM25
+ 991 0159 15        		.byte	0x15
+ 992 015a 00        		.byte	0x0
+ 993 015b 05        		.uleb128 0x5
+ 994 015c 02        		.byte	0x2
+ 995 015d 0000 0000 		.long	.LM26
+ 996 0161 16        		.byte	0x16
+ 997 0162 00        		.byte	0x0
+ 998 0163 05        		.uleb128 0x5
+ 999 0164 02        		.byte	0x2
+ 1000 0165 0000 0000 		.long	.LM27
+ 1001 0169 03        		.byte	0x3
+ 1002 016a 9D7F      		.sleb128 -99
+ 1003 016c 01        		.byte	0x1
+ 1004 016d 00        		.byte	0x0
+ 1005 016e 05        		.uleb128 0x5
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 19
+
+
+ 1006 016f 02        		.byte	0x2
+ 1007 0170 0000 0000 		.long	.LM28
+ 1008 0174 19        		.byte	0x19
+ 1009 0175 00        		.byte	0x0
+ 1010 0176 05        		.uleb128 0x5
+ 1011 0177 02        		.byte	0x2
+ 1012 0178 0000 0000 		.long	.LM29
+ 1013 017c 15        		.byte	0x15
+ 1014 017d 00        		.byte	0x0
+ 1015 017e 05        		.uleb128 0x5
+ 1016 017f 02        		.byte	0x2
+ 1017 0180 0000 0000 		.long	.LM30
+ 1018 0184 15        		.byte	0x15
+ 1019 0185 00        		.byte	0x0
+ 1020 0186 05        		.uleb128 0x5
+ 1021 0187 02        		.byte	0x2
+ 1022 0188 0000 0000 		.long	.LM31
+ 1023 018c 1A        		.byte	0x1a
+ 1024 018d 00        		.byte	0x0
+ 1025 018e 05        		.uleb128 0x5
+ 1026 018f 02        		.byte	0x2
+ 1027 0190 0000 0000 		.long	.LM32
+ 1028 0194 15        		.byte	0x15
+ 1029 0195 00        		.byte	0x0
+ 1030 0196 05        		.uleb128 0x5
+ 1031 0197 02        		.byte	0x2
+ 1032 0198 0000 0000 		.long	.LM33
+ 1033 019c 15        		.byte	0x15
+ 1034 019d 00        		.byte	0x0
+ 1035 019e 05        		.uleb128 0x5
+ 1036 019f 02        		.byte	0x2
+ 1037 01a0 0000 0000 		.long	.LM34
+ 1038 01a4 15        		.byte	0x15
+ 1039 01a5 00        		.byte	0x0
+ 1040 01a6 05        		.uleb128 0x5
+ 1041 01a7 02        		.byte	0x2
+ 1042 01a8 0000 0000 		.long	.LM35
+ 1043 01ac 1E        		.byte	0x1e
+ 1044 01ad 00        		.byte	0x0
+ 1045 01ae 05        		.uleb128 0x5
+ 1046 01af 02        		.byte	0x2
+ 1047 01b0 0000 0000 		.long	.LM36
+ 1048 01b4 15        		.byte	0x15
+ 1049 01b5 00        		.byte	0x0
+ 1050 01b6 05        		.uleb128 0x5
+ 1051 01b7 02        		.byte	0x2
+ 1052 01b8 0000 0000 		.long	.LM37
+ 1053 01bc 1A        		.byte	0x1a
+ 1054 01bd 00        		.byte	0x0
+ 1055 01be 05        		.uleb128 0x5
+ 1056 01bf 02        		.byte	0x2
+ 1057 01c0 0000 0000 		.long	.LM38
+ 1058 01c4 15        		.byte	0x15
+ 1059 01c5 00        		.byte	0x0
+ 1060 01c6 05        		.uleb128 0x5
+ 1061 01c7 02        		.byte	0x2
+ 1062 01c8 0000 0000 		.long	.LM39
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 20
+
+
+ 1063 01cc 19        		.byte	0x19
+ 1064 01cd 00        		.byte	0x0
+ 1065 01ce 05        		.uleb128 0x5
+ 1066 01cf 02        		.byte	0x2
+ 1067 01d0 0000 0000 		.long	.LM40
+ 1068 01d4 1C        		.byte	0x1c
+ 1069 01d5 00        		.byte	0x0
+ 1070 01d6 05        		.uleb128 0x5
+ 1071 01d7 02        		.byte	0x2
+ 1072 01d8 0000 0000 		.long	.LM41
+ 1073 01dc 15        		.byte	0x15
+ 1074 01dd 00        		.byte	0x0
+ 1075 01de 05        		.uleb128 0x5
+ 1076 01df 02        		.byte	0x2
+ 1077 01e0 0000 0000 		.long	.LM42
+ 1078 01e4 15        		.byte	0x15
+ 1079 01e5 00        		.byte	0x0
+ 1080 01e6 05        		.uleb128 0x5
+ 1081 01e7 02        		.byte	0x2
+ 1082 01e8 0000 0000 		.long	.LM43
+ 1083 01ec 15        		.byte	0x15
+ 1084 01ed 00        		.byte	0x0
+ 1085 01ee 05        		.uleb128 0x5
+ 1086 01ef 02        		.byte	0x2
+ 1087 01f0 0000 0000 		.long	.LM44
+ 1088 01f4 15        		.byte	0x15
+ 1089 01f5 00        		.byte	0x0
+ 1090 01f6 05        		.uleb128 0x5
+ 1091 01f7 02        		.byte	0x2
+ 1092 01f8 0000 0000 		.long	.LM45
+ 1093 01fc 16        		.byte	0x16
+ 1094 01fd 00        		.byte	0x0
+ 1095 01fe 05        		.uleb128 0x5
+ 1096 01ff 02        		.byte	0x2
+ 1097 0200 0000 0000 		.long	.LM46
+ 1098 0204 15        		.byte	0x15
+ 1099 0205 00        		.byte	0x0
+ 1100 0206 05        		.uleb128 0x5
+ 1101 0207 02        		.byte	0x2
+ 1102 0208 0000 0000 		.long	.LM47
+ 1103 020c 16        		.byte	0x16
+ 1104 020d 00        		.byte	0x0
+ 1105 020e 05        		.uleb128 0x5
+ 1106 020f 02        		.byte	0x2
+ 1107 0210 0000 0000 		.long	.LM48
+ 1108 0214 19        		.byte	0x19
+ 1109 0215 00        		.byte	0x0
+ 1110 0216 05        		.uleb128 0x5
+ 1111 0217 02        		.byte	0x2
+ 1112 0218 0000 0000 		.long	.LM49
+ 1113 021c 15        		.byte	0x15
+ 1114 021d 00        		.byte	0x0
+ 1115 021e 05        		.uleb128 0x5
+ 1116 021f 02        		.byte	0x2
+ 1117 0220 0000 0000 		.long	.Letext0
+ 1118 0224 00        		.byte	0x0
+ 1119 0225 01        		.uleb128 0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 21
+
+
+ 1120 0226 01        		.byte	0x1
+ 1121               	.LELT0:
+ 1122 0227 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 1122      0200 1000 
+ 1122      0000 0101 
+ 1122      FB0E 0A00 
+ 1122      0101 0101 
+ 1123               	.LASF18:
+ 1124 0000 6175 746F 		.string	"autoencode"
+ 1124      656E 636F 
+ 1124      6465 00
+ 1125               	.LASF15:
+ 1126 000b 656E 636F 		.string	"encoder"
+ 1126      6465 7200 
+ 1127               	.LASF19:
+ 1128 0013 656E 6162 		.string	"enableRC5"
+ 1128      6C65 5243 
+ 1128      3500 
+ 1129               	.LASF22:
+ 1130 001d 433A 5C55 		.string	"C:\\Users\\longc\\OneDrive\\Desktop\\sose18\\src"
+ 1130      7365 7273 
+ 1130      5C6C 6F6E 
+ 1130      6763 5C4F 
+ 1130      6E65 4472 
+ 1131               	.LASF10:
+ 1132 0048 746F 6767 		.string	"toggle"
+ 1132      6C65 00
+ 1133               	.LASF24:
+ 1134 004f 5F5F 7665 		.string	"__vector_14"
+ 1134      6374 6F72 
+ 1134      5F31 3400 
+ 1135               	.LASF1:
+ 1136 005b 756E 7369 		.string	"unsigned char"
+ 1136      676E 6564 
+ 1136      2063 6861 
+ 1136      7200 
+ 1137               	.LASF8:
+ 1138 0069 6C76 616C 		.string	"lval"
+ 1138      00
+ 1139               	.LASF4:
+ 1140 006e 6C6F 6E67 		.string	"long unsigned int"
+ 1140      2075 6E73 
+ 1140      6967 6E65 
+ 1140      6420 696E 
+ 1140      7400 
+ 1141               	.LASF20:
+ 1142 0080 474E 5520 		.string	"GNU C 4.3.3"
+ 1142      4320 342E 
+ 1142      332E 3300 
+ 1143               	.LASF17:
+ 1144 008c 7469 6D65 		.string	"timebase"
+ 1144      6261 7365 
+ 1144      00
+ 1145               	.LASF9:
+ 1146 0095 666C 6167 		.string	"flag"
+ 1146      00
+ 1147               	.LASF2:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 22
+
+
+ 1148 009a 756E 7369 		.string	"unsigned int"
+ 1148      676E 6564 
+ 1148      2069 6E74 
+ 1148      00
+ 1149               	.LASF6:
+ 1150 00a7 6C6F 6E67 		.string	"long long unsigned int"
+ 1150      206C 6F6E 
+ 1150      6720 756E 
+ 1150      7369 676E 
+ 1150      6564 2069 
+ 1151               	.LASF23:
+ 1152 00be 7569 6E74 		.string	"uint8_t"
+ 1152      385F 7400 
+ 1153               	.LASF7:
+ 1154 00c6 6476 616C 		.string	"dval"
+ 1154      00
+ 1155               	.LASF16:
+ 1156 00cb 636F 756E 		.string	"count36kHz"
+ 1156      7433 366B 
+ 1156      487A 00
+ 1157               	.LASF5:
+ 1158 00d6 6C6F 6E67 		.string	"long long int"
+ 1158      206C 6F6E 
+ 1158      6720 696E 
+ 1158      7400 
+ 1159               	.LASF21:
+ 1160 00e4 2E2E 2F6C 		.string	"../lib/asuro.c"
+ 1160      6962 2F61 
+ 1160      7375 726F 
+ 1160      2E63 00
+ 1161               	.LASF13:
+ 1162 00f3 496E 6974 		.string	"Init"
+ 1162      00
+ 1163               	.LASF11:
+ 1164 00f8 5F5F 7665 		.string	"__vector_2"
+ 1164      6374 6F72 
+ 1164      5F32 00
+ 1165               	.LASF12:
+ 1166 0103 5F5F 7665 		.string	"__vector_4"
+ 1166      6374 6F72 
+ 1166      5F34 00
+ 1167               	.LASF14:
+ 1168 010e 7377 6974 		.string	"switched"
+ 1168      6368 6564 
+ 1168      00
+ 1169               	.LASF3:
+ 1170 0117 6C6F 6E67 		.string	"long int"
+ 1170      2069 6E74 
+ 1170      00
+ 1171               	.LASF0:
+ 1172 0120 7369 676E 		.string	"signed char"
+ 1172      6564 2063 
+ 1172      6861 7200 
+ 1173               	.global __do_clear_bss
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s 			page 23
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 asuro.c
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:2      *ABS*:0000003f __SREG__
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:3      *ABS*:0000003e __SP_H__
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:4      *ABS*:0000003d __SP_L__
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:5      *ABS*:00000034 __CCP__
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:18     .text:00000000 __vector_2
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:52     .text:0000002e __vector_14
+                             .bss:00000000 toggle.1458
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:330    .bss:00000003 tmp.1456
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:329    .bss:00000001 flag.1457
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:169    .text:000000e8 __vector_4
+C:\Users\longc\AppData\Local\Temp/ccRRmFnh.s:252    .text:00000182 Init
+
+UNDEFINED SYMBOLS
+switched
+autoencode
+encoder
+count36kHz
+timebase
+enableRC5
+IsrRC5
+FrontLED
+BackLED
+StatusLED
+MotorDir
+MotorSpeed
+__do_clear_bss

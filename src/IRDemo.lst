@@ -1,0 +1,1665 @@
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 1
+
+
+   1               		.file	"IRDemo.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	IRStop
+  17               		.type	IRStop, @function
+  18               	IRStop:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 1092 0000 		sts (speedLeft)+1,__zero_reg__
+  25 0004 1092 0000 		sts speedLeft,__zero_reg__
+  26 0008 1092 0000 		sts (speedRight)+1,__zero_reg__
+  27 000c 1092 0000 		sts speedRight,__zero_reg__
+  28               	.LM3:
+  29 0010 80E0      		ldi r24,lo8(0)
+  30 0012 00D0      		rcall FrontLED
+  31               	.LM4:
+  32 0014 80E0      		ldi r24,lo8(0)
+  33 0016 60E0      		ldi r22,lo8(0)
+  34 0018 00D0      		rcall BackLED
+  35               	/* epilogue start */
+  36               	.LM5:
+  37 001a 0895      		ret
+  38               	.LFE6:
+  39               		.size	IRStop, .-IRStop
+  40               	.global	IRRight
+  41               		.type	IRRight, @function
+  42               	IRRight:
+  43               	.LFB5:
+  44               	.LM6:
+  45               	/* prologue: function */
+  46               	/* frame size = 0 */
+  47               	.LM7:
+  48 001c 8091 0000 		lds r24,speedLeft
+  49 0020 9091 0000 		lds r25,(speedLeft)+1
+  50 0024 0596      		adiw r24,5
+  51 0026 9093 0000 		sts (speedLeft)+1,r25
+  52 002a 8093 0000 		sts speedLeft,r24
+  53               	.LM8:
+  54 002e CF96      		adiw r24,63
+  55 0030 CF97      		sbiw r24,63
+  56 0032 00F4      		brsh .L4
+  57 0034 81E0      		ldi r24,lo8(1)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 2
+
+
+  58 0036 90E0      		ldi r25,hi8(1)
+  59 0038 9093 0000 		sts (speedLeft)+1,r25
+  60 003c 8093 0000 		sts speedLeft,r24
+  61               	.L4:
+  62               	.LM9:
+  63 0040 8091 0000 		lds r24,speedRight
+  64 0044 9091 0000 		lds r25,(speedRight)+1
+  65 0048 0597      		sbiw r24,5
+  66 004a 9093 0000 		sts (speedRight)+1,r25
+  67 004e 8093 0000 		sts speedRight,r24
+  68               	.LM10:
+  69 0052 0197      		sbiw r24,1
+  70 0054 CF97      		sbiw r24,63
+  71 0056 00F4      		brsh .L5
+  72 0058 8FEF      		ldi r24,lo8(-1)
+  73 005a 9FEF      		ldi r25,hi8(-1)
+  74 005c 9093 0000 		sts (speedRight)+1,r25
+  75 0060 8093 0000 		sts speedRight,r24
+  76               	.L5:
+  77               	.LM11:
+  78 0064 80E0      		ldi r24,lo8(0)
+  79 0066 00D0      		rcall FrontLED
+  80               	.LM12:
+  81 0068 80E0      		ldi r24,lo8(0)
+  82 006a 61E0      		ldi r22,lo8(1)
+  83 006c 00D0      		rcall BackLED
+  84               	/* epilogue start */
+  85               	.LM13:
+  86 006e 0895      		ret
+  87               	.LFE5:
+  88               		.size	IRRight, .-IRRight
+  89               	.global	IRLeft
+  90               		.type	IRLeft, @function
+  91               	IRLeft:
+  92               	.LFB4:
+  93               	.LM14:
+  94               	/* prologue: function */
+  95               	/* frame size = 0 */
+  96               	.LM15:
+  97 0070 8091 0000 		lds r24,speedLeft
+  98 0074 9091 0000 		lds r25,(speedLeft)+1
+  99 0078 0597      		sbiw r24,5
+ 100 007a 9093 0000 		sts (speedLeft)+1,r25
+ 101 007e 8093 0000 		sts speedLeft,r24
+ 102               	.LM16:
+ 103 0082 0197      		sbiw r24,1
+ 104 0084 CF97      		sbiw r24,63
+ 105 0086 00F4      		brsh .L8
+ 106 0088 8FEF      		ldi r24,lo8(-1)
+ 107 008a 9FEF      		ldi r25,hi8(-1)
+ 108 008c 9093 0000 		sts (speedLeft)+1,r25
+ 109 0090 8093 0000 		sts speedLeft,r24
+ 110               	.L8:
+ 111               	.LM17:
+ 112 0094 8091 0000 		lds r24,speedRight
+ 113 0098 9091 0000 		lds r25,(speedRight)+1
+ 114 009c 0596      		adiw r24,5
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 3
+
+
+ 115 009e 9093 0000 		sts (speedRight)+1,r25
+ 116 00a2 8093 0000 		sts speedRight,r24
+ 117               	.LM18:
+ 118 00a6 CF96      		adiw r24,63
+ 119 00a8 CF97      		sbiw r24,63
+ 120 00aa 00F4      		brsh .L9
+ 121 00ac 81E0      		ldi r24,lo8(1)
+ 122 00ae 90E0      		ldi r25,hi8(1)
+ 123 00b0 9093 0000 		sts (speedRight)+1,r25
+ 124 00b4 8093 0000 		sts speedRight,r24
+ 125               	.L9:
+ 126               	.LM19:
+ 127 00b8 80E0      		ldi r24,lo8(0)
+ 128 00ba 00D0      		rcall FrontLED
+ 129               	.LM20:
+ 130 00bc 81E0      		ldi r24,lo8(1)
+ 131 00be 60E0      		ldi r22,lo8(0)
+ 132 00c0 00D0      		rcall BackLED
+ 133               	/* epilogue start */
+ 134               	.LM21:
+ 135 00c2 0895      		ret
+ 136               	.LFE4:
+ 137               		.size	IRLeft, .-IRLeft
+ 138               	.global	IRRwd
+ 139               		.type	IRRwd, @function
+ 140               	IRRwd:
+ 141               	.LFB3:
+ 142               	.LM22:
+ 143               	/* prologue: function */
+ 144               	/* frame size = 0 */
+ 145               	.LM23:
+ 146 00c4 8091 0000 		lds r24,speedRight
+ 147 00c8 9091 0000 		lds r25,(speedRight)+1
+ 148 00cc 0597      		sbiw r24,5
+ 149 00ce 9093 0000 		sts (speedRight)+1,r25
+ 150 00d2 8093 0000 		sts speedRight,r24
+ 151               	.LM24:
+ 152 00d6 2091 0000 		lds r18,speedLeft
+ 153 00da 3091 0000 		lds r19,(speedLeft)+1
+ 154 00de 2550      		subi r18,lo8(-(-5))
+ 155 00e0 3040      		sbci r19,hi8(-(-5))
+ 156 00e2 3093 0000 		sts (speedLeft)+1,r19
+ 157 00e6 2093 0000 		sts speedLeft,r18
+ 158               	.LM25:
+ 159 00ea 0197      		sbiw r24,1
+ 160 00ec CF97      		sbiw r24,63
+ 161 00ee 00F4      		brsh .L12
+ 162 00f0 8FEF      		ldi r24,lo8(-1)
+ 163 00f2 9FEF      		ldi r25,hi8(-1)
+ 164 00f4 9093 0000 		sts (speedRight)+1,r25
+ 165 00f8 8093 0000 		sts speedRight,r24
+ 166               	.L12:
+ 167               	.LM26:
+ 168 00fc 2150      		subi r18,lo8(-(-1))
+ 169 00fe 3040      		sbci r19,hi8(-(-1))
+ 170 0100 2F33      		cpi r18,63
+ 171 0102 3105      		cpc r19,__zero_reg__
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 4
+
+
+ 172 0104 00F4      		brsh .L13
+ 173 0106 8FEF      		ldi r24,lo8(-1)
+ 174 0108 9FEF      		ldi r25,hi8(-1)
+ 175 010a 9093 0000 		sts (speedLeft)+1,r25
+ 176 010e 8093 0000 		sts speedLeft,r24
+ 177               	.L13:
+ 178               	.LM27:
+ 179 0112 80E0      		ldi r24,lo8(0)
+ 180 0114 00D0      		rcall FrontLED
+ 181               	.LM28:
+ 182 0116 81E0      		ldi r24,lo8(1)
+ 183 0118 61E0      		ldi r22,lo8(1)
+ 184 011a 00D0      		rcall BackLED
+ 185               	/* epilogue start */
+ 186               	.LM29:
+ 187 011c 0895      		ret
+ 188               	.LFE3:
+ 189               		.size	IRRwd, .-IRRwd
+ 190               	.global	IRFwd
+ 191               		.type	IRFwd, @function
+ 192               	IRFwd:
+ 193               	.LFB2:
+ 194               	.LM30:
+ 195               	/* prologue: function */
+ 196               	/* frame size = 0 */
+ 197               	.LM31:
+ 198 011e 2091 0000 		lds r18,speedRight
+ 199 0122 3091 0000 		lds r19,(speedRight)+1
+ 200 0126 2B5F      		subi r18,lo8(-(5))
+ 201 0128 3F4F      		sbci r19,hi8(-(5))
+ 202 012a 3093 0000 		sts (speedRight)+1,r19
+ 203 012e 2093 0000 		sts speedRight,r18
+ 204               	.LM32:
+ 205 0132 8091 0000 		lds r24,speedLeft
+ 206 0136 9091 0000 		lds r25,(speedLeft)+1
+ 207 013a 0596      		adiw r24,5
+ 208 013c 9093 0000 		sts (speedLeft)+1,r25
+ 209 0140 8093 0000 		sts speedLeft,r24
+ 210               	.LM33:
+ 211 0144 CF96      		adiw r24,63
+ 212 0146 CF97      		sbiw r24,63
+ 213 0148 00F4      		brsh .L16
+ 214 014a 81E0      		ldi r24,lo8(1)
+ 215 014c 90E0      		ldi r25,hi8(1)
+ 216 014e 9093 0000 		sts (speedLeft)+1,r25
+ 217 0152 8093 0000 		sts speedLeft,r24
+ 218               	.L16:
+ 219               	.LM34:
+ 220 0156 215C      		subi r18,lo8(-(63))
+ 221 0158 3F4F      		sbci r19,hi8(-(63))
+ 222 015a 2F33      		cpi r18,63
+ 223 015c 3105      		cpc r19,__zero_reg__
+ 224 015e 00F4      		brsh .L17
+ 225 0160 81E0      		ldi r24,lo8(1)
+ 226 0162 90E0      		ldi r25,hi8(1)
+ 227 0164 9093 0000 		sts (speedRight)+1,r25
+ 228 0168 8093 0000 		sts speedRight,r24
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 5
+
+
+ 229               	.L17:
+ 230               	.LM35:
+ 231 016c 81E0      		ldi r24,lo8(1)
+ 232 016e 00D0      		rcall FrontLED
+ 233               	.LM36:
+ 234 0170 80E0      		ldi r24,lo8(0)
+ 235 0172 60E0      		ldi r22,lo8(0)
+ 236 0174 00D0      		rcall BackLED
+ 237               	/* epilogue start */
+ 238               	.LM37:
+ 239 0176 0895      		ret
+ 240               	.LFE2:
+ 241               		.size	IRFwd, .-IRFwd
+ 242               		.data
+ 243               	.LC0:
+ 244 0000 5243 3520 		.string	"RC5 Test\r\n"
+ 244      5465 7374 
+ 244      0D0A 00
+ 245               	.LC1:
+ 246 000b 0D0A 00   		.string	"\r\n"
+ 247               		.text
+ 248               	.global	IRDemo
+ 249               		.type	IRDemo, @function
+ 250               	IRDemo:
+ 251               	.LFB7:
+ 252               	.LM38:
+ 253 0178 CF92      		push r12
+ 254 017a DF92      		push r13
+ 255 017c EF92      		push r14
+ 256 017e FF92      		push r15
+ 257 0180 0F93      		push r16
+ 258 0182 1F93      		push r17
+ 259 0184 DF93      		push r29
+ 260 0186 CF93      		push r28
+ 261 0188 CDB7      		in r28,__SP_L__
+ 262 018a DEB7      		in r29,__SP_H__
+ 263 018c 2797      		sbiw r28,7
+ 264 018e 0FB6      		in __tmp_reg__,__SREG__
+ 265 0190 F894      		cli
+ 266 0192 DEBF      		out __SP_H__,r29
+ 267 0194 0FBE      		out __SREG__,__tmp_reg__
+ 268 0196 CDBF      		out __SP_L__,r28
+ 269               	/* prologue: function */
+ 270               	/* frame size = 7 */
+ 271               	.LM39:
+ 272 0198 00D0      		rcall Init
+ 273               	.LM40:
+ 274 019a 00D0      		rcall InitRC5
+ 275               	.LM41:
+ 276 019c 80E0      		ldi r24,lo8(.LC0)
+ 277 019e 90E0      		ldi r25,hi8(.LC0)
+ 278 01a0 00D0      		rcall SerPrint
+ 279               	.LM42:
+ 280 01a2 6E01      		movw r12,r28
+ 281 01a4 0894      		sec
+ 282 01a6 C11C      		adc r12,__zero_reg__
+ 283 01a8 D11C      		adc r13,__zero_reg__
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 6
+
+
+ 284               	.LM43:
+ 285 01aa 8FEF      		ldi r24,lo8(255)
+ 286 01ac E82E      		mov r14,r24
+ 287 01ae F12C      		mov r15,__zero_reg__
+ 288               	.LM44:
+ 289 01b0 01E0      		ldi r16,lo8(-255)
+ 290 01b2 1FEF      		ldi r17,hi8(-255)
+ 291               	.L44:
+ 292               	.LM45:
+ 293 01b4 00D0      		rcall ReadRC5
+ 294 01b6 9093 0000 		sts (cmd.1459)+1,r25
+ 295 01ba 8093 0000 		sts cmd.1459,r24
+ 296               	.LM46:
+ 297 01be 0097      		sbiw r24,0
+ 298 01c0 01F4      		brne .+2
+ 299 01c2 00C0      		rjmp .L20
+ 300               	.LM47:
+ 301 01c4 8F73      		andi r24,lo8(4159)
+ 302 01c6 9071      		andi r25,hi8(4159)
+ 303 01c8 9093 0000 		sts (cmd.1459)+1,r25
+ 304 01cc 8093 0000 		sts cmd.1459,r24
+ 305               	.LM48:
+ 306 01d0 B601      		movw r22,r12
+ 307 01d2 40E1      		ldi r20,lo8(16)
+ 308 01d4 50E0      		ldi r21,hi8(16)
+ 309 01d6 00D0      		rcall itoa
+ 310               	.LM49:
+ 311 01d8 C601      		movw r24,r12
+ 312 01da 00D0      		rcall SerPrint
+ 313               	.LM50:
+ 314 01dc 80E0      		ldi r24,lo8(.LC1)
+ 315 01de 90E0      		ldi r25,hi8(.LC1)
+ 316 01e0 00D0      		rcall SerPrint
+ 317               	.LM51:
+ 318 01e2 8091 0000 		lds r24,cmd.1459
+ 319 01e6 9091 0000 		lds r25,(cmd.1459)+1
+ 320 01ea 20E1      		ldi r18,hi8(4112)
+ 321 01ec 8031      		cpi r24,lo8(4112)
+ 322 01ee 9207      		cpc r25,r18
+ 323 01f0 01F4      		brne .+2
+ 324 01f2 00C0      		rjmp .L23
+ 325 01f4 50E1      		ldi r21,hi8(4113)
+ 326 01f6 8131      		cpi r24,lo8(4113)
+ 327 01f8 9507      		cpc r25,r21
+ 328 01fa 00F4      		brsh .L27
+ 329 01fc 20E1      		ldi r18,hi8(4102)
+ 330 01fe 8630      		cpi r24,lo8(4102)
+ 331 0200 9207      		cpc r25,r18
+ 332 0202 01F0      		breq .L23
+ 333 0204 50E1      		ldi r21,hi8(4103)
+ 334 0206 8730      		cpi r24,lo8(4103)
+ 335 0208 9507      		cpc r25,r21
+ 336 020a 00F4      		brsh .L28
+ 337 020c 20E1      		ldi r18,hi8(4098)
+ 338 020e 8230      		cpi r24,lo8(4098)
+ 339 0210 9207      		cpc r25,r18
+ 340 0212 01F0      		breq .L21
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 7
+
+
+ 341 0214 8450      		subi r24,lo8(4100)
+ 342 0216 9041      		sbci r25,hi8(4100)
+ 343 0218 01F0      		breq .+2
+ 344 021a 00C0      		rjmp .L20
+ 345 021c 00C0      		rjmp .L22
+ 346               	.L28:
+ 347 021e 20E1      		ldi r18,hi8(4104)
+ 348 0220 8830      		cpi r24,lo8(4104)
+ 349 0222 9207      		cpc r25,r18
+ 350 0224 01F0      		breq .L24
+ 351 0226 8C50      		subi r24,lo8(4108)
+ 352 0228 9041      		sbci r25,hi8(4108)
+ 353 022a 01F4      		brne .L20
+ 354 022c 00C0      		rjmp .L25
+ 355               	.L27:
+ 356 022e 20E1      		ldi r18,hi8(4129)
+ 357 0230 8132      		cpi r24,lo8(4129)
+ 358 0232 9207      		cpc r25,r18
+ 359 0234 01F0      		breq .L24
+ 360 0236 50E1      		ldi r21,hi8(4130)
+ 361 0238 8232      		cpi r24,lo8(4130)
+ 362 023a 9507      		cpc r25,r21
+ 363 023c 00F4      		brsh .L29
+ 364 023e 20E1      		ldi r18,hi8(4113)
+ 365 0240 8131      		cpi r24,lo8(4113)
+ 366 0242 9207      		cpc r25,r18
+ 367 0244 01F0      		breq .L22
+ 368 0246 8052      		subi r24,lo8(4128)
+ 369 0248 9041      		sbci r25,hi8(4128)
+ 370 024a 01F4      		brne .L20
+ 371 024c 00C0      		rjmp .L21
+ 372               	.L29:
+ 373 024e 20E1      		ldi r18,hi8(4137)
+ 374 0250 8932      		cpi r24,lo8(4137)
+ 375 0252 9207      		cpc r25,r18
+ 376 0254 01F0      		breq .L26
+ 377 0256 50E1      		ldi r21,hi8(4157)
+ 378 0258 8D33      		cpi r24,lo8(4157)
+ 379 025a 9507      		cpc r25,r21
+ 380 025c 01F0      		breq .L25
+ 381 025e 8552      		subi r24,lo8(4133)
+ 382 0260 9041      		sbci r25,hi8(4133)
+ 383 0262 01F4      		brne .L20
+ 384 0264 00C0      		rjmp .L26
+ 385               	.L24:
+ 386               	.LM52:
+ 387 0266 00D0      		rcall IRRwd
+ 388 0268 00C0      		rjmp .L20
+ 389               	.L21:
+ 390               	.LM53:
+ 391 026a 00D0      		rcall IRFwd
+ 392 026c 00C0      		rjmp .L20
+ 393               	.L22:
+ 394               	.LM54:
+ 395 026e 00D0      		rcall IRLeft
+ 396 0270 00C0      		rjmp .L20
+ 397               	.L23:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 8
+
+
+ 398               	.LM55:
+ 399 0272 00D0      		rcall IRRight
+ 400 0274 00C0      		rjmp .L20
+ 401               	.L26:
+ 402               	.LM56:
+ 403 0276 00D0      		rcall IRStop
+ 404 0278 00C0      		rjmp .L20
+ 405               	.L25:
+ 406               	.LM57:
+ 407 027a 80E0      		ldi r24,lo8(0)
+ 408 027c 90E0      		ldi r25,hi8(0)
+ 409               	/* epilogue start */
+ 410 027e 2796      		adiw r28,7
+ 411 0280 0FB6      		in __tmp_reg__,__SREG__
+ 412 0282 F894      		cli
+ 413 0284 DEBF      		out __SP_H__,r29
+ 414 0286 0FBE      		out __SREG__,__tmp_reg__
+ 415 0288 CDBF      		out __SP_L__,r28
+ 416 028a CF91      		pop r28
+ 417 028c DF91      		pop r29
+ 418 028e 1F91      		pop r17
+ 419 0290 0F91      		pop r16
+ 420 0292 FF90      		pop r15
+ 421 0294 EF90      		pop r14
+ 422 0296 DF90      		pop r13
+ 423 0298 CF90      		pop r12
+ 424 029a 0895      		ret
+ 425               	.L20:
+ 426               	.LM58:
+ 427 029c 2091 0000 		lds r18,speedLeft
+ 428 02a0 3091 0000 		lds r19,(speedLeft)+1
+ 429 02a4 C901      		movw r24,r18
+ 430 02a6 0197      		sbiw r24,1
+ 431 02a8 CE97      		sbiw r24,62
+ 432 02aa 00F4      		brsh .L30
+ 433 02ac 215C      		subi r18,lo8(-(63))
+ 434 02ae 3F4F      		sbci r19,hi8(-(63))
+ 435 02b0 3093 0000 		sts (speedLeft)+1,r19
+ 436 02b4 2093 0000 		sts speedLeft,r18
+ 437               	.L30:
+ 438               	.LM59:
+ 439 02b8 2091 0000 		lds r18,speedLeft
+ 440 02bc 3091 0000 		lds r19,(speedLeft)+1
+ 441 02c0 C901      		movw r24,r18
+ 442 02c2 CE96      		adiw r24,62
+ 443 02c4 CE97      		sbiw r24,62
+ 444 02c6 00F4      		brsh .L31
+ 445 02c8 2F53      		subi r18,lo8(-(-63))
+ 446 02ca 3040      		sbci r19,hi8(-(-63))
+ 447 02cc 3093 0000 		sts (speedLeft)+1,r19
+ 448 02d0 2093 0000 		sts speedLeft,r18
+ 449               	.L31:
+ 450               	.LM60:
+ 451 02d4 2091 0000 		lds r18,speedRight
+ 452 02d8 3091 0000 		lds r19,(speedRight)+1
+ 453 02dc C901      		movw r24,r18
+ 454 02de 0197      		sbiw r24,1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 9
+
+
+ 455 02e0 CE97      		sbiw r24,62
+ 456 02e2 00F4      		brsh .L32
+ 457 02e4 215C      		subi r18,lo8(-(63))
+ 458 02e6 3F4F      		sbci r19,hi8(-(63))
+ 459 02e8 3093 0000 		sts (speedRight)+1,r19
+ 460 02ec 2093 0000 		sts speedRight,r18
+ 461               	.L32:
+ 462               	.LM61:
+ 463 02f0 2091 0000 		lds r18,speedRight
+ 464 02f4 3091 0000 		lds r19,(speedRight)+1
+ 465 02f8 C901      		movw r24,r18
+ 466 02fa CE96      		adiw r24,62
+ 467 02fc CE97      		sbiw r24,62
+ 468 02fe 00F4      		brsh .L33
+ 469 0300 2F53      		subi r18,lo8(-(-63))
+ 470 0302 3040      		sbci r19,hi8(-(-63))
+ 471 0304 3093 0000 		sts (speedRight)+1,r19
+ 472 0308 2093 0000 		sts speedRight,r18
+ 473               	.L33:
+ 474               	.LM62:
+ 475 030c 8091 0000 		lds r24,speedLeft
+ 476 0310 9091 0000 		lds r25,(speedLeft)+1
+ 477 0314 97FF      		sbrs r25,7
+ 478 0316 00C0      		rjmp .L34
+ 479 0318 40E1      		ldi r20,lo8(16)
+ 480               	.LVL0:
+ 481 031a 00C0      		rjmp .L35
+ 482               	.LVL1:
+ 483               	.L34:
+ 484 031c 40E2      		ldi r20,lo8(32)
+ 485               	.LVL2:
+ 486               	.L35:
+ 487               	.LM63:
+ 488 031e 2091 0000 		lds r18,speedRight
+ 489 0322 3091 0000 		lds r19,(speedRight)+1
+ 490 0326 37FF      		sbrs r19,7
+ 491 0328 00C0      		rjmp .L36
+ 492 032a 60E1      		ldi r22,lo8(16)
+ 493               	.LVL3:
+ 494 032c 00C0      		rjmp .L37
+ 495               	.LVL4:
+ 496               	.L36:
+ 497 032e 60E2      		ldi r22,lo8(32)
+ 498               	.LVL5:
+ 499               	.L37:
+ 500               	.LM64:
+ 501 0330 8F3F      		cpi r24,255
+ 502 0332 9105      		cpc r25,__zero_reg__
+ 503 0334 01F0      		breq .L38
+ 504 0336 04F0      		brlt .L38
+ 505 0338 F092 0000 		sts (speedLeft)+1,r15
+ 506 033c E092 0000 		sts speedLeft,r14
+ 507               	.L38:
+ 508               	.LM65:
+ 509 0340 8091 0000 		lds r24,speedLeft
+ 510 0344 9091 0000 		lds r25,(speedLeft)+1
+ 511 0348 8150      		subi r24,lo8(-255)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 10
+
+
+ 512 034a 9F4F      		sbci r25,hi8(-255)
+ 513 034c 04F4      		brge .L39
+ 514 034e 1093 0000 		sts (speedLeft)+1,r17
+ 515 0352 0093 0000 		sts speedLeft,r16
+ 516               	.L39:
+ 517               	.LM66:
+ 518 0356 2F3F      		cpi r18,255
+ 519 0358 3105      		cpc r19,__zero_reg__
+ 520 035a 01F0      		breq .L40
+ 521 035c 04F0      		brlt .L40
+ 522 035e F092 0000 		sts (speedRight)+1,r15
+ 523 0362 E092 0000 		sts speedRight,r14
+ 524               	.L40:
+ 525               	.LM67:
+ 526 0366 8091 0000 		lds r24,speedRight
+ 527 036a 9091 0000 		lds r25,(speedRight)+1
+ 528 036e 8150      		subi r24,lo8(-255)
+ 529 0370 9F4F      		sbci r25,hi8(-255)
+ 530 0372 04F4      		brge .L41
+ 531 0374 1093 0000 		sts (speedRight)+1,r17
+ 532 0378 0093 0000 		sts speedRight,r16
+ 533               	.L41:
+ 534               	.LM68:
+ 535 037c 842F      		mov r24,r20
+ 536 037e 00D0      		rcall MotorDir
+ 537               	.LVL6:
+ 538               	.LM69:
+ 539 0380 8091 0000 		lds r24,speedLeft
+ 540 0384 9091 0000 		lds r25,(speedLeft)+1
+ 541 0388 97FF      		sbrs r25,7
+ 542 038a 00C0      		rjmp .L42
+ 543 038c 9095      		com r25
+ 544 038e 8195      		neg r24
+ 545 0390 9F4F      		sbci r25,lo8(-1)
+ 546               	.L42:
+ 547 0392 6091 0000 		lds r22,speedRight
+ 548 0396 7091 0000 		lds r23,(speedRight)+1
+ 549 039a 77FF      		sbrs r23,7
+ 550 039c 00C0      		rjmp .L43
+ 551 039e 7095      		com r23
+ 552 03a0 6195      		neg r22
+ 553 03a2 7F4F      		sbci r23,lo8(-1)
+ 554               	.L43:
+ 555 03a4 00D0      		rcall MotorSpeed
+ 556               	.LM70:
+ 557 03a6 84E6      		ldi r24,lo8(100)
+ 558 03a8 90E0      		ldi r25,hi8(100)
+ 559 03aa 00D0      		rcall Msleep
+ 560 03ac 00C0      		rjmp .L44
+ 561               	.LFE7:
+ 562               		.size	IRDemo, .-IRDemo
+ 563               		.lcomm cmd.1459,2
+ 564               		.comm speedLeft,2,1
+ 565               		.comm speedRight,2,1
+ 566               		.section	.debug_frame,"",@progbits
+ 567               	.Lframe0:
+ 568 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 11
+
+
+ 569               	.LSCIE0:
+ 570 0004 FFFF FFFF 		.long	0xffffffff
+ 571 0008 01        		.byte	0x1
+ 572 0009 00        		.string	""
+ 573 000a 01        		.uleb128 0x1
+ 574 000b 7F        		.sleb128 -1
+ 575 000c 24        		.byte	0x24
+ 576 000d 0C        		.byte	0xc
+ 577 000e 20        		.uleb128 0x20
+ 578 000f 00        		.uleb128 0x0
+ 579               		.p2align	2
+ 580               	.LECIE0:
+ 581               	.LSFDE0:
+ 582 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 583               	.LASFDE0:
+ 584 0014 0000 0000 		.long	.Lframe0
+ 585 0018 0000 0000 		.long	.LFB6
+ 586 001c 1C00 0000 		.long	.LFE6-.LFB6
+ 587               		.p2align	2
+ 588               	.LEFDE0:
+ 589               	.LSFDE2:
+ 590 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 591               	.LASFDE2:
+ 592 0024 0000 0000 		.long	.Lframe0
+ 593 0028 0000 0000 		.long	.LFB5
+ 594 002c 5400 0000 		.long	.LFE5-.LFB5
+ 595               		.p2align	2
+ 596               	.LEFDE2:
+ 597               	.LSFDE4:
+ 598 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 599               	.LASFDE4:
+ 600 0034 0000 0000 		.long	.Lframe0
+ 601 0038 0000 0000 		.long	.LFB4
+ 602 003c 5400 0000 		.long	.LFE4-.LFB4
+ 603               		.p2align	2
+ 604               	.LEFDE4:
+ 605               	.LSFDE6:
+ 606 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 607               	.LASFDE6:
+ 608 0044 0000 0000 		.long	.Lframe0
+ 609 0048 0000 0000 		.long	.LFB3
+ 610 004c 5A00 0000 		.long	.LFE3-.LFB3
+ 611               		.p2align	2
+ 612               	.LEFDE6:
+ 613               	.LSFDE8:
+ 614 0050 0C00 0000 		.long	.LEFDE8-.LASFDE8
+ 615               	.LASFDE8:
+ 616 0054 0000 0000 		.long	.Lframe0
+ 617 0058 0000 0000 		.long	.LFB2
+ 618 005c 5A00 0000 		.long	.LFE2-.LFB2
+ 619               		.p2align	2
+ 620               	.LEFDE8:
+ 621               	.LSFDE10:
+ 622 0060 0C00 0000 		.long	.LEFDE10-.LASFDE10
+ 623               	.LASFDE10:
+ 624 0064 0000 0000 		.long	.Lframe0
+ 625 0068 0000 0000 		.long	.LFB7
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 12
+
+
+ 626 006c 3602 0000 		.long	.LFE7-.LFB7
+ 627               		.p2align	2
+ 628               	.LEFDE10:
+ 629               		.text
+ 630               	.Letext0:
+ 631               		.section	.debug_loc,"",@progbits
+ 632               	.Ldebug_loc0:
+ 633               	.LLST6:
+ 634 0000 1A03 0000 		.long	.LVL0-.Ltext0
+ 635 0004 1C03 0000 		.long	.LVL1-.Ltext0
+ 636 0008 0100      		.word	0x1
+ 637 000a 64        		.byte	0x64
+ 638 000b 1E03 0000 		.long	.LVL2-.Ltext0
+ 639 000f 8003 0000 		.long	.LVL6-.Ltext0
+ 640 0013 0100      		.word	0x1
+ 641 0015 64        		.byte	0x64
+ 642 0016 0000 0000 		.long	0x0
+ 643 001a 0000 0000 		.long	0x0
+ 644               	.LLST7:
+ 645 001e 2C03 0000 		.long	.LVL3-.Ltext0
+ 646 0022 2E03 0000 		.long	.LVL4-.Ltext0
+ 647 0026 0100      		.word	0x1
+ 648 0028 66        		.byte	0x66
+ 649 0029 3003 0000 		.long	.LVL5-.Ltext0
+ 650 002d 8003 0000 		.long	.LVL6-.Ltext0
+ 651 0031 0100      		.word	0x1
+ 652 0033 66        		.byte	0x66
+ 653 0034 0000 0000 		.long	0x0
+ 654 0038 0000 0000 		.long	0x0
+ 655               		.section	.debug_info
+ 656 0000 5601 0000 		.long	0x156
+ 657 0004 0200      		.word	0x2
+ 658 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 659 000a 04        		.byte	0x4
+ 660 000b 01        		.uleb128 0x1
+ 661 000c 0000 0000 		.long	.LASF18
+ 662 0010 01        		.byte	0x1
+ 663 0011 0000 0000 		.long	.LASF19
+ 664 0015 0000 0000 		.long	.LASF20
+ 665 0019 0000 0000 		.long	.Ltext0
+ 666 001d 0000 0000 		.long	.Letext0
+ 667 0021 0000 0000 		.long	.Ldebug_line0
+ 668 0025 02        		.uleb128 0x2
+ 669 0026 01        		.byte	0x1
+ 670 0027 06        		.byte	0x6
+ 671 0028 0000 0000 		.long	.LASF0
+ 672 002c 02        		.uleb128 0x2
+ 673 002d 01        		.byte	0x1
+ 674 002e 08        		.byte	0x8
+ 675 002f 0000 0000 		.long	.LASF1
+ 676 0033 03        		.uleb128 0x3
+ 677 0034 02        		.byte	0x2
+ 678 0035 05        		.byte	0x5
+ 679 0036 696E 7400 		.string	"int"
+ 680 003a 02        		.uleb128 0x2
+ 681 003b 02        		.byte	0x2
+ 682 003c 07        		.byte	0x7
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 13
+
+
+ 683 003d 0000 0000 		.long	.LASF2
+ 684 0041 02        		.uleb128 0x2
+ 685 0042 04        		.byte	0x4
+ 686 0043 05        		.byte	0x5
+ 687 0044 0000 0000 		.long	.LASF3
+ 688 0048 02        		.uleb128 0x2
+ 689 0049 04        		.byte	0x4
+ 690 004a 07        		.byte	0x7
+ 691 004b 0000 0000 		.long	.LASF4
+ 692 004f 02        		.uleb128 0x2
+ 693 0050 08        		.byte	0x8
+ 694 0051 05        		.byte	0x5
+ 695 0052 0000 0000 		.long	.LASF5
+ 696 0056 02        		.uleb128 0x2
+ 697 0057 08        		.byte	0x8
+ 698 0058 07        		.byte	0x7
+ 699 0059 0000 0000 		.long	.LASF6
+ 700 005d 04        		.uleb128 0x4
+ 701 005e 01        		.byte	0x1
+ 702 005f 0000 0000 		.long	.LASF7
+ 703 0063 01        		.byte	0x1
+ 704 0064 65        		.byte	0x65
+ 705 0065 01        		.byte	0x1
+ 706 0066 0000 0000 		.long	.LFB6
+ 707 006a 0000 0000 		.long	.LFE6
+ 708 006e 02        		.byte	0x2
+ 709 006f 90        		.byte	0x90
+ 710 0070 20        		.uleb128 0x20
+ 711 0071 04        		.uleb128 0x4
+ 712 0072 01        		.byte	0x1
+ 713 0073 0000 0000 		.long	.LASF8
+ 714 0077 01        		.byte	0x1
+ 715 0078 5A        		.byte	0x5a
+ 716 0079 01        		.byte	0x1
+ 717 007a 0000 0000 		.long	.LFB5
+ 718 007e 0000 0000 		.long	.LFE5
+ 719 0082 02        		.byte	0x2
+ 720 0083 90        		.byte	0x90
+ 721 0084 20        		.uleb128 0x20
+ 722 0085 04        		.uleb128 0x4
+ 723 0086 01        		.byte	0x1
+ 724 0087 0000 0000 		.long	.LASF9
+ 725 008b 01        		.byte	0x1
+ 726 008c 50        		.byte	0x50
+ 727 008d 01        		.byte	0x1
+ 728 008e 0000 0000 		.long	.LFB4
+ 729 0092 0000 0000 		.long	.LFE4
+ 730 0096 02        		.byte	0x2
+ 731 0097 90        		.byte	0x90
+ 732 0098 20        		.uleb128 0x20
+ 733 0099 04        		.uleb128 0x4
+ 734 009a 01        		.byte	0x1
+ 735 009b 0000 0000 		.long	.LASF10
+ 736 009f 01        		.byte	0x1
+ 737 00a0 46        		.byte	0x46
+ 738 00a1 01        		.byte	0x1
+ 739 00a2 0000 0000 		.long	.LFB3
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 14
+
+
+ 740 00a6 0000 0000 		.long	.LFE3
+ 741 00aa 02        		.byte	0x2
+ 742 00ab 90        		.byte	0x90
+ 743 00ac 20        		.uleb128 0x20
+ 744 00ad 04        		.uleb128 0x4
+ 745 00ae 01        		.byte	0x1
+ 746 00af 0000 0000 		.long	.LASF11
+ 747 00b3 01        		.byte	0x1
+ 748 00b4 3C        		.byte	0x3c
+ 749 00b5 01        		.byte	0x1
+ 750 00b6 0000 0000 		.long	.LFB2
+ 751 00ba 0000 0000 		.long	.LFE2
+ 752 00be 02        		.byte	0x2
+ 753 00bf 90        		.byte	0x90
+ 754 00c0 20        		.uleb128 0x20
+ 755 00c1 05        		.uleb128 0x5
+ 756 00c2 01        		.byte	0x1
+ 757 00c3 0000 0000 		.long	.LASF21
+ 758 00c7 01        		.byte	0x1
+ 759 00c8 6C        		.byte	0x6c
+ 760 00c9 01        		.byte	0x1
+ 761 00ca 3300 0000 		.long	0x33
+ 762 00ce 0000 0000 		.long	.LFB7
+ 763 00d2 0000 0000 		.long	.LFE7
+ 764 00d6 02        		.byte	0x2
+ 765 00d7 90        		.byte	0x90
+ 766 00d8 20        		.uleb128 0x20
+ 767 00d9 1B01 0000 		.long	0x11b
+ 768 00dd 06        		.uleb128 0x6
+ 769 00de 0000 0000 		.long	.LASF12
+ 770 00e2 01        		.byte	0x1
+ 771 00e3 6F        		.byte	0x6f
+ 772 00e4 2C00 0000 		.long	0x2c
+ 773 00e8 0000 0000 		.long	.LLST6
+ 774 00ec 06        		.uleb128 0x6
+ 775 00ed 0000 0000 		.long	.LASF13
+ 776 00f1 01        		.byte	0x1
+ 777 00f2 6F        		.byte	0x6f
+ 778 00f3 2C00 0000 		.long	0x2c
+ 779 00f7 0000 0000 		.long	.LLST7
+ 780 00fb 07        		.uleb128 0x7
+ 781 00fc 0000 0000 		.long	.LASF14
+ 782 0100 01        		.byte	0x1
+ 783 0101 70        		.byte	0x70
+ 784 0102 1B01 0000 		.long	0x11b
+ 785 0106 02        		.byte	0x2
+ 786 0107 8C        		.byte	0x8c
+ 787 0108 01        		.sleb128 1
+ 788 0109 08        		.uleb128 0x8
+ 789 010a 636D 6400 		.string	"cmd"
+ 790 010e 01        		.byte	0x1
+ 791 010f 6E        		.byte	0x6e
+ 792 0110 3A00 0000 		.long	0x3a
+ 793 0114 05        		.byte	0x5
+ 794 0115 03        		.byte	0x3
+ 795 0116 0000 0000 		.long	cmd.1459
+ 796 011a 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 15
+
+
+ 797 011b 09        		.uleb128 0x9
+ 798 011c 2E01 0000 		.long	0x12e
+ 799 0120 2B01 0000 		.long	0x12b
+ 800 0124 0A        		.uleb128 0xa
+ 801 0125 2B01 0000 		.long	0x12b
+ 802 0129 06        		.byte	0x6
+ 803 012a 00        		.byte	0x0
+ 804 012b 0B        		.uleb128 0xb
+ 805 012c 02        		.byte	0x2
+ 806 012d 07        		.byte	0x7
+ 807 012e 02        		.uleb128 0x2
+ 808 012f 01        		.byte	0x1
+ 809 0130 08        		.byte	0x8
+ 810 0131 0000 0000 		.long	.LASF15
+ 811 0135 0C        		.uleb128 0xc
+ 812 0136 0000 0000 		.long	.LASF16
+ 813 013a 01        		.byte	0x1
+ 814 013b 39        		.byte	0x39
+ 815 013c 3300 0000 		.long	0x33
+ 816 0140 01        		.byte	0x1
+ 817 0141 05        		.byte	0x5
+ 818 0142 03        		.byte	0x3
+ 819 0143 0000 0000 		.long	speedLeft
+ 820 0147 0C        		.uleb128 0xc
+ 821 0148 0000 0000 		.long	.LASF17
+ 822 014c 01        		.byte	0x1
+ 823 014d 39        		.byte	0x39
+ 824 014e 3300 0000 		.long	0x33
+ 825 0152 01        		.byte	0x1
+ 826 0153 05        		.byte	0x5
+ 827 0154 03        		.byte	0x3
+ 828 0155 0000 0000 		.long	speedRight
+ 829 0159 00        		.byte	0x0
+ 830               		.section	.debug_abbrev
+ 831 0000 01        		.uleb128 0x1
+ 832 0001 11        		.uleb128 0x11
+ 833 0002 01        		.byte	0x1
+ 834 0003 25        		.uleb128 0x25
+ 835 0004 0E        		.uleb128 0xe
+ 836 0005 13        		.uleb128 0x13
+ 837 0006 0B        		.uleb128 0xb
+ 838 0007 03        		.uleb128 0x3
+ 839 0008 0E        		.uleb128 0xe
+ 840 0009 1B        		.uleb128 0x1b
+ 841 000a 0E        		.uleb128 0xe
+ 842 000b 11        		.uleb128 0x11
+ 843 000c 01        		.uleb128 0x1
+ 844 000d 12        		.uleb128 0x12
+ 845 000e 01        		.uleb128 0x1
+ 846 000f 10        		.uleb128 0x10
+ 847 0010 06        		.uleb128 0x6
+ 848 0011 00        		.byte	0x0
+ 849 0012 00        		.byte	0x0
+ 850 0013 02        		.uleb128 0x2
+ 851 0014 24        		.uleb128 0x24
+ 852 0015 00        		.byte	0x0
+ 853 0016 0B        		.uleb128 0xb
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 16
+
+
+ 854 0017 0B        		.uleb128 0xb
+ 855 0018 3E        		.uleb128 0x3e
+ 856 0019 0B        		.uleb128 0xb
+ 857 001a 03        		.uleb128 0x3
+ 858 001b 0E        		.uleb128 0xe
+ 859 001c 00        		.byte	0x0
+ 860 001d 00        		.byte	0x0
+ 861 001e 03        		.uleb128 0x3
+ 862 001f 24        		.uleb128 0x24
+ 863 0020 00        		.byte	0x0
+ 864 0021 0B        		.uleb128 0xb
+ 865 0022 0B        		.uleb128 0xb
+ 866 0023 3E        		.uleb128 0x3e
+ 867 0024 0B        		.uleb128 0xb
+ 868 0025 03        		.uleb128 0x3
+ 869 0026 08        		.uleb128 0x8
+ 870 0027 00        		.byte	0x0
+ 871 0028 00        		.byte	0x0
+ 872 0029 04        		.uleb128 0x4
+ 873 002a 2E        		.uleb128 0x2e
+ 874 002b 00        		.byte	0x0
+ 875 002c 3F        		.uleb128 0x3f
+ 876 002d 0C        		.uleb128 0xc
+ 877 002e 03        		.uleb128 0x3
+ 878 002f 0E        		.uleb128 0xe
+ 879 0030 3A        		.uleb128 0x3a
+ 880 0031 0B        		.uleb128 0xb
+ 881 0032 3B        		.uleb128 0x3b
+ 882 0033 0B        		.uleb128 0xb
+ 883 0034 27        		.uleb128 0x27
+ 884 0035 0C        		.uleb128 0xc
+ 885 0036 11        		.uleb128 0x11
+ 886 0037 01        		.uleb128 0x1
+ 887 0038 12        		.uleb128 0x12
+ 888 0039 01        		.uleb128 0x1
+ 889 003a 40        		.uleb128 0x40
+ 890 003b 0A        		.uleb128 0xa
+ 891 003c 00        		.byte	0x0
+ 892 003d 00        		.byte	0x0
+ 893 003e 05        		.uleb128 0x5
+ 894 003f 2E        		.uleb128 0x2e
+ 895 0040 01        		.byte	0x1
+ 896 0041 3F        		.uleb128 0x3f
+ 897 0042 0C        		.uleb128 0xc
+ 898 0043 03        		.uleb128 0x3
+ 899 0044 0E        		.uleb128 0xe
+ 900 0045 3A        		.uleb128 0x3a
+ 901 0046 0B        		.uleb128 0xb
+ 902 0047 3B        		.uleb128 0x3b
+ 903 0048 0B        		.uleb128 0xb
+ 904 0049 27        		.uleb128 0x27
+ 905 004a 0C        		.uleb128 0xc
+ 906 004b 49        		.uleb128 0x49
+ 907 004c 13        		.uleb128 0x13
+ 908 004d 11        		.uleb128 0x11
+ 909 004e 01        		.uleb128 0x1
+ 910 004f 12        		.uleb128 0x12
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 17
+
+
+ 911 0050 01        		.uleb128 0x1
+ 912 0051 40        		.uleb128 0x40
+ 913 0052 0A        		.uleb128 0xa
+ 914 0053 01        		.uleb128 0x1
+ 915 0054 13        		.uleb128 0x13
+ 916 0055 00        		.byte	0x0
+ 917 0056 00        		.byte	0x0
+ 918 0057 06        		.uleb128 0x6
+ 919 0058 34        		.uleb128 0x34
+ 920 0059 00        		.byte	0x0
+ 921 005a 03        		.uleb128 0x3
+ 922 005b 0E        		.uleb128 0xe
+ 923 005c 3A        		.uleb128 0x3a
+ 924 005d 0B        		.uleb128 0xb
+ 925 005e 3B        		.uleb128 0x3b
+ 926 005f 0B        		.uleb128 0xb
+ 927 0060 49        		.uleb128 0x49
+ 928 0061 13        		.uleb128 0x13
+ 929 0062 02        		.uleb128 0x2
+ 930 0063 06        		.uleb128 0x6
+ 931 0064 00        		.byte	0x0
+ 932 0065 00        		.byte	0x0
+ 933 0066 07        		.uleb128 0x7
+ 934 0067 34        		.uleb128 0x34
+ 935 0068 00        		.byte	0x0
+ 936 0069 03        		.uleb128 0x3
+ 937 006a 0E        		.uleb128 0xe
+ 938 006b 3A        		.uleb128 0x3a
+ 939 006c 0B        		.uleb128 0xb
+ 940 006d 3B        		.uleb128 0x3b
+ 941 006e 0B        		.uleb128 0xb
+ 942 006f 49        		.uleb128 0x49
+ 943 0070 13        		.uleb128 0x13
+ 944 0071 02        		.uleb128 0x2
+ 945 0072 0A        		.uleb128 0xa
+ 946 0073 00        		.byte	0x0
+ 947 0074 00        		.byte	0x0
+ 948 0075 08        		.uleb128 0x8
+ 949 0076 34        		.uleb128 0x34
+ 950 0077 00        		.byte	0x0
+ 951 0078 03        		.uleb128 0x3
+ 952 0079 08        		.uleb128 0x8
+ 953 007a 3A        		.uleb128 0x3a
+ 954 007b 0B        		.uleb128 0xb
+ 955 007c 3B        		.uleb128 0x3b
+ 956 007d 0B        		.uleb128 0xb
+ 957 007e 49        		.uleb128 0x49
+ 958 007f 13        		.uleb128 0x13
+ 959 0080 02        		.uleb128 0x2
+ 960 0081 0A        		.uleb128 0xa
+ 961 0082 00        		.byte	0x0
+ 962 0083 00        		.byte	0x0
+ 963 0084 09        		.uleb128 0x9
+ 964 0085 01        		.uleb128 0x1
+ 965 0086 01        		.byte	0x1
+ 966 0087 49        		.uleb128 0x49
+ 967 0088 13        		.uleb128 0x13
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 18
+
+
+ 968 0089 01        		.uleb128 0x1
+ 969 008a 13        		.uleb128 0x13
+ 970 008b 00        		.byte	0x0
+ 971 008c 00        		.byte	0x0
+ 972 008d 0A        		.uleb128 0xa
+ 973 008e 21        		.uleb128 0x21
+ 974 008f 00        		.byte	0x0
+ 975 0090 49        		.uleb128 0x49
+ 976 0091 13        		.uleb128 0x13
+ 977 0092 2F        		.uleb128 0x2f
+ 978 0093 0B        		.uleb128 0xb
+ 979 0094 00        		.byte	0x0
+ 980 0095 00        		.byte	0x0
+ 981 0096 0B        		.uleb128 0xb
+ 982 0097 24        		.uleb128 0x24
+ 983 0098 00        		.byte	0x0
+ 984 0099 0B        		.uleb128 0xb
+ 985 009a 0B        		.uleb128 0xb
+ 986 009b 3E        		.uleb128 0x3e
+ 987 009c 0B        		.uleb128 0xb
+ 988 009d 00        		.byte	0x0
+ 989 009e 00        		.byte	0x0
+ 990 009f 0C        		.uleb128 0xc
+ 991 00a0 34        		.uleb128 0x34
+ 992 00a1 00        		.byte	0x0
+ 993 00a2 03        		.uleb128 0x3
+ 994 00a3 0E        		.uleb128 0xe
+ 995 00a4 3A        		.uleb128 0x3a
+ 996 00a5 0B        		.uleb128 0xb
+ 997 00a6 3B        		.uleb128 0x3b
+ 998 00a7 0B        		.uleb128 0xb
+ 999 00a8 49        		.uleb128 0x49
+ 1000 00a9 13        		.uleb128 0x13
+ 1001 00aa 3F        		.uleb128 0x3f
+ 1002 00ab 0C        		.uleb128 0xc
+ 1003 00ac 02        		.uleb128 0x2
+ 1004 00ad 0A        		.uleb128 0xa
+ 1005 00ae 00        		.byte	0x0
+ 1006 00af 00        		.byte	0x0
+ 1007 00b0 00        		.byte	0x0
+ 1008               		.section	.debug_pubnames,"",@progbits
+ 1009 0000 6C00 0000 		.long	0x6c
+ 1010 0004 0200      		.word	0x2
+ 1011 0006 0000 0000 		.long	.Ldebug_info0
+ 1012 000a 5A01 0000 		.long	0x15a
+ 1013 000e 5D00 0000 		.long	0x5d
+ 1014 0012 4952 5374 		.string	"IRStop"
+ 1014      6F70 00
+ 1015 0019 7100 0000 		.long	0x71
+ 1016 001d 4952 5269 		.string	"IRRight"
+ 1016      6768 7400 
+ 1017 0025 8500 0000 		.long	0x85
+ 1018 0029 4952 4C65 		.string	"IRLeft"
+ 1018      6674 00
+ 1019 0030 9900 0000 		.long	0x99
+ 1020 0034 4952 5277 		.string	"IRRwd"
+ 1020      6400 
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 19
+
+
+ 1021 003a AD00 0000 		.long	0xad
+ 1022 003e 4952 4677 		.string	"IRFwd"
+ 1022      6400 
+ 1023 0044 C100 0000 		.long	0xc1
+ 1024 0048 4952 4465 		.string	"IRDemo"
+ 1024      6D6F 00
+ 1025 004f 3501 0000 		.long	0x135
+ 1026 0053 7370 6565 		.string	"speedLeft"
+ 1026      644C 6566 
+ 1026      7400 
+ 1027 005d 4701 0000 		.long	0x147
+ 1028 0061 7370 6565 		.string	"speedRight"
+ 1028      6452 6967 
+ 1028      6874 00
+ 1029 006c 0000 0000 		.long	0x0
+ 1030               		.section	.debug_aranges,"",@progbits
+ 1031 0000 1C00 0000 		.long	0x1c
+ 1032 0004 0200      		.word	0x2
+ 1033 0006 0000 0000 		.long	.Ldebug_info0
+ 1034 000a 04        		.byte	0x4
+ 1035 000b 00        		.byte	0x0
+ 1036 000c 0000      		.word	0x0
+ 1037 000e 0000      		.word	0x0
+ 1038 0010 0000 0000 		.long	.Ltext0
+ 1039 0014 AE03 0000 		.long	.Letext0-.Ltext0
+ 1040 0018 0000 0000 		.long	0x0
+ 1041 001c 0000 0000 		.long	0x0
+ 1042               		.section	.debug_line
+ 1043 0000 6802 0000 		.long	.LELT0-.LSLT0
+ 1044               	.LSLT0:
+ 1045 0004 0200      		.word	0x2
+ 1046 0006 1C00 0000 		.long	.LELTP0-.LASLTP0
+ 1047               	.LASLTP0:
+ 1048 000a 01        		.byte	0x1
+ 1049 000b 01        		.byte	0x1
+ 1050 000c F6        		.byte	0xf6
+ 1051 000d F5        		.byte	0xf5
+ 1052 000e 0A        		.byte	0xa
+ 1053 000f 00        		.byte	0x0
+ 1054 0010 01        		.byte	0x1
+ 1055 0011 01        		.byte	0x1
+ 1056 0012 01        		.byte	0x1
+ 1057 0013 01        		.byte	0x1
+ 1058 0014 00        		.byte	0x0
+ 1059 0015 00        		.byte	0x0
+ 1060 0016 00        		.byte	0x0
+ 1061 0017 01        		.byte	0x1
+ 1062 0018 00        		.byte	0x0
+ 1063 0019 4952 4465 		.string	"IRDemo.c"
+ 1063      6D6F 2E63 
+ 1063      00
+ 1064 0022 00        		.uleb128 0x0
+ 1065 0023 00        		.uleb128 0x0
+ 1066 0024 00        		.uleb128 0x0
+ 1067 0025 00        		.byte	0x0
+ 1068               	.LELTP0:
+ 1069 0026 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 20
+
+
+ 1070 0027 05        		.uleb128 0x5
+ 1071 0028 02        		.byte	0x2
+ 1072 0029 0000 0000 		.long	.LM1
+ 1073 002d 78        		.byte	0x78
+ 1074 002e 00        		.byte	0x0
+ 1075 002f 05        		.uleb128 0x5
+ 1076 0030 02        		.byte	0x2
+ 1077 0031 0000 0000 		.long	.LM2
+ 1078 0035 15        		.byte	0x15
+ 1079 0036 00        		.byte	0x0
+ 1080 0037 05        		.uleb128 0x5
+ 1081 0038 02        		.byte	0x2
+ 1082 0039 0000 0000 		.long	.LM3
+ 1083 003d 15        		.byte	0x15
+ 1084 003e 00        		.byte	0x0
+ 1085 003f 05        		.uleb128 0x5
+ 1086 0040 02        		.byte	0x2
+ 1087 0041 0000 0000 		.long	.LM4
+ 1088 0045 15        		.byte	0x15
+ 1089 0046 00        		.byte	0x0
+ 1090 0047 05        		.uleb128 0x5
+ 1091 0048 02        		.byte	0x2
+ 1092 0049 0000 0000 		.long	.LM5
+ 1093 004d 15        		.byte	0x15
+ 1094 004e 00        		.byte	0x0
+ 1095 004f 05        		.uleb128 0x5
+ 1096 0050 02        		.byte	0x2
+ 1097 0051 0000 0000 		.long	.LM6
+ 1098 0055 03        		.byte	0x3
+ 1099 0056 71        		.sleb128 -15
+ 1100 0057 01        		.byte	0x1
+ 1101 0058 00        		.byte	0x0
+ 1102 0059 05        		.uleb128 0x5
+ 1103 005a 02        		.byte	0x2
+ 1104 005b 0000 0000 		.long	.LM7
+ 1105 005f 15        		.byte	0x15
+ 1106 0060 00        		.byte	0x0
+ 1107 0061 05        		.uleb128 0x5
+ 1108 0062 02        		.byte	0x2
+ 1109 0063 0000 0000 		.long	.LM8
+ 1110 0067 15        		.byte	0x15
+ 1111 0068 00        		.byte	0x0
+ 1112 0069 05        		.uleb128 0x5
+ 1113 006a 02        		.byte	0x2
+ 1114 006b 0000 0000 		.long	.LM9
+ 1115 006f 15        		.byte	0x15
+ 1116 0070 00        		.byte	0x0
+ 1117 0071 05        		.uleb128 0x5
+ 1118 0072 02        		.byte	0x2
+ 1119 0073 0000 0000 		.long	.LM10
+ 1120 0077 15        		.byte	0x15
+ 1121 0078 00        		.byte	0x0
+ 1122 0079 05        		.uleb128 0x5
+ 1123 007a 02        		.byte	0x2
+ 1124 007b 0000 0000 		.long	.LM11
+ 1125 007f 15        		.byte	0x15
+ 1126 0080 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 21
+
+
+ 1127 0081 05        		.uleb128 0x5
+ 1128 0082 02        		.byte	0x2
+ 1129 0083 0000 0000 		.long	.LM12
+ 1130 0087 15        		.byte	0x15
+ 1131 0088 00        		.byte	0x0
+ 1132 0089 05        		.uleb128 0x5
+ 1133 008a 02        		.byte	0x2
+ 1134 008b 0000 0000 		.long	.LM13
+ 1135 008f 15        		.byte	0x15
+ 1136 0090 00        		.byte	0x0
+ 1137 0091 05        		.uleb128 0x5
+ 1138 0092 02        		.byte	0x2
+ 1139 0093 0000 0000 		.long	.LM14
+ 1140 0097 03        		.byte	0x3
+ 1141 0098 6F        		.sleb128 -17
+ 1142 0099 01        		.byte	0x1
+ 1143 009a 00        		.byte	0x0
+ 1144 009b 05        		.uleb128 0x5
+ 1145 009c 02        		.byte	0x2
+ 1146 009d 0000 0000 		.long	.LM15
+ 1147 00a1 15        		.byte	0x15
+ 1148 00a2 00        		.byte	0x0
+ 1149 00a3 05        		.uleb128 0x5
+ 1150 00a4 02        		.byte	0x2
+ 1151 00a5 0000 0000 		.long	.LM16
+ 1152 00a9 15        		.byte	0x15
+ 1153 00aa 00        		.byte	0x0
+ 1154 00ab 05        		.uleb128 0x5
+ 1155 00ac 02        		.byte	0x2
+ 1156 00ad 0000 0000 		.long	.LM17
+ 1157 00b1 15        		.byte	0x15
+ 1158 00b2 00        		.byte	0x0
+ 1159 00b3 05        		.uleb128 0x5
+ 1160 00b4 02        		.byte	0x2
+ 1161 00b5 0000 0000 		.long	.LM18
+ 1162 00b9 15        		.byte	0x15
+ 1163 00ba 00        		.byte	0x0
+ 1164 00bb 05        		.uleb128 0x5
+ 1165 00bc 02        		.byte	0x2
+ 1166 00bd 0000 0000 		.long	.LM19
+ 1167 00c1 15        		.byte	0x15
+ 1168 00c2 00        		.byte	0x0
+ 1169 00c3 05        		.uleb128 0x5
+ 1170 00c4 02        		.byte	0x2
+ 1171 00c5 0000 0000 		.long	.LM20
+ 1172 00c9 15        		.byte	0x15
+ 1173 00ca 00        		.byte	0x0
+ 1174 00cb 05        		.uleb128 0x5
+ 1175 00cc 02        		.byte	0x2
+ 1176 00cd 0000 0000 		.long	.LM21
+ 1177 00d1 15        		.byte	0x15
+ 1178 00d2 00        		.byte	0x0
+ 1179 00d3 05        		.uleb128 0x5
+ 1180 00d4 02        		.byte	0x2
+ 1181 00d5 0000 0000 		.long	.LM22
+ 1182 00d9 03        		.byte	0x3
+ 1183 00da 6F        		.sleb128 -17
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 22
+
+
+ 1184 00db 01        		.byte	0x1
+ 1185 00dc 00        		.byte	0x0
+ 1186 00dd 05        		.uleb128 0x5
+ 1187 00de 02        		.byte	0x2
+ 1188 00df 0000 0000 		.long	.LM23
+ 1189 00e3 15        		.byte	0x15
+ 1190 00e4 00        		.byte	0x0
+ 1191 00e5 05        		.uleb128 0x5
+ 1192 00e6 02        		.byte	0x2
+ 1193 00e7 0000 0000 		.long	.LM24
+ 1194 00eb 15        		.byte	0x15
+ 1195 00ec 00        		.byte	0x0
+ 1196 00ed 05        		.uleb128 0x5
+ 1197 00ee 02        		.byte	0x2
+ 1198 00ef 0000 0000 		.long	.LM25
+ 1199 00f3 15        		.byte	0x15
+ 1200 00f4 00        		.byte	0x0
+ 1201 00f5 05        		.uleb128 0x5
+ 1202 00f6 02        		.byte	0x2
+ 1203 00f7 0000 0000 		.long	.LM26
+ 1204 00fb 15        		.byte	0x15
+ 1205 00fc 00        		.byte	0x0
+ 1206 00fd 05        		.uleb128 0x5
+ 1207 00fe 02        		.byte	0x2
+ 1208 00ff 0000 0000 		.long	.LM27
+ 1209 0103 15        		.byte	0x15
+ 1210 0104 00        		.byte	0x0
+ 1211 0105 05        		.uleb128 0x5
+ 1212 0106 02        		.byte	0x2
+ 1213 0107 0000 0000 		.long	.LM28
+ 1214 010b 15        		.byte	0x15
+ 1215 010c 00        		.byte	0x0
+ 1216 010d 05        		.uleb128 0x5
+ 1217 010e 02        		.byte	0x2
+ 1218 010f 0000 0000 		.long	.LM29
+ 1219 0113 15        		.byte	0x15
+ 1220 0114 00        		.byte	0x0
+ 1221 0115 05        		.uleb128 0x5
+ 1222 0116 02        		.byte	0x2
+ 1223 0117 0000 0000 		.long	.LM30
+ 1224 011b 03        		.byte	0x3
+ 1225 011c 6F        		.sleb128 -17
+ 1226 011d 01        		.byte	0x1
+ 1227 011e 00        		.byte	0x0
+ 1228 011f 05        		.uleb128 0x5
+ 1229 0120 02        		.byte	0x2
+ 1230 0121 0000 0000 		.long	.LM31
+ 1231 0125 15        		.byte	0x15
+ 1232 0126 00        		.byte	0x0
+ 1233 0127 05        		.uleb128 0x5
+ 1234 0128 02        		.byte	0x2
+ 1235 0129 0000 0000 		.long	.LM32
+ 1236 012d 15        		.byte	0x15
+ 1237 012e 00        		.byte	0x0
+ 1238 012f 05        		.uleb128 0x5
+ 1239 0130 02        		.byte	0x2
+ 1240 0131 0000 0000 		.long	.LM33
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 23
+
+
+ 1241 0135 15        		.byte	0x15
+ 1242 0136 00        		.byte	0x0
+ 1243 0137 05        		.uleb128 0x5
+ 1244 0138 02        		.byte	0x2
+ 1245 0139 0000 0000 		.long	.LM34
+ 1246 013d 15        		.byte	0x15
+ 1247 013e 00        		.byte	0x0
+ 1248 013f 05        		.uleb128 0x5
+ 1249 0140 02        		.byte	0x2
+ 1250 0141 0000 0000 		.long	.LM35
+ 1251 0145 15        		.byte	0x15
+ 1252 0146 00        		.byte	0x0
+ 1253 0147 05        		.uleb128 0x5
+ 1254 0148 02        		.byte	0x2
+ 1255 0149 0000 0000 		.long	.LM36
+ 1256 014d 15        		.byte	0x15
+ 1257 014e 00        		.byte	0x0
+ 1258 014f 05        		.uleb128 0x5
+ 1259 0150 02        		.byte	0x2
+ 1260 0151 0000 0000 		.long	.LM37
+ 1261 0155 15        		.byte	0x15
+ 1262 0156 00        		.byte	0x0
+ 1263 0157 05        		.uleb128 0x5
+ 1264 0158 02        		.byte	0x2
+ 1265 0159 0000 0000 		.long	.LM38
+ 1266 015d 3D        		.byte	0x3d
+ 1267 015e 00        		.byte	0x0
+ 1268 015f 05        		.uleb128 0x5
+ 1269 0160 02        		.byte	0x2
+ 1270 0161 0000 0000 		.long	.LM39
+ 1271 0165 1A        		.byte	0x1a
+ 1272 0166 00        		.byte	0x0
+ 1273 0167 05        		.uleb128 0x5
+ 1274 0168 02        		.byte	0x2
+ 1275 0169 0000 0000 		.long	.LM40
+ 1276 016d 15        		.byte	0x15
+ 1277 016e 00        		.byte	0x0
+ 1278 016f 05        		.uleb128 0x5
+ 1279 0170 02        		.byte	0x2
+ 1280 0171 0000 0000 		.long	.LM41
+ 1281 0175 16        		.byte	0x16
+ 1282 0176 00        		.byte	0x0
+ 1283 0177 05        		.uleb128 0x5
+ 1284 0178 02        		.byte	0x2
+ 1285 0179 0000 0000 		.long	.LM42
+ 1286 017d 1B        		.byte	0x1b
+ 1287 017e 00        		.byte	0x0
+ 1288 017f 05        		.uleb128 0x5
+ 1289 0180 02        		.byte	0x2
+ 1290 0181 0000 0000 		.long	.LM43
+ 1291 0185 3D        		.byte	0x3d
+ 1292 0186 00        		.byte	0x0
+ 1293 0187 05        		.uleb128 0x5
+ 1294 0188 02        		.byte	0x2
+ 1295 0189 0000 0000 		.long	.LM44
+ 1296 018d 15        		.byte	0x15
+ 1297 018e 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 24
+
+
+ 1298 018f 05        		.uleb128 0x5
+ 1299 0190 02        		.byte	0x2
+ 1300 0191 0000 0000 		.long	.LM45
+ 1301 0195 03        		.byte	0x3
+ 1302 0196 52        		.sleb128 -46
+ 1303 0197 01        		.byte	0x1
+ 1304 0198 00        		.byte	0x0
+ 1305 0199 05        		.uleb128 0x5
+ 1306 019a 02        		.byte	0x2
+ 1307 019b 0000 0000 		.long	.LM46
+ 1308 019f 15        		.byte	0x15
+ 1309 01a0 00        		.byte	0x0
+ 1310 01a1 05        		.uleb128 0x5
+ 1311 01a2 02        		.byte	0x2
+ 1312 01a3 0000 0000 		.long	.LM47
+ 1313 01a7 16        		.byte	0x16
+ 1314 01a8 00        		.byte	0x0
+ 1315 01a9 05        		.uleb128 0x5
+ 1316 01aa 02        		.byte	0x2
+ 1317 01ab 0000 0000 		.long	.LM48
+ 1318 01af 15        		.byte	0x15
+ 1319 01b0 00        		.byte	0x0
+ 1320 01b1 05        		.uleb128 0x5
+ 1321 01b2 02        		.byte	0x2
+ 1322 01b3 0000 0000 		.long	.LM49
+ 1323 01b7 15        		.byte	0x15
+ 1324 01b8 00        		.byte	0x0
+ 1325 01b9 05        		.uleb128 0x5
+ 1326 01ba 02        		.byte	0x2
+ 1327 01bb 0000 0000 		.long	.LM50
+ 1328 01bf 15        		.byte	0x15
+ 1329 01c0 00        		.byte	0x0
+ 1330 01c1 05        		.uleb128 0x5
+ 1331 01c2 02        		.byte	0x2
+ 1332 01c3 0000 0000 		.long	.LM51
+ 1333 01c7 16        		.byte	0x16
+ 1334 01c8 00        		.byte	0x0
+ 1335 01c9 05        		.uleb128 0x5
+ 1336 01ca 02        		.byte	0x2
+ 1337 01cb 0000 0000 		.long	.LM52
+ 1338 01cf 18        		.byte	0x18
+ 1339 01d0 00        		.byte	0x0
+ 1340 01d1 05        		.uleb128 0x5
+ 1341 01d2 02        		.byte	0x2
+ 1342 01d3 0000 0000 		.long	.LM53
+ 1343 01d7 18        		.byte	0x18
+ 1344 01d8 00        		.byte	0x0
+ 1345 01d9 05        		.uleb128 0x5
+ 1346 01da 02        		.byte	0x2
+ 1347 01db 0000 0000 		.long	.LM54
+ 1348 01df 18        		.byte	0x18
+ 1349 01e0 00        		.byte	0x0
+ 1350 01e1 05        		.uleb128 0x5
+ 1351 01e2 02        		.byte	0x2
+ 1352 01e3 0000 0000 		.long	.LM55
+ 1353 01e7 18        		.byte	0x18
+ 1354 01e8 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 25
+
+
+ 1355 01e9 05        		.uleb128 0x5
+ 1356 01ea 02        		.byte	0x2
+ 1357 01eb 0000 0000 		.long	.LM56
+ 1358 01ef 18        		.byte	0x18
+ 1359 01f0 00        		.byte	0x0
+ 1360 01f1 05        		.uleb128 0x5
+ 1361 01f2 02        		.byte	0x2
+ 1362 01f3 0000 0000 		.long	.LM57
+ 1363 01f7 2F        		.byte	0x2f
+ 1364 01f8 00        		.byte	0x0
+ 1365 01f9 05        		.uleb128 0x5
+ 1366 01fa 02        		.byte	0x2
+ 1367 01fb 0000 0000 		.long	.LM58
+ 1368 01ff 03        		.byte	0x3
+ 1369 0200 6D        		.sleb128 -19
+ 1370 0201 01        		.byte	0x1
+ 1371 0202 00        		.byte	0x0
+ 1372 0203 05        		.uleb128 0x5
+ 1373 0204 02        		.byte	0x2
+ 1374 0205 0000 0000 		.long	.LM59
+ 1375 0209 15        		.byte	0x15
+ 1376 020a 00        		.byte	0x0
+ 1377 020b 05        		.uleb128 0x5
+ 1378 020c 02        		.byte	0x2
+ 1379 020d 0000 0000 		.long	.LM60
+ 1380 0211 15        		.byte	0x15
+ 1381 0212 00        		.byte	0x0
+ 1382 0213 05        		.uleb128 0x5
+ 1383 0214 02        		.byte	0x2
+ 1384 0215 0000 0000 		.long	.LM61
+ 1385 0219 15        		.byte	0x15
+ 1386 021a 00        		.byte	0x0
+ 1387 021b 05        		.uleb128 0x5
+ 1388 021c 02        		.byte	0x2
+ 1389 021d 0000 0000 		.long	.LM62
+ 1390 0221 17        		.byte	0x17
+ 1391 0222 00        		.byte	0x0
+ 1392 0223 05        		.uleb128 0x5
+ 1393 0224 02        		.byte	0x2
+ 1394 0225 0000 0000 		.long	.LM63
+ 1395 0229 15        		.byte	0x15
+ 1396 022a 00        		.byte	0x0
+ 1397 022b 05        		.uleb128 0x5
+ 1398 022c 02        		.byte	0x2
+ 1399 022d 0000 0000 		.long	.LM64
+ 1400 0231 16        		.byte	0x16
+ 1401 0232 00        		.byte	0x0
+ 1402 0233 05        		.uleb128 0x5
+ 1403 0234 02        		.byte	0x2
+ 1404 0235 0000 0000 		.long	.LM65
+ 1405 0239 15        		.byte	0x15
+ 1406 023a 00        		.byte	0x0
+ 1407 023b 05        		.uleb128 0x5
+ 1408 023c 02        		.byte	0x2
+ 1409 023d 0000 0000 		.long	.LM66
+ 1410 0241 15        		.byte	0x15
+ 1411 0242 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 26
+
+
+ 1412 0243 05        		.uleb128 0x5
+ 1413 0244 02        		.byte	0x2
+ 1414 0245 0000 0000 		.long	.LM67
+ 1415 0249 15        		.byte	0x15
+ 1416 024a 00        		.byte	0x0
+ 1417 024b 05        		.uleb128 0x5
+ 1418 024c 02        		.byte	0x2
+ 1419 024d 0000 0000 		.long	.LM68
+ 1420 0251 16        		.byte	0x16
+ 1421 0252 00        		.byte	0x0
+ 1422 0253 05        		.uleb128 0x5
+ 1423 0254 02        		.byte	0x2
+ 1424 0255 0000 0000 		.long	.LM69
+ 1425 0259 15        		.byte	0x15
+ 1426 025a 00        		.byte	0x0
+ 1427 025b 05        		.uleb128 0x5
+ 1428 025c 02        		.byte	0x2
+ 1429 025d 0000 0000 		.long	.LM70
+ 1430 0261 15        		.byte	0x15
+ 1431 0262 00        		.byte	0x0
+ 1432 0263 05        		.uleb128 0x5
+ 1433 0264 02        		.byte	0x2
+ 1434 0265 0000 0000 		.long	.Letext0
+ 1435 0269 00        		.byte	0x0
+ 1436 026a 01        		.uleb128 0x1
+ 1437 026b 01        		.byte	0x1
+ 1438               	.LELT0:
+ 1439 026c 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 1439      0200 1000 
+ 1439      0000 0101 
+ 1439      FB0E 0A00 
+ 1439      0101 0101 
+ 1440               	.LASF21:
+ 1441 0000 4952 4465 		.string	"IRDemo"
+ 1441      6D6F 00
+ 1442               	.LASF12:
+ 1443 0007 6C65 6674 		.string	"leftDir"
+ 1443      4469 7200 
+ 1444               	.LASF17:
+ 1445 000f 7370 6565 		.string	"speedRight"
+ 1445      6452 6967 
+ 1445      6874 00
+ 1446               	.LASF9:
+ 1447 001a 4952 4C65 		.string	"IRLeft"
+ 1447      6674 00
+ 1448               	.LASF20:
+ 1449 0021 433A 5C55 		.string	"C:\\Users\\longc\\OneDrive\\Desktop\\sose18\\src"
+ 1449      7365 7273 
+ 1449      5C6C 6F6E 
+ 1449      6763 5C4F 
+ 1449      6E65 4472 
+ 1450               	.LASF14:
+ 1451 004c 7465 7874 		.string	"text"
+ 1451      00
+ 1452               	.LASF16:
+ 1453 0051 7370 6565 		.string	"speedLeft"
+ 1453      644C 6566 
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 27
+
+
+ 1453      7400 
+ 1454               	.LASF1:
+ 1455 005b 756E 7369 		.string	"unsigned char"
+ 1455      676E 6564 
+ 1455      2063 6861 
+ 1455      7200 
+ 1456               	.LASF4:
+ 1457 0069 6C6F 6E67 		.string	"long unsigned int"
+ 1457      2075 6E73 
+ 1457      6967 6E65 
+ 1457      6420 696E 
+ 1457      7400 
+ 1458               	.LASF10:
+ 1459 007b 4952 5277 		.string	"IRRwd"
+ 1459      6400 
+ 1460               	.LASF18:
+ 1461 0081 474E 5520 		.string	"GNU C 4.3.3"
+ 1461      4320 342E 
+ 1461      332E 3300 
+ 1462               	.LASF8:
+ 1463 008d 4952 5269 		.string	"IRRight"
+ 1463      6768 7400 
+ 1464               	.LASF7:
+ 1465 0095 4952 5374 		.string	"IRStop"
+ 1465      6F70 00
+ 1466               	.LASF2:
+ 1467 009c 756E 7369 		.string	"unsigned int"
+ 1467      676E 6564 
+ 1467      2069 6E74 
+ 1467      00
+ 1468               	.LASF6:
+ 1469 00a9 6C6F 6E67 		.string	"long long unsigned int"
+ 1469      206C 6F6E 
+ 1469      6720 756E 
+ 1469      7369 676E 
+ 1469      6564 2069 
+ 1470               	.LASF13:
+ 1471 00c0 7269 6768 		.string	"rightDir"
+ 1471      7444 6972 
+ 1471      00
+ 1472               	.LASF5:
+ 1473 00c9 6C6F 6E67 		.string	"long long int"
+ 1473      206C 6F6E 
+ 1473      6720 696E 
+ 1473      7400 
+ 1474               	.LASF15:
+ 1475 00d7 6368 6172 		.string	"char"
+ 1475      00
+ 1476               	.LASF19:
+ 1477 00dc 4952 4465 		.string	"IRDemo.c"
+ 1477      6D6F 2E63 
+ 1477      00
+ 1478               	.LASF3:
+ 1479 00e5 6C6F 6E67 		.string	"long int"
+ 1479      2069 6E74 
+ 1479      00
+ 1480               	.LASF0:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 28
+
+
+ 1481 00ee 7369 676E 		.string	"signed char"
+ 1481      6564 2063 
+ 1481      6861 7200 
+ 1482               	.LASF11:
+ 1483 00fa 4952 4677 		.string	"IRFwd"
+ 1483      6400 
+ 1484               	.global __do_copy_data
+ 1485               	.global __do_clear_bss
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s 			page 29
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 IRDemo.c
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:2      *ABS*:0000003f __SREG__
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:3      *ABS*:0000003e __SP_H__
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:4      *ABS*:0000003d __SP_L__
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:5      *ABS*:00000034 __CCP__
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:18     .text:00000000 IRStop
+                            *COM*:00000002 speedLeft
+                            *COM*:00000002 speedRight
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:42     .text:0000001c IRRight
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:91     .text:00000070 IRLeft
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:140    .text:000000c4 IRRwd
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:192    .text:0000011e IRFwd
+C:\Users\longc\AppData\Local\Temp/ccVbpEHb.s:250    .text:00000178 IRDemo
+                             .bss:00000000 cmd.1459
+
+UNDEFINED SYMBOLS
+FrontLED
+BackLED
+Init
+InitRC5
+SerPrint
+ReadRC5
+itoa
+MotorDir
+MotorSpeed
+Msleep
+__do_copy_data
+__do_clear_bss

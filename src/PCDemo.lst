@@ -1,0 +1,1683 @@
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 1
+
+
+   1               		.file	"PCDemo.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	PCStop
+  17               		.type	PCStop, @function
+  18               	PCStop:
+  19               	.LFB6:
+  20               	.LM1:
+  21               	/* prologue: function */
+  22               	/* frame size = 0 */
+  23               	.LM2:
+  24 0000 1092 0000 		sts (speedLeft)+1,__zero_reg__
+  25 0004 1092 0000 		sts speedLeft,__zero_reg__
+  26 0008 1092 0000 		sts (speedRight)+1,__zero_reg__
+  27 000c 1092 0000 		sts speedRight,__zero_reg__
+  28               	.LM3:
+  29 0010 80E0      		ldi r24,lo8(0)
+  30 0012 00D0      		rcall FrontLED
+  31               	.LM4:
+  32 0014 80E0      		ldi r24,lo8(0)
+  33 0016 60E0      		ldi r22,lo8(0)
+  34 0018 00D0      		rcall BackLED
+  35               	/* epilogue start */
+  36               	.LM5:
+  37 001a 0895      		ret
+  38               	.LFE6:
+  39               		.size	PCStop, .-PCStop
+  40               	.global	PCRight
+  41               		.type	PCRight, @function
+  42               	PCRight:
+  43               	.LFB5:
+  44               	.LM6:
+  45               	/* prologue: function */
+  46               	/* frame size = 0 */
+  47               	.LM7:
+  48 001c 8091 0000 		lds r24,speedLeft
+  49 0020 9091 0000 		lds r25,(speedLeft)+1
+  50 0024 0596      		adiw r24,5
+  51 0026 9093 0000 		sts (speedLeft)+1,r25
+  52 002a 8093 0000 		sts speedLeft,r24
+  53               	.LM8:
+  54 002e CF96      		adiw r24,63
+  55 0030 CF97      		sbiw r24,63
+  56 0032 00F4      		brsh .L4
+  57 0034 81E0      		ldi r24,lo8(1)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 2
+
+
+  58 0036 90E0      		ldi r25,hi8(1)
+  59 0038 9093 0000 		sts (speedLeft)+1,r25
+  60 003c 8093 0000 		sts speedLeft,r24
+  61               	.L4:
+  62               	.LM9:
+  63 0040 8091 0000 		lds r24,speedRight
+  64 0044 9091 0000 		lds r25,(speedRight)+1
+  65 0048 0597      		sbiw r24,5
+  66 004a 9093 0000 		sts (speedRight)+1,r25
+  67 004e 8093 0000 		sts speedRight,r24
+  68               	.LM10:
+  69 0052 0197      		sbiw r24,1
+  70 0054 CF97      		sbiw r24,63
+  71 0056 00F4      		brsh .L5
+  72 0058 8FEF      		ldi r24,lo8(-1)
+  73 005a 9FEF      		ldi r25,hi8(-1)
+  74 005c 9093 0000 		sts (speedRight)+1,r25
+  75 0060 8093 0000 		sts speedRight,r24
+  76               	.L5:
+  77               	.LM11:
+  78 0064 80E0      		ldi r24,lo8(0)
+  79 0066 00D0      		rcall FrontLED
+  80               	.LM12:
+  81 0068 80E0      		ldi r24,lo8(0)
+  82 006a 61E0      		ldi r22,lo8(1)
+  83 006c 00D0      		rcall BackLED
+  84               	/* epilogue start */
+  85               	.LM13:
+  86 006e 0895      		ret
+  87               	.LFE5:
+  88               		.size	PCRight, .-PCRight
+  89               	.global	PCLeft
+  90               		.type	PCLeft, @function
+  91               	PCLeft:
+  92               	.LFB4:
+  93               	.LM14:
+  94               	/* prologue: function */
+  95               	/* frame size = 0 */
+  96               	.LM15:
+  97 0070 8091 0000 		lds r24,speedLeft
+  98 0074 9091 0000 		lds r25,(speedLeft)+1
+  99 0078 0597      		sbiw r24,5
+ 100 007a 9093 0000 		sts (speedLeft)+1,r25
+ 101 007e 8093 0000 		sts speedLeft,r24
+ 102               	.LM16:
+ 103 0082 0197      		sbiw r24,1
+ 104 0084 CF97      		sbiw r24,63
+ 105 0086 00F4      		brsh .L8
+ 106 0088 8FEF      		ldi r24,lo8(-1)
+ 107 008a 9FEF      		ldi r25,hi8(-1)
+ 108 008c 9093 0000 		sts (speedLeft)+1,r25
+ 109 0090 8093 0000 		sts speedLeft,r24
+ 110               	.L8:
+ 111               	.LM17:
+ 112 0094 8091 0000 		lds r24,speedRight
+ 113 0098 9091 0000 		lds r25,(speedRight)+1
+ 114 009c 0596      		adiw r24,5
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 3
+
+
+ 115 009e 9093 0000 		sts (speedRight)+1,r25
+ 116 00a2 8093 0000 		sts speedRight,r24
+ 117               	.LM18:
+ 118 00a6 CF96      		adiw r24,63
+ 119 00a8 CF97      		sbiw r24,63
+ 120 00aa 00F4      		brsh .L9
+ 121 00ac 81E0      		ldi r24,lo8(1)
+ 122 00ae 90E0      		ldi r25,hi8(1)
+ 123 00b0 9093 0000 		sts (speedRight)+1,r25
+ 124 00b4 8093 0000 		sts speedRight,r24
+ 125               	.L9:
+ 126               	.LM19:
+ 127 00b8 80E0      		ldi r24,lo8(0)
+ 128 00ba 00D0      		rcall FrontLED
+ 129               	.LM20:
+ 130 00bc 81E0      		ldi r24,lo8(1)
+ 131 00be 60E0      		ldi r22,lo8(0)
+ 132 00c0 00D0      		rcall BackLED
+ 133               	/* epilogue start */
+ 134               	.LM21:
+ 135 00c2 0895      		ret
+ 136               	.LFE4:
+ 137               		.size	PCLeft, .-PCLeft
+ 138               	.global	PCRwd
+ 139               		.type	PCRwd, @function
+ 140               	PCRwd:
+ 141               	.LFB3:
+ 142               	.LM22:
+ 143               	/* prologue: function */
+ 144               	/* frame size = 0 */
+ 145               	.LM23:
+ 146 00c4 8091 0000 		lds r24,speedRight
+ 147 00c8 9091 0000 		lds r25,(speedRight)+1
+ 148 00cc 0597      		sbiw r24,5
+ 149 00ce 9093 0000 		sts (speedRight)+1,r25
+ 150 00d2 8093 0000 		sts speedRight,r24
+ 151               	.LM24:
+ 152 00d6 2091 0000 		lds r18,speedLeft
+ 153 00da 3091 0000 		lds r19,(speedLeft)+1
+ 154 00de 2550      		subi r18,lo8(-(-5))
+ 155 00e0 3040      		sbci r19,hi8(-(-5))
+ 156 00e2 3093 0000 		sts (speedLeft)+1,r19
+ 157 00e6 2093 0000 		sts speedLeft,r18
+ 158               	.LM25:
+ 159 00ea 0197      		sbiw r24,1
+ 160 00ec CF97      		sbiw r24,63
+ 161 00ee 00F4      		brsh .L12
+ 162 00f0 8FEF      		ldi r24,lo8(-1)
+ 163 00f2 9FEF      		ldi r25,hi8(-1)
+ 164 00f4 9093 0000 		sts (speedRight)+1,r25
+ 165 00f8 8093 0000 		sts speedRight,r24
+ 166               	.L12:
+ 167               	.LM26:
+ 168 00fc 2150      		subi r18,lo8(-(-1))
+ 169 00fe 3040      		sbci r19,hi8(-(-1))
+ 170 0100 2F33      		cpi r18,63
+ 171 0102 3105      		cpc r19,__zero_reg__
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 4
+
+
+ 172 0104 00F4      		brsh .L13
+ 173 0106 8FEF      		ldi r24,lo8(-1)
+ 174 0108 9FEF      		ldi r25,hi8(-1)
+ 175 010a 9093 0000 		sts (speedLeft)+1,r25
+ 176 010e 8093 0000 		sts speedLeft,r24
+ 177               	.L13:
+ 178               	.LM27:
+ 179 0112 80E0      		ldi r24,lo8(0)
+ 180 0114 00D0      		rcall FrontLED
+ 181               	.LM28:
+ 182 0116 81E0      		ldi r24,lo8(1)
+ 183 0118 61E0      		ldi r22,lo8(1)
+ 184 011a 00D0      		rcall BackLED
+ 185               	/* epilogue start */
+ 186               	.LM29:
+ 187 011c 0895      		ret
+ 188               	.LFE3:
+ 189               		.size	PCRwd, .-PCRwd
+ 190               	.global	PCFwd
+ 191               		.type	PCFwd, @function
+ 192               	PCFwd:
+ 193               	.LFB2:
+ 194               	.LM30:
+ 195               	/* prologue: function */
+ 196               	/* frame size = 0 */
+ 197               	.LM31:
+ 198 011e 2091 0000 		lds r18,speedRight
+ 199 0122 3091 0000 		lds r19,(speedRight)+1
+ 200 0126 2B5F      		subi r18,lo8(-(5))
+ 201 0128 3F4F      		sbci r19,hi8(-(5))
+ 202 012a 3093 0000 		sts (speedRight)+1,r19
+ 203 012e 2093 0000 		sts speedRight,r18
+ 204               	.LM32:
+ 205 0132 8091 0000 		lds r24,speedLeft
+ 206 0136 9091 0000 		lds r25,(speedLeft)+1
+ 207 013a 0596      		adiw r24,5
+ 208 013c 9093 0000 		sts (speedLeft)+1,r25
+ 209 0140 8093 0000 		sts speedLeft,r24
+ 210               	.LM33:
+ 211 0144 CF96      		adiw r24,63
+ 212 0146 CF97      		sbiw r24,63
+ 213 0148 00F4      		brsh .L16
+ 214 014a 81E0      		ldi r24,lo8(1)
+ 215 014c 90E0      		ldi r25,hi8(1)
+ 216 014e 9093 0000 		sts (speedLeft)+1,r25
+ 217 0152 8093 0000 		sts speedLeft,r24
+ 218               	.L16:
+ 219               	.LM34:
+ 220 0156 215C      		subi r18,lo8(-(63))
+ 221 0158 3F4F      		sbci r19,hi8(-(63))
+ 222 015a 2F33      		cpi r18,63
+ 223 015c 3105      		cpc r19,__zero_reg__
+ 224 015e 00F4      		brsh .L17
+ 225 0160 81E0      		ldi r24,lo8(1)
+ 226 0162 90E0      		ldi r25,hi8(1)
+ 227 0164 9093 0000 		sts (speedRight)+1,r25
+ 228 0168 8093 0000 		sts speedRight,r24
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 5
+
+
+ 229               	.L17:
+ 230               	.LM35:
+ 231 016c 81E0      		ldi r24,lo8(1)
+ 232 016e 00D0      		rcall FrontLED
+ 233               	.LM36:
+ 234 0170 80E0      		ldi r24,lo8(0)
+ 235 0172 60E0      		ldi r22,lo8(0)
+ 236 0174 00D0      		rcall BackLED
+ 237               	/* epilogue start */
+ 238               	.LM37:
+ 239 0176 0895      		ret
+ 240               	.LFE2:
+ 241               		.size	PCFwd, .-PCFwd
+ 242               		.data
+ 243               	.LC0:
+ 244 0000 5043 4465 		.string	"PCDemo\r\n"
+ 244      6D6F 0D0A 
+ 244      00
+ 245               		.text
+ 246               	.global	PCDemo
+ 247               		.type	PCDemo, @function
+ 248               	PCDemo:
+ 249               	.LFB7:
+ 250               	.LM38:
+ 251 0178 CF92      		push r12
+ 252 017a DF92      		push r13
+ 253 017c EF92      		push r14
+ 254 017e FF92      		push r15
+ 255 0180 0F93      		push r16
+ 256 0182 1F93      		push r17
+ 257 0184 DF93      		push r29
+ 258 0186 CF93      		push r28
+ 259 0188 0F92      		push __tmp_reg__
+ 260 018a CDB7      		in r28,__SP_L__
+ 261 018c DEB7      		in r29,__SP_H__
+ 262               	/* prologue: function */
+ 263               	/* frame size = 1 */
+ 264               	.LM39:
+ 265 018e 00D0      		rcall Init
+ 266               	.LM40:
+ 267 0190 80E0      		ldi r24,lo8(.LC0)
+ 268 0192 90E0      		ldi r25,hi8(.LC0)
+ 269 0194 00D0      		rcall SerPrint
+ 270               	.LM41:
+ 271 0196 00D0      		rcall StartSwitch
+ 272               	.LM42:
+ 273               	/* #APP */
+ 274               	 ;  123 "PCDemo.c" 1
+ 275 0198 7894      		sei
+ 276               	 ;  0 "" 2
+ 277               	.LM43:
+ 278               	/* #NOAPP */
+ 279 019a 6E01      		movw r12,r28
+ 280 019c 0894      		sec
+ 281 019e C11C      		adc r12,__zero_reg__
+ 282 01a0 D11C      		adc r13,__zero_reg__
+ 283               	.LM44:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 6
+
+
+ 284 01a2 8FEF      		ldi r24,lo8(255)
+ 285 01a4 E82E      		mov r14,r24
+ 286 01a6 F12C      		mov r15,__zero_reg__
+ 287               	.LM45:
+ 288 01a8 01E0      		ldi r16,lo8(-255)
+ 289 01aa 1FEF      		ldi r17,hi8(-255)
+ 290               	.LVL0:
+ 291               	.L43:
+ 292               	.LM46:
+ 293 01ac 1982      		std Y+1,__zero_reg__
+ 294               	.LVL1:
+ 295               	.LM47:
+ 296 01ae C601      		movw r24,r12
+ 297 01b0 61E0      		ldi r22,lo8(1)
+ 298 01b2 4EEF      		ldi r20,lo8(-2)
+ 299 01b4 5FEF      		ldi r21,hi8(-2)
+ 300 01b6 00D0      		rcall SerRead
+ 301               	.LM48:
+ 302 01b8 8981      		ldd r24,Y+1
+ 303 01ba 8433      		cpi r24,lo8(52)
+ 304 01bc 01F0      		breq .L23
+ 305               	.LVL2:
+ 306 01be 8533      		cpi r24,lo8(53)
+ 307 01c0 00F4      		brsh .L27
+ 308 01c2 8B31      		cpi r24,lo8(27)
+ 309 01c4 01F4      		brne .+2
+ 310 01c6 00C0      		rjmp .L44
+ 311 01c8 8233      		cpi r24,lo8(50)
+ 312 01ca 01F4      		brne .L20
+ 313 01cc 00C0      		rjmp .L45
+ 314               	.L27:
+ 315 01ce 8633      		cpi r24,lo8(54)
+ 316 01d0 01F0      		breq .L25
+ 317 01d2 8633      		cpi r24,lo8(54)
+ 318 01d4 00F0      		brlo .L24
+ 319 01d6 8833      		cpi r24,lo8(56)
+ 320 01d8 01F4      		brne .L20
+ 321 01da 00C0      		rjmp .L46
+ 322               	.L45:
+ 323               	.LM49:
+ 324 01dc 00D0      		rcall PCRwd
+ 325               	.LVL3:
+ 326 01de 00C0      		rjmp .L20
+ 327               	.LVL4:
+ 328               	.L46:
+ 329               	.LM50:
+ 330 01e0 00D0      		rcall PCFwd
+ 331               	.LVL5:
+ 332 01e2 00C0      		rjmp .L20
+ 333               	.LVL6:
+ 334               	.L23:
+ 335               	.LM51:
+ 336 01e4 00D0      		rcall PCLeft
+ 337               	.LVL7:
+ 338 01e6 00C0      		rjmp .L20
+ 339               	.LVL8:
+ 340               	.L25:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 7
+
+
+ 341               	.LM52:
+ 342 01e8 00D0      		rcall PCRight
+ 343               	.LVL9:
+ 344 01ea 00C0      		rjmp .L20
+ 345               	.LVL10:
+ 346               	.L24:
+ 347               	.LM53:
+ 348 01ec 00D0      		rcall PCStop
+ 349               	.LVL11:
+ 350               	.L20:
+ 351               	.LM54:
+ 352 01ee 2091 0000 		lds r18,speedLeft
+ 353 01f2 3091 0000 		lds r19,(speedLeft)+1
+ 354 01f6 C901      		movw r24,r18
+ 355 01f8 0197      		sbiw r24,1
+ 356 01fa CE97      		sbiw r24,62
+ 357 01fc 00F4      		brsh .L28
+ 358 01fe 215C      		subi r18,lo8(-(63))
+ 359 0200 3F4F      		sbci r19,hi8(-(63))
+ 360 0202 3093 0000 		sts (speedLeft)+1,r19
+ 361 0206 2093 0000 		sts speedLeft,r18
+ 362               	.L28:
+ 363               	.LM55:
+ 364 020a 2091 0000 		lds r18,speedLeft
+ 365 020e 3091 0000 		lds r19,(speedLeft)+1
+ 366 0212 C901      		movw r24,r18
+ 367 0214 CE96      		adiw r24,62
+ 368 0216 CE97      		sbiw r24,62
+ 369 0218 00F4      		brsh .L29
+ 370 021a 2F53      		subi r18,lo8(-(-63))
+ 371 021c 3040      		sbci r19,hi8(-(-63))
+ 372 021e 3093 0000 		sts (speedLeft)+1,r19
+ 373 0222 2093 0000 		sts speedLeft,r18
+ 374               	.L29:
+ 375               	.LM56:
+ 376 0226 2091 0000 		lds r18,speedRight
+ 377 022a 3091 0000 		lds r19,(speedRight)+1
+ 378 022e C901      		movw r24,r18
+ 379 0230 0197      		sbiw r24,1
+ 380 0232 CE97      		sbiw r24,62
+ 381 0234 00F4      		brsh .L30
+ 382 0236 215C      		subi r18,lo8(-(63))
+ 383 0238 3F4F      		sbci r19,hi8(-(63))
+ 384 023a 3093 0000 		sts (speedRight)+1,r19
+ 385 023e 2093 0000 		sts speedRight,r18
+ 386               	.L30:
+ 387               	.LM57:
+ 388 0242 2091 0000 		lds r18,speedRight
+ 389 0246 3091 0000 		lds r19,(speedRight)+1
+ 390 024a C901      		movw r24,r18
+ 391 024c CE96      		adiw r24,62
+ 392 024e CE97      		sbiw r24,62
+ 393 0250 00F4      		brsh .L31
+ 394 0252 2F53      		subi r18,lo8(-(-63))
+ 395 0254 3040      		sbci r19,hi8(-(-63))
+ 396 0256 3093 0000 		sts (speedRight)+1,r19
+ 397 025a 2093 0000 		sts speedRight,r18
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 8
+
+
+ 398               	.L31:
+ 399               	.LM58:
+ 400 025e 8091 0000 		lds r24,switched
+ 401 0262 9091 0000 		lds r25,(switched)+1
+ 402 0266 892B      		or r24,r25
+ 403 0268 01F0      		breq .L32
+ 404               	.LM59:
+ 405 026a 1092 0000 		sts (speedLeft)+1,__zero_reg__
+ 406 026e 1092 0000 		sts speedLeft,__zero_reg__
+ 407               	.LM60:
+ 408 0272 1092 0000 		sts (speedRight)+1,__zero_reg__
+ 409 0276 1092 0000 		sts speedRight,__zero_reg__
+ 410               	.LM61:
+ 411 027a 1092 0000 		sts (switched)+1,__zero_reg__
+ 412 027e 1092 0000 		sts switched,__zero_reg__
+ 413               	.LM62:
+ 414 0282 80E1      		ldi r24,lo8(16)
+ 415 0284 60E1      		ldi r22,lo8(16)
+ 416 0286 00D0      		rcall MotorDir
+ 417               	.LM63:
+ 418 0288 88EC      		ldi r24,lo8(-56)
+ 419 028a 68EC      		ldi r22,lo8(-56)
+ 420 028c 00D0      		rcall MotorSpeed
+ 421               	.LM64:
+ 422 028e 81E0      		ldi r24,lo8(1)
+ 423 0290 00D0      		rcall FrontLED
+ 424               	.LM65:
+ 425 0292 81E0      		ldi r24,lo8(1)
+ 426 0294 61E0      		ldi r22,lo8(1)
+ 427 0296 00D0      		rcall BackLED
+ 428               	.LM66:
+ 429 0298 88EE      		ldi r24,lo8(1000)
+ 430 029a 93E0      		ldi r25,hi8(1000)
+ 431 029c 00D0      		rcall Msleep
+ 432               	.L32:
+ 433               	.LM67:
+ 434 029e 8091 0000 		lds r24,speedLeft
+ 435 02a2 9091 0000 		lds r25,(speedLeft)+1
+ 436 02a6 97FF      		sbrs r25,7
+ 437 02a8 00C0      		rjmp .L33
+ 438 02aa 40E1      		ldi r20,lo8(16)
+ 439               	.LVL12:
+ 440 02ac 00C0      		rjmp .L34
+ 441               	.LVL13:
+ 442               	.L33:
+ 443 02ae 40E2      		ldi r20,lo8(32)
+ 444               	.LVL14:
+ 445               	.L34:
+ 446               	.LM68:
+ 447 02b0 2091 0000 		lds r18,speedRight
+ 448 02b4 3091 0000 		lds r19,(speedRight)+1
+ 449 02b8 37FF      		sbrs r19,7
+ 450 02ba 00C0      		rjmp .L35
+ 451 02bc 60E1      		ldi r22,lo8(16)
+ 452               	.LVL15:
+ 453 02be 00C0      		rjmp .L36
+ 454               	.LVL16:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 9
+
+
+ 455               	.L35:
+ 456 02c0 60E2      		ldi r22,lo8(32)
+ 457               	.LVL17:
+ 458               	.L36:
+ 459               	.LM69:
+ 460 02c2 8F3F      		cpi r24,255
+ 461 02c4 9105      		cpc r25,__zero_reg__
+ 462 02c6 01F0      		breq .L37
+ 463 02c8 04F0      		brlt .L37
+ 464 02ca F092 0000 		sts (speedLeft)+1,r15
+ 465 02ce E092 0000 		sts speedLeft,r14
+ 466               	.L37:
+ 467               	.LM70:
+ 468 02d2 8091 0000 		lds r24,speedLeft
+ 469 02d6 9091 0000 		lds r25,(speedLeft)+1
+ 470 02da 8150      		subi r24,lo8(-255)
+ 471 02dc 9F4F      		sbci r25,hi8(-255)
+ 472 02de 04F4      		brge .L38
+ 473 02e0 1093 0000 		sts (speedLeft)+1,r17
+ 474 02e4 0093 0000 		sts speedLeft,r16
+ 475               	.L38:
+ 476               	.LM71:
+ 477 02e8 2F3F      		cpi r18,255
+ 478 02ea 3105      		cpc r19,__zero_reg__
+ 479 02ec 01F0      		breq .L39
+ 480 02ee 04F0      		brlt .L39
+ 481 02f0 F092 0000 		sts (speedRight)+1,r15
+ 482 02f4 E092 0000 		sts speedRight,r14
+ 483               	.L39:
+ 484               	.LM72:
+ 485 02f8 8091 0000 		lds r24,speedRight
+ 486 02fc 9091 0000 		lds r25,(speedRight)+1
+ 487 0300 8150      		subi r24,lo8(-255)
+ 488 0302 9F4F      		sbci r25,hi8(-255)
+ 489 0304 04F4      		brge .L40
+ 490 0306 1093 0000 		sts (speedRight)+1,r17
+ 491 030a 0093 0000 		sts speedRight,r16
+ 492               	.L40:
+ 493               	.LM73:
+ 494 030e 842F      		mov r24,r20
+ 495 0310 00D0      		rcall MotorDir
+ 496               	.LVL18:
+ 497               	.LM74:
+ 498 0312 8091 0000 		lds r24,speedLeft
+ 499 0316 9091 0000 		lds r25,(speedLeft)+1
+ 500 031a 97FF      		sbrs r25,7
+ 501 031c 00C0      		rjmp .L41
+ 502 031e 9095      		com r25
+ 503 0320 8195      		neg r24
+ 504 0322 9F4F      		sbci r25,lo8(-1)
+ 505               	.L41:
+ 506 0324 6091 0000 		lds r22,speedRight
+ 507 0328 7091 0000 		lds r23,(speedRight)+1
+ 508 032c 77FF      		sbrs r23,7
+ 509 032e 00C0      		rjmp .L42
+ 510 0330 7095      		com r23
+ 511 0332 6195      		neg r22
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 10
+
+
+ 512 0334 7F4F      		sbci r23,lo8(-1)
+ 513               	.L42:
+ 514 0336 00D0      		rcall MotorSpeed
+ 515 0338 00C0      		rjmp .L43
+ 516               	.LVL19:
+ 517               	.L44:
+ 518               	/* epilogue start */
+ 519               	.LM75:
+ 520 033a 0F90      		pop __tmp_reg__
+ 521 033c CF91      		pop r28
+ 522 033e DF91      		pop r29
+ 523 0340 1F91      		pop r17
+ 524 0342 0F91      		pop r16
+ 525 0344 FF90      		pop r15
+ 526 0346 EF90      		pop r14
+ 527 0348 DF90      		pop r13
+ 528 034a CF90      		pop r12
+ 529 034c 0895      		ret
+ 530               	.LFE7:
+ 531               		.size	PCDemo, .-PCDemo
+ 532               		.comm speedLeft,2,1
+ 533               		.comm speedRight,2,1
+ 534               		.section	.debug_frame,"",@progbits
+ 535               	.Lframe0:
+ 536 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 537               	.LSCIE0:
+ 538 0004 FFFF FFFF 		.long	0xffffffff
+ 539 0008 01        		.byte	0x1
+ 540 0009 00        		.string	""
+ 541 000a 01        		.uleb128 0x1
+ 542 000b 7F        		.sleb128 -1
+ 543 000c 24        		.byte	0x24
+ 544 000d 0C        		.byte	0xc
+ 545 000e 20        		.uleb128 0x20
+ 546 000f 00        		.uleb128 0x0
+ 547               		.p2align	2
+ 548               	.LECIE0:
+ 549               	.LSFDE0:
+ 550 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 551               	.LASFDE0:
+ 552 0014 0000 0000 		.long	.Lframe0
+ 553 0018 0000 0000 		.long	.LFB6
+ 554 001c 1C00 0000 		.long	.LFE6-.LFB6
+ 555               		.p2align	2
+ 556               	.LEFDE0:
+ 557               	.LSFDE2:
+ 558 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 559               	.LASFDE2:
+ 560 0024 0000 0000 		.long	.Lframe0
+ 561 0028 0000 0000 		.long	.LFB5
+ 562 002c 5400 0000 		.long	.LFE5-.LFB5
+ 563               		.p2align	2
+ 564               	.LEFDE2:
+ 565               	.LSFDE4:
+ 566 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 567               	.LASFDE4:
+ 568 0034 0000 0000 		.long	.Lframe0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 11
+
+
+ 569 0038 0000 0000 		.long	.LFB4
+ 570 003c 5400 0000 		.long	.LFE4-.LFB4
+ 571               		.p2align	2
+ 572               	.LEFDE4:
+ 573               	.LSFDE6:
+ 574 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 575               	.LASFDE6:
+ 576 0044 0000 0000 		.long	.Lframe0
+ 577 0048 0000 0000 		.long	.LFB3
+ 578 004c 5A00 0000 		.long	.LFE3-.LFB3
+ 579               		.p2align	2
+ 580               	.LEFDE6:
+ 581               	.LSFDE8:
+ 582 0050 0C00 0000 		.long	.LEFDE8-.LASFDE8
+ 583               	.LASFDE8:
+ 584 0054 0000 0000 		.long	.Lframe0
+ 585 0058 0000 0000 		.long	.LFB2
+ 586 005c 5A00 0000 		.long	.LFE2-.LFB2
+ 587               		.p2align	2
+ 588               	.LEFDE8:
+ 589               	.LSFDE10:
+ 590 0060 0C00 0000 		.long	.LEFDE10-.LASFDE10
+ 591               	.LASFDE10:
+ 592 0064 0000 0000 		.long	.Lframe0
+ 593 0068 0000 0000 		.long	.LFB7
+ 594 006c D601 0000 		.long	.LFE7-.LFB7
+ 595               		.p2align	2
+ 596               	.LEFDE10:
+ 597               		.text
+ 598               	.Letext0:
+ 599               		.section	.debug_loc,"",@progbits
+ 600               	.Ldebug_loc0:
+ 601               	.LLST6:
+ 602 0000 AC01 0000 		.long	.LVL0-.Ltext0
+ 603 0004 BE01 0000 		.long	.LVL2-.Ltext0
+ 604 0008 0200      		.word	0x2
+ 605 000a 8C        		.byte	0x8c
+ 606 000b 01        		.sleb128 1
+ 607 000c BE01 0000 		.long	.LVL2-.Ltext0
+ 608 0010 DE01 0000 		.long	.LVL3-.Ltext0
+ 609 0014 0100      		.word	0x1
+ 610 0016 68        		.byte	0x68
+ 611 0017 DE01 0000 		.long	.LVL3-.Ltext0
+ 612 001b E001 0000 		.long	.LVL4-.Ltext0
+ 613 001f 0200      		.word	0x2
+ 614 0021 8C        		.byte	0x8c
+ 615 0022 01        		.sleb128 1
+ 616 0023 E001 0000 		.long	.LVL4-.Ltext0
+ 617 0027 E201 0000 		.long	.LVL5-.Ltext0
+ 618 002b 0100      		.word	0x1
+ 619 002d 68        		.byte	0x68
+ 620 002e E201 0000 		.long	.LVL5-.Ltext0
+ 621 0032 E401 0000 		.long	.LVL6-.Ltext0
+ 622 0036 0200      		.word	0x2
+ 623 0038 8C        		.byte	0x8c
+ 624 0039 01        		.sleb128 1
+ 625 003a E401 0000 		.long	.LVL6-.Ltext0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 12
+
+
+ 626 003e E601 0000 		.long	.LVL7-.Ltext0
+ 627 0042 0100      		.word	0x1
+ 628 0044 68        		.byte	0x68
+ 629 0045 E601 0000 		.long	.LVL7-.Ltext0
+ 630 0049 E801 0000 		.long	.LVL8-.Ltext0
+ 631 004d 0200      		.word	0x2
+ 632 004f 8C        		.byte	0x8c
+ 633 0050 01        		.sleb128 1
+ 634 0051 E801 0000 		.long	.LVL8-.Ltext0
+ 635 0055 EA01 0000 		.long	.LVL9-.Ltext0
+ 636 0059 0100      		.word	0x1
+ 637 005b 68        		.byte	0x68
+ 638 005c EA01 0000 		.long	.LVL9-.Ltext0
+ 639 0060 EC01 0000 		.long	.LVL10-.Ltext0
+ 640 0064 0200      		.word	0x2
+ 641 0066 8C        		.byte	0x8c
+ 642 0067 01        		.sleb128 1
+ 643 0068 EC01 0000 		.long	.LVL10-.Ltext0
+ 644 006c EE01 0000 		.long	.LVL11-.Ltext0
+ 645 0070 0100      		.word	0x1
+ 646 0072 68        		.byte	0x68
+ 647 0073 EE01 0000 		.long	.LVL11-.Ltext0
+ 648 0077 3A03 0000 		.long	.LVL19-.Ltext0
+ 649 007b 0200      		.word	0x2
+ 650 007d 8C        		.byte	0x8c
+ 651 007e 01        		.sleb128 1
+ 652 007f 3A03 0000 		.long	.LVL19-.Ltext0
+ 653 0083 4E03 0000 		.long	.LFE7-.Ltext0
+ 654 0087 0100      		.word	0x1
+ 655 0089 68        		.byte	0x68
+ 656 008a 0000 0000 		.long	0x0
+ 657 008e 0000 0000 		.long	0x0
+ 658               	.LLST7:
+ 659 0092 AC02 0000 		.long	.LVL12-.Ltext0
+ 660 0096 AE02 0000 		.long	.LVL13-.Ltext0
+ 661 009a 0100      		.word	0x1
+ 662 009c 64        		.byte	0x64
+ 663 009d B002 0000 		.long	.LVL14-.Ltext0
+ 664 00a1 1203 0000 		.long	.LVL18-.Ltext0
+ 665 00a5 0100      		.word	0x1
+ 666 00a7 64        		.byte	0x64
+ 667 00a8 0000 0000 		.long	0x0
+ 668 00ac 0000 0000 		.long	0x0
+ 669               	.LLST8:
+ 670 00b0 BE02 0000 		.long	.LVL15-.Ltext0
+ 671 00b4 C002 0000 		.long	.LVL16-.Ltext0
+ 672 00b8 0100      		.word	0x1
+ 673 00ba 66        		.byte	0x66
+ 674 00bb C202 0000 		.long	.LVL17-.Ltext0
+ 675 00bf 1203 0000 		.long	.LVL18-.Ltext0
+ 676 00c3 0100      		.word	0x1
+ 677 00c5 66        		.byte	0x66
+ 678 00c6 0000 0000 		.long	0x0
+ 679 00ca 0000 0000 		.long	0x0
+ 680               		.section	.debug_info
+ 681 0000 3B01 0000 		.long	0x13b
+ 682 0004 0200      		.word	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 13
+
+
+ 683 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 684 000a 04        		.byte	0x4
+ 685 000b 01        		.uleb128 0x1
+ 686 000c 0000 0000 		.long	.LASF17
+ 687 0010 01        		.byte	0x1
+ 688 0011 0000 0000 		.long	.LASF18
+ 689 0015 0000 0000 		.long	.LASF19
+ 690 0019 0000 0000 		.long	.Ltext0
+ 691 001d 0000 0000 		.long	.Letext0
+ 692 0021 0000 0000 		.long	.Ldebug_line0
+ 693 0025 02        		.uleb128 0x2
+ 694 0026 01        		.byte	0x1
+ 695 0027 06        		.byte	0x6
+ 696 0028 0000 0000 		.long	.LASF0
+ 697 002c 02        		.uleb128 0x2
+ 698 002d 01        		.byte	0x1
+ 699 002e 08        		.byte	0x8
+ 700 002f 0000 0000 		.long	.LASF1
+ 701 0033 03        		.uleb128 0x3
+ 702 0034 02        		.byte	0x2
+ 703 0035 05        		.byte	0x5
+ 704 0036 696E 7400 		.string	"int"
+ 705 003a 02        		.uleb128 0x2
+ 706 003b 02        		.byte	0x2
+ 707 003c 07        		.byte	0x7
+ 708 003d 0000 0000 		.long	.LASF2
+ 709 0041 02        		.uleb128 0x2
+ 710 0042 04        		.byte	0x4
+ 711 0043 05        		.byte	0x5
+ 712 0044 0000 0000 		.long	.LASF3
+ 713 0048 02        		.uleb128 0x2
+ 714 0049 04        		.byte	0x4
+ 715 004a 07        		.byte	0x7
+ 716 004b 0000 0000 		.long	.LASF4
+ 717 004f 02        		.uleb128 0x2
+ 718 0050 08        		.byte	0x8
+ 719 0051 05        		.byte	0x5
+ 720 0052 0000 0000 		.long	.LASF5
+ 721 0056 02        		.uleb128 0x2
+ 722 0057 08        		.byte	0x8
+ 723 0058 07        		.byte	0x7
+ 724 0059 0000 0000 		.long	.LASF6
+ 725 005d 04        		.uleb128 0x4
+ 726 005e 01        		.byte	0x1
+ 727 005f 0000 0000 		.long	.LASF7
+ 728 0063 01        		.byte	0x1
+ 729 0064 6C        		.byte	0x6c
+ 730 0065 01        		.byte	0x1
+ 731 0066 0000 0000 		.long	.LFB6
+ 732 006a 0000 0000 		.long	.LFE6
+ 733 006e 02        		.byte	0x2
+ 734 006f 90        		.byte	0x90
+ 735 0070 20        		.uleb128 0x20
+ 736 0071 04        		.uleb128 0x4
+ 737 0072 01        		.byte	0x1
+ 738 0073 0000 0000 		.long	.LASF8
+ 739 0077 01        		.byte	0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 14
+
+
+ 740 0078 61        		.byte	0x61
+ 741 0079 01        		.byte	0x1
+ 742 007a 0000 0000 		.long	.LFB5
+ 743 007e 0000 0000 		.long	.LFE5
+ 744 0082 02        		.byte	0x2
+ 745 0083 90        		.byte	0x90
+ 746 0084 20        		.uleb128 0x20
+ 747 0085 04        		.uleb128 0x4
+ 748 0086 01        		.byte	0x1
+ 749 0087 0000 0000 		.long	.LASF9
+ 750 008b 01        		.byte	0x1
+ 751 008c 57        		.byte	0x57
+ 752 008d 01        		.byte	0x1
+ 753 008e 0000 0000 		.long	.LFB4
+ 754 0092 0000 0000 		.long	.LFE4
+ 755 0096 02        		.byte	0x2
+ 756 0097 90        		.byte	0x90
+ 757 0098 20        		.uleb128 0x20
+ 758 0099 04        		.uleb128 0x4
+ 759 009a 01        		.byte	0x1
+ 760 009b 0000 0000 		.long	.LASF10
+ 761 009f 01        		.byte	0x1
+ 762 00a0 4D        		.byte	0x4d
+ 763 00a1 01        		.byte	0x1
+ 764 00a2 0000 0000 		.long	.LFB3
+ 765 00a6 0000 0000 		.long	.LFE3
+ 766 00aa 02        		.byte	0x2
+ 767 00ab 90        		.byte	0x90
+ 768 00ac 20        		.uleb128 0x20
+ 769 00ad 04        		.uleb128 0x4
+ 770 00ae 01        		.byte	0x1
+ 771 00af 0000 0000 		.long	.LASF11
+ 772 00b3 01        		.byte	0x1
+ 773 00b4 43        		.byte	0x43
+ 774 00b5 01        		.byte	0x1
+ 775 00b6 0000 0000 		.long	.LFB2
+ 776 00ba 0000 0000 		.long	.LFE2
+ 777 00be 02        		.byte	0x2
+ 778 00bf 90        		.byte	0x90
+ 779 00c0 20        		.uleb128 0x20
+ 780 00c1 05        		.uleb128 0x5
+ 781 00c2 01        		.byte	0x1
+ 782 00c3 0000 0000 		.long	.LASF20
+ 783 00c7 01        		.byte	0x1
+ 784 00c8 74        		.byte	0x74
+ 785 00c9 01        		.byte	0x1
+ 786 00ca 0000 0000 		.long	.LFB7
+ 787 00ce 0000 0000 		.long	.LFE7
+ 788 00d2 02        		.byte	0x2
+ 789 00d3 90        		.byte	0x90
+ 790 00d4 20        		.uleb128 0x20
+ 791 00d5 0701 0000 		.long	0x107
+ 792 00d9 06        		.uleb128 0x6
+ 793 00da 636D 6400 		.string	"cmd"
+ 794 00de 01        		.byte	0x1
+ 795 00df 75        		.byte	0x75
+ 796 00e0 2C00 0000 		.long	0x2c
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 15
+
+
+ 797 00e4 0000 0000 		.long	.LLST6
+ 798 00e8 07        		.uleb128 0x7
+ 799 00e9 0000 0000 		.long	.LASF12
+ 800 00ed 01        		.byte	0x1
+ 801 00ee 76        		.byte	0x76
+ 802 00ef 2C00 0000 		.long	0x2c
+ 803 00f3 0000 0000 		.long	.LLST7
+ 804 00f7 07        		.uleb128 0x7
+ 805 00f8 0000 0000 		.long	.LASF13
+ 806 00fc 01        		.byte	0x1
+ 807 00fd 76        		.byte	0x76
+ 808 00fe 2C00 0000 		.long	0x2c
+ 809 0102 0000 0000 		.long	.LLST8
+ 810 0106 00        		.byte	0x0
+ 811 0107 08        		.uleb128 0x8
+ 812 0108 0000 0000 		.long	.LASF14
+ 813 010c 02        		.byte	0x2
+ 814 010d 1A01      		.word	0x11a
+ 815 010f 1501 0000 		.long	0x115
+ 816 0113 01        		.byte	0x1
+ 817 0114 01        		.byte	0x1
+ 818 0115 09        		.uleb128 0x9
+ 819 0116 3300 0000 		.long	0x33
+ 820 011a 0A        		.uleb128 0xa
+ 821 011b 0000 0000 		.long	.LASF15
+ 822 011f 01        		.byte	0x1
+ 823 0120 26        		.byte	0x26
+ 824 0121 3300 0000 		.long	0x33
+ 825 0125 01        		.byte	0x1
+ 826 0126 05        		.byte	0x5
+ 827 0127 03        		.byte	0x3
+ 828 0128 0000 0000 		.long	speedLeft
+ 829 012c 0A        		.uleb128 0xa
+ 830 012d 0000 0000 		.long	.LASF16
+ 831 0131 01        		.byte	0x1
+ 832 0132 26        		.byte	0x26
+ 833 0133 3300 0000 		.long	0x33
+ 834 0137 01        		.byte	0x1
+ 835 0138 05        		.byte	0x5
+ 836 0139 03        		.byte	0x3
+ 837 013a 0000 0000 		.long	speedRight
+ 838 013e 00        		.byte	0x0
+ 839               		.section	.debug_abbrev
+ 840 0000 01        		.uleb128 0x1
+ 841 0001 11        		.uleb128 0x11
+ 842 0002 01        		.byte	0x1
+ 843 0003 25        		.uleb128 0x25
+ 844 0004 0E        		.uleb128 0xe
+ 845 0005 13        		.uleb128 0x13
+ 846 0006 0B        		.uleb128 0xb
+ 847 0007 03        		.uleb128 0x3
+ 848 0008 0E        		.uleb128 0xe
+ 849 0009 1B        		.uleb128 0x1b
+ 850 000a 0E        		.uleb128 0xe
+ 851 000b 11        		.uleb128 0x11
+ 852 000c 01        		.uleb128 0x1
+ 853 000d 12        		.uleb128 0x12
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 16
+
+
+ 854 000e 01        		.uleb128 0x1
+ 855 000f 10        		.uleb128 0x10
+ 856 0010 06        		.uleb128 0x6
+ 857 0011 00        		.byte	0x0
+ 858 0012 00        		.byte	0x0
+ 859 0013 02        		.uleb128 0x2
+ 860 0014 24        		.uleb128 0x24
+ 861 0015 00        		.byte	0x0
+ 862 0016 0B        		.uleb128 0xb
+ 863 0017 0B        		.uleb128 0xb
+ 864 0018 3E        		.uleb128 0x3e
+ 865 0019 0B        		.uleb128 0xb
+ 866 001a 03        		.uleb128 0x3
+ 867 001b 0E        		.uleb128 0xe
+ 868 001c 00        		.byte	0x0
+ 869 001d 00        		.byte	0x0
+ 870 001e 03        		.uleb128 0x3
+ 871 001f 24        		.uleb128 0x24
+ 872 0020 00        		.byte	0x0
+ 873 0021 0B        		.uleb128 0xb
+ 874 0022 0B        		.uleb128 0xb
+ 875 0023 3E        		.uleb128 0x3e
+ 876 0024 0B        		.uleb128 0xb
+ 877 0025 03        		.uleb128 0x3
+ 878 0026 08        		.uleb128 0x8
+ 879 0027 00        		.byte	0x0
+ 880 0028 00        		.byte	0x0
+ 881 0029 04        		.uleb128 0x4
+ 882 002a 2E        		.uleb128 0x2e
+ 883 002b 00        		.byte	0x0
+ 884 002c 3F        		.uleb128 0x3f
+ 885 002d 0C        		.uleb128 0xc
+ 886 002e 03        		.uleb128 0x3
+ 887 002f 0E        		.uleb128 0xe
+ 888 0030 3A        		.uleb128 0x3a
+ 889 0031 0B        		.uleb128 0xb
+ 890 0032 3B        		.uleb128 0x3b
+ 891 0033 0B        		.uleb128 0xb
+ 892 0034 27        		.uleb128 0x27
+ 893 0035 0C        		.uleb128 0xc
+ 894 0036 11        		.uleb128 0x11
+ 895 0037 01        		.uleb128 0x1
+ 896 0038 12        		.uleb128 0x12
+ 897 0039 01        		.uleb128 0x1
+ 898 003a 40        		.uleb128 0x40
+ 899 003b 0A        		.uleb128 0xa
+ 900 003c 00        		.byte	0x0
+ 901 003d 00        		.byte	0x0
+ 902 003e 05        		.uleb128 0x5
+ 903 003f 2E        		.uleb128 0x2e
+ 904 0040 01        		.byte	0x1
+ 905 0041 3F        		.uleb128 0x3f
+ 906 0042 0C        		.uleb128 0xc
+ 907 0043 03        		.uleb128 0x3
+ 908 0044 0E        		.uleb128 0xe
+ 909 0045 3A        		.uleb128 0x3a
+ 910 0046 0B        		.uleb128 0xb
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 17
+
+
+ 911 0047 3B        		.uleb128 0x3b
+ 912 0048 0B        		.uleb128 0xb
+ 913 0049 27        		.uleb128 0x27
+ 914 004a 0C        		.uleb128 0xc
+ 915 004b 11        		.uleb128 0x11
+ 916 004c 01        		.uleb128 0x1
+ 917 004d 12        		.uleb128 0x12
+ 918 004e 01        		.uleb128 0x1
+ 919 004f 40        		.uleb128 0x40
+ 920 0050 0A        		.uleb128 0xa
+ 921 0051 01        		.uleb128 0x1
+ 922 0052 13        		.uleb128 0x13
+ 923 0053 00        		.byte	0x0
+ 924 0054 00        		.byte	0x0
+ 925 0055 06        		.uleb128 0x6
+ 926 0056 34        		.uleb128 0x34
+ 927 0057 00        		.byte	0x0
+ 928 0058 03        		.uleb128 0x3
+ 929 0059 08        		.uleb128 0x8
+ 930 005a 3A        		.uleb128 0x3a
+ 931 005b 0B        		.uleb128 0xb
+ 932 005c 3B        		.uleb128 0x3b
+ 933 005d 0B        		.uleb128 0xb
+ 934 005e 49        		.uleb128 0x49
+ 935 005f 13        		.uleb128 0x13
+ 936 0060 02        		.uleb128 0x2
+ 937 0061 06        		.uleb128 0x6
+ 938 0062 00        		.byte	0x0
+ 939 0063 00        		.byte	0x0
+ 940 0064 07        		.uleb128 0x7
+ 941 0065 34        		.uleb128 0x34
+ 942 0066 00        		.byte	0x0
+ 943 0067 03        		.uleb128 0x3
+ 944 0068 0E        		.uleb128 0xe
+ 945 0069 3A        		.uleb128 0x3a
+ 946 006a 0B        		.uleb128 0xb
+ 947 006b 3B        		.uleb128 0x3b
+ 948 006c 0B        		.uleb128 0xb
+ 949 006d 49        		.uleb128 0x49
+ 950 006e 13        		.uleb128 0x13
+ 951 006f 02        		.uleb128 0x2
+ 952 0070 06        		.uleb128 0x6
+ 953 0071 00        		.byte	0x0
+ 954 0072 00        		.byte	0x0
+ 955 0073 08        		.uleb128 0x8
+ 956 0074 34        		.uleb128 0x34
+ 957 0075 00        		.byte	0x0
+ 958 0076 03        		.uleb128 0x3
+ 959 0077 0E        		.uleb128 0xe
+ 960 0078 3A        		.uleb128 0x3a
+ 961 0079 0B        		.uleb128 0xb
+ 962 007a 3B        		.uleb128 0x3b
+ 963 007b 05        		.uleb128 0x5
+ 964 007c 49        		.uleb128 0x49
+ 965 007d 13        		.uleb128 0x13
+ 966 007e 3F        		.uleb128 0x3f
+ 967 007f 0C        		.uleb128 0xc
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 18
+
+
+ 968 0080 3C        		.uleb128 0x3c
+ 969 0081 0C        		.uleb128 0xc
+ 970 0082 00        		.byte	0x0
+ 971 0083 00        		.byte	0x0
+ 972 0084 09        		.uleb128 0x9
+ 973 0085 35        		.uleb128 0x35
+ 974 0086 00        		.byte	0x0
+ 975 0087 49        		.uleb128 0x49
+ 976 0088 13        		.uleb128 0x13
+ 977 0089 00        		.byte	0x0
+ 978 008a 00        		.byte	0x0
+ 979 008b 0A        		.uleb128 0xa
+ 980 008c 34        		.uleb128 0x34
+ 981 008d 00        		.byte	0x0
+ 982 008e 03        		.uleb128 0x3
+ 983 008f 0E        		.uleb128 0xe
+ 984 0090 3A        		.uleb128 0x3a
+ 985 0091 0B        		.uleb128 0xb
+ 986 0092 3B        		.uleb128 0x3b
+ 987 0093 0B        		.uleb128 0xb
+ 988 0094 49        		.uleb128 0x49
+ 989 0095 13        		.uleb128 0x13
+ 990 0096 3F        		.uleb128 0x3f
+ 991 0097 0C        		.uleb128 0xc
+ 992 0098 02        		.uleb128 0x2
+ 993 0099 0A        		.uleb128 0xa
+ 994 009a 00        		.byte	0x0
+ 995 009b 00        		.byte	0x0
+ 996 009c 00        		.byte	0x0
+ 997               		.section	.debug_pubnames,"",@progbits
+ 998 0000 6C00 0000 		.long	0x6c
+ 999 0004 0200      		.word	0x2
+ 1000 0006 0000 0000 		.long	.Ldebug_info0
+ 1001 000a 3F01 0000 		.long	0x13f
+ 1002 000e 5D00 0000 		.long	0x5d
+ 1003 0012 5043 5374 		.string	"PCStop"
+ 1003      6F70 00
+ 1004 0019 7100 0000 		.long	0x71
+ 1005 001d 5043 5269 		.string	"PCRight"
+ 1005      6768 7400 
+ 1006 0025 8500 0000 		.long	0x85
+ 1007 0029 5043 4C65 		.string	"PCLeft"
+ 1007      6674 00
+ 1008 0030 9900 0000 		.long	0x99
+ 1009 0034 5043 5277 		.string	"PCRwd"
+ 1009      6400 
+ 1010 003a AD00 0000 		.long	0xad
+ 1011 003e 5043 4677 		.string	"PCFwd"
+ 1011      6400 
+ 1012 0044 C100 0000 		.long	0xc1
+ 1013 0048 5043 4465 		.string	"PCDemo"
+ 1013      6D6F 00
+ 1014 004f 1A01 0000 		.long	0x11a
+ 1015 0053 7370 6565 		.string	"speedLeft"
+ 1015      644C 6566 
+ 1015      7400 
+ 1016 005d 2C01 0000 		.long	0x12c
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 19
+
+
+ 1017 0061 7370 6565 		.string	"speedRight"
+ 1017      6452 6967 
+ 1017      6874 00
+ 1018 006c 0000 0000 		.long	0x0
+ 1019               		.section	.debug_aranges,"",@progbits
+ 1020 0000 1C00 0000 		.long	0x1c
+ 1021 0004 0200      		.word	0x2
+ 1022 0006 0000 0000 		.long	.Ldebug_info0
+ 1023 000a 04        		.byte	0x4
+ 1024 000b 00        		.byte	0x0
+ 1025 000c 0000      		.word	0x0
+ 1026 000e 0000      		.word	0x0
+ 1027 0010 0000 0000 		.long	.Ltext0
+ 1028 0014 4E03 0000 		.long	.Letext0-.Ltext0
+ 1029 0018 0000 0000 		.long	0x0
+ 1030 001c 0000 0000 		.long	0x0
+ 1031               		.section	.debug_line
+ 1032 0000 A402 0000 		.long	.LELT0-.LSLT0
+ 1033               	.LSLT0:
+ 1034 0004 0200      		.word	0x2
+ 1035 0006 3200 0000 		.long	.LELTP0-.LASLTP0
+ 1036               	.LASLTP0:
+ 1037 000a 01        		.byte	0x1
+ 1038 000b 01        		.byte	0x1
+ 1039 000c F6        		.byte	0xf6
+ 1040 000d F5        		.byte	0xf5
+ 1041 000e 0A        		.byte	0xa
+ 1042 000f 00        		.byte	0x0
+ 1043 0010 01        		.byte	0x1
+ 1044 0011 01        		.byte	0x1
+ 1045 0012 01        		.byte	0x1
+ 1046 0013 01        		.byte	0x1
+ 1047 0014 00        		.byte	0x0
+ 1048 0015 00        		.byte	0x0
+ 1049 0016 00        		.byte	0x0
+ 1050 0017 01        		.byte	0x1
+ 1051 0018 2E2E 2F6C 		.ascii	"../lib/inc"
+ 1051      6962 2F69 
+ 1051      6E63 
+ 1052 0022 00        		.byte	0
+ 1053 0023 00        		.byte	0x0
+ 1054 0024 5043 4465 		.string	"PCDemo.c"
+ 1054      6D6F 2E63 
+ 1054      00
+ 1055 002d 00        		.uleb128 0x0
+ 1056 002e 00        		.uleb128 0x0
+ 1057 002f 00        		.uleb128 0x0
+ 1058 0030 6173 7572 		.string	"asuro.h"
+ 1058      6F2E 6800 
+ 1059 0038 01        		.uleb128 0x1
+ 1060 0039 00        		.uleb128 0x0
+ 1061 003a 00        		.uleb128 0x0
+ 1062 003b 00        		.byte	0x0
+ 1063               	.LELTP0:
+ 1064 003c 00        		.byte	0x0
+ 1065 003d 05        		.uleb128 0x5
+ 1066 003e 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 20
+
+
+ 1067 003f 0000 0000 		.long	.LM1
+ 1068 0043 7F        		.byte	0x7f
+ 1069 0044 00        		.byte	0x0
+ 1070 0045 05        		.uleb128 0x5
+ 1071 0046 02        		.byte	0x2
+ 1072 0047 0000 0000 		.long	.LM2
+ 1073 004b 15        		.byte	0x15
+ 1074 004c 00        		.byte	0x0
+ 1075 004d 05        		.uleb128 0x5
+ 1076 004e 02        		.byte	0x2
+ 1077 004f 0000 0000 		.long	.LM3
+ 1078 0053 15        		.byte	0x15
+ 1079 0054 00        		.byte	0x0
+ 1080 0055 05        		.uleb128 0x5
+ 1081 0056 02        		.byte	0x2
+ 1082 0057 0000 0000 		.long	.LM4
+ 1083 005b 15        		.byte	0x15
+ 1084 005c 00        		.byte	0x0
+ 1085 005d 05        		.uleb128 0x5
+ 1086 005e 02        		.byte	0x2
+ 1087 005f 0000 0000 		.long	.LM5
+ 1088 0063 15        		.byte	0x15
+ 1089 0064 00        		.byte	0x0
+ 1090 0065 05        		.uleb128 0x5
+ 1091 0066 02        		.byte	0x2
+ 1092 0067 0000 0000 		.long	.LM6
+ 1093 006b 03        		.byte	0x3
+ 1094 006c 71        		.sleb128 -15
+ 1095 006d 01        		.byte	0x1
+ 1096 006e 00        		.byte	0x0
+ 1097 006f 05        		.uleb128 0x5
+ 1098 0070 02        		.byte	0x2
+ 1099 0071 0000 0000 		.long	.LM7
+ 1100 0075 15        		.byte	0x15
+ 1101 0076 00        		.byte	0x0
+ 1102 0077 05        		.uleb128 0x5
+ 1103 0078 02        		.byte	0x2
+ 1104 0079 0000 0000 		.long	.LM8
+ 1105 007d 15        		.byte	0x15
+ 1106 007e 00        		.byte	0x0
+ 1107 007f 05        		.uleb128 0x5
+ 1108 0080 02        		.byte	0x2
+ 1109 0081 0000 0000 		.long	.LM9
+ 1110 0085 15        		.byte	0x15
+ 1111 0086 00        		.byte	0x0
+ 1112 0087 05        		.uleb128 0x5
+ 1113 0088 02        		.byte	0x2
+ 1114 0089 0000 0000 		.long	.LM10
+ 1115 008d 15        		.byte	0x15
+ 1116 008e 00        		.byte	0x0
+ 1117 008f 05        		.uleb128 0x5
+ 1118 0090 02        		.byte	0x2
+ 1119 0091 0000 0000 		.long	.LM11
+ 1120 0095 15        		.byte	0x15
+ 1121 0096 00        		.byte	0x0
+ 1122 0097 05        		.uleb128 0x5
+ 1123 0098 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 21
+
+
+ 1124 0099 0000 0000 		.long	.LM12
+ 1125 009d 15        		.byte	0x15
+ 1126 009e 00        		.byte	0x0
+ 1127 009f 05        		.uleb128 0x5
+ 1128 00a0 02        		.byte	0x2
+ 1129 00a1 0000 0000 		.long	.LM13
+ 1130 00a5 15        		.byte	0x15
+ 1131 00a6 00        		.byte	0x0
+ 1132 00a7 05        		.uleb128 0x5
+ 1133 00a8 02        		.byte	0x2
+ 1134 00a9 0000 0000 		.long	.LM14
+ 1135 00ad 03        		.byte	0x3
+ 1136 00ae 6F        		.sleb128 -17
+ 1137 00af 01        		.byte	0x1
+ 1138 00b0 00        		.byte	0x0
+ 1139 00b1 05        		.uleb128 0x5
+ 1140 00b2 02        		.byte	0x2
+ 1141 00b3 0000 0000 		.long	.LM15
+ 1142 00b7 15        		.byte	0x15
+ 1143 00b8 00        		.byte	0x0
+ 1144 00b9 05        		.uleb128 0x5
+ 1145 00ba 02        		.byte	0x2
+ 1146 00bb 0000 0000 		.long	.LM16
+ 1147 00bf 15        		.byte	0x15
+ 1148 00c0 00        		.byte	0x0
+ 1149 00c1 05        		.uleb128 0x5
+ 1150 00c2 02        		.byte	0x2
+ 1151 00c3 0000 0000 		.long	.LM17
+ 1152 00c7 15        		.byte	0x15
+ 1153 00c8 00        		.byte	0x0
+ 1154 00c9 05        		.uleb128 0x5
+ 1155 00ca 02        		.byte	0x2
+ 1156 00cb 0000 0000 		.long	.LM18
+ 1157 00cf 15        		.byte	0x15
+ 1158 00d0 00        		.byte	0x0
+ 1159 00d1 05        		.uleb128 0x5
+ 1160 00d2 02        		.byte	0x2
+ 1161 00d3 0000 0000 		.long	.LM19
+ 1162 00d7 15        		.byte	0x15
+ 1163 00d8 00        		.byte	0x0
+ 1164 00d9 05        		.uleb128 0x5
+ 1165 00da 02        		.byte	0x2
+ 1166 00db 0000 0000 		.long	.LM20
+ 1167 00df 15        		.byte	0x15
+ 1168 00e0 00        		.byte	0x0
+ 1169 00e1 05        		.uleb128 0x5
+ 1170 00e2 02        		.byte	0x2
+ 1171 00e3 0000 0000 		.long	.LM21
+ 1172 00e7 15        		.byte	0x15
+ 1173 00e8 00        		.byte	0x0
+ 1174 00e9 05        		.uleb128 0x5
+ 1175 00ea 02        		.byte	0x2
+ 1176 00eb 0000 0000 		.long	.LM22
+ 1177 00ef 03        		.byte	0x3
+ 1178 00f0 6F        		.sleb128 -17
+ 1179 00f1 01        		.byte	0x1
+ 1180 00f2 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 22
+
+
+ 1181 00f3 05        		.uleb128 0x5
+ 1182 00f4 02        		.byte	0x2
+ 1183 00f5 0000 0000 		.long	.LM23
+ 1184 00f9 15        		.byte	0x15
+ 1185 00fa 00        		.byte	0x0
+ 1186 00fb 05        		.uleb128 0x5
+ 1187 00fc 02        		.byte	0x2
+ 1188 00fd 0000 0000 		.long	.LM24
+ 1189 0101 15        		.byte	0x15
+ 1190 0102 00        		.byte	0x0
+ 1191 0103 05        		.uleb128 0x5
+ 1192 0104 02        		.byte	0x2
+ 1193 0105 0000 0000 		.long	.LM25
+ 1194 0109 15        		.byte	0x15
+ 1195 010a 00        		.byte	0x0
+ 1196 010b 05        		.uleb128 0x5
+ 1197 010c 02        		.byte	0x2
+ 1198 010d 0000 0000 		.long	.LM26
+ 1199 0111 15        		.byte	0x15
+ 1200 0112 00        		.byte	0x0
+ 1201 0113 05        		.uleb128 0x5
+ 1202 0114 02        		.byte	0x2
+ 1203 0115 0000 0000 		.long	.LM27
+ 1204 0119 15        		.byte	0x15
+ 1205 011a 00        		.byte	0x0
+ 1206 011b 05        		.uleb128 0x5
+ 1207 011c 02        		.byte	0x2
+ 1208 011d 0000 0000 		.long	.LM28
+ 1209 0121 15        		.byte	0x15
+ 1210 0122 00        		.byte	0x0
+ 1211 0123 05        		.uleb128 0x5
+ 1212 0124 02        		.byte	0x2
+ 1213 0125 0000 0000 		.long	.LM29
+ 1214 0129 15        		.byte	0x15
+ 1215 012a 00        		.byte	0x0
+ 1216 012b 05        		.uleb128 0x5
+ 1217 012c 02        		.byte	0x2
+ 1218 012d 0000 0000 		.long	.LM30
+ 1219 0131 03        		.byte	0x3
+ 1220 0132 6F        		.sleb128 -17
+ 1221 0133 01        		.byte	0x1
+ 1222 0134 00        		.byte	0x0
+ 1223 0135 05        		.uleb128 0x5
+ 1224 0136 02        		.byte	0x2
+ 1225 0137 0000 0000 		.long	.LM31
+ 1226 013b 15        		.byte	0x15
+ 1227 013c 00        		.byte	0x0
+ 1228 013d 05        		.uleb128 0x5
+ 1229 013e 02        		.byte	0x2
+ 1230 013f 0000 0000 		.long	.LM32
+ 1231 0143 15        		.byte	0x15
+ 1232 0144 00        		.byte	0x0
+ 1233 0145 05        		.uleb128 0x5
+ 1234 0146 02        		.byte	0x2
+ 1235 0147 0000 0000 		.long	.LM33
+ 1236 014b 15        		.byte	0x15
+ 1237 014c 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 23
+
+
+ 1238 014d 05        		.uleb128 0x5
+ 1239 014e 02        		.byte	0x2
+ 1240 014f 0000 0000 		.long	.LM34
+ 1241 0153 15        		.byte	0x15
+ 1242 0154 00        		.byte	0x0
+ 1243 0155 05        		.uleb128 0x5
+ 1244 0156 02        		.byte	0x2
+ 1245 0157 0000 0000 		.long	.LM35
+ 1246 015b 15        		.byte	0x15
+ 1247 015c 00        		.byte	0x0
+ 1248 015d 05        		.uleb128 0x5
+ 1249 015e 02        		.byte	0x2
+ 1250 015f 0000 0000 		.long	.LM36
+ 1251 0163 15        		.byte	0x15
+ 1252 0164 00        		.byte	0x0
+ 1253 0165 05        		.uleb128 0x5
+ 1254 0166 02        		.byte	0x2
+ 1255 0167 0000 0000 		.long	.LM37
+ 1256 016b 15        		.byte	0x15
+ 1257 016c 00        		.byte	0x0
+ 1258 016d 05        		.uleb128 0x5
+ 1259 016e 02        		.byte	0x2
+ 1260 016f 0000 0000 		.long	.LM38
+ 1261 0173 3E        		.byte	0x3e
+ 1262 0174 00        		.byte	0x0
+ 1263 0175 05        		.uleb128 0x5
+ 1264 0176 02        		.byte	0x2
+ 1265 0177 0000 0000 		.long	.LM39
+ 1266 017b 18        		.byte	0x18
+ 1267 017c 00        		.byte	0x0
+ 1268 017d 05        		.uleb128 0x5
+ 1269 017e 02        		.byte	0x2
+ 1270 017f 0000 0000 		.long	.LM40
+ 1271 0183 15        		.byte	0x15
+ 1272 0184 00        		.byte	0x0
+ 1273 0185 05        		.uleb128 0x5
+ 1274 0186 02        		.byte	0x2
+ 1275 0187 0000 0000 		.long	.LM41
+ 1276 018b 15        		.byte	0x15
+ 1277 018c 00        		.byte	0x0
+ 1278 018d 05        		.uleb128 0x5
+ 1279 018e 02        		.byte	0x2
+ 1280 018f 0000 0000 		.long	.LM42
+ 1281 0193 15        		.byte	0x15
+ 1282 0194 00        		.byte	0x0
+ 1283 0195 05        		.uleb128 0x5
+ 1284 0196 02        		.byte	0x2
+ 1285 0197 0000 0000 		.long	.LM43
+ 1286 019b 18        		.byte	0x18
+ 1287 019c 00        		.byte	0x0
+ 1288 019d 05        		.uleb128 0x5
+ 1289 019e 02        		.byte	0x2
+ 1290 019f 0000 0000 		.long	.LM44
+ 1291 01a3 40        		.byte	0x40
+ 1292 01a4 00        		.byte	0x0
+ 1293 01a5 05        		.uleb128 0x5
+ 1294 01a6 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 24
+
+
+ 1295 01a7 0000 0000 		.long	.LM45
+ 1296 01ab 15        		.byte	0x15
+ 1297 01ac 00        		.byte	0x0
+ 1298 01ad 05        		.uleb128 0x5
+ 1299 01ae 02        		.byte	0x2
+ 1300 01af 0000 0000 		.long	.LM46
+ 1301 01b3 03        		.byte	0x3
+ 1302 01b4 52        		.sleb128 -46
+ 1303 01b5 01        		.byte	0x1
+ 1304 01b6 00        		.byte	0x0
+ 1305 01b7 05        		.uleb128 0x5
+ 1306 01b8 02        		.byte	0x2
+ 1307 01b9 0000 0000 		.long	.LM47
+ 1308 01bd 15        		.byte	0x15
+ 1309 01be 00        		.byte	0x0
+ 1310 01bf 05        		.uleb128 0x5
+ 1311 01c0 02        		.byte	0x2
+ 1312 01c1 0000 0000 		.long	.LM48
+ 1313 01c5 15        		.byte	0x15
+ 1314 01c6 00        		.byte	0x0
+ 1315 01c7 05        		.uleb128 0x5
+ 1316 01c8 02        		.byte	0x2
+ 1317 01c9 0000 0000 		.long	.LM49
+ 1318 01cd 17        		.byte	0x17
+ 1319 01ce 00        		.byte	0x0
+ 1320 01cf 05        		.uleb128 0x5
+ 1321 01d0 02        		.byte	0x2
+ 1322 01d1 0000 0000 		.long	.LM50
+ 1323 01d5 17        		.byte	0x17
+ 1324 01d6 00        		.byte	0x0
+ 1325 01d7 05        		.uleb128 0x5
+ 1326 01d8 02        		.byte	0x2
+ 1327 01d9 0000 0000 		.long	.LM51
+ 1328 01dd 17        		.byte	0x17
+ 1329 01de 00        		.byte	0x0
+ 1330 01df 05        		.uleb128 0x5
+ 1331 01e0 02        		.byte	0x2
+ 1332 01e1 0000 0000 		.long	.LM52
+ 1333 01e5 17        		.byte	0x17
+ 1334 01e6 00        		.byte	0x0
+ 1335 01e7 05        		.uleb128 0x5
+ 1336 01e8 02        		.byte	0x2
+ 1337 01e9 0000 0000 		.long	.LM53
+ 1338 01ed 17        		.byte	0x17
+ 1339 01ee 00        		.byte	0x0
+ 1340 01ef 05        		.uleb128 0x5
+ 1341 01f0 02        		.byte	0x2
+ 1342 01f1 0000 0000 		.long	.LM54
+ 1343 01f5 1A        		.byte	0x1a
+ 1344 01f6 00        		.byte	0x0
+ 1345 01f7 05        		.uleb128 0x5
+ 1346 01f8 02        		.byte	0x2
+ 1347 01f9 0000 0000 		.long	.LM55
+ 1348 01fd 15        		.byte	0x15
+ 1349 01fe 00        		.byte	0x0
+ 1350 01ff 05        		.uleb128 0x5
+ 1351 0200 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 25
+
+
+ 1352 0201 0000 0000 		.long	.LM56
+ 1353 0205 15        		.byte	0x15
+ 1354 0206 00        		.byte	0x0
+ 1355 0207 05        		.uleb128 0x5
+ 1356 0208 02        		.byte	0x2
+ 1357 0209 0000 0000 		.long	.LM57
+ 1358 020d 15        		.byte	0x15
+ 1359 020e 00        		.byte	0x0
+ 1360 020f 05        		.uleb128 0x5
+ 1361 0210 02        		.byte	0x2
+ 1362 0211 0000 0000 		.long	.LM58
+ 1363 0215 16        		.byte	0x16
+ 1364 0216 00        		.byte	0x0
+ 1365 0217 05        		.uleb128 0x5
+ 1366 0218 02        		.byte	0x2
+ 1367 0219 0000 0000 		.long	.LM59
+ 1368 021d 16        		.byte	0x16
+ 1369 021e 00        		.byte	0x0
+ 1370 021f 05        		.uleb128 0x5
+ 1371 0220 02        		.byte	0x2
+ 1372 0221 0000 0000 		.long	.LM60
+ 1373 0225 15        		.byte	0x15
+ 1374 0226 00        		.byte	0x0
+ 1375 0227 05        		.uleb128 0x5
+ 1376 0228 02        		.byte	0x2
+ 1377 0229 0000 0000 		.long	.LM61
+ 1378 022d 15        		.byte	0x15
+ 1379 022e 00        		.byte	0x0
+ 1380 022f 05        		.uleb128 0x5
+ 1381 0230 02        		.byte	0x2
+ 1382 0231 0000 0000 		.long	.LM62
+ 1383 0235 16        		.byte	0x16
+ 1384 0236 00        		.byte	0x0
+ 1385 0237 05        		.uleb128 0x5
+ 1386 0238 02        		.byte	0x2
+ 1387 0239 0000 0000 		.long	.LM63
+ 1388 023d 15        		.byte	0x15
+ 1389 023e 00        		.byte	0x0
+ 1390 023f 05        		.uleb128 0x5
+ 1391 0240 02        		.byte	0x2
+ 1392 0241 0000 0000 		.long	.LM64
+ 1393 0245 15        		.byte	0x15
+ 1394 0246 00        		.byte	0x0
+ 1395 0247 05        		.uleb128 0x5
+ 1396 0248 02        		.byte	0x2
+ 1397 0249 0000 0000 		.long	.LM65
+ 1398 024d 15        		.byte	0x15
+ 1399 024e 00        		.byte	0x0
+ 1400 024f 05        		.uleb128 0x5
+ 1401 0250 02        		.byte	0x2
+ 1402 0251 0000 0000 		.long	.LM66
+ 1403 0255 15        		.byte	0x15
+ 1404 0256 00        		.byte	0x0
+ 1405 0257 05        		.uleb128 0x5
+ 1406 0258 02        		.byte	0x2
+ 1407 0259 0000 0000 		.long	.LM67
+ 1408 025d 18        		.byte	0x18
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 26
+
+
+ 1409 025e 00        		.byte	0x0
+ 1410 025f 05        		.uleb128 0x5
+ 1411 0260 02        		.byte	0x2
+ 1412 0261 0000 0000 		.long	.LM68
+ 1413 0265 15        		.byte	0x15
+ 1414 0266 00        		.byte	0x0
+ 1415 0267 05        		.uleb128 0x5
+ 1416 0268 02        		.byte	0x2
+ 1417 0269 0000 0000 		.long	.LM69
+ 1418 026d 16        		.byte	0x16
+ 1419 026e 00        		.byte	0x0
+ 1420 026f 05        		.uleb128 0x5
+ 1421 0270 02        		.byte	0x2
+ 1422 0271 0000 0000 		.long	.LM70
+ 1423 0275 15        		.byte	0x15
+ 1424 0276 00        		.byte	0x0
+ 1425 0277 05        		.uleb128 0x5
+ 1426 0278 02        		.byte	0x2
+ 1427 0279 0000 0000 		.long	.LM71
+ 1428 027d 15        		.byte	0x15
+ 1429 027e 00        		.byte	0x0
+ 1430 027f 05        		.uleb128 0x5
+ 1431 0280 02        		.byte	0x2
+ 1432 0281 0000 0000 		.long	.LM72
+ 1433 0285 15        		.byte	0x15
+ 1434 0286 00        		.byte	0x0
+ 1435 0287 05        		.uleb128 0x5
+ 1436 0288 02        		.byte	0x2
+ 1437 0289 0000 0000 		.long	.LM73
+ 1438 028d 16        		.byte	0x16
+ 1439 028e 00        		.byte	0x0
+ 1440 028f 05        		.uleb128 0x5
+ 1441 0290 02        		.byte	0x2
+ 1442 0291 0000 0000 		.long	.LM74
+ 1443 0295 15        		.byte	0x15
+ 1444 0296 00        		.byte	0x0
+ 1445 0297 05        		.uleb128 0x5
+ 1446 0298 02        		.byte	0x2
+ 1447 0299 0000 0000 		.long	.LM75
+ 1448 029d 16        		.byte	0x16
+ 1449 029e 00        		.byte	0x0
+ 1450 029f 05        		.uleb128 0x5
+ 1451 02a0 02        		.byte	0x2
+ 1452 02a1 0000 0000 		.long	.Letext0
+ 1453 02a5 00        		.byte	0x0
+ 1454 02a6 01        		.uleb128 0x1
+ 1455 02a7 01        		.byte	0x1
+ 1456               	.LELT0:
+ 1457 02a8 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 1457      0200 1000 
+ 1457      0000 0101 
+ 1457      FB0E 0A00 
+ 1457      0101 0101 
+ 1458               	.LASF12:
+ 1459 0000 6C65 6674 		.string	"leftDir"
+ 1459      4469 7200 
+ 1460               	.LASF7:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 27
+
+
+ 1461 0008 5043 5374 		.string	"PCStop"
+ 1461      6F70 00
+ 1462               	.LASF16:
+ 1463 000f 7370 6565 		.string	"speedRight"
+ 1463      6452 6967 
+ 1463      6874 00
+ 1464               	.LASF20:
+ 1465 001a 5043 4465 		.string	"PCDemo"
+ 1465      6D6F 00
+ 1466               	.LASF18:
+ 1467 0021 5043 4465 		.string	"PCDemo.c"
+ 1467      6D6F 2E63 
+ 1467      00
+ 1468               	.LASF19:
+ 1469 002a 433A 5C55 		.string	"C:\\Users\\longc\\OneDrive\\Desktop\\sose18\\src"
+ 1469      7365 7273 
+ 1469      5C6C 6F6E 
+ 1469      6763 5C4F 
+ 1469      6E65 4472 
+ 1470               	.LASF8:
+ 1471 0055 5043 5269 		.string	"PCRight"
+ 1471      6768 7400 
+ 1472               	.LASF1:
+ 1473 005d 756E 7369 		.string	"unsigned char"
+ 1473      676E 6564 
+ 1473      2063 6861 
+ 1473      7200 
+ 1474               	.LASF4:
+ 1475 006b 6C6F 6E67 		.string	"long unsigned int"
+ 1475      2075 6E73 
+ 1475      6967 6E65 
+ 1475      6420 696E 
+ 1475      7400 
+ 1476               	.LASF17:
+ 1477 007d 474E 5520 		.string	"GNU C 4.3.3"
+ 1477      4320 342E 
+ 1477      332E 3300 
+ 1478               	.LASF11:
+ 1479 0089 5043 4677 		.string	"PCFwd"
+ 1479      6400 
+ 1480               	.LASF15:
+ 1481 008f 7370 6565 		.string	"speedLeft"
+ 1481      644C 6566 
+ 1481      7400 
+ 1482               	.LASF2:
+ 1483 0099 756E 7369 		.string	"unsigned int"
+ 1483      676E 6564 
+ 1483      2069 6E74 
+ 1483      00
+ 1484               	.LASF6:
+ 1485 00a6 6C6F 6E67 		.string	"long long unsigned int"
+ 1485      206C 6F6E 
+ 1485      6720 756E 
+ 1485      7369 676E 
+ 1485      6564 2069 
+ 1486               	.LASF10:
+ 1487 00bd 5043 5277 		.string	"PCRwd"
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 28
+
+
+ 1487      6400 
+ 1488               	.LASF9:
+ 1489 00c3 5043 4C65 		.string	"PCLeft"
+ 1489      6674 00
+ 1490               	.LASF13:
+ 1491 00ca 7269 6768 		.string	"rightDir"
+ 1491      7444 6972 
+ 1491      00
+ 1492               	.LASF5:
+ 1493 00d3 6C6F 6E67 		.string	"long long int"
+ 1493      206C 6F6E 
+ 1493      6720 696E 
+ 1493      7400 
+ 1494               	.LASF14:
+ 1495 00e1 7377 6974 		.string	"switched"
+ 1495      6368 6564 
+ 1495      00
+ 1496               	.LASF3:
+ 1497 00ea 6C6F 6E67 		.string	"long int"
+ 1497      2069 6E74 
+ 1497      00
+ 1498               	.LASF0:
+ 1499 00f3 7369 676E 		.string	"signed char"
+ 1499      6564 2063 
+ 1499      6861 7200 
+ 1500               	.global __do_copy_data
+ 1501               	.global __do_clear_bss
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s 			page 29
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 PCDemo.c
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:2      *ABS*:0000003f __SREG__
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:3      *ABS*:0000003e __SP_H__
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:4      *ABS*:0000003d __SP_L__
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:5      *ABS*:00000034 __CCP__
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:18     .text:00000000 PCStop
+                            *COM*:00000002 speedLeft
+                            *COM*:00000002 speedRight
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:42     .text:0000001c PCRight
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:91     .text:00000070 PCLeft
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:140    .text:000000c4 PCRwd
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:192    .text:0000011e PCFwd
+C:\Users\longc\AppData\Local\Temp/ccAMUZXa.s:248    .text:00000178 PCDemo
+
+UNDEFINED SYMBOLS
+FrontLED
+BackLED
+Init
+SerPrint
+StartSwitch
+SerRead
+switched
+MotorDir
+MotorSpeed
+Msleep
+__do_copy_data
+__do_clear_bss

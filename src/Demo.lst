@@ -1,0 +1,465 @@
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 1
+
+
+   1               		.file	"Demo.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 4465 6D6F 		.string	"DemoMode\r\n"
+  18      4D6F 6465 
+  18      0D0A 00
+  19               		.text
+  20               	.global	Demo
+  21               		.type	Demo, @function
+  22               	Demo:
+  23               	.LFB2:
+  24               	.LM1:
+  25               	/* prologue: function */
+  26               	/* frame size = 0 */
+  27               	.LM2:
+  28 0000 00D0      		rcall Init
+  29               	.LM3:
+  30 0002 80E0      		ldi r24,lo8(.LC0)
+  31 0004 90E0      		ldi r25,hi8(.LC0)
+  32 0006 00D0      		rcall SerPrint
+  33               	.LVL0:
+  34               	.L9:
+  35               	.LM4:
+  36 0008 00D0      		rcall PollSwitch
+  37               	.LVL1:
+  38               	.LM5:
+  39 000a 8130      		cpi r24,lo8(1)
+  40               	.LVL2:
+  41 000c 01F4      		brne .L2
+  42 000e 00D0      		rcall LineDemo
+  43               	.LVL3:
+  44 0010 00C0      		rjmp .L9
+  45               	.LVL4:
+  46               	.L2:
+  47               	.LM6:
+  48 0012 8230      		cpi r24,lo8(2)
+  49 0014 01F4      		brne .L4
+  50 0016 00D0      		rcall RechteckDemo
+  51               	.LVL5:
+  52 0018 00C0      		rjmp .L9
+  53               	.LVL6:
+  54               	.L4:
+  55               	.LM7:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 2
+
+
+  56 001a 8430      		cpi r24,lo8(4)
+  57 001c 01F4      		brne .L5
+  58 001e 00D0      		rcall PCDemo
+  59               	.LVL7:
+  60 0020 00C0      		rjmp .L9
+  61               	.LVL8:
+  62               	.L5:
+  63               	.LM8:
+  64 0022 8830      		cpi r24,lo8(8)
+  65 0024 01F4      		brne .L9
+  66 0026 00D0      		rcall IRDemo
+  67               	.LVL9:
+  68 0028 00C0      		rjmp .L9
+  69               	.LFE2:
+  70               		.size	Demo, .-Demo
+  71               		.section	.debug_frame,"",@progbits
+  72               	.Lframe0:
+  73 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+  74               	.LSCIE0:
+  75 0004 FFFF FFFF 		.long	0xffffffff
+  76 0008 01        		.byte	0x1
+  77 0009 00        		.string	""
+  78 000a 01        		.uleb128 0x1
+  79 000b 7F        		.sleb128 -1
+  80 000c 24        		.byte	0x24
+  81 000d 0C        		.byte	0xc
+  82 000e 20        		.uleb128 0x20
+  83 000f 00        		.uleb128 0x0
+  84               		.p2align	2
+  85               	.LECIE0:
+  86               	.LSFDE0:
+  87 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+  88               	.LASFDE0:
+  89 0014 0000 0000 		.long	.Lframe0
+  90 0018 0000 0000 		.long	.LFB2
+  91 001c 2A00 0000 		.long	.LFE2-.LFB2
+  92               		.p2align	2
+  93               	.LEFDE0:
+  94               		.text
+  95               	.Letext0:
+  96               		.section	.debug_loc,"",@progbits
+  97               	.Ldebug_loc0:
+  98               	.LLST1:
+  99 0000 0800 0000 		.long	.LVL0-.Ltext0
+ 100 0004 0A00 0000 		.long	.LVL1-.Ltext0
+ 101 0008 0100      		.word	0x1
+ 102 000a 68        		.byte	0x68
+ 103 000b 0C00 0000 		.long	.LVL2-.Ltext0
+ 104 000f 1000 0000 		.long	.LVL3-.Ltext0
+ 105 0013 0100      		.word	0x1
+ 106 0015 68        		.byte	0x68
+ 107 0016 1200 0000 		.long	.LVL4-.Ltext0
+ 108 001a 1800 0000 		.long	.LVL5-.Ltext0
+ 109 001e 0100      		.word	0x1
+ 110 0020 68        		.byte	0x68
+ 111 0021 1A00 0000 		.long	.LVL6-.Ltext0
+ 112 0025 2000 0000 		.long	.LVL7-.Ltext0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 3
+
+
+ 113 0029 0100      		.word	0x1
+ 114 002b 68        		.byte	0x68
+ 115 002c 2200 0000 		.long	.LVL8-.Ltext0
+ 116 0030 2800 0000 		.long	.LVL9-.Ltext0
+ 117 0034 0100      		.word	0x1
+ 118 0036 68        		.byte	0x68
+ 119 0037 0000 0000 		.long	0x0
+ 120 003b 0000 0000 		.long	0x0
+ 121               		.section	.debug_info
+ 122 0000 7D00 0000 		.long	0x7d
+ 123 0004 0200      		.word	0x2
+ 124 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 125 000a 04        		.byte	0x4
+ 126 000b 01        		.uleb128 0x1
+ 127 000c 0000 0000 		.long	.LASF7
+ 128 0010 01        		.byte	0x1
+ 129 0011 0000 0000 		.long	.LASF8
+ 130 0015 0000 0000 		.long	.LASF9
+ 131 0019 0000 0000 		.long	.Ltext0
+ 132 001d 0000 0000 		.long	.Letext0
+ 133 0021 0000 0000 		.long	.Ldebug_line0
+ 134 0025 02        		.uleb128 0x2
+ 135 0026 01        		.byte	0x1
+ 136 0027 06        		.byte	0x6
+ 137 0028 0000 0000 		.long	.LASF0
+ 138 002c 02        		.uleb128 0x2
+ 139 002d 01        		.byte	0x1
+ 140 002e 08        		.byte	0x8
+ 141 002f 0000 0000 		.long	.LASF1
+ 142 0033 03        		.uleb128 0x3
+ 143 0034 02        		.byte	0x2
+ 144 0035 05        		.byte	0x5
+ 145 0036 696E 7400 		.string	"int"
+ 146 003a 02        		.uleb128 0x2
+ 147 003b 02        		.byte	0x2
+ 148 003c 07        		.byte	0x7
+ 149 003d 0000 0000 		.long	.LASF2
+ 150 0041 02        		.uleb128 0x2
+ 151 0042 04        		.byte	0x4
+ 152 0043 05        		.byte	0x5
+ 153 0044 0000 0000 		.long	.LASF3
+ 154 0048 02        		.uleb128 0x2
+ 155 0049 04        		.byte	0x4
+ 156 004a 07        		.byte	0x7
+ 157 004b 0000 0000 		.long	.LASF4
+ 158 004f 02        		.uleb128 0x2
+ 159 0050 08        		.byte	0x8
+ 160 0051 05        		.byte	0x5
+ 161 0052 0000 0000 		.long	.LASF5
+ 162 0056 02        		.uleb128 0x2
+ 163 0057 08        		.byte	0x8
+ 164 0058 07        		.byte	0x7
+ 165 0059 0000 0000 		.long	.LASF6
+ 166 005d 04        		.uleb128 0x4
+ 167 005e 01        		.byte	0x1
+ 168 005f 0000 0000 		.long	.LASF10
+ 169 0063 01        		.byte	0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 4
+
+
+ 170 0064 1E        		.byte	0x1e
+ 171 0065 01        		.byte	0x1
+ 172 0066 0000 0000 		.long	.LFB2
+ 173 006a 0000 0000 		.long	.LFE2
+ 174 006e 02        		.byte	0x2
+ 175 006f 90        		.byte	0x90
+ 176 0070 20        		.uleb128 0x20
+ 177 0071 05        		.uleb128 0x5
+ 178 0072 7377 00   		.string	"sw"
+ 179 0075 01        		.byte	0x1
+ 180 0076 1F        		.byte	0x1f
+ 181 0077 2C00 0000 		.long	0x2c
+ 182 007b 0000 0000 		.long	.LLST1
+ 183 007f 00        		.byte	0x0
+ 184 0080 00        		.byte	0x0
+ 185               		.section	.debug_abbrev
+ 186 0000 01        		.uleb128 0x1
+ 187 0001 11        		.uleb128 0x11
+ 188 0002 01        		.byte	0x1
+ 189 0003 25        		.uleb128 0x25
+ 190 0004 0E        		.uleb128 0xe
+ 191 0005 13        		.uleb128 0x13
+ 192 0006 0B        		.uleb128 0xb
+ 193 0007 03        		.uleb128 0x3
+ 194 0008 0E        		.uleb128 0xe
+ 195 0009 1B        		.uleb128 0x1b
+ 196 000a 0E        		.uleb128 0xe
+ 197 000b 11        		.uleb128 0x11
+ 198 000c 01        		.uleb128 0x1
+ 199 000d 12        		.uleb128 0x12
+ 200 000e 01        		.uleb128 0x1
+ 201 000f 10        		.uleb128 0x10
+ 202 0010 06        		.uleb128 0x6
+ 203 0011 00        		.byte	0x0
+ 204 0012 00        		.byte	0x0
+ 205 0013 02        		.uleb128 0x2
+ 206 0014 24        		.uleb128 0x24
+ 207 0015 00        		.byte	0x0
+ 208 0016 0B        		.uleb128 0xb
+ 209 0017 0B        		.uleb128 0xb
+ 210 0018 3E        		.uleb128 0x3e
+ 211 0019 0B        		.uleb128 0xb
+ 212 001a 03        		.uleb128 0x3
+ 213 001b 0E        		.uleb128 0xe
+ 214 001c 00        		.byte	0x0
+ 215 001d 00        		.byte	0x0
+ 216 001e 03        		.uleb128 0x3
+ 217 001f 24        		.uleb128 0x24
+ 218 0020 00        		.byte	0x0
+ 219 0021 0B        		.uleb128 0xb
+ 220 0022 0B        		.uleb128 0xb
+ 221 0023 3E        		.uleb128 0x3e
+ 222 0024 0B        		.uleb128 0xb
+ 223 0025 03        		.uleb128 0x3
+ 224 0026 08        		.uleb128 0x8
+ 225 0027 00        		.byte	0x0
+ 226 0028 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 5
+
+
+ 227 0029 04        		.uleb128 0x4
+ 228 002a 2E        		.uleb128 0x2e
+ 229 002b 01        		.byte	0x1
+ 230 002c 3F        		.uleb128 0x3f
+ 231 002d 0C        		.uleb128 0xc
+ 232 002e 03        		.uleb128 0x3
+ 233 002f 0E        		.uleb128 0xe
+ 234 0030 3A        		.uleb128 0x3a
+ 235 0031 0B        		.uleb128 0xb
+ 236 0032 3B        		.uleb128 0x3b
+ 237 0033 0B        		.uleb128 0xb
+ 238 0034 27        		.uleb128 0x27
+ 239 0035 0C        		.uleb128 0xc
+ 240 0036 11        		.uleb128 0x11
+ 241 0037 01        		.uleb128 0x1
+ 242 0038 12        		.uleb128 0x12
+ 243 0039 01        		.uleb128 0x1
+ 244 003a 40        		.uleb128 0x40
+ 245 003b 0A        		.uleb128 0xa
+ 246 003c 00        		.byte	0x0
+ 247 003d 00        		.byte	0x0
+ 248 003e 05        		.uleb128 0x5
+ 249 003f 34        		.uleb128 0x34
+ 250 0040 00        		.byte	0x0
+ 251 0041 03        		.uleb128 0x3
+ 252 0042 08        		.uleb128 0x8
+ 253 0043 3A        		.uleb128 0x3a
+ 254 0044 0B        		.uleb128 0xb
+ 255 0045 3B        		.uleb128 0x3b
+ 256 0046 0B        		.uleb128 0xb
+ 257 0047 49        		.uleb128 0x49
+ 258 0048 13        		.uleb128 0x13
+ 259 0049 02        		.uleb128 0x2
+ 260 004a 06        		.uleb128 0x6
+ 261 004b 00        		.byte	0x0
+ 262 004c 00        		.byte	0x0
+ 263 004d 00        		.byte	0x0
+ 264               		.section	.debug_pubnames,"",@progbits
+ 265 0000 1700 0000 		.long	0x17
+ 266 0004 0200      		.word	0x2
+ 267 0006 0000 0000 		.long	.Ldebug_info0
+ 268 000a 8100 0000 		.long	0x81
+ 269 000e 5D00 0000 		.long	0x5d
+ 270 0012 4465 6D6F 		.string	"Demo"
+ 270      00
+ 271 0017 0000 0000 		.long	0x0
+ 272               		.section	.debug_aranges,"",@progbits
+ 273 0000 1C00 0000 		.long	0x1c
+ 274 0004 0200      		.word	0x2
+ 275 0006 0000 0000 		.long	.Ldebug_info0
+ 276 000a 04        		.byte	0x4
+ 277 000b 00        		.byte	0x0
+ 278 000c 0000      		.word	0x0
+ 279 000e 0000      		.word	0x0
+ 280 0010 0000 0000 		.long	.Ltext0
+ 281 0014 2A00 0000 		.long	.Letext0-.Ltext0
+ 282 0018 0000 0000 		.long	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 6
+
+
+ 283 001c 0000 0000 		.long	0x0
+ 284               		.section	.debug_line
+ 285 0000 6A00 0000 		.long	.LELT0-.LSLT0
+ 286               	.LSLT0:
+ 287 0004 0200      		.word	0x2
+ 288 0006 1A00 0000 		.long	.LELTP0-.LASLTP0
+ 289               	.LASLTP0:
+ 290 000a 01        		.byte	0x1
+ 291 000b 01        		.byte	0x1
+ 292 000c F6        		.byte	0xf6
+ 293 000d F5        		.byte	0xf5
+ 294 000e 0A        		.byte	0xa
+ 295 000f 00        		.byte	0x0
+ 296 0010 01        		.byte	0x1
+ 297 0011 01        		.byte	0x1
+ 298 0012 01        		.byte	0x1
+ 299 0013 01        		.byte	0x1
+ 300 0014 00        		.byte	0x0
+ 301 0015 00        		.byte	0x0
+ 302 0016 00        		.byte	0x0
+ 303 0017 01        		.byte	0x1
+ 304 0018 00        		.byte	0x0
+ 305 0019 4465 6D6F 		.string	"Demo.c"
+ 305      2E63 00
+ 306 0020 00        		.uleb128 0x0
+ 307 0021 00        		.uleb128 0x0
+ 308 0022 00        		.uleb128 0x0
+ 309 0023 00        		.byte	0x0
+ 310               	.LELTP0:
+ 311 0024 00        		.byte	0x0
+ 312 0025 05        		.uleb128 0x5
+ 313 0026 02        		.byte	0x2
+ 314 0027 0000 0000 		.long	.LM1
+ 315 002b 31        		.byte	0x31
+ 316 002c 00        		.byte	0x0
+ 317 002d 05        		.uleb128 0x5
+ 318 002e 02        		.byte	0x2
+ 319 002f 0000 0000 		.long	.LM2
+ 320 0033 16        		.byte	0x16
+ 321 0034 00        		.byte	0x0
+ 322 0035 05        		.uleb128 0x5
+ 323 0036 02        		.byte	0x2
+ 324 0037 0000 0000 		.long	.LM3
+ 325 003b 15        		.byte	0x15
+ 326 003c 00        		.byte	0x0
+ 327 003d 05        		.uleb128 0x5
+ 328 003e 02        		.byte	0x2
+ 329 003f 0000 0000 		.long	.LM4
+ 330 0043 17        		.byte	0x17
+ 331 0044 00        		.byte	0x0
+ 332 0045 05        		.uleb128 0x5
+ 333 0046 02        		.byte	0x2
+ 334 0047 0000 0000 		.long	.LM5
+ 335 004b 15        		.byte	0x15
+ 336 004c 00        		.byte	0x0
+ 337 004d 05        		.uleb128 0x5
+ 338 004e 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 7
+
+
+ 339 004f 0000 0000 		.long	.LM6
+ 340 0053 15        		.byte	0x15
+ 341 0054 00        		.byte	0x0
+ 342 0055 05        		.uleb128 0x5
+ 343 0056 02        		.byte	0x2
+ 344 0057 0000 0000 		.long	.LM7
+ 345 005b 15        		.byte	0x15
+ 346 005c 00        		.byte	0x0
+ 347 005d 05        		.uleb128 0x5
+ 348 005e 02        		.byte	0x2
+ 349 005f 0000 0000 		.long	.LM8
+ 350 0063 15        		.byte	0x15
+ 351 0064 00        		.byte	0x0
+ 352 0065 05        		.uleb128 0x5
+ 353 0066 02        		.byte	0x2
+ 354 0067 0000 0000 		.long	.Letext0
+ 355 006b 00        		.byte	0x0
+ 356 006c 01        		.uleb128 0x1
+ 357 006d 01        		.byte	0x1
+ 358               	.LELT0:
+ 359 006e 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 359      0200 1000 
+ 359      0000 0101 
+ 359      FB0E 0A00 
+ 359      0101 0101 
+ 360               	.LASF2:
+ 361 0000 756E 7369 		.string	"unsigned int"
+ 361      676E 6564 
+ 361      2069 6E74 
+ 361      00
+ 362               	.LASF4:
+ 363 000d 6C6F 6E67 		.string	"long unsigned int"
+ 363      2075 6E73 
+ 363      6967 6E65 
+ 363      6420 696E 
+ 363      7400 
+ 364               	.LASF7:
+ 365 001f 474E 5520 		.string	"GNU C 4.3.3"
+ 365      4320 342E 
+ 365      332E 3300 
+ 366               	.LASF0:
+ 367 002b 7369 676E 		.string	"signed char"
+ 367      6564 2063 
+ 367      6861 7200 
+ 368               	.LASF9:
+ 369 0037 433A 5C55 		.string	"C:\\Users\\longc\\OneDrive\\Desktop\\sose18\\src"
+ 369      7365 7273 
+ 369      5C6C 6F6E 
+ 369      6763 5C4F 
+ 369      6E65 4472 
+ 370               	.LASF6:
+ 371 0062 6C6F 6E67 		.string	"long long unsigned int"
+ 371      206C 6F6E 
+ 371      6720 756E 
+ 371      7369 676E 
+ 371      6564 2069 
+ 372               	.LASF1:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 8
+
+
+ 373 0079 756E 7369 		.string	"unsigned char"
+ 373      676E 6564 
+ 373      2063 6861 
+ 373      7200 
+ 374               	.LASF3:
+ 375 0087 6C6F 6E67 		.string	"long int"
+ 375      2069 6E74 
+ 375      00
+ 376               	.LASF8:
+ 377 0090 4465 6D6F 		.string	"Demo.c"
+ 377      2E63 00
+ 378               	.LASF10:
+ 379 0097 4465 6D6F 		.string	"Demo"
+ 379      00
+ 380               	.LASF5:
+ 381 009c 6C6F 6E67 		.string	"long long int"
+ 381      206C 6F6E 
+ 381      6720 696E 
+ 381      7400 
+ 382               	.global __do_copy_data
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s 			page 9
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Demo.c
+C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s:2      *ABS*:0000003f __SREG__
+C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s:3      *ABS*:0000003e __SP_H__
+C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s:4      *ABS*:0000003d __SP_L__
+C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s:5      *ABS*:00000034 __CCP__
+C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\longc\AppData\Local\Temp/ccLQj6IX.s:22     .text:00000000 Demo
+
+UNDEFINED SYMBOLS
+Init
+SerPrint
+PollSwitch
+LineDemo
+RechteckDemo
+PCDemo
+IRDemo
+__do_copy_data

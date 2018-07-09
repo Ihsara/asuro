@@ -1,0 +1,2078 @@
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 1
+
+
+   1               		.file	"Test.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               	.global	LEDTest
+  17               		.type	LEDTest, @function
+  18               	LEDTest:
+  19               	.LFB10:
+  20               	.LM1:
+  21 0000 CF93      		push r28
+  22 0002 DF93      		push r29
+  23               	/* prologue: function */
+  24               	/* frame size = 0 */
+  25               	.LM2:
+  26 0004 81E0      		ldi r24,lo8(1)
+  27 0006 00D0      		rcall StatusLED
+  28               	.LM3:
+  29 0008 80E0      		ldi r24,lo8(0)
+  30 000a 60E0      		ldi r22,lo8(0)
+  31 000c 00D0      		rcall BackLED
+  32               	.LM4:
+  33 000e 80E0      		ldi r24,lo8(0)
+  34 0010 00D0      		rcall FrontLED
+  35 0012 C0E0      		ldi r28,lo8(0)
+  36 0014 D0E0      		ldi r29,hi8(0)
+  37               	.LVL0:
+  38               	.L2:
+  39               	.LM5:
+  40 0016 8FEF      		ldi r24,lo8(-1)
+  41 0018 00D0      		rcall Sleep
+  42 001a 2196      		adiw r28,1
+  43 001c 83E0      		ldi r24,hi8(842)
+  44 001e CA34      		cpi r28,lo8(842)
+  45 0020 D807      		cpc r29,r24
+  46 0022 01F4      		brne .L2
+  47               	.LM6:
+  48 0024 82E0      		ldi r24,lo8(2)
+  49 0026 00D0      		rcall StatusLED
+  50 0028 C0E0      		ldi r28,lo8(0)
+  51 002a D0E0      		ldi r29,hi8(0)
+  52               	.LVL1:
+  53               	.L3:
+  54               	.LM7:
+  55 002c 8FEF      		ldi r24,lo8(-1)
+  56 002e 00D0      		rcall Sleep
+  57 0030 2196      		adiw r28,1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 2
+
+
+  58 0032 83E0      		ldi r24,hi8(842)
+  59 0034 CA34      		cpi r28,lo8(842)
+  60 0036 D807      		cpc r29,r24
+  61 0038 01F4      		brne .L3
+  62               	.LM8:
+  63 003a 80E0      		ldi r24,lo8(0)
+  64 003c 00D0      		rcall StatusLED
+  65               	.LM9:
+  66 003e 81E0      		ldi r24,lo8(1)
+  67 0040 00D0      		rcall FrontLED
+  68 0042 C0E0      		ldi r28,lo8(0)
+  69 0044 D0E0      		ldi r29,hi8(0)
+  70               	.LVL2:
+  71               	.L4:
+  72               	.LM10:
+  73 0046 8FEF      		ldi r24,lo8(-1)
+  74 0048 00D0      		rcall Sleep
+  75 004a 2196      		adiw r28,1
+  76 004c 83E0      		ldi r24,hi8(842)
+  77 004e CA34      		cpi r28,lo8(842)
+  78 0050 D807      		cpc r29,r24
+  79 0052 01F4      		brne .L4
+  80               	.LM11:
+  81 0054 81E0      		ldi r24,lo8(1)
+  82 0056 60E0      		ldi r22,lo8(0)
+  83 0058 00D0      		rcall BackLED
+  84               	.LM12:
+  85 005a 80E0      		ldi r24,lo8(0)
+  86 005c 00D0      		rcall FrontLED
+  87 005e C0E0      		ldi r28,lo8(0)
+  88 0060 D0E0      		ldi r29,hi8(0)
+  89               	.LVL3:
+  90               	.L5:
+  91               	.LM13:
+  92 0062 8FEF      		ldi r24,lo8(-1)
+  93 0064 00D0      		rcall Sleep
+  94 0066 2196      		adiw r28,1
+  95 0068 83E0      		ldi r24,hi8(842)
+  96 006a CA34      		cpi r28,lo8(842)
+  97 006c D807      		cpc r29,r24
+  98 006e 01F4      		brne .L5
+  99               	.LM14:
+ 100 0070 80E0      		ldi r24,lo8(0)
+ 101 0072 61E0      		ldi r22,lo8(1)
+ 102 0074 00D0      		rcall BackLED
+ 103 0076 C0E0      		ldi r28,lo8(0)
+ 104 0078 D0E0      		ldi r29,hi8(0)
+ 105               	.LVL4:
+ 106               	.L6:
+ 107               	.LM15:
+ 108 007a 8FEF      		ldi r24,lo8(-1)
+ 109 007c 00D0      		rcall Sleep
+ 110 007e 2196      		adiw r28,1
+ 111 0080 83E0      		ldi r24,hi8(842)
+ 112 0082 CA34      		cpi r28,lo8(842)
+ 113 0084 D807      		cpc r29,r24
+ 114 0086 01F4      		brne .L6
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 3
+
+
+ 115               	.LM16:
+ 116 0088 81E0      		ldi r24,lo8(1)
+ 117 008a 61E0      		ldi r22,lo8(1)
+ 118 008c 00D0      		rcall BackLED
+ 119               	.LM17:
+ 120 008e 83E0      		ldi r24,lo8(3)
+ 121 0090 00D0      		rcall StatusLED
+ 122               	.LM18:
+ 123 0092 81E0      		ldi r24,lo8(1)
+ 124 0094 00D0      		rcall FrontLED
+ 125 0096 C0E0      		ldi r28,lo8(0)
+ 126 0098 D0E0      		ldi r29,hi8(0)
+ 127               	.LVL5:
+ 128               	.L7:
+ 129               	.LM19:
+ 130 009a 8FEF      		ldi r24,lo8(-1)
+ 131 009c 00D0      		rcall Sleep
+ 132 009e 2196      		adiw r28,1
+ 133 00a0 83E0      		ldi r24,hi8(842)
+ 134 00a2 CA34      		cpi r28,lo8(842)
+ 135 00a4 D807      		cpc r29,r24
+ 136 00a6 01F4      		brne .L7
+ 137               	.LM20:
+ 138 00a8 80E0      		ldi r24,lo8(0)
+ 139 00aa 60E0      		ldi r22,lo8(0)
+ 140 00ac 00D0      		rcall BackLED
+ 141               	.LM21:
+ 142 00ae 80E0      		ldi r24,lo8(0)
+ 143 00b0 00D0      		rcall StatusLED
+ 144               	.LM22:
+ 145 00b2 80E0      		ldi r24,lo8(0)
+ 146 00b4 00D0      		rcall FrontLED
+ 147               	/* epilogue start */
+ 148               	.LM23:
+ 149 00b6 DF91      		pop r29
+ 150 00b8 CF91      		pop r28
+ 151               	.LVL6:
+ 152 00ba 0895      		ret
+ 153               	.LFE10:
+ 154               		.size	LEDTest, .-LEDTest
+ 155               	.global	MotorTestBoth
+ 156               		.type	MotorTestBoth, @function
+ 157               	MotorTestBoth:
+ 158               	.LFB8:
+ 159               	.LM24:
+ 160 00bc 1F93      		push r17
+ 161               	/* prologue: function */
+ 162               	/* frame size = 0 */
+ 163               	.LM25:
+ 164 00be 80E2      		ldi r24,lo8(32)
+ 165 00c0 60E2      		ldi r22,lo8(32)
+ 166 00c2 00D0      		rcall MotorDir
+ 167 00c4 10E0      		ldi r17,lo8(0)
+ 168               	.L16:
+ 169               	.LM26:
+ 170 00c6 812F      		mov r24,r17
+ 171 00c8 612F      		mov r22,r17
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 4
+
+
+ 172 00ca 00D0      		rcall MotorSpeed
+ 173 00cc 1F5F      		subi r17,lo8(-(1))
+ 174               	.LM27:
+ 175 00ce 1F3F      		cpi r17,lo8(-1)
+ 176 00d0 01F4      		brne .L16
+ 177               	.L17:
+ 178               	.LM28:
+ 179 00d2 812F      		mov r24,r17
+ 180 00d4 612F      		mov r22,r17
+ 181 00d6 00D0      		rcall MotorSpeed
+ 182 00d8 1150      		subi r17,lo8(-(-1))
+ 183               	.LM29:
+ 184 00da 01F4      		brne .L17
+ 185               	.LM30:
+ 186 00dc 80E1      		ldi r24,lo8(16)
+ 187 00de 60E1      		ldi r22,lo8(16)
+ 188 00e0 00D0      		rcall MotorDir
+ 189               	.L18:
+ 190               	.LM31:
+ 191 00e2 812F      		mov r24,r17
+ 192 00e4 612F      		mov r22,r17
+ 193 00e6 00D0      		rcall MotorSpeed
+ 194 00e8 1F5F      		subi r17,lo8(-(1))
+ 195               	.LM32:
+ 196 00ea 1F3F      		cpi r17,lo8(-1)
+ 197 00ec 01F4      		brne .L18
+ 198               	.L19:
+ 199               	.LM33:
+ 200 00ee 812F      		mov r24,r17
+ 201 00f0 612F      		mov r22,r17
+ 202 00f2 00D0      		rcall MotorSpeed
+ 203 00f4 1150      		subi r17,lo8(-(-1))
+ 204               	.LM34:
+ 205 00f6 01F4      		brne .L19
+ 206               	.LM35:
+ 207 00f8 80E0      		ldi r24,lo8(0)
+ 208 00fa 60E0      		ldi r22,lo8(0)
+ 209 00fc 00D0      		rcall MotorSpeed
+ 210               	/* epilogue start */
+ 211               	.LM36:
+ 212 00fe 1F91      		pop r17
+ 213 0100 0895      		ret
+ 214               	.LFE8:
+ 215               		.size	MotorTestBoth, .-MotorTestBoth
+ 216               	.global	MotorTestLeft
+ 217               		.type	MotorTestLeft, @function
+ 218               	MotorTestLeft:
+ 219               	.LFB7:
+ 220               	.LM37:
+ 221 0102 1F93      		push r17
+ 222               	/* prologue: function */
+ 223               	/* frame size = 0 */
+ 224               	.LM38:
+ 225 0104 80E2      		ldi r24,lo8(32)
+ 226 0106 60E0      		ldi r22,lo8(0)
+ 227 0108 00D0      		rcall MotorDir
+ 228 010a 10E0      		ldi r17,lo8(0)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 5
+
+
+ 229               	.L26:
+ 230               	.LM39:
+ 231 010c 812F      		mov r24,r17
+ 232 010e 60E0      		ldi r22,lo8(0)
+ 233 0110 00D0      		rcall MotorSpeed
+ 234 0112 1F5F      		subi r17,lo8(-(1))
+ 235               	.LM40:
+ 236 0114 1F3F      		cpi r17,lo8(-1)
+ 237 0116 01F4      		brne .L26
+ 238               	.L27:
+ 239               	.LM41:
+ 240 0118 812F      		mov r24,r17
+ 241 011a 60E0      		ldi r22,lo8(0)
+ 242 011c 00D0      		rcall MotorSpeed
+ 243 011e 1150      		subi r17,lo8(-(-1))
+ 244               	.LM42:
+ 245 0120 01F4      		brne .L27
+ 246               	.LM43:
+ 247 0122 80E1      		ldi r24,lo8(16)
+ 248 0124 60E0      		ldi r22,lo8(0)
+ 249 0126 00D0      		rcall MotorDir
+ 250               	.L28:
+ 251               	.LM44:
+ 252 0128 812F      		mov r24,r17
+ 253 012a 60E0      		ldi r22,lo8(0)
+ 254 012c 00D0      		rcall MotorSpeed
+ 255 012e 1F5F      		subi r17,lo8(-(1))
+ 256               	.LM45:
+ 257 0130 1F3F      		cpi r17,lo8(-1)
+ 258 0132 01F4      		brne .L28
+ 259               	.L29:
+ 260               	.LM46:
+ 261 0134 812F      		mov r24,r17
+ 262 0136 60E0      		ldi r22,lo8(0)
+ 263 0138 00D0      		rcall MotorSpeed
+ 264 013a 1150      		subi r17,lo8(-(-1))
+ 265               	.LM47:
+ 266 013c 01F4      		brne .L29
+ 267               	/* epilogue start */
+ 268               	.LM48:
+ 269 013e 1F91      		pop r17
+ 270 0140 0895      		ret
+ 271               	.LFE7:
+ 272               		.size	MotorTestLeft, .-MotorTestLeft
+ 273               	.global	MotorTestRight
+ 274               		.type	MotorTestRight, @function
+ 275               	MotorTestRight:
+ 276               	.LFB6:
+ 277               	.LM49:
+ 278 0142 1F93      		push r17
+ 279               	/* prologue: function */
+ 280               	/* frame size = 0 */
+ 281               	.LM50:
+ 282 0144 80E0      		ldi r24,lo8(0)
+ 283 0146 60E2      		ldi r22,lo8(32)
+ 284 0148 00D0      		rcall MotorDir
+ 285 014a 10E0      		ldi r17,lo8(0)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 6
+
+
+ 286               	.L36:
+ 287               	.LM51:
+ 288 014c 80E0      		ldi r24,lo8(0)
+ 289 014e 612F      		mov r22,r17
+ 290 0150 00D0      		rcall MotorSpeed
+ 291 0152 1F5F      		subi r17,lo8(-(1))
+ 292               	.LM52:
+ 293 0154 1F3F      		cpi r17,lo8(-1)
+ 294 0156 01F4      		brne .L36
+ 295               	.L37:
+ 296               	.LM53:
+ 297 0158 80E0      		ldi r24,lo8(0)
+ 298 015a 612F      		mov r22,r17
+ 299 015c 00D0      		rcall MotorSpeed
+ 300 015e 1150      		subi r17,lo8(-(-1))
+ 301               	.LM54:
+ 302 0160 01F4      		brne .L37
+ 303               	.LM55:
+ 304 0162 80E0      		ldi r24,lo8(0)
+ 305 0164 60E1      		ldi r22,lo8(16)
+ 306 0166 00D0      		rcall MotorDir
+ 307               	.L38:
+ 308               	.LM56:
+ 309 0168 80E0      		ldi r24,lo8(0)
+ 310 016a 612F      		mov r22,r17
+ 311 016c 00D0      		rcall MotorSpeed
+ 312 016e 1F5F      		subi r17,lo8(-(1))
+ 313               	.LM57:
+ 314 0170 1F3F      		cpi r17,lo8(-1)
+ 315 0172 01F4      		brne .L38
+ 316               	.L39:
+ 317               	.LM58:
+ 318 0174 80E0      		ldi r24,lo8(0)
+ 319 0176 612F      		mov r22,r17
+ 320 0178 00D0      		rcall MotorSpeed
+ 321 017a 1150      		subi r17,lo8(-(-1))
+ 322               	.LM59:
+ 323 017c 01F4      		brne .L39
+ 324               	/* epilogue start */
+ 325               	.LM60:
+ 326 017e 1F91      		pop r17
+ 327 0180 0895      		ret
+ 328               	.LFE6:
+ 329               		.size	MotorTestRight, .-MotorTestRight
+ 330               	.global	MotorTest
+ 331               		.type	MotorTest, @function
+ 332               	MotorTest:
+ 333               	.LFB9:
+ 334               	.LM61:
+ 335               	/* prologue: function */
+ 336               	/* frame size = 0 */
+ 337               	.LM62:
+ 338 0182 00D0      		rcall MotorTestLeft
+ 339               	.LM63:
+ 340 0184 00D0      		rcall MotorTestRight
+ 341               	.LM64:
+ 342 0186 00D0      		rcall MotorTestBoth
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 7
+
+
+ 343               	/* epilogue start */
+ 344               	.LM65:
+ 345 0188 0895      		ret
+ 346               	.LFE9:
+ 347               		.size	MotorTest, .-MotorTest
+ 348               	.global	OdometrieTest
+ 349               		.type	OdometrieTest, @function
+ 350               	OdometrieTest:
+ 351               	.LFB5:
+ 352               	.LM66:
+ 353 018a DF93      		push r29
+ 354 018c CF93      		push r28
+ 355 018e 00D0      		rcall .
+ 356 0190 00D0      		rcall .
+ 357 0192 CDB7      		in r28,__SP_L__
+ 358 0194 DEB7      		in r29,__SP_H__
+ 359               	/* prologue: function */
+ 360               	/* frame size = 4 */
+ 361               	.LM67:
+ 362 0196 CE01      		movw r24,r28
+ 363 0198 0196      		adiw r24,1
+ 364 019a 00D0      		rcall OdometryData
+ 365               	.LM68:
+ 366 019c 80E0      		ldi r24,lo8(0)
+ 367 019e 00D0      		rcall StatusLED
+ 368               	.LM69:
+ 369 01a0 8981      		ldd r24,Y+1
+ 370 01a2 9A81      		ldd r25,Y+2
+ 371 01a4 8050      		subi r24,lo8(512)
+ 372 01a6 9240      		sbci r25,hi8(512)
+ 373 01a8 00F4      		brsh .L48
+ 374               	.LM70:
+ 375 01aa 81E0      		ldi r24,lo8(1)
+ 376 01ac 00D0      		rcall StatusLED
+ 377               	.L48:
+ 378               	.LM71:
+ 379 01ae 8B81      		ldd r24,Y+3
+ 380 01b0 9C81      		ldd r25,Y+4
+ 381 01b2 8050      		subi r24,lo8(512)
+ 382 01b4 9240      		sbci r25,hi8(512)
+ 383 01b6 00F4      		brsh .L50
+ 384               	.LM72:
+ 385 01b8 82E0      		ldi r24,lo8(2)
+ 386 01ba 00D0      		rcall StatusLED
+ 387               	.L50:
+ 388               	/* epilogue start */
+ 389               	.LM73:
+ 390 01bc 0F90      		pop __tmp_reg__
+ 391 01be 0F90      		pop __tmp_reg__
+ 392 01c0 0F90      		pop __tmp_reg__
+ 393 01c2 0F90      		pop __tmp_reg__
+ 394 01c4 CF91      		pop r28
+ 395 01c6 DF91      		pop r29
+ 396 01c8 0895      		ret
+ 397               	.LFE5:
+ 398               		.size	OdometrieTest, .-OdometrieTest
+ 399               	.global	LineTest
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 8
+
+
+ 400               		.type	LineTest, @function
+ 401               	LineTest:
+ 402               	.LFB4:
+ 403               	.LM74:
+ 404 01ca DF93      		push r29
+ 405 01cc CF93      		push r28
+ 406 01ce 00D0      		rcall .
+ 407 01d0 00D0      		rcall .
+ 408 01d2 CDB7      		in r28,__SP_L__
+ 409 01d4 DEB7      		in r29,__SP_H__
+ 410               	/* prologue: function */
+ 411               	/* frame size = 4 */
+ 412               	.LM75:
+ 413 01d6 CE01      		movw r24,r28
+ 414 01d8 0196      		adiw r24,1
+ 415 01da 00D0      		rcall LineData
+ 416               	.LM76:
+ 417 01dc 20E0      		ldi r18,lo8(0)
+ 418 01de 8981      		ldd r24,Y+1
+ 419 01e0 9A81      		ldd r25,Y+2
+ 420 01e2 8159      		subi r24,lo8(401)
+ 421 01e4 9140      		sbci r25,hi8(401)
+ 422 01e6 00F0      		brlo .L52
+ 423 01e8 21E0      		ldi r18,lo8(1)
+ 424               	.L52:
+ 425 01ea 60E0      		ldi r22,lo8(0)
+ 426 01ec 8B81      		ldd r24,Y+3
+ 427 01ee 9C81      		ldd r25,Y+4
+ 428 01f0 8159      		subi r24,lo8(401)
+ 429 01f2 9140      		sbci r25,hi8(401)
+ 430 01f4 00F0      		brlo .L53
+ 431 01f6 61E0      		ldi r22,lo8(1)
+ 432               	.L53:
+ 433 01f8 822F      		mov r24,r18
+ 434 01fa 00D0      		rcall BackLED
+ 435               	/* epilogue start */
+ 436               	.LM77:
+ 437 01fc 0F90      		pop __tmp_reg__
+ 438 01fe 0F90      		pop __tmp_reg__
+ 439 0200 0F90      		pop __tmp_reg__
+ 440 0202 0F90      		pop __tmp_reg__
+ 441 0204 CF91      		pop r28
+ 442 0206 DF91      		pop r29
+ 443 0208 0895      		ret
+ 444               	.LFE4:
+ 445               		.size	LineTest, .-LineTest
+ 446               	.global	SwitchTest
+ 447               		.type	SwitchTest, @function
+ 448               	SwitchTest:
+ 449               	.LFB3:
+ 450               	.LM78:
+ 451 020a 1F93      		push r17
+ 452               	/* prologue: function */
+ 453               	/* frame size = 0 */
+ 454               	.LM79:
+ 455 020c 80E2      		ldi r24,lo8(32)
+ 456 020e 60E0      		ldi r22,lo8(0)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 9
+
+
+ 457 0210 00D0      		rcall MotorDir
+ 458               	.LM80:
+ 459 0212 00D0      		rcall PollSwitch
+ 460 0214 182F      		mov r17,r24
+ 461               	.LVL7:
+ 462               	.LM81:
+ 463 0216 80E0      		ldi r24,lo8(0)
+ 464 0218 00D0      		rcall StatusLED
+ 465               	.LM82:
+ 466 021a 80E0      		ldi r24,lo8(0)
+ 467 021c 00D0      		rcall FrontLED
+ 468               	.LM83:
+ 469 021e 80E0      		ldi r24,lo8(0)
+ 470 0220 60E0      		ldi r22,lo8(0)
+ 471 0222 00D0      		rcall BackLED
+ 472               	.LM84:
+ 473 0224 80E0      		ldi r24,lo8(0)
+ 474 0226 60E0      		ldi r22,lo8(0)
+ 475 0228 00D0      		rcall MotorSpeed
+ 476               	.LM85:
+ 477 022a 10FF      		sbrs r17,0
+ 478 022c 00C0      		rjmp .L56
+ 479               	.LVL8:
+ 480               	.LM86:
+ 481 022e 88EC      		ldi r24,lo8(-56)
+ 482 0230 60E0      		ldi r22,lo8(0)
+ 483 0232 00D0      		rcall MotorSpeed
+ 484               	.L56:
+ 485               	.LM87:
+ 486 0234 11FD      		sbrc r17,1
+ 487 0236 00C0      		rjmp .L57
+ 488 0238 60E0      		ldi r22,lo8(0)
+ 489               	.LVL9:
+ 490 023a 00C0      		rjmp .L58
+ 491               	.LVL10:
+ 492               	.L57:
+ 493               	.LM88:
+ 494 023c 80E0      		ldi r24,lo8(0)
+ 495 023e 61E0      		ldi r22,lo8(1)
+ 496 0240 00D0      		rcall BackLED
+ 497 0242 61E0      		ldi r22,lo8(1)
+ 498               	.LVL11:
+ 499               	.L58:
+ 500               	.LM89:
+ 501 0244 12FF      		sbrs r17,2
+ 502 0246 00C0      		rjmp .L59
+ 503               	.LM90:
+ 504 0248 81E0      		ldi r24,lo8(1)
+ 505 024a 00D0      		rcall BackLED
+ 506               	.LVL12:
+ 507               	.L59:
+ 508               	.LM91:
+ 509 024c 13FF      		sbrs r17,3
+ 510 024e 00C0      		rjmp .L60
+ 511               	.LM92:
+ 512 0250 81E0      		ldi r24,lo8(1)
+ 513 0252 00D0      		rcall FrontLED
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 10
+
+
+ 514               	.LVL13:
+ 515               	.L60:
+ 516               	.LM93:
+ 517 0254 14FD      		sbrc r17,4
+ 518               	.LM94:
+ 519 0256 929A      		sbi 50-32,2
+ 520               	.L61:
+ 521               	.LM95:
+ 522 0258 15FD      		sbrc r17,5
+ 523               	.LM96:
+ 524 025a C09A      		sbi 56-32,0
+ 525               	.L63:
+ 526               	/* epilogue start */
+ 527               	.LM97:
+ 528 025c 1F91      		pop r17
+ 529 025e 0895      		ret
+ 530               	.LFE3:
+ 531               		.size	SwitchTest, .-SwitchTest
+ 532               	.global	SerialTest
+ 533               		.type	SerialTest, @function
+ 534               	SerialTest:
+ 535               	.LFB2:
+ 536               	.LM98:
+ 537 0260 EF92      		push r14
+ 538 0262 FF92      		push r15
+ 539 0264 1F93      		push r17
+ 540 0266 DF93      		push r29
+ 541 0268 CF93      		push r28
+ 542 026a 0F92      		push __tmp_reg__
+ 543 026c CDB7      		in r28,__SP_L__
+ 544 026e DEB7      		in r29,__SP_H__
+ 545               	/* prologue: function */
+ 546               	/* frame size = 1 */
+ 547               	.LM99:
+ 548 0270 10E0      		ldi r17,lo8(0)
+ 549               	.LVL14:
+ 550               	.LM100:
+ 551 0272 7E01      		movw r14,r28
+ 552 0274 0894      		sec
+ 553 0276 E11C      		adc r14,__zero_reg__
+ 554 0278 F11C      		adc r15,__zero_reg__
+ 555               	.LVL15:
+ 556               	.L66:
+ 557               	.LM101:
+ 558 027a 81E0      		ldi r24,lo8(1)
+ 559 027c 00D0      		rcall StatusLED
+ 560               	.LM102:
+ 561 027e C701      		movw r24,r14
+ 562 0280 61E0      		ldi r22,lo8(1)
+ 563 0282 4EEF      		ldi r20,lo8(-2)
+ 564 0284 5FEF      		ldi r21,hi8(-2)
+ 565 0286 00D0      		rcall SerRead
+ 566               	.LM103:
+ 567 0288 82E0      		ldi r24,lo8(2)
+ 568 028a 00D0      		rcall StatusLED
+ 569               	.LM104:
+ 570 028c 8981      		ldd r24,Y+1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 11
+
+
+ 571 028e 8435      		cpi r24,lo8(84)
+ 572 0290 01F0      		breq .L65
+ 573 0292 8F5F      		subi r24,lo8(-(1))
+ 574 0294 8983      		std Y+1,r24
+ 575               	.LVL16:
+ 576               	.L65:
+ 577               	.LM105:
+ 578 0296 C701      		movw r24,r14
+ 579 0298 61E0      		ldi r22,lo8(1)
+ 580 029a 00D0      		rcall SerWrite
+ 581               	.LM106:
+ 582 029c 1F5F      		subi r17,lo8(-(1))
+ 583 029e 1E3F      		cpi r17,lo8(-2)
+ 584 02a0 01F4      		brne .L66
+ 585               	/* epilogue start */
+ 586               	.LM107:
+ 587 02a2 0F90      		pop __tmp_reg__
+ 588 02a4 CF91      		pop r28
+ 589 02a6 DF91      		pop r29
+ 590 02a8 1F91      		pop r17
+ 591               	.LVL17:
+ 592 02aa FF90      		pop r15
+ 593 02ac EF90      		pop r14
+ 594 02ae 0895      		ret
+ 595               	.LFE2:
+ 596               		.size	SerialTest, .-SerialTest
+ 597               		.section	.debug_frame,"",@progbits
+ 598               	.Lframe0:
+ 599 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 600               	.LSCIE0:
+ 601 0004 FFFF FFFF 		.long	0xffffffff
+ 602 0008 01        		.byte	0x1
+ 603 0009 00        		.string	""
+ 604 000a 01        		.uleb128 0x1
+ 605 000b 7F        		.sleb128 -1
+ 606 000c 24        		.byte	0x24
+ 607 000d 0C        		.byte	0xc
+ 608 000e 20        		.uleb128 0x20
+ 609 000f 00        		.uleb128 0x0
+ 610               		.p2align	2
+ 611               	.LECIE0:
+ 612               	.LSFDE0:
+ 613 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 614               	.LASFDE0:
+ 615 0014 0000 0000 		.long	.Lframe0
+ 616 0018 0000 0000 		.long	.LFB10
+ 617 001c BC00 0000 		.long	.LFE10-.LFB10
+ 618               		.p2align	2
+ 619               	.LEFDE0:
+ 620               	.LSFDE2:
+ 621 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 622               	.LASFDE2:
+ 623 0024 0000 0000 		.long	.Lframe0
+ 624 0028 0000 0000 		.long	.LFB8
+ 625 002c 4600 0000 		.long	.LFE8-.LFB8
+ 626               		.p2align	2
+ 627               	.LEFDE2:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 12
+
+
+ 628               	.LSFDE4:
+ 629 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 630               	.LASFDE4:
+ 631 0034 0000 0000 		.long	.Lframe0
+ 632 0038 0000 0000 		.long	.LFB7
+ 633 003c 4000 0000 		.long	.LFE7-.LFB7
+ 634               		.p2align	2
+ 635               	.LEFDE4:
+ 636               	.LSFDE6:
+ 637 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 638               	.LASFDE6:
+ 639 0044 0000 0000 		.long	.Lframe0
+ 640 0048 0000 0000 		.long	.LFB6
+ 641 004c 4000 0000 		.long	.LFE6-.LFB6
+ 642               		.p2align	2
+ 643               	.LEFDE6:
+ 644               	.LSFDE8:
+ 645 0050 0C00 0000 		.long	.LEFDE8-.LASFDE8
+ 646               	.LASFDE8:
+ 647 0054 0000 0000 		.long	.Lframe0
+ 648 0058 0000 0000 		.long	.LFB9
+ 649 005c 0800 0000 		.long	.LFE9-.LFB9
+ 650               		.p2align	2
+ 651               	.LEFDE8:
+ 652               	.LSFDE10:
+ 653 0060 0C00 0000 		.long	.LEFDE10-.LASFDE10
+ 654               	.LASFDE10:
+ 655 0064 0000 0000 		.long	.Lframe0
+ 656 0068 0000 0000 		.long	.LFB5
+ 657 006c 4000 0000 		.long	.LFE5-.LFB5
+ 658               		.p2align	2
+ 659               	.LEFDE10:
+ 660               	.LSFDE12:
+ 661 0070 0C00 0000 		.long	.LEFDE12-.LASFDE12
+ 662               	.LASFDE12:
+ 663 0074 0000 0000 		.long	.Lframe0
+ 664 0078 0000 0000 		.long	.LFB4
+ 665 007c 4000 0000 		.long	.LFE4-.LFB4
+ 666               		.p2align	2
+ 667               	.LEFDE12:
+ 668               	.LSFDE14:
+ 669 0080 0C00 0000 		.long	.LEFDE14-.LASFDE14
+ 670               	.LASFDE14:
+ 671 0084 0000 0000 		.long	.Lframe0
+ 672 0088 0000 0000 		.long	.LFB3
+ 673 008c 5600 0000 		.long	.LFE3-.LFB3
+ 674               		.p2align	2
+ 675               	.LEFDE14:
+ 676               	.LSFDE16:
+ 677 0090 0C00 0000 		.long	.LEFDE16-.LASFDE16
+ 678               	.LASFDE16:
+ 679 0094 0000 0000 		.long	.Lframe0
+ 680 0098 0000 0000 		.long	.LFB2
+ 681 009c 5000 0000 		.long	.LFE2-.LFB2
+ 682               		.p2align	2
+ 683               	.LEFDE16:
+ 684               		.text
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 13
+
+
+ 685               	.Letext0:
+ 686               		.section	.debug_loc,"",@progbits
+ 687               	.Ldebug_loc0:
+ 688               	.LLST1:
+ 689 0000 1600 0000 		.long	.LVL0-.Ltext0
+ 690 0004 BA00 0000 		.long	.LVL6-.Ltext0
+ 691 0008 0600      		.word	0x6
+ 692 000a 6C        		.byte	0x6c
+ 693 000b 93        		.byte	0x93
+ 694 000c 01        		.uleb128 0x1
+ 695 000d 6D        		.byte	0x6d
+ 696 000e 93        		.byte	0x93
+ 697 000f 01        		.uleb128 0x1
+ 698 0010 0000 0000 		.long	0x0
+ 699 0014 0000 0000 		.long	0x0
+ 700               	.LLST9:
+ 701 0018 1602 0000 		.long	.LVL7-.Ltext0
+ 702 001c 2E02 0000 		.long	.LVL8-.Ltext0
+ 703 0020 0100      		.word	0x1
+ 704 0022 61        		.byte	0x61
+ 705 0023 0000 0000 		.long	0x0
+ 706 0027 0000 0000 		.long	0x0
+ 707               	.LLST10:
+ 708 002b 3A02 0000 		.long	.LVL9-.Ltext0
+ 709 002f 3C02 0000 		.long	.LVL10-.Ltext0
+ 710 0033 0100      		.word	0x1
+ 711 0035 66        		.byte	0x66
+ 712 0036 4402 0000 		.long	.LVL11-.Ltext0
+ 713 003a 4C02 0000 		.long	.LVL12-.Ltext0
+ 714 003e 0100      		.word	0x1
+ 715 0040 66        		.byte	0x66
+ 716 0041 4C02 0000 		.long	.LVL12-.Ltext0
+ 717 0045 5402 0000 		.long	.LVL13-.Ltext0
+ 718 0049 0100      		.word	0x1
+ 719 004b 66        		.byte	0x66
+ 720 004c 5402 0000 		.long	.LVL13-.Ltext0
+ 721 0050 6002 0000 		.long	.LFE3-.Ltext0
+ 722 0054 0100      		.word	0x1
+ 723 0056 66        		.byte	0x66
+ 724 0057 0000 0000 		.long	0x0
+ 725 005b 0000 0000 		.long	0x0
+ 726               	.LLST12:
+ 727 005f 7202 0000 		.long	.LVL14-.Ltext0
+ 728 0063 AA02 0000 		.long	.LVL17-.Ltext0
+ 729 0067 0100      		.word	0x1
+ 730 0069 61        		.byte	0x61
+ 731 006a 0000 0000 		.long	0x0
+ 732 006e 0000 0000 		.long	0x0
+ 733               		.section	.debug_info
+ 734 0000 1802 0000 		.long	0x218
+ 735 0004 0200      		.word	0x2
+ 736 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 737 000a 04        		.byte	0x4
+ 738 000b 01        		.uleb128 0x1
+ 739 000c 0000 0000 		.long	.LASF16
+ 740 0010 01        		.byte	0x1
+ 741 0011 0000 0000 		.long	.LASF17
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 14
+
+
+ 742 0015 0000 0000 		.long	.LASF18
+ 743 0019 0000 0000 		.long	.Ltext0
+ 744 001d 0000 0000 		.long	.Letext0
+ 745 0021 0000 0000 		.long	.Ldebug_line0
+ 746 0025 02        		.uleb128 0x2
+ 747 0026 01        		.byte	0x1
+ 748 0027 06        		.byte	0x6
+ 749 0028 0000 0000 		.long	.LASF0
+ 750 002c 02        		.uleb128 0x2
+ 751 002d 01        		.byte	0x1
+ 752 002e 08        		.byte	0x8
+ 753 002f 0000 0000 		.long	.LASF1
+ 754 0033 03        		.uleb128 0x3
+ 755 0034 02        		.byte	0x2
+ 756 0035 05        		.byte	0x5
+ 757 0036 696E 7400 		.string	"int"
+ 758 003a 02        		.uleb128 0x2
+ 759 003b 02        		.byte	0x2
+ 760 003c 07        		.byte	0x7
+ 761 003d 0000 0000 		.long	.LASF2
+ 762 0041 02        		.uleb128 0x2
+ 763 0042 04        		.byte	0x4
+ 764 0043 05        		.byte	0x5
+ 765 0044 0000 0000 		.long	.LASF3
+ 766 0048 02        		.uleb128 0x2
+ 767 0049 04        		.byte	0x4
+ 768 004a 07        		.byte	0x7
+ 769 004b 0000 0000 		.long	.LASF4
+ 770 004f 02        		.uleb128 0x2
+ 771 0050 08        		.byte	0x8
+ 772 0051 05        		.byte	0x5
+ 773 0052 0000 0000 		.long	.LASF5
+ 774 0056 02        		.uleb128 0x2
+ 775 0057 08        		.byte	0x8
+ 776 0058 07        		.byte	0x7
+ 777 0059 0000 0000 		.long	.LASF6
+ 778 005d 04        		.uleb128 0x4
+ 779 005e 01        		.byte	0x1
+ 780 005f 0000 0000 		.long	.LASF7
+ 781 0063 01        		.byte	0x1
+ 782 0064 FD        		.byte	0xfd
+ 783 0065 01        		.byte	0x1
+ 784 0066 0000 0000 		.long	.LFB10
+ 785 006a 0000 0000 		.long	.LFE10
+ 786 006e 02        		.byte	0x2
+ 787 006f 90        		.byte	0x90
+ 788 0070 20        		.uleb128 0x20
+ 789 0071 8300 0000 		.long	0x83
+ 790 0075 05        		.uleb128 0x5
+ 791 0076 6900      		.string	"i"
+ 792 0078 01        		.byte	0x1
+ 793 0079 FE        		.byte	0xfe
+ 794 007a 3A00 0000 		.long	0x3a
+ 795 007e 0000 0000 		.long	.LLST1
+ 796 0082 00        		.byte	0x0
+ 797 0083 04        		.uleb128 0x4
+ 798 0084 01        		.byte	0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 15
+
+
+ 799 0085 0000 0000 		.long	.LASF8
+ 800 0089 01        		.byte	0x1
+ 801 008a CB        		.byte	0xcb
+ 802 008b 01        		.byte	0x1
+ 803 008c 0000 0000 		.long	.LFB8
+ 804 0090 0000 0000 		.long	.LFE8
+ 805 0094 02        		.byte	0x2
+ 806 0095 90        		.byte	0x90
+ 807 0096 20        		.uleb128 0x20
+ 808 0097 B900 0000 		.long	0xb9
+ 809 009b 06        		.uleb128 0x6
+ 810 009c 6900      		.string	"i"
+ 811 009e 01        		.byte	0x1
+ 812 009f CC        		.byte	0xcc
+ 813 00a0 3A00 0000 		.long	0x3a
+ 814 00a4 06        		.uleb128 0x6
+ 815 00a5 6A00      		.string	"j"
+ 816 00a7 01        		.byte	0x1
+ 817 00a8 CD        		.byte	0xcd
+ 818 00a9 2C00 0000 		.long	0x2c
+ 819 00ad 07        		.uleb128 0x7
+ 820 00ae 0000 0000 		.long	.LASF9
+ 821 00b2 01        		.byte	0x1
+ 822 00b3 CE        		.byte	0xce
+ 823 00b4 3A00 0000 		.long	0x3a
+ 824 00b8 00        		.byte	0x0
+ 825 00b9 04        		.uleb128 0x4
+ 826 00ba 01        		.byte	0x1
+ 827 00bb 0000 0000 		.long	.LASF10
+ 828 00bf 01        		.byte	0x1
+ 829 00c0 A8        		.byte	0xa8
+ 830 00c1 01        		.byte	0x1
+ 831 00c2 0000 0000 		.long	.LFB7
+ 832 00c6 0000 0000 		.long	.LFE7
+ 833 00ca 02        		.byte	0x2
+ 834 00cb 90        		.byte	0x90
+ 835 00cc 20        		.uleb128 0x20
+ 836 00cd EF00 0000 		.long	0xef
+ 837 00d1 06        		.uleb128 0x6
+ 838 00d2 6900      		.string	"i"
+ 839 00d4 01        		.byte	0x1
+ 840 00d5 A9        		.byte	0xa9
+ 841 00d6 3A00 0000 		.long	0x3a
+ 842 00da 06        		.uleb128 0x6
+ 843 00db 6A00      		.string	"j"
+ 844 00dd 01        		.byte	0x1
+ 845 00de AA        		.byte	0xaa
+ 846 00df 2C00 0000 		.long	0x2c
+ 847 00e3 07        		.uleb128 0x7
+ 848 00e4 0000 0000 		.long	.LASF9
+ 849 00e8 01        		.byte	0x1
+ 850 00e9 AB        		.byte	0xab
+ 851 00ea 3A00 0000 		.long	0x3a
+ 852 00ee 00        		.byte	0x0
+ 853 00ef 04        		.uleb128 0x4
+ 854 00f0 01        		.byte	0x1
+ 855 00f1 0000 0000 		.long	.LASF11
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 16
+
+
+ 856 00f5 01        		.byte	0x1
+ 857 00f6 85        		.byte	0x85
+ 858 00f7 01        		.byte	0x1
+ 859 00f8 0000 0000 		.long	.LFB6
+ 860 00fc 0000 0000 		.long	.LFE6
+ 861 0100 02        		.byte	0x2
+ 862 0101 90        		.byte	0x90
+ 863 0102 20        		.uleb128 0x20
+ 864 0103 2501 0000 		.long	0x125
+ 865 0107 06        		.uleb128 0x6
+ 866 0108 6900      		.string	"i"
+ 867 010a 01        		.byte	0x1
+ 868 010b 86        		.byte	0x86
+ 869 010c 3A00 0000 		.long	0x3a
+ 870 0110 06        		.uleb128 0x6
+ 871 0111 6A00      		.string	"j"
+ 872 0113 01        		.byte	0x1
+ 873 0114 87        		.byte	0x87
+ 874 0115 2C00 0000 		.long	0x2c
+ 875 0119 07        		.uleb128 0x7
+ 876 011a 0000 0000 		.long	.LASF9
+ 877 011e 01        		.byte	0x1
+ 878 011f 88        		.byte	0x88
+ 879 0120 3A00 0000 		.long	0x3a
+ 880 0124 00        		.byte	0x0
+ 881 0125 08        		.uleb128 0x8
+ 882 0126 01        		.byte	0x1
+ 883 0127 0000 0000 		.long	.LASF19
+ 884 012b 01        		.byte	0x1
+ 885 012c F0        		.byte	0xf0
+ 886 012d 01        		.byte	0x1
+ 887 012e 0000 0000 		.long	.LFB9
+ 888 0132 0000 0000 		.long	.LFE9
+ 889 0136 02        		.byte	0x2
+ 890 0137 90        		.byte	0x90
+ 891 0138 20        		.uleb128 0x20
+ 892 0139 04        		.uleb128 0x4
+ 893 013a 01        		.byte	0x1
+ 894 013b 0000 0000 		.long	.LASF12
+ 895 013f 01        		.byte	0x1
+ 896 0140 70        		.byte	0x70
+ 897 0141 01        		.byte	0x1
+ 898 0142 0000 0000 		.long	.LFB5
+ 899 0146 0000 0000 		.long	.LFE5
+ 900 014a 02        		.byte	0x2
+ 901 014b 90        		.byte	0x90
+ 902 014c 20        		.uleb128 0x20
+ 903 014d 6001 0000 		.long	0x160
+ 904 0151 09        		.uleb128 0x9
+ 905 0152 0000 0000 		.long	.LASF13
+ 906 0156 01        		.byte	0x1
+ 907 0157 71        		.byte	0x71
+ 908 0158 6001 0000 		.long	0x160
+ 909 015c 02        		.byte	0x2
+ 910 015d 8C        		.byte	0x8c
+ 911 015e 01        		.sleb128 1
+ 912 015f 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 17
+
+
+ 913 0160 0A        		.uleb128 0xa
+ 914 0161 3A00 0000 		.long	0x3a
+ 915 0165 7001 0000 		.long	0x170
+ 916 0169 0B        		.uleb128 0xb
+ 917 016a 7001 0000 		.long	0x170
+ 918 016e 01        		.byte	0x1
+ 919 016f 00        		.byte	0x0
+ 920 0170 0C        		.uleb128 0xc
+ 921 0171 02        		.byte	0x2
+ 922 0172 07        		.byte	0x7
+ 923 0173 04        		.uleb128 0x4
+ 924 0174 01        		.byte	0x1
+ 925 0175 0000 0000 		.long	.LASF14
+ 926 0179 01        		.byte	0x1
+ 927 017a 5C        		.byte	0x5c
+ 928 017b 01        		.byte	0x1
+ 929 017c 0000 0000 		.long	.LFB4
+ 930 0180 0000 0000 		.long	.LFE4
+ 931 0184 02        		.byte	0x2
+ 932 0185 90        		.byte	0x90
+ 933 0186 20        		.uleb128 0x20
+ 934 0187 A501 0000 		.long	0x1a5
+ 935 018b 09        		.uleb128 0x9
+ 936 018c 0000 0000 		.long	.LASF13
+ 937 0190 01        		.byte	0x1
+ 938 0191 5D        		.byte	0x5d
+ 939 0192 6001 0000 		.long	0x160
+ 940 0196 02        		.byte	0x2
+ 941 0197 8C        		.byte	0x8c
+ 942 0198 01        		.sleb128 1
+ 943 0199 06        		.uleb128 0x6
+ 944 019a 746D 7000 		.string	"tmp"
+ 945 019e 01        		.byte	0x1
+ 946 019f 5E        		.byte	0x5e
+ 947 01a0 A501 0000 		.long	0x1a5
+ 948 01a4 00        		.byte	0x0
+ 949 01a5 0A        		.uleb128 0xa
+ 950 01a6 2C00 0000 		.long	0x2c
+ 951 01aa B501 0000 		.long	0x1b5
+ 952 01ae 0B        		.uleb128 0xb
+ 953 01af 7001 0000 		.long	0x170
+ 954 01b3 01        		.byte	0x1
+ 955 01b4 00        		.byte	0x0
+ 956 01b5 04        		.uleb128 0x4
+ 957 01b6 01        		.byte	0x1
+ 958 01b7 0000 0000 		.long	.LASF15
+ 959 01bb 01        		.byte	0x1
+ 960 01bc 37        		.byte	0x37
+ 961 01bd 01        		.byte	0x1
+ 962 01be 0000 0000 		.long	.LFB3
+ 963 01c2 0000 0000 		.long	.LFE3
+ 964 01c6 02        		.byte	0x2
+ 965 01c7 90        		.byte	0x90
+ 966 01c8 20        		.uleb128 0x20
+ 967 01c9 EB01 0000 		.long	0x1eb
+ 968 01cd 05        		.uleb128 0x5
+ 969 01ce 7377 00   		.string	"sw"
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 18
+
+
+ 970 01d1 01        		.byte	0x1
+ 971 01d2 38        		.byte	0x38
+ 972 01d3 2C00 0000 		.long	0x2c
+ 973 01d7 0000 0000 		.long	.LLST9
+ 974 01db 05        		.uleb128 0x5
+ 975 01dc 746D 7000 		.string	"tmp"
+ 976 01e0 01        		.byte	0x1
+ 977 01e1 38        		.byte	0x38
+ 978 01e2 2C00 0000 		.long	0x2c
+ 979 01e6 0000 0000 		.long	.LLST10
+ 980 01ea 00        		.byte	0x0
+ 981 01eb 0D        		.uleb128 0xd
+ 982 01ec 01        		.byte	0x1
+ 983 01ed 0000 0000 		.long	.LASF20
+ 984 01f1 01        		.byte	0x1
+ 985 01f2 1F        		.byte	0x1f
+ 986 01f3 01        		.byte	0x1
+ 987 01f4 0000 0000 		.long	.LFB2
+ 988 01f8 0000 0000 		.long	.LFE2
+ 989 01fc 02        		.byte	0x2
+ 990 01fd 90        		.byte	0x90
+ 991 01fe 20        		.uleb128 0x20
+ 992 01ff 09        		.uleb128 0x9
+ 993 0200 0000 0000 		.long	.LASF13
+ 994 0204 01        		.byte	0x1
+ 995 0205 20        		.byte	0x20
+ 996 0206 2C00 0000 		.long	0x2c
+ 997 020a 02        		.byte	0x2
+ 998 020b 8C        		.byte	0x8c
+ 999 020c 01        		.sleb128 1
+ 1000 020d 05        		.uleb128 0x5
+ 1001 020e 6900      		.string	"i"
+ 1002 0210 01        		.byte	0x1
+ 1003 0211 21        		.byte	0x21
+ 1004 0212 2C00 0000 		.long	0x2c
+ 1005 0216 0000 0000 		.long	.LLST12
+ 1006 021a 00        		.byte	0x0
+ 1007 021b 00        		.byte	0x0
+ 1008               		.section	.debug_abbrev
+ 1009 0000 01        		.uleb128 0x1
+ 1010 0001 11        		.uleb128 0x11
+ 1011 0002 01        		.byte	0x1
+ 1012 0003 25        		.uleb128 0x25
+ 1013 0004 0E        		.uleb128 0xe
+ 1014 0005 13        		.uleb128 0x13
+ 1015 0006 0B        		.uleb128 0xb
+ 1016 0007 03        		.uleb128 0x3
+ 1017 0008 0E        		.uleb128 0xe
+ 1018 0009 1B        		.uleb128 0x1b
+ 1019 000a 0E        		.uleb128 0xe
+ 1020 000b 11        		.uleb128 0x11
+ 1021 000c 01        		.uleb128 0x1
+ 1022 000d 12        		.uleb128 0x12
+ 1023 000e 01        		.uleb128 0x1
+ 1024 000f 10        		.uleb128 0x10
+ 1025 0010 06        		.uleb128 0x6
+ 1026 0011 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 19
+
+
+ 1027 0012 00        		.byte	0x0
+ 1028 0013 02        		.uleb128 0x2
+ 1029 0014 24        		.uleb128 0x24
+ 1030 0015 00        		.byte	0x0
+ 1031 0016 0B        		.uleb128 0xb
+ 1032 0017 0B        		.uleb128 0xb
+ 1033 0018 3E        		.uleb128 0x3e
+ 1034 0019 0B        		.uleb128 0xb
+ 1035 001a 03        		.uleb128 0x3
+ 1036 001b 0E        		.uleb128 0xe
+ 1037 001c 00        		.byte	0x0
+ 1038 001d 00        		.byte	0x0
+ 1039 001e 03        		.uleb128 0x3
+ 1040 001f 24        		.uleb128 0x24
+ 1041 0020 00        		.byte	0x0
+ 1042 0021 0B        		.uleb128 0xb
+ 1043 0022 0B        		.uleb128 0xb
+ 1044 0023 3E        		.uleb128 0x3e
+ 1045 0024 0B        		.uleb128 0xb
+ 1046 0025 03        		.uleb128 0x3
+ 1047 0026 08        		.uleb128 0x8
+ 1048 0027 00        		.byte	0x0
+ 1049 0028 00        		.byte	0x0
+ 1050 0029 04        		.uleb128 0x4
+ 1051 002a 2E        		.uleb128 0x2e
+ 1052 002b 01        		.byte	0x1
+ 1053 002c 3F        		.uleb128 0x3f
+ 1054 002d 0C        		.uleb128 0xc
+ 1055 002e 03        		.uleb128 0x3
+ 1056 002f 0E        		.uleb128 0xe
+ 1057 0030 3A        		.uleb128 0x3a
+ 1058 0031 0B        		.uleb128 0xb
+ 1059 0032 3B        		.uleb128 0x3b
+ 1060 0033 0B        		.uleb128 0xb
+ 1061 0034 27        		.uleb128 0x27
+ 1062 0035 0C        		.uleb128 0xc
+ 1063 0036 11        		.uleb128 0x11
+ 1064 0037 01        		.uleb128 0x1
+ 1065 0038 12        		.uleb128 0x12
+ 1066 0039 01        		.uleb128 0x1
+ 1067 003a 40        		.uleb128 0x40
+ 1068 003b 0A        		.uleb128 0xa
+ 1069 003c 01        		.uleb128 0x1
+ 1070 003d 13        		.uleb128 0x13
+ 1071 003e 00        		.byte	0x0
+ 1072 003f 00        		.byte	0x0
+ 1073 0040 05        		.uleb128 0x5
+ 1074 0041 34        		.uleb128 0x34
+ 1075 0042 00        		.byte	0x0
+ 1076 0043 03        		.uleb128 0x3
+ 1077 0044 08        		.uleb128 0x8
+ 1078 0045 3A        		.uleb128 0x3a
+ 1079 0046 0B        		.uleb128 0xb
+ 1080 0047 3B        		.uleb128 0x3b
+ 1081 0048 0B        		.uleb128 0xb
+ 1082 0049 49        		.uleb128 0x49
+ 1083 004a 13        		.uleb128 0x13
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 20
+
+
+ 1084 004b 02        		.uleb128 0x2
+ 1085 004c 06        		.uleb128 0x6
+ 1086 004d 00        		.byte	0x0
+ 1087 004e 00        		.byte	0x0
+ 1088 004f 06        		.uleb128 0x6
+ 1089 0050 34        		.uleb128 0x34
+ 1090 0051 00        		.byte	0x0
+ 1091 0052 03        		.uleb128 0x3
+ 1092 0053 08        		.uleb128 0x8
+ 1093 0054 3A        		.uleb128 0x3a
+ 1094 0055 0B        		.uleb128 0xb
+ 1095 0056 3B        		.uleb128 0x3b
+ 1096 0057 0B        		.uleb128 0xb
+ 1097 0058 49        		.uleb128 0x49
+ 1098 0059 13        		.uleb128 0x13
+ 1099 005a 00        		.byte	0x0
+ 1100 005b 00        		.byte	0x0
+ 1101 005c 07        		.uleb128 0x7
+ 1102 005d 34        		.uleb128 0x34
+ 1103 005e 00        		.byte	0x0
+ 1104 005f 03        		.uleb128 0x3
+ 1105 0060 0E        		.uleb128 0xe
+ 1106 0061 3A        		.uleb128 0x3a
+ 1107 0062 0B        		.uleb128 0xb
+ 1108 0063 3B        		.uleb128 0x3b
+ 1109 0064 0B        		.uleb128 0xb
+ 1110 0065 49        		.uleb128 0x49
+ 1111 0066 13        		.uleb128 0x13
+ 1112 0067 00        		.byte	0x0
+ 1113 0068 00        		.byte	0x0
+ 1114 0069 08        		.uleb128 0x8
+ 1115 006a 2E        		.uleb128 0x2e
+ 1116 006b 00        		.byte	0x0
+ 1117 006c 3F        		.uleb128 0x3f
+ 1118 006d 0C        		.uleb128 0xc
+ 1119 006e 03        		.uleb128 0x3
+ 1120 006f 0E        		.uleb128 0xe
+ 1121 0070 3A        		.uleb128 0x3a
+ 1122 0071 0B        		.uleb128 0xb
+ 1123 0072 3B        		.uleb128 0x3b
+ 1124 0073 0B        		.uleb128 0xb
+ 1125 0074 27        		.uleb128 0x27
+ 1126 0075 0C        		.uleb128 0xc
+ 1127 0076 11        		.uleb128 0x11
+ 1128 0077 01        		.uleb128 0x1
+ 1129 0078 12        		.uleb128 0x12
+ 1130 0079 01        		.uleb128 0x1
+ 1131 007a 40        		.uleb128 0x40
+ 1132 007b 0A        		.uleb128 0xa
+ 1133 007c 00        		.byte	0x0
+ 1134 007d 00        		.byte	0x0
+ 1135 007e 09        		.uleb128 0x9
+ 1136 007f 34        		.uleb128 0x34
+ 1137 0080 00        		.byte	0x0
+ 1138 0081 03        		.uleb128 0x3
+ 1139 0082 0E        		.uleb128 0xe
+ 1140 0083 3A        		.uleb128 0x3a
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 21
+
+
+ 1141 0084 0B        		.uleb128 0xb
+ 1142 0085 3B        		.uleb128 0x3b
+ 1143 0086 0B        		.uleb128 0xb
+ 1144 0087 49        		.uleb128 0x49
+ 1145 0088 13        		.uleb128 0x13
+ 1146 0089 02        		.uleb128 0x2
+ 1147 008a 0A        		.uleb128 0xa
+ 1148 008b 00        		.byte	0x0
+ 1149 008c 00        		.byte	0x0
+ 1150 008d 0A        		.uleb128 0xa
+ 1151 008e 01        		.uleb128 0x1
+ 1152 008f 01        		.byte	0x1
+ 1153 0090 49        		.uleb128 0x49
+ 1154 0091 13        		.uleb128 0x13
+ 1155 0092 01        		.uleb128 0x1
+ 1156 0093 13        		.uleb128 0x13
+ 1157 0094 00        		.byte	0x0
+ 1158 0095 00        		.byte	0x0
+ 1159 0096 0B        		.uleb128 0xb
+ 1160 0097 21        		.uleb128 0x21
+ 1161 0098 00        		.byte	0x0
+ 1162 0099 49        		.uleb128 0x49
+ 1163 009a 13        		.uleb128 0x13
+ 1164 009b 2F        		.uleb128 0x2f
+ 1165 009c 0B        		.uleb128 0xb
+ 1166 009d 00        		.byte	0x0
+ 1167 009e 00        		.byte	0x0
+ 1168 009f 0C        		.uleb128 0xc
+ 1169 00a0 24        		.uleb128 0x24
+ 1170 00a1 00        		.byte	0x0
+ 1171 00a2 0B        		.uleb128 0xb
+ 1172 00a3 0B        		.uleb128 0xb
+ 1173 00a4 3E        		.uleb128 0x3e
+ 1174 00a5 0B        		.uleb128 0xb
+ 1175 00a6 00        		.byte	0x0
+ 1176 00a7 00        		.byte	0x0
+ 1177 00a8 0D        		.uleb128 0xd
+ 1178 00a9 2E        		.uleb128 0x2e
+ 1179 00aa 01        		.byte	0x1
+ 1180 00ab 3F        		.uleb128 0x3f
+ 1181 00ac 0C        		.uleb128 0xc
+ 1182 00ad 03        		.uleb128 0x3
+ 1183 00ae 0E        		.uleb128 0xe
+ 1184 00af 3A        		.uleb128 0x3a
+ 1185 00b0 0B        		.uleb128 0xb
+ 1186 00b1 3B        		.uleb128 0x3b
+ 1187 00b2 0B        		.uleb128 0xb
+ 1188 00b3 27        		.uleb128 0x27
+ 1189 00b4 0C        		.uleb128 0xc
+ 1190 00b5 11        		.uleb128 0x11
+ 1191 00b6 01        		.uleb128 0x1
+ 1192 00b7 12        		.uleb128 0x12
+ 1193 00b8 01        		.uleb128 0x1
+ 1194 00b9 40        		.uleb128 0x40
+ 1195 00ba 0A        		.uleb128 0xa
+ 1196 00bb 00        		.byte	0x0
+ 1197 00bc 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 22
+
+
+ 1198 00bd 00        		.byte	0x0
+ 1199               		.section	.debug_pubnames,"",@progbits
+ 1200 0000 9C00 0000 		.long	0x9c
+ 1201 0004 0200      		.word	0x2
+ 1202 0006 0000 0000 		.long	.Ldebug_info0
+ 1203 000a 1C02 0000 		.long	0x21c
+ 1204 000e 5D00 0000 		.long	0x5d
+ 1205 0012 4C45 4454 		.string	"LEDTest"
+ 1205      6573 7400 
+ 1206 001a 8300 0000 		.long	0x83
+ 1207 001e 4D6F 746F 		.string	"MotorTestBoth"
+ 1207      7254 6573 
+ 1207      7442 6F74 
+ 1207      6800 
+ 1208 002c B900 0000 		.long	0xb9
+ 1209 0030 4D6F 746F 		.string	"MotorTestLeft"
+ 1209      7254 6573 
+ 1209      744C 6566 
+ 1209      7400 
+ 1210 003e EF00 0000 		.long	0xef
+ 1211 0042 4D6F 746F 		.string	"MotorTestRight"
+ 1211      7254 6573 
+ 1211      7452 6967 
+ 1211      6874 00
+ 1212 0051 2501 0000 		.long	0x125
+ 1213 0055 4D6F 746F 		.string	"MotorTest"
+ 1213      7254 6573 
+ 1213      7400 
+ 1214 005f 3901 0000 		.long	0x139
+ 1215 0063 4F64 6F6D 		.string	"OdometrieTest"
+ 1215      6574 7269 
+ 1215      6554 6573 
+ 1215      7400 
+ 1216 0071 7301 0000 		.long	0x173
+ 1217 0075 4C69 6E65 		.string	"LineTest"
+ 1217      5465 7374 
+ 1217      00
+ 1218 007e B501 0000 		.long	0x1b5
+ 1219 0082 5377 6974 		.string	"SwitchTest"
+ 1219      6368 5465 
+ 1219      7374 00
+ 1220 008d EB01 0000 		.long	0x1eb
+ 1221 0091 5365 7269 		.string	"SerialTest"
+ 1221      616C 5465 
+ 1221      7374 00
+ 1222 009c 0000 0000 		.long	0x0
+ 1223               		.section	.debug_aranges,"",@progbits
+ 1224 0000 1C00 0000 		.long	0x1c
+ 1225 0004 0200      		.word	0x2
+ 1226 0006 0000 0000 		.long	.Ldebug_info0
+ 1227 000a 04        		.byte	0x4
+ 1228 000b 00        		.byte	0x0
+ 1229 000c 0000      		.word	0x0
+ 1230 000e 0000      		.word	0x0
+ 1231 0010 0000 0000 		.long	.Ltext0
+ 1232 0014 B002 0000 		.long	.Letext0-.Ltext0
+ 1233 0018 0000 0000 		.long	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 23
+
+
+ 1234 001c 0000 0000 		.long	0x0
+ 1235               		.section	.debug_line
+ 1236 0000 9703 0000 		.long	.LELT0-.LSLT0
+ 1237               	.LSLT0:
+ 1238 0004 0200      		.word	0x2
+ 1239 0006 1A00 0000 		.long	.LELTP0-.LASLTP0
+ 1240               	.LASLTP0:
+ 1241 000a 01        		.byte	0x1
+ 1242 000b 01        		.byte	0x1
+ 1243 000c F6        		.byte	0xf6
+ 1244 000d F5        		.byte	0xf5
+ 1245 000e 0A        		.byte	0xa
+ 1246 000f 00        		.byte	0x0
+ 1247 0010 01        		.byte	0x1
+ 1248 0011 01        		.byte	0x1
+ 1249 0012 01        		.byte	0x1
+ 1250 0013 01        		.byte	0x1
+ 1251 0014 00        		.byte	0x0
+ 1252 0015 00        		.byte	0x0
+ 1253 0016 00        		.byte	0x0
+ 1254 0017 01        		.byte	0x1
+ 1255 0018 00        		.byte	0x0
+ 1256 0019 5465 7374 		.string	"Test.c"
+ 1256      2E63 00
+ 1257 0020 00        		.uleb128 0x0
+ 1258 0021 00        		.uleb128 0x0
+ 1259 0022 00        		.uleb128 0x0
+ 1260 0023 00        		.byte	0x0
+ 1261               	.LELTP0:
+ 1262 0024 00        		.byte	0x0
+ 1263 0025 05        		.uleb128 0x5
+ 1264 0026 02        		.byte	0x2
+ 1265 0027 0000 0000 		.long	.LM1
+ 1266 002b 03        		.byte	0x3
+ 1267 002c FC01      		.sleb128 252
+ 1268 002e 01        		.byte	0x1
+ 1269 002f 00        		.byte	0x0
+ 1270 0030 05        		.uleb128 0x5
+ 1271 0031 02        		.byte	0x2
+ 1272 0032 0000 0000 		.long	.LM2
+ 1273 0036 16        		.byte	0x16
+ 1274 0037 00        		.byte	0x0
+ 1275 0038 05        		.uleb128 0x5
+ 1276 0039 02        		.byte	0x2
+ 1277 003a 0000 0000 		.long	.LM3
+ 1278 003e 15        		.byte	0x15
+ 1279 003f 00        		.byte	0x0
+ 1280 0040 05        		.uleb128 0x5
+ 1281 0041 02        		.byte	0x2
+ 1282 0042 0000 0000 		.long	.LM4
+ 1283 0046 15        		.byte	0x15
+ 1284 0047 00        		.byte	0x0
+ 1285 0048 05        		.uleb128 0x5
+ 1286 0049 02        		.byte	0x2
+ 1287 004a 0000 0000 		.long	.LM5
+ 1288 004e 15        		.byte	0x15
+ 1289 004f 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 24
+
+
+ 1290 0050 05        		.uleb128 0x5
+ 1291 0051 02        		.byte	0x2
+ 1292 0052 0000 0000 		.long	.LM6
+ 1293 0056 15        		.byte	0x15
+ 1294 0057 00        		.byte	0x0
+ 1295 0058 05        		.uleb128 0x5
+ 1296 0059 02        		.byte	0x2
+ 1297 005a 0000 0000 		.long	.LM7
+ 1298 005e 15        		.byte	0x15
+ 1299 005f 00        		.byte	0x0
+ 1300 0060 05        		.uleb128 0x5
+ 1301 0061 02        		.byte	0x2
+ 1302 0062 0000 0000 		.long	.LM8
+ 1303 0066 15        		.byte	0x15
+ 1304 0067 00        		.byte	0x0
+ 1305 0068 05        		.uleb128 0x5
+ 1306 0069 02        		.byte	0x2
+ 1307 006a 0000 0000 		.long	.LM9
+ 1308 006e 15        		.byte	0x15
+ 1309 006f 00        		.byte	0x0
+ 1310 0070 05        		.uleb128 0x5
+ 1311 0071 02        		.byte	0x2
+ 1312 0072 0000 0000 		.long	.LM10
+ 1313 0076 15        		.byte	0x15
+ 1314 0077 00        		.byte	0x0
+ 1315 0078 05        		.uleb128 0x5
+ 1316 0079 02        		.byte	0x2
+ 1317 007a 0000 0000 		.long	.LM11
+ 1318 007e 15        		.byte	0x15
+ 1319 007f 00        		.byte	0x0
+ 1320 0080 05        		.uleb128 0x5
+ 1321 0081 02        		.byte	0x2
+ 1322 0082 0000 0000 		.long	.LM12
+ 1323 0086 15        		.byte	0x15
+ 1324 0087 00        		.byte	0x0
+ 1325 0088 05        		.uleb128 0x5
+ 1326 0089 02        		.byte	0x2
+ 1327 008a 0000 0000 		.long	.LM13
+ 1328 008e 15        		.byte	0x15
+ 1329 008f 00        		.byte	0x0
+ 1330 0090 05        		.uleb128 0x5
+ 1331 0091 02        		.byte	0x2
+ 1332 0092 0000 0000 		.long	.LM14
+ 1333 0096 15        		.byte	0x15
+ 1334 0097 00        		.byte	0x0
+ 1335 0098 05        		.uleb128 0x5
+ 1336 0099 02        		.byte	0x2
+ 1337 009a 0000 0000 		.long	.LM15
+ 1338 009e 15        		.byte	0x15
+ 1339 009f 00        		.byte	0x0
+ 1340 00a0 05        		.uleb128 0x5
+ 1341 00a1 02        		.byte	0x2
+ 1342 00a2 0000 0000 		.long	.LM16
+ 1343 00a6 15        		.byte	0x15
+ 1344 00a7 00        		.byte	0x0
+ 1345 00a8 05        		.uleb128 0x5
+ 1346 00a9 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 25
+
+
+ 1347 00aa 0000 0000 		.long	.LM17
+ 1348 00ae 15        		.byte	0x15
+ 1349 00af 00        		.byte	0x0
+ 1350 00b0 05        		.uleb128 0x5
+ 1351 00b1 02        		.byte	0x2
+ 1352 00b2 0000 0000 		.long	.LM18
+ 1353 00b6 15        		.byte	0x15
+ 1354 00b7 00        		.byte	0x0
+ 1355 00b8 05        		.uleb128 0x5
+ 1356 00b9 02        		.byte	0x2
+ 1357 00ba 0000 0000 		.long	.LM19
+ 1358 00be 15        		.byte	0x15
+ 1359 00bf 00        		.byte	0x0
+ 1360 00c0 05        		.uleb128 0x5
+ 1361 00c1 02        		.byte	0x2
+ 1362 00c2 0000 0000 		.long	.LM20
+ 1363 00c6 15        		.byte	0x15
+ 1364 00c7 00        		.byte	0x0
+ 1365 00c8 05        		.uleb128 0x5
+ 1366 00c9 02        		.byte	0x2
+ 1367 00ca 0000 0000 		.long	.LM21
+ 1368 00ce 15        		.byte	0x15
+ 1369 00cf 00        		.byte	0x0
+ 1370 00d0 05        		.uleb128 0x5
+ 1371 00d1 02        		.byte	0x2
+ 1372 00d2 0000 0000 		.long	.LM22
+ 1373 00d6 15        		.byte	0x15
+ 1374 00d7 00        		.byte	0x0
+ 1375 00d8 05        		.uleb128 0x5
+ 1376 00d9 02        		.byte	0x2
+ 1377 00da 0000 0000 		.long	.LM23
+ 1378 00de 15        		.byte	0x15
+ 1379 00df 00        		.byte	0x0
+ 1380 00e0 05        		.uleb128 0x5
+ 1381 00e1 02        		.byte	0x2
+ 1382 00e2 0000 0000 		.long	.LM24
+ 1383 00e6 03        		.byte	0x3
+ 1384 00e7 B77F      		.sleb128 -73
+ 1385 00e9 01        		.byte	0x1
+ 1386 00ea 00        		.byte	0x0
+ 1387 00eb 05        		.uleb128 0x5
+ 1388 00ec 02        		.byte	0x2
+ 1389 00ed 0000 0000 		.long	.LM25
+ 1390 00f1 1A        		.byte	0x1a
+ 1391 00f2 00        		.byte	0x0
+ 1392 00f3 05        		.uleb128 0x5
+ 1393 00f4 02        		.byte	0x2
+ 1394 00f5 0000 0000 		.long	.LM26
+ 1395 00f9 19        		.byte	0x19
+ 1396 00fa 00        		.byte	0x0
+ 1397 00fb 05        		.uleb128 0x5
+ 1398 00fc 02        		.byte	0x2
+ 1399 00fd 0000 0000 		.long	.LM27
+ 1400 0101 10        		.byte	0x10
+ 1401 0102 00        		.byte	0x0
+ 1402 0103 05        		.uleb128 0x5
+ 1403 0104 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 26
+
+
+ 1404 0105 0000 0000 		.long	.LM28
+ 1405 0109 1E        		.byte	0x1e
+ 1406 010a 00        		.byte	0x0
+ 1407 010b 05        		.uleb128 0x5
+ 1408 010c 02        		.byte	0x2
+ 1409 010d 0000 0000 		.long	.LM29
+ 1410 0111 10        		.byte	0x10
+ 1411 0112 00        		.byte	0x0
+ 1412 0113 05        		.uleb128 0x5
+ 1413 0114 02        		.byte	0x2
+ 1414 0115 0000 0000 		.long	.LM30
+ 1415 0119 1B        		.byte	0x1b
+ 1416 011a 00        		.byte	0x0
+ 1417 011b 05        		.uleb128 0x5
+ 1418 011c 02        		.byte	0x2
+ 1419 011d 0000 0000 		.long	.LM31
+ 1420 0121 19        		.byte	0x19
+ 1421 0122 00        		.byte	0x0
+ 1422 0123 05        		.uleb128 0x5
+ 1423 0124 02        		.byte	0x2
+ 1424 0125 0000 0000 		.long	.LM32
+ 1425 0129 10        		.byte	0x10
+ 1426 012a 00        		.byte	0x0
+ 1427 012b 05        		.uleb128 0x5
+ 1428 012c 02        		.byte	0x2
+ 1429 012d 0000 0000 		.long	.LM33
+ 1430 0131 1E        		.byte	0x1e
+ 1431 0132 00        		.byte	0x0
+ 1432 0133 05        		.uleb128 0x5
+ 1433 0134 02        		.byte	0x2
+ 1434 0135 0000 0000 		.long	.LM34
+ 1435 0139 10        		.byte	0x10
+ 1436 013a 00        		.byte	0x0
+ 1437 013b 05        		.uleb128 0x5
+ 1438 013c 02        		.byte	0x2
+ 1439 013d 0000 0000 		.long	.LM35
+ 1440 0141 1A        		.byte	0x1a
+ 1441 0142 00        		.byte	0x0
+ 1442 0143 05        		.uleb128 0x5
+ 1443 0144 02        		.byte	0x2
+ 1444 0145 0000 0000 		.long	.LM36
+ 1445 0149 15        		.byte	0x15
+ 1446 014a 00        		.byte	0x0
+ 1447 014b 05        		.uleb128 0x5
+ 1448 014c 02        		.byte	0x2
+ 1449 014d 0000 0000 		.long	.LM37
+ 1450 0151 03        		.byte	0x3
+ 1451 0152 BB7F      		.sleb128 -69
+ 1452 0154 01        		.byte	0x1
+ 1453 0155 00        		.byte	0x0
+ 1454 0156 05        		.uleb128 0x5
+ 1455 0157 02        		.byte	0x2
+ 1456 0158 0000 0000 		.long	.LM38
+ 1457 015c 19        		.byte	0x19
+ 1458 015d 00        		.byte	0x0
+ 1459 015e 05        		.uleb128 0x5
+ 1460 015f 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 27
+
+
+ 1461 0160 0000 0000 		.long	.LM39
+ 1462 0164 19        		.byte	0x19
+ 1463 0165 00        		.byte	0x0
+ 1464 0166 05        		.uleb128 0x5
+ 1465 0167 02        		.byte	0x2
+ 1466 0168 0000 0000 		.long	.LM40
+ 1467 016c 10        		.byte	0x10
+ 1468 016d 00        		.byte	0x0
+ 1469 016e 05        		.uleb128 0x5
+ 1470 016f 02        		.byte	0x2
+ 1471 0170 0000 0000 		.long	.LM41
+ 1472 0174 1E        		.byte	0x1e
+ 1473 0175 00        		.byte	0x0
+ 1474 0176 05        		.uleb128 0x5
+ 1475 0177 02        		.byte	0x2
+ 1476 0178 0000 0000 		.long	.LM42
+ 1477 017c 10        		.byte	0x10
+ 1478 017d 00        		.byte	0x0
+ 1479 017e 05        		.uleb128 0x5
+ 1480 017f 02        		.byte	0x2
+ 1481 0180 0000 0000 		.long	.LM43
+ 1482 0184 1B        		.byte	0x1b
+ 1483 0185 00        		.byte	0x0
+ 1484 0186 05        		.uleb128 0x5
+ 1485 0187 02        		.byte	0x2
+ 1486 0188 0000 0000 		.long	.LM44
+ 1487 018c 19        		.byte	0x19
+ 1488 018d 00        		.byte	0x0
+ 1489 018e 05        		.uleb128 0x5
+ 1490 018f 02        		.byte	0x2
+ 1491 0190 0000 0000 		.long	.LM45
+ 1492 0194 10        		.byte	0x10
+ 1493 0195 00        		.byte	0x0
+ 1494 0196 05        		.uleb128 0x5
+ 1495 0197 02        		.byte	0x2
+ 1496 0198 0000 0000 		.long	.LM46
+ 1497 019c 1E        		.byte	0x1e
+ 1498 019d 00        		.byte	0x0
+ 1499 019e 05        		.uleb128 0x5
+ 1500 019f 02        		.byte	0x2
+ 1501 01a0 0000 0000 		.long	.LM47
+ 1502 01a4 10        		.byte	0x10
+ 1503 01a5 00        		.byte	0x0
+ 1504 01a6 05        		.uleb128 0x5
+ 1505 01a7 02        		.byte	0x2
+ 1506 01a8 0000 0000 		.long	.LM48
+ 1507 01ac 1A        		.byte	0x1a
+ 1508 01ad 00        		.byte	0x0
+ 1509 01ae 05        		.uleb128 0x5
+ 1510 01af 02        		.byte	0x2
+ 1511 01b0 0000 0000 		.long	.LM49
+ 1512 01b4 03        		.byte	0x3
+ 1513 01b5 BD7F      		.sleb128 -67
+ 1514 01b7 01        		.byte	0x1
+ 1515 01b8 00        		.byte	0x0
+ 1516 01b9 05        		.uleb128 0x5
+ 1517 01ba 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 28
+
+
+ 1518 01bb 0000 0000 		.long	.LM50
+ 1519 01bf 19        		.byte	0x19
+ 1520 01c0 00        		.byte	0x0
+ 1521 01c1 05        		.uleb128 0x5
+ 1522 01c2 02        		.byte	0x2
+ 1523 01c3 0000 0000 		.long	.LM51
+ 1524 01c7 19        		.byte	0x19
+ 1525 01c8 00        		.byte	0x0
+ 1526 01c9 05        		.uleb128 0x5
+ 1527 01ca 02        		.byte	0x2
+ 1528 01cb 0000 0000 		.long	.LM52
+ 1529 01cf 10        		.byte	0x10
+ 1530 01d0 00        		.byte	0x0
+ 1531 01d1 05        		.uleb128 0x5
+ 1532 01d2 02        		.byte	0x2
+ 1533 01d3 0000 0000 		.long	.LM53
+ 1534 01d7 1E        		.byte	0x1e
+ 1535 01d8 00        		.byte	0x0
+ 1536 01d9 05        		.uleb128 0x5
+ 1537 01da 02        		.byte	0x2
+ 1538 01db 0000 0000 		.long	.LM54
+ 1539 01df 10        		.byte	0x10
+ 1540 01e0 00        		.byte	0x0
+ 1541 01e1 05        		.uleb128 0x5
+ 1542 01e2 02        		.byte	0x2
+ 1543 01e3 0000 0000 		.long	.LM55
+ 1544 01e7 1B        		.byte	0x1b
+ 1545 01e8 00        		.byte	0x0
+ 1546 01e9 05        		.uleb128 0x5
+ 1547 01ea 02        		.byte	0x2
+ 1548 01eb 0000 0000 		.long	.LM56
+ 1549 01ef 19        		.byte	0x19
+ 1550 01f0 00        		.byte	0x0
+ 1551 01f1 05        		.uleb128 0x5
+ 1552 01f2 02        		.byte	0x2
+ 1553 01f3 0000 0000 		.long	.LM57
+ 1554 01f7 10        		.byte	0x10
+ 1555 01f8 00        		.byte	0x0
+ 1556 01f9 05        		.uleb128 0x5
+ 1557 01fa 02        		.byte	0x2
+ 1558 01fb 0000 0000 		.long	.LM58
+ 1559 01ff 1E        		.byte	0x1e
+ 1560 0200 00        		.byte	0x0
+ 1561 0201 05        		.uleb128 0x5
+ 1562 0202 02        		.byte	0x2
+ 1563 0203 0000 0000 		.long	.LM59
+ 1564 0207 10        		.byte	0x10
+ 1565 0208 00        		.byte	0x0
+ 1566 0209 05        		.uleb128 0x5
+ 1567 020a 02        		.byte	0x2
+ 1568 020b 0000 0000 		.long	.LM60
+ 1569 020f 1A        		.byte	0x1a
+ 1570 0210 00        		.byte	0x0
+ 1571 0211 05        		.uleb128 0x5
+ 1572 0212 02        		.byte	0x2
+ 1573 0213 0000 0000 		.long	.LM61
+ 1574 0217 5F        		.byte	0x5f
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 29
+
+
+ 1575 0218 00        		.byte	0x0
+ 1576 0219 05        		.uleb128 0x5
+ 1577 021a 02        		.byte	0x2
+ 1578 021b 0000 0000 		.long	.LM62
+ 1579 021f 15        		.byte	0x15
+ 1580 0220 00        		.byte	0x0
+ 1581 0221 05        		.uleb128 0x5
+ 1582 0222 02        		.byte	0x2
+ 1583 0223 0000 0000 		.long	.LM63
+ 1584 0227 15        		.byte	0x15
+ 1585 0228 00        		.byte	0x0
+ 1586 0229 05        		.uleb128 0x5
+ 1587 022a 02        		.byte	0x2
+ 1588 022b 0000 0000 		.long	.LM64
+ 1589 022f 15        		.byte	0x15
+ 1590 0230 00        		.byte	0x0
+ 1591 0231 05        		.uleb128 0x5
+ 1592 0232 02        		.byte	0x2
+ 1593 0233 0000 0000 		.long	.LM65
+ 1594 0237 15        		.byte	0x15
+ 1595 0238 00        		.byte	0x0
+ 1596 0239 05        		.uleb128 0x5
+ 1597 023a 02        		.byte	0x2
+ 1598 023b 0000 0000 		.long	.LM66
+ 1599 023f 03        		.byte	0x3
+ 1600 0240 FC7E      		.sleb128 -132
+ 1601 0242 01        		.byte	0x1
+ 1602 0243 00        		.byte	0x0
+ 1603 0244 05        		.uleb128 0x5
+ 1604 0245 02        		.byte	0x2
+ 1605 0246 0000 0000 		.long	.LM67
+ 1606 024a 17        		.byte	0x17
+ 1607 024b 00        		.byte	0x0
+ 1608 024c 05        		.uleb128 0x5
+ 1609 024d 02        		.byte	0x2
+ 1610 024e 0000 0000 		.long	.LM68
+ 1611 0252 15        		.byte	0x15
+ 1612 0253 00        		.byte	0x0
+ 1613 0254 05        		.uleb128 0x5
+ 1614 0255 02        		.byte	0x2
+ 1615 0256 0000 0000 		.long	.LM69
+ 1616 025a 15        		.byte	0x15
+ 1617 025b 00        		.byte	0x0
+ 1618 025c 05        		.uleb128 0x5
+ 1619 025d 02        		.byte	0x2
+ 1620 025e 0000 0000 		.long	.LM70
+ 1621 0262 15        		.byte	0x15
+ 1622 0263 00        		.byte	0x0
+ 1623 0264 05        		.uleb128 0x5
+ 1624 0265 02        		.byte	0x2
+ 1625 0266 0000 0000 		.long	.LM71
+ 1626 026a 15        		.byte	0x15
+ 1627 026b 00        		.byte	0x0
+ 1628 026c 05        		.uleb128 0x5
+ 1629 026d 02        		.byte	0x2
+ 1630 026e 0000 0000 		.long	.LM72
+ 1631 0272 15        		.byte	0x15
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 30
+
+
+ 1632 0273 00        		.byte	0x0
+ 1633 0274 05        		.uleb128 0x5
+ 1634 0275 02        		.byte	0x2
+ 1635 0276 0000 0000 		.long	.LM73
+ 1636 027a 15        		.byte	0x15
+ 1637 027b 00        		.byte	0x0
+ 1638 027c 05        		.uleb128 0x5
+ 1639 027d 02        		.byte	0x2
+ 1640 027e 0000 0000 		.long	.LM74
+ 1641 0282 03        		.byte	0x3
+ 1642 0283 63        		.sleb128 -29
+ 1643 0284 01        		.byte	0x1
+ 1644 0285 00        		.byte	0x0
+ 1645 0286 05        		.uleb128 0x5
+ 1646 0287 02        		.byte	0x2
+ 1647 0288 0000 0000 		.long	.LM75
+ 1648 028c 18        		.byte	0x18
+ 1649 028d 00        		.byte	0x0
+ 1650 028e 05        		.uleb128 0x5
+ 1651 028f 02        		.byte	0x2
+ 1652 0290 0000 0000 		.long	.LM76
+ 1653 0294 19        		.byte	0x19
+ 1654 0295 00        		.byte	0x0
+ 1655 0296 05        		.uleb128 0x5
+ 1656 0297 02        		.byte	0x2
+ 1657 0298 0000 0000 		.long	.LM77
+ 1658 029c 15        		.byte	0x15
+ 1659 029d 00        		.byte	0x0
+ 1660 029e 05        		.uleb128 0x5
+ 1661 029f 02        		.byte	0x2
+ 1662 02a0 0000 0000 		.long	.LM78
+ 1663 02a4 03        		.byte	0x3
+ 1664 02a5 51        		.sleb128 -47
+ 1665 02a6 01        		.byte	0x1
+ 1666 02a7 00        		.byte	0x0
+ 1667 02a8 05        		.uleb128 0x5
+ 1668 02a9 02        		.byte	0x2
+ 1669 02aa 0000 0000 		.long	.LM79
+ 1670 02ae 16        		.byte	0x16
+ 1671 02af 00        		.byte	0x0
+ 1672 02b0 05        		.uleb128 0x5
+ 1673 02b1 02        		.byte	0x2
+ 1674 02b2 0000 0000 		.long	.LM80
+ 1675 02b6 16        		.byte	0x16
+ 1676 02b7 00        		.byte	0x0
+ 1677 02b8 05        		.uleb128 0x5
+ 1678 02b9 02        		.byte	0x2
+ 1679 02ba 0000 0000 		.long	.LM81
+ 1680 02be 15        		.byte	0x15
+ 1681 02bf 00        		.byte	0x0
+ 1682 02c0 05        		.uleb128 0x5
+ 1683 02c1 02        		.byte	0x2
+ 1684 02c2 0000 0000 		.long	.LM82
+ 1685 02c6 15        		.byte	0x15
+ 1686 02c7 00        		.byte	0x0
+ 1687 02c8 05        		.uleb128 0x5
+ 1688 02c9 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 31
+
+
+ 1689 02ca 0000 0000 		.long	.LM83
+ 1690 02ce 15        		.byte	0x15
+ 1691 02cf 00        		.byte	0x0
+ 1692 02d0 05        		.uleb128 0x5
+ 1693 02d1 02        		.byte	0x2
+ 1694 02d2 0000 0000 		.long	.LM84
+ 1695 02d6 15        		.byte	0x15
+ 1696 02d7 00        		.byte	0x0
+ 1697 02d8 05        		.uleb128 0x5
+ 1698 02d9 02        		.byte	0x2
+ 1699 02da 0000 0000 		.long	.LM85
+ 1700 02de 17        		.byte	0x17
+ 1701 02df 00        		.byte	0x0
+ 1702 02e0 05        		.uleb128 0x5
+ 1703 02e1 02        		.byte	0x2
+ 1704 02e2 0000 0000 		.long	.LM86
+ 1705 02e6 15        		.byte	0x15
+ 1706 02e7 00        		.byte	0x0
+ 1707 02e8 05        		.uleb128 0x5
+ 1708 02e9 02        		.byte	0x2
+ 1709 02ea 0000 0000 		.long	.LM87
+ 1710 02ee 15        		.byte	0x15
+ 1711 02ef 00        		.byte	0x0
+ 1712 02f0 05        		.uleb128 0x5
+ 1713 02f1 02        		.byte	0x2
+ 1714 02f2 0000 0000 		.long	.LM88
+ 1715 02f6 16        		.byte	0x16
+ 1716 02f7 00        		.byte	0x0
+ 1717 02f8 05        		.uleb128 0x5
+ 1718 02f9 02        		.byte	0x2
+ 1719 02fa 0000 0000 		.long	.LM89
+ 1720 02fe 17        		.byte	0x17
+ 1721 02ff 00        		.byte	0x0
+ 1722 0300 05        		.uleb128 0x5
+ 1723 0301 02        		.byte	0x2
+ 1724 0302 0000 0000 		.long	.LM90
+ 1725 0306 15        		.byte	0x15
+ 1726 0307 00        		.byte	0x0
+ 1727 0308 05        		.uleb128 0x5
+ 1728 0309 02        		.byte	0x2
+ 1729 030a 0000 0000 		.long	.LM91
+ 1730 030e 15        		.byte	0x15
+ 1731 030f 00        		.byte	0x0
+ 1732 0310 05        		.uleb128 0x5
+ 1733 0311 02        		.byte	0x2
+ 1734 0312 0000 0000 		.long	.LM92
+ 1735 0316 15        		.byte	0x15
+ 1736 0317 00        		.byte	0x0
+ 1737 0318 05        		.uleb128 0x5
+ 1738 0319 02        		.byte	0x2
+ 1739 031a 0000 0000 		.long	.LM93
+ 1740 031e 15        		.byte	0x15
+ 1741 031f 00        		.byte	0x0
+ 1742 0320 05        		.uleb128 0x5
+ 1743 0321 02        		.byte	0x2
+ 1744 0322 0000 0000 		.long	.LM94
+ 1745 0326 15        		.byte	0x15
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 32
+
+
+ 1746 0327 00        		.byte	0x0
+ 1747 0328 05        		.uleb128 0x5
+ 1748 0329 02        		.byte	0x2
+ 1749 032a 0000 0000 		.long	.LM95
+ 1750 032e 15        		.byte	0x15
+ 1751 032f 00        		.byte	0x0
+ 1752 0330 05        		.uleb128 0x5
+ 1753 0331 02        		.byte	0x2
+ 1754 0332 0000 0000 		.long	.LM96
+ 1755 0336 15        		.byte	0x15
+ 1756 0337 00        		.byte	0x0
+ 1757 0338 05        		.uleb128 0x5
+ 1758 0339 02        		.byte	0x2
+ 1759 033a 0000 0000 		.long	.LM97
+ 1760 033e 15        		.byte	0x15
+ 1761 033f 00        		.byte	0x0
+ 1762 0340 05        		.uleb128 0x5
+ 1763 0341 02        		.byte	0x2
+ 1764 0342 0000 0000 		.long	.LM98
+ 1765 0346 03        		.byte	0x3
+ 1766 0347 4E        		.sleb128 -50
+ 1767 0348 01        		.byte	0x1
+ 1768 0349 00        		.byte	0x0
+ 1769 034a 05        		.uleb128 0x5
+ 1770 034b 02        		.byte	0x2
+ 1771 034c 0000 0000 		.long	.LM99
+ 1772 0350 01        		.byte	0x1
+ 1773 0351 00        		.byte	0x0
+ 1774 0352 05        		.uleb128 0x5
+ 1775 0353 02        		.byte	0x2
+ 1776 0354 0000 0000 		.long	.LM100
+ 1777 0358 1A        		.byte	0x1a
+ 1778 0359 00        		.byte	0x0
+ 1779 035a 05        		.uleb128 0x5
+ 1780 035b 02        		.byte	0x2
+ 1781 035c 0000 0000 		.long	.LM101
+ 1782 0360 13        		.byte	0x13
+ 1783 0361 00        		.byte	0x0
+ 1784 0362 05        		.uleb128 0x5
+ 1785 0363 02        		.byte	0x2
+ 1786 0364 0000 0000 		.long	.LM102
+ 1787 0368 15        		.byte	0x15
+ 1788 0369 00        		.byte	0x0
+ 1789 036a 05        		.uleb128 0x5
+ 1790 036b 02        		.byte	0x2
+ 1791 036c 0000 0000 		.long	.LM103
+ 1792 0370 15        		.byte	0x15
+ 1793 0371 00        		.byte	0x0
+ 1794 0372 05        		.uleb128 0x5
+ 1795 0373 02        		.byte	0x2
+ 1796 0374 0000 0000 		.long	.LM104
+ 1797 0378 15        		.byte	0x15
+ 1798 0379 00        		.byte	0x0
+ 1799 037a 05        		.uleb128 0x5
+ 1800 037b 02        		.byte	0x2
+ 1801 037c 0000 0000 		.long	.LM105
+ 1802 0380 15        		.byte	0x15
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 33
+
+
+ 1803 0381 00        		.byte	0x0
+ 1804 0382 05        		.uleb128 0x5
+ 1805 0383 02        		.byte	0x2
+ 1806 0384 0000 0000 		.long	.LM106
+ 1807 0388 0E        		.byte	0xe
+ 1808 0389 00        		.byte	0x0
+ 1809 038a 05        		.uleb128 0x5
+ 1810 038b 02        		.byte	0x2
+ 1811 038c 0000 0000 		.long	.LM107
+ 1812 0390 1C        		.byte	0x1c
+ 1813 0391 00        		.byte	0x0
+ 1814 0392 05        		.uleb128 0x5
+ 1815 0393 02        		.byte	0x2
+ 1816 0394 0000 0000 		.long	.Letext0
+ 1817 0398 00        		.byte	0x0
+ 1818 0399 01        		.uleb128 0x1
+ 1819 039a 01        		.byte	0x1
+ 1820               	.LELT0:
+ 1821 039b 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 1821      0200 1000 
+ 1821      0000 0101 
+ 1821      FB0E 0A00 
+ 1821      0101 0101 
+ 1822               	.LASF8:
+ 1823 0000 4D6F 746F 		.string	"MotorTestBoth"
+ 1823      7254 6573 
+ 1823      7442 6F74 
+ 1823      6800 
+ 1824               	.LASF17:
+ 1825 000e 5465 7374 		.string	"Test.c"
+ 1825      2E63 00
+ 1826               	.LASF18:
+ 1827 0015 433A 5C55 		.string	"C:\\Users\\longc\\OneDrive\\Desktop\\sose18\\src"
+ 1827      7365 7273 
+ 1827      5C6C 6F6E 
+ 1827      6763 5C4F 
+ 1827      6E65 4472 
+ 1828               	.LASF19:
+ 1829 0040 4D6F 746F 		.string	"MotorTest"
+ 1829      7254 6573 
+ 1829      7400 
+ 1830               	.LASF14:
+ 1831 004a 4C69 6E65 		.string	"LineTest"
+ 1831      5465 7374 
+ 1831      00
+ 1832               	.LASF13:
+ 1833 0053 6461 7461 		.string	"data"
+ 1833      00
+ 1834               	.LASF1:
+ 1835 0058 756E 7369 		.string	"unsigned char"
+ 1835      676E 6564 
+ 1835      2063 6861 
+ 1835      7200 
+ 1836               	.LASF4:
+ 1837 0066 6C6F 6E67 		.string	"long unsigned int"
+ 1837      2075 6E73 
+ 1837      6967 6E65 
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 34
+
+
+ 1837      6420 696E 
+ 1837      7400 
+ 1838               	.LASF16:
+ 1839 0078 474E 5520 		.string	"GNU C 4.3.3"
+ 1839      4320 342E 
+ 1839      332E 3300 
+ 1840               	.LASF10:
+ 1841 0084 4D6F 746F 		.string	"MotorTestLeft"
+ 1841      7254 6573 
+ 1841      744C 6566 
+ 1841      7400 
+ 1842               	.LASF15:
+ 1843 0092 5377 6974 		.string	"SwitchTest"
+ 1843      6368 5465 
+ 1843      7374 00
+ 1844               	.LASF12:
+ 1845 009d 4F64 6F6D 		.string	"OdometrieTest"
+ 1845      6574 7269 
+ 1845      6554 6573 
+ 1845      7400 
+ 1846               	.LASF2:
+ 1847 00ab 756E 7369 		.string	"unsigned int"
+ 1847      676E 6564 
+ 1847      2069 6E74 
+ 1847      00
+ 1848               	.LASF6:
+ 1849 00b8 6C6F 6E67 		.string	"long long unsigned int"
+ 1849      206C 6F6E 
+ 1849      6720 756E 
+ 1849      7369 676E 
+ 1849      6564 2069 
+ 1850               	.LASF9:
+ 1851 00cf 7370 6565 		.string	"speed"
+ 1851      6400 
+ 1852               	.LASF5:
+ 1853 00d5 6C6F 6E67 		.string	"long long int"
+ 1853      206C 6F6E 
+ 1853      6720 696E 
+ 1853      7400 
+ 1854               	.LASF20:
+ 1855 00e3 5365 7269 		.string	"SerialTest"
+ 1855      616C 5465 
+ 1855      7374 00
+ 1856               	.LASF7:
+ 1857 00ee 4C45 4454 		.string	"LEDTest"
+ 1857      6573 7400 
+ 1858               	.LASF3:
+ 1859 00f6 6C6F 6E67 		.string	"long int"
+ 1859      2069 6E74 
+ 1859      00
+ 1860               	.LASF0:
+ 1861 00ff 7369 676E 		.string	"signed char"
+ 1861      6564 2063 
+ 1861      6861 7200 
+ 1862               	.LASF11:
+ 1863 010b 4D6F 746F 		.string	"MotorTestRight"
+ 1863      7254 6573 
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 35
+
+
+ 1863      7452 6967 
+ 1863      6874 00
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccTamczs.s 			page 36
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 Test.c
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:2      *ABS*:0000003f __SREG__
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:3      *ABS*:0000003e __SP_H__
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:4      *ABS*:0000003d __SP_L__
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:5      *ABS*:00000034 __CCP__
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:18     .text:00000000 LEDTest
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:157    .text:000000bc MotorTestBoth
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:218    .text:00000102 MotorTestLeft
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:275    .text:00000142 MotorTestRight
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:332    .text:00000182 MotorTest
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:350    .text:0000018a OdometrieTest
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:401    .text:000001ca LineTest
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:448    .text:0000020a SwitchTest
+C:\Users\longc\AppData\Local\Temp/ccTamczs.s:534    .text:00000260 SerialTest
+
+UNDEFINED SYMBOLS
+StatusLED
+BackLED
+FrontLED
+Sleep
+MotorDir
+MotorSpeed
+OdometryData
+LineData
+PollSwitch
+SerRead
+SerWrite

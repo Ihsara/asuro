@@ -1,0 +1,2143 @@
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 1
+
+
+   1               		.file	"SelfTest.c"
+   2               	__SREG__ = 0x3f
+   3               	__SP_H__ = 0x3e
+   4               	__SP_L__ = 0x3d
+   5               	__CCP__  = 0x34
+   6               	__tmp_reg__ = 0
+   7               	__zero_reg__ = 1
+   8               		.section	.debug_abbrev,"",@progbits
+   9               	.Ldebug_abbrev0:
+  10               		.section	.debug_info,"",@progbits
+  11               	.Ldebug_info0:
+  12               		.section	.debug_line,"",@progbits
+  13               	.Ldebug_line0:
+  14               		.text
+  15               	.Ltext0:
+  16               		.data
+  17               	.LC0:
+  18 0000 312F 2052 		.string	"1/ Run motor\r\n"
+  18      756E 206D 
+  18      6F74 6F72 
+  18      0D0A 00
+  19               	.LC1:
+  20 000f 322F 204C 		.string	"2/ LEDs functions\r\n"
+  20      4544 7320 
+  20      6675 6E63 
+  20      7469 6F6E 
+  20      730D 0A00 
+  21               	.LC2:
+  22 0023 332F 2042 		.string	"3/ Buttons \r\n"
+  22      7574 746F 
+  22      6E73 200D 
+  22      0A00 
+  23               	.LC3:
+  24 0031 342F 2052 		.string	"4/ Run Selftest \r\n"
+  24      756E 2053 
+  24      656C 6674 
+  24      6573 7420 
+  24      0D0A 00
+  25               		.text
+  26               	.global	OptionsMsgs
+  27               		.type	OptionsMsgs, @function
+  28               	OptionsMsgs:
+  29               	.LFB6:
+  30               	.LM1:
+  31               	/* prologue: function */
+  32               	/* frame size = 0 */
+  33               	.LM2:
+  34 0000 80E0      		ldi r24,lo8(.LC0)
+  35 0002 90E0      		ldi r25,hi8(.LC0)
+  36 0004 00D0      		rcall SerPrint
+  37               	.LM3:
+  38 0006 80E0      		ldi r24,lo8(.LC1)
+  39 0008 90E0      		ldi r25,hi8(.LC1)
+  40 000a 00D0      		rcall SerPrint
+  41               	.LM4:
+  42 000c 80E0      		ldi r24,lo8(.LC2)
+  43 000e 90E0      		ldi r25,hi8(.LC2)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 2
+
+
+  44 0010 00D0      		rcall SerPrint
+  45               	.LM5:
+  46 0012 80E0      		ldi r24,lo8(.LC3)
+  47 0014 90E0      		ldi r25,hi8(.LC3)
+  48 0016 00D0      		rcall SerPrint
+  49               	/* epilogue start */
+  50               	.LM6:
+  51 0018 0895      		ret
+  52               	.LFE6:
+  53               		.size	OptionsMsgs, .-OptionsMsgs
+  54               		.data
+  55               	.LC4:
+  56 0044 0A0D 2D2D 		.string	"\n\r-- LED manual test --\r\n"
+  56      204C 4544 
+  56      206D 616E 
+  56      7561 6C20 
+  56      7465 7374 
+  57               	.LC5:
+  58 005e 312F 2052 		.string	"1/ Red LED \r\n"
+  58      6564 204C 
+  58      4544 200D 
+  58      0A00 
+  59               	.LC6:
+  60 006c 322F 2047 		.string	"2/ Green LED \r\n"
+  60      7265 656E 
+  60      204C 4544 
+  60      200D 0A00 
+  61               	.LC7:
+  62 007c 332F 2042 		.string	"3/ Back LEDs turn on \r\n"
+  62      6163 6B20 
+  62      4C45 4473 
+  62      2074 7572 
+  62      6E20 6F6E 
+  63               		.text
+  64               	.global	LEDOptionsMsgs
+  65               		.type	LEDOptionsMsgs, @function
+  66               	LEDOptionsMsgs:
+  67               	.LFB5:
+  68               	.LM7:
+  69               	/* prologue: function */
+  70               	/* frame size = 0 */
+  71               	.LM8:
+  72 001a 80E0      		ldi r24,lo8(.LC4)
+  73 001c 90E0      		ldi r25,hi8(.LC4)
+  74 001e 00D0      		rcall SerPrint
+  75               	.LM9:
+  76 0020 80E0      		ldi r24,lo8(.LC5)
+  77 0022 90E0      		ldi r25,hi8(.LC5)
+  78 0024 00D0      		rcall SerPrint
+  79               	.LM10:
+  80 0026 80E0      		ldi r24,lo8(.LC6)
+  81 0028 90E0      		ldi r25,hi8(.LC6)
+  82 002a 00D0      		rcall SerPrint
+  83               	.LM11:
+  84 002c 80E0      		ldi r24,lo8(.LC7)
+  85 002e 90E0      		ldi r25,hi8(.LC7)
+  86 0030 00D0      		rcall SerPrint
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 3
+
+
+  87               	/* epilogue start */
+  88               	.LM12:
+  89 0032 0895      		ret
+  90               	.LFE5:
+  91               		.size	LEDOptionsMsgs, .-LEDOptionsMsgs
+  92               	.global	Sleep_more
+  93               		.type	Sleep_more, @function
+  94               	Sleep_more:
+  95               	.LFB3:
+  96               	.LM13:
+  97               	.LVL0:
+  98 0034 0F93      		push r16
+  99 0036 1F93      		push r17
+ 100 0038 CF93      		push r28
+ 101 003a DF93      		push r29
+ 102               	/* prologue: function */
+ 103               	/* frame size = 0 */
+ 104               	.LM14:
+ 105 003c 28EE      		ldi r18,lo8(1000)
+ 106 003e 33E0      		ldi r19,hi8(1000)
+ 107 0040 AC01      		movw r20,r24
+ 108 0042 429F      		mul r20,r18
+ 109 0044 C001      		movw r24,r0
+ 110 0046 439F      		mul r20,r19
+ 111 0048 900D      		add r25,r0
+ 112 004a 529F      		mul r21,r18
+ 113 004c 900D      		add r25,r0
+ 114 004e 1124      		clr r1
+ 115               	.LVL1:
+ 116 0050 63E0      		ldi r22,lo8(3)
+ 117 0052 70E0      		ldi r23,hi8(3)
+ 118 0054 00D0      		rcall __divmodhi4
+ 119 0056 EB01      		movw r28,r22
+ 120 0058 00E0      		ldi r16,lo8(0)
+ 121 005a 10E0      		ldi r17,hi8(0)
+ 122               	.LVL2:
+ 123 005c 00C0      		rjmp .L6
+ 124               	.L7:
+ 125               	.LM15:
+ 126 005e 88ED      		ldi r24,lo8(-40)
+ 127 0060 00D0      		rcall Sleep
+ 128               	.LM16:
+ 129 0062 0F5F      		subi r16,lo8(-(1))
+ 130 0064 1F4F      		sbci r17,hi8(-(1))
+ 131               	.L6:
+ 132 0066 C017      		cp r28,r16
+ 133 0068 D107      		cpc r29,r17
+ 134 006a 04F4      		brge .L7
+ 135               	/* epilogue start */
+ 136               	.LM17:
+ 137 006c DF91      		pop r29
+ 138 006e CF91      		pop r28
+ 139 0070 1F91      		pop r17
+ 140 0072 0F91      		pop r16
+ 141               	.LVL3:
+ 142 0074 0895      		ret
+ 143               	.LFE3:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 4
+
+
+ 144               		.size	Sleep_more, .-Sleep_more
+ 145               		.data
+ 146               	.LC8:
+ 147 0094 0A0D 5275 		.string	"\n\rRun motor: FWD, FWD at 120\r\n"
+ 147      6E20 6D6F 
+ 147      746F 723A 
+ 147      2046 5744 
+ 147      2C20 4657 
+ 148               	.LC9:
+ 149 00b3 0A0D 204C 		.string	"\n\r LED function \r\n"
+ 149      4544 2066 
+ 149      756E 6374 
+ 149      696F 6E20 
+ 149      0D0A 00
+ 150               	.LC10:
+ 151 00c6 5265 6420 		.string	"Red StatusLED turn on\r\n"
+ 151      5374 6174 
+ 151      7573 4C45 
+ 151      4420 7475 
+ 151      726E 206F 
+ 152               	.LC11:
+ 153 00de 4772 6565 		.string	"Green StatusLED turn on\r\n"
+ 153      6E20 5374 
+ 153      6174 7573 
+ 153      4C45 4420 
+ 153      7475 726E 
+ 154               	.LC12:
+ 155 00f8 4261 636B 		.string	"Back LEDs turn on\r\n"
+ 155      204C 4544 
+ 155      7320 7475 
+ 155      726E 206F 
+ 155      6E0D 0A00 
+ 156               	.LC13:
+ 157 010c 0A0D 5465 		.string	"\n\rTesting buttons. Press '9' to escape.\r\n"
+ 157      7374 696E 
+ 157      6720 6275 
+ 157      7474 6F6E 
+ 157      732E 2050 
+ 158               	.LC14:
+ 159 0136 0A0D 536F 		.string	"\n\rSomething is wrong!\r\n"
+ 159      6D65 7468 
+ 159      696E 6720 
+ 159      6973 2077 
+ 159      726F 6E67 
+ 160               	.LC15:
+ 161 014e 0A0D 202D 		.string	"\n\r ----->  Switch "
+ 161      2D2D 2D2D 
+ 161      3E20 2053 
+ 161      7769 7463 
+ 161      6820 00
+ 162               	.LC16:
+ 163 0161 7761 7320 		.string	"was pressed!\r\n"
+ 163      7072 6573 
+ 163      7365 6421 
+ 163      0D0A 00
+ 164               	.LC17:
+ 165 0170 0A0D 2D2D 		.string	"\n\r-- ASURO Testing --\n\r"
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 5
+
+
+ 165      2041 5355 
+ 165      524F 2054 
+ 165      6573 7469 
+ 165      6E67 202D 
+ 166               	.LC18:
+ 167 0188 4C45 4420 		.string	"LED Test\n\r"
+ 167      5465 7374 
+ 167      0A0D 00
+ 168               	.LC19:
+ 169 0193 4C69 6E65 		.string	"Line Test\n\r"
+ 169      2054 6573 
+ 169      740A 0D00 
+ 170               	.LC20:
+ 171 019f 5377 6974 		.string	"Switch Test\n\r"
+ 171      6368 2054 
+ 171      6573 740A 
+ 171      0D00 
+ 172               	.LC21:
+ 173 01ad 4F64 6F6D 		.string	"Odometrie Test\n\r"
+ 173      6574 7269 
+ 173      6520 5465 
+ 173      7374 0A0D 
+ 173      00
+ 174               	.LC22:
+ 175 01be 4D6F 746F 		.string	"Motor Test\n\r"
+ 175      7220 5465 
+ 175      7374 0A0D 
+ 175      00
+ 176               	.LC23:
+ 177 01cb 5365 7269 		.string	"Serial Test\n\r"
+ 177      616C 2054 
+ 177      6573 740A 
+ 177      0D00 
+ 178               		.text
+ 179               	.global	ActionFromMsgs
+ 180               		.type	ActionFromMsgs, @function
+ 181               	ActionFromMsgs:
+ 182               	.LFB4:
+ 183               	.LM18:
+ 184               	.LVL4:
+ 185 0076 6F92      		push r6
+ 186 0078 7F92      		push r7
+ 187 007a 8F92      		push r8
+ 188 007c 9F92      		push r9
+ 189 007e AF92      		push r10
+ 190 0080 BF92      		push r11
+ 191 0082 CF92      		push r12
+ 192 0084 DF92      		push r13
+ 193 0086 EF92      		push r14
+ 194 0088 FF92      		push r15
+ 195 008a 0F93      		push r16
+ 196 008c 1F93      		push r17
+ 197 008e DF93      		push r29
+ 198 0090 CF93      		push r28
+ 199 0092 CDB7      		in r28,__SP_L__
+ 200 0094 DEB7      		in r29,__SP_H__
+ 201 0096 2F97      		sbiw r28,15
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 6
+
+
+ 202 0098 0FB6      		in __tmp_reg__,__SREG__
+ 203 009a F894      		cli
+ 204 009c DEBF      		out __SP_H__,r29
+ 205 009e 0FBE      		out __SREG__,__tmp_reg__
+ 206 00a0 CDBF      		out __SP_L__,r28
+ 207               	/* prologue: function */
+ 208               	/* frame size = 15 */
+ 209 00a2 4C01      		movw r8,r24
+ 210               	.LM19:
+ 211 00a4 DE01      		movw r26,r28
+ 212 00a6 1296      		adiw r26,2
+ 213 00a8 E0E0      		ldi r30,lo8(C.0.1458)
+ 214 00aa F0E0      		ldi r31,hi8(C.0.1458)
+ 215 00ac 8EE0      		ldi r24,lo8(14)
+ 216               	.LVL5:
+ 217               	.L10:
+ 218 00ae 0190      		ld r0,Z+
+ 219 00b0 0D92      		st X+,r0
+ 220 00b2 8150      		subi r24,lo8(-(-1))
+ 221 00b4 01F4      		brne .L10
+ 222               	.LM20:
+ 223 00b6 F401      		movw r30,r8
+ 224 00b8 8081      		ld r24,Z
+ 225 00ba 8133      		cpi r24,lo8(49)
+ 226 00bc 01F4      		brne .L11
+ 227               	.LM21:
+ 228 00be 80E0      		ldi r24,lo8(.LC8)
+ 229 00c0 90E0      		ldi r25,hi8(.LC8)
+ 230 00c2 00D0      		rcall SerPrint
+ 231               	.LM22:
+ 232 00c4 80E2      		ldi r24,lo8(32)
+ 233 00c6 60E2      		ldi r22,lo8(32)
+ 234 00c8 00D0      		rcall MotorDir
+ 235               	.LM23:
+ 236 00ca 88E7      		ldi r24,lo8(120)
+ 237 00cc 68E7      		ldi r22,lo8(120)
+ 238 00ce 00D0      		rcall MotorSpeed
+ 239               	.LM24:
+ 240 00d0 83E0      		ldi r24,lo8(3)
+ 241 00d2 90E0      		ldi r25,hi8(3)
+ 242 00d4 00D0      		rcall Sleep_more
+ 243               	.LM25:
+ 244 00d6 80E0      		ldi r24,lo8(0)
+ 245 00d8 60E0      		ldi r22,lo8(0)
+ 246 00da 00D0      		rcall MotorSpeed
+ 247 00dc 00C0      		rjmp .L25
+ 248               	.L11:
+ 249               	.LM26:
+ 250 00de 8233      		cpi r24,lo8(50)
+ 251 00e0 01F4      		brne .L13
+ 252               	.LM27:
+ 253 00e2 80E0      		ldi r24,lo8(.LC9)
+ 254 00e4 90E0      		ldi r25,hi8(.LC9)
+ 255 00e6 00D0      		rcall SerPrint
+ 256               	.LM28:
+ 257 00e8 00D0      		rcall LEDOptionsMsgs
+ 258               	.LM29:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 7
+
+
+ 259 00ea CE01      		movw r24,r28
+ 260 00ec 0196      		adiw r24,1
+ 261 00ee 61E0      		ldi r22,lo8(1)
+ 262 00f0 40E0      		ldi r20,lo8(0)
+ 263 00f2 50E0      		ldi r21,hi8(0)
+ 264 00f4 00D0      		rcall SerRead
+ 265               	.LM30:
+ 266 00f6 8981      		ldd r24,Y+1
+ 267 00f8 8133      		cpi r24,lo8(49)
+ 268 00fa 01F4      		brne .L14
+ 269               	.LM31:
+ 270 00fc 80E0      		ldi r24,lo8(.LC10)
+ 271 00fe 90E0      		ldi r25,hi8(.LC10)
+ 272 0100 00D0      		rcall SerPrint
+ 273               	.LM32:
+ 274 0102 82E0      		ldi r24,lo8(2)
+ 275 0104 00C0      		rjmp .L31
+ 276               	.L14:
+ 277               	.LM33:
+ 278 0106 8233      		cpi r24,lo8(50)
+ 279 0108 01F4      		brne .L15
+ 280               	.LM34:
+ 281 010a 80E0      		ldi r24,lo8(.LC11)
+ 282 010c 90E0      		ldi r25,hi8(.LC11)
+ 283 010e 00D0      		rcall SerPrint
+ 284               	.LM35:
+ 285 0110 81E0      		ldi r24,lo8(1)
+ 286               	.L31:
+ 287 0112 00D0      		rcall StatusLED
+ 288               	.LM36:
+ 289 0114 83E0      		ldi r24,lo8(3)
+ 290 0116 90E0      		ldi r25,hi8(3)
+ 291 0118 00D0      		rcall Sleep_more
+ 292               	.LM37:
+ 293 011a 80E0      		ldi r24,lo8(0)
+ 294 011c 00D0      		rcall StatusLED
+ 295 011e 00C0      		rjmp .L25
+ 296               	.L15:
+ 297               	.LM38:
+ 298 0120 8333      		cpi r24,lo8(51)
+ 299 0122 01F0      		breq .+2
+ 300 0124 00C0      		rjmp .L25
+ 301               	.LM39:
+ 302 0126 80E0      		ldi r24,lo8(.LC12)
+ 303 0128 90E0      		ldi r25,hi8(.LC12)
+ 304 012a 00D0      		rcall SerPrint
+ 305               	.LM40:
+ 306 012c 81E0      		ldi r24,lo8(1)
+ 307 012e 61E0      		ldi r22,lo8(1)
+ 308 0130 00D0      		rcall BackLED
+ 309               	.LM41:
+ 310 0132 83E0      		ldi r24,lo8(3)
+ 311 0134 90E0      		ldi r25,hi8(3)
+ 312 0136 00D0      		rcall Sleep_more
+ 313               	.LM42:
+ 314 0138 80E0      		ldi r24,lo8(0)
+ 315 013a 60E0      		ldi r22,lo8(0)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 8
+
+
+ 316 013c 00D0      		rcall BackLED
+ 317 013e 00C0      		rjmp .L25
+ 318               	.L13:
+ 319               	.LM43:
+ 320 0140 8333      		cpi r24,lo8(51)
+ 321 0142 01F4      		brne .L16
+ 322               	.LM44:
+ 323 0144 80E0      		ldi r24,lo8(.LC13)
+ 324 0146 90E0      		ldi r25,hi8(.LC13)
+ 325 0148 00D0      		rcall SerPrint
+ 326               	.LM45:
+ 327 014a 88ED      		ldi r24,lo8(-40)
+ 328 014c 00D0      		rcall Sleep
+ 329               	.LM46:
+ 330 014e 84E0      		ldi r24,lo8(4)
+ 331 0150 682E      		mov r6,r24
+ 332 0152 712C      		mov r7,__zero_reg__
+ 333 0154 6C0E      		add r6,r28
+ 334 0156 7D1E      		adc r7,r29
+ 335 0158 00C0      		rjmp .L17
+ 336               	.LVL6:
+ 337               	.L21:
+ 338               	.LM47:
+ 339 015a 88ED      		ldi r24,lo8(-40)
+ 340 015c 00D0      		rcall Sleep
+ 341               	.LM48:
+ 342 015e 00D0      		rcall PollSwitch
+ 343 0160 C82E      		mov r12,r24
+ 344 0162 DD24      		clr r13
+ 345               	.LM49:
+ 346 0164 F0E4      		ldi r31,lo8(64)
+ 347 0166 CF16      		cp r12,r31
+ 348 0168 D104      		cpc r13,__zero_reg__
+ 349 016a 04F0      		brlt .L18
+ 350               	.LM50:
+ 351 016c 80E0      		ldi r24,lo8(.LC14)
+ 352 016e 90E0      		ldi r25,hi8(.LC14)
+ 353 0170 00D0      		rcall SerPrint
+ 354               	.L18:
+ 355 0172 7301      		movw r14,r6
+ 356 0174 01E0      		ldi r16,lo8(1)
+ 357 0176 10E0      		ldi r17,hi8(1)
+ 358               	.L20:
+ 359               	.LM51:
+ 360 0178 F701      		movw r30,r14
+ 361 017a A080      		ld r10,Z
+ 362 017c B180      		ldd r11,Z+1
+ 363 017e CA14      		cp r12,r10
+ 364 0180 DB04      		cpc r13,r11
+ 365 0182 04F0      		brlt .L19
+ 366               	.LM52:
+ 367 0184 80E0      		ldi r24,lo8(.LC15)
+ 368 0186 90E0      		ldi r25,hi8(.LC15)
+ 369 0188 00D0      		rcall SerPrint
+ 370               	.LM53:
+ 371 018a C801      		movw r24,r16
+ 372 018c 00D0      		rcall SerPrint
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 9
+
+
+ 373               	.LM54:
+ 374 018e 80E0      		ldi r24,lo8(.LC16)
+ 375 0190 90E0      		ldi r25,hi8(.LC16)
+ 376 0192 00D0      		rcall SerPrint
+ 377               	.LM55:
+ 378 0194 CA18      		sub r12,r10
+ 379 0196 DB08      		sbc r13,r11
+ 380               	.LVL7:
+ 381               	.L19:
+ 382               	.LM56:
+ 383 0198 0F5F      		subi r16,lo8(-(1))
+ 384 019a 1F4F      		sbci r17,hi8(-(1))
+ 385 019c 82E0      		ldi r24,lo8(2)
+ 386 019e 90E0      		ldi r25,hi8(2)
+ 387 01a0 E80E      		add r14,r24
+ 388 01a2 F91E      		adc r15,r25
+ 389 01a4 0730      		cpi r16,7
+ 390 01a6 1105      		cpc r17,__zero_reg__
+ 391 01a8 01F4      		brne .L20
+ 392               	.LM57:
+ 393 01aa C401      		movw r24,r8
+ 394 01ac 61E0      		ldi r22,lo8(1)
+ 395 01ae 40E0      		ldi r20,lo8(0)
+ 396 01b0 50E0      		ldi r21,hi8(0)
+ 397 01b2 00D0      		rcall SerRead
+ 398               	.L17:
+ 399               	.LM58:
+ 400 01b4 F401      		movw r30,r8
+ 401 01b6 8081      		ld r24,Z
+ 402 01b8 8933      		cpi r24,lo8(57)
+ 403 01ba 01F4      		brne .L21
+ 404 01bc 00C0      		rjmp .L25
+ 405               	.LVL8:
+ 406               	.L16:
+ 407               	.LM59:
+ 408 01be 8433      		cpi r24,lo8(52)
+ 409 01c0 01F0      		breq .+2
+ 410 01c2 00C0      		rjmp .L25
+ 411               	.LM60:
+ 412 01c4 80E0      		ldi r24,lo8(.LC17)
+ 413 01c6 90E0      		ldi r25,hi8(.LC17)
+ 414 01c8 00D0      		rcall SerPrint
+ 415               	.LM61:
+ 416 01ca 80E0      		ldi r24,lo8(.LC18)
+ 417 01cc 90E0      		ldi r25,hi8(.LC18)
+ 418 01ce 00D0      		rcall SerPrint
+ 419               	.LM62:
+ 420 01d0 00D0      		rcall LEDTest
+ 421               	.LM63:
+ 422 01d2 80E0      		ldi r24,lo8(.LC19)
+ 423 01d4 90E0      		ldi r25,hi8(.LC19)
+ 424 01d6 00D0      		rcall SerPrint
+ 425               	.LM64:
+ 426 01d8 81E0      		ldi r24,lo8(1)
+ 427 01da 00D0      		rcall StatusLED
+ 428 01dc 00E0      		ldi r16,lo8(0)
+ 429 01de 10E0      		ldi r17,hi8(0)
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 10
+
+
+ 430               	.LVL9:
+ 431               	.L22:
+ 432               	.LM65:
+ 433 01e0 00D0      		rcall LineTest
+ 434               	.LM66:
+ 435 01e2 0F5F      		subi r16,lo8(-(1))
+ 436 01e4 1F4F      		sbci r17,hi8(-(1))
+ 437 01e6 FEEF      		ldi r31,hi8(-512)
+ 438 01e8 0030      		cpi r16,lo8(-512)
+ 439 01ea 1F07      		cpc r17,r31
+ 440 01ec 01F4      		brne .L22
+ 441               	.LM67:
+ 442 01ee 80E0      		ldi r24,lo8(0)
+ 443 01f0 00D0      		rcall StatusLED
+ 444               	.LM68:
+ 445 01f2 80E0      		ldi r24,lo8(.LC20)
+ 446 01f4 90E0      		ldi r25,hi8(.LC20)
+ 447 01f6 00D0      		rcall SerPrint
+ 448 01f8 00E0      		ldi r16,lo8(0)
+ 449 01fa 10E0      		ldi r17,hi8(0)
+ 450               	.LVL10:
+ 451               	.L23:
+ 452               	.LM69:
+ 453 01fc 00D0      		rcall SwitchTest
+ 454               	.LM70:
+ 455 01fe 0F5F      		subi r16,lo8(-(1))
+ 456 0200 1F4F      		sbci r17,hi8(-(1))
+ 457 0202 8EEF      		ldi r24,hi8(-512)
+ 458 0204 0030      		cpi r16,lo8(-512)
+ 459 0206 1807      		cpc r17,r24
+ 460 0208 01F4      		brne .L23
+ 461               	.LM71:
+ 462 020a 00D0      		rcall Init
+ 463               	.LM72:
+ 464 020c 80E0      		ldi r24,lo8(0)
+ 465 020e 00D0      		rcall StatusLED
+ 466               	.LM73:
+ 467 0210 80E0      		ldi r24,lo8(.LC21)
+ 468 0212 90E0      		ldi r25,hi8(.LC21)
+ 469 0214 00D0      		rcall SerPrint
+ 470               	.LM74:
+ 471 0216 81E0      		ldi r24,lo8(1)
+ 472 0218 00D0      		rcall FrontLED
+ 473 021a 00E0      		ldi r16,lo8(0)
+ 474 021c 10E0      		ldi r17,hi8(0)
+ 475               	.LVL11:
+ 476               	.L24:
+ 477               	.LM75:
+ 478 021e 00D0      		rcall OdometrieTest
+ 479               	.LM76:
+ 480 0220 0F5F      		subi r16,lo8(-(1))
+ 481 0222 1F4F      		sbci r17,hi8(-(1))
+ 482 0224 9FEF      		ldi r25,hi8(-16)
+ 483 0226 003F      		cpi r16,lo8(-16)
+ 484 0228 1907      		cpc r17,r25
+ 485 022a 01F4      		brne .L24
+ 486               	.LM77:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 11
+
+
+ 487 022c 80E0      		ldi r24,lo8(0)
+ 488 022e 00D0      		rcall StatusLED
+ 489               	.LM78:
+ 490 0230 80E0      		ldi r24,lo8(0)
+ 491 0232 00D0      		rcall FrontLED
+ 492               	.LM79:
+ 493 0234 80E0      		ldi r24,lo8(.LC22)
+ 494 0236 90E0      		ldi r25,hi8(.LC22)
+ 495 0238 00D0      		rcall SerPrint
+ 496               	.LM80:
+ 497 023a 81E0      		ldi r24,lo8(1)
+ 498 023c 61E0      		ldi r22,lo8(1)
+ 499 023e 00D0      		rcall BackLED
+ 500               	.LM81:
+ 501 0240 00D0      		rcall MotorTest
+ 502               	.LM82:
+ 503 0242 80E0      		ldi r24,lo8(0)
+ 504 0244 60E0      		ldi r22,lo8(0)
+ 505 0246 00D0      		rcall BackLED
+ 506               	.LM83:
+ 507 0248 80E0      		ldi r24,lo8(.LC23)
+ 508 024a 90E0      		ldi r25,hi8(.LC23)
+ 509 024c 00D0      		rcall SerPrint
+ 510               	.LM84:
+ 511 024e 00D0      		rcall SerialTest
+ 512               	.LVL12:
+ 513               	.L25:
+ 514               	/* epilogue start */
+ 515               	.LM85:
+ 516 0250 2F96      		adiw r28,15
+ 517 0252 0FB6      		in __tmp_reg__,__SREG__
+ 518 0254 F894      		cli
+ 519 0256 DEBF      		out __SP_H__,r29
+ 520 0258 0FBE      		out __SREG__,__tmp_reg__
+ 521 025a CDBF      		out __SP_L__,r28
+ 522 025c CF91      		pop r28
+ 523 025e DF91      		pop r29
+ 524 0260 1F91      		pop r17
+ 525 0262 0F91      		pop r16
+ 526               	.LVL13:
+ 527 0264 FF90      		pop r15
+ 528 0266 EF90      		pop r14
+ 529 0268 DF90      		pop r13
+ 530               	.LVL14:
+ 531 026a CF90      		pop r12
+ 532               	.LVL15:
+ 533 026c BF90      		pop r11
+ 534 026e AF90      		pop r10
+ 535 0270 9F90      		pop r9
+ 536 0272 8F90      		pop r8
+ 537               	.LVL16:
+ 538 0274 7F90      		pop r7
+ 539 0276 6F90      		pop r6
+ 540 0278 0895      		ret
+ 541               	.LFE4:
+ 542               		.size	ActionFromMsgs, .-ActionFromMsgs
+ 543               		.data
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 12
+
+
+ 544               	.LC24:
+ 545 01d9 0A0D 2D2D 		.string	"\n\r-- ASURO Manual Testing --\n\r"
+ 545      2041 5355 
+ 545      524F 204D 
+ 545      616E 7561 
+ 545      6C20 5465 
+ 546               	.LC25:
+ 547 01f8 0A0D 2049 		.string	"\n\r I'm done my selftest. Please give me some instructions!!\r\n"
+ 547      276D 2064 
+ 547      6F6E 6520 
+ 547      6D79 2073 
+ 547      656C 6674 
+ 548               	.LC26:
+ 549 0236 0A0D 2052 		.string	"\n\r Received : "
+ 549      6563 6569 
+ 549      7665 6420 
+ 549      3A20 00
+ 550               		.text
+ 551               	.global	SelfTest
+ 552               		.type	SelfTest, @function
+ 553               	SelfTest:
+ 554               	.LFB2:
+ 555               	.LM86:
+ 556 027a FF92      		push r15
+ 557 027c 0F93      		push r16
+ 558 027e 1F93      		push r17
+ 559 0280 DF93      		push r29
+ 560 0282 CF93      		push r28
+ 561 0284 0F92      		push __tmp_reg__
+ 562 0286 CDB7      		in r28,__SP_L__
+ 563 0288 DEB7      		in r29,__SP_H__
+ 564               	/* prologue: function */
+ 565               	/* frame size = 1 */
+ 566               	.LM87:
+ 567 028a 00D0      		rcall Init
+ 568               	.LM88:
+ 569 028c 81E0      		ldi r24,lo8(1)
+ 570 028e 00D0      		rcall StatusLED
+ 571               	.LM89:
+ 572 0290 80E0      		ldi r24,lo8(.LC24)
+ 573 0292 90E0      		ldi r25,hi8(.LC24)
+ 574 0294 00D0      		rcall SerPrint
+ 575               	.LM90:
+ 576 0296 CE01      		movw r24,r28
+ 577 0298 0196      		adiw r24,1
+ 578 029a 8033      		cpi r24,48
+ 579 029c 9105      		cpc r25,__zero_reg__
+ 580 029e 01F0      		breq .L35
+ 581               	.LM91:
+ 582 02a0 29E6      		ldi r18,lo8(105)
+ 583 02a2 F22E      		mov r15,r18
+ 584               	.LM92:
+ 585 02a4 8C01      		movw r16,r24
+ 586               	.L36:
+ 587               	.LM93:
+ 588 02a6 F982      		std Y+1,r15
+ 589               	.LM94:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 13
+
+
+ 590 02a8 80E0      		ldi r24,lo8(.LC25)
+ 591 02aa 90E0      		ldi r25,hi8(.LC25)
+ 592 02ac 00D0      		rcall SerPrint
+ 593               	.LM95:
+ 594 02ae 00D0      		rcall OptionsMsgs
+ 595               	.LM96:
+ 596 02b0 C801      		movw r24,r16
+ 597 02b2 61E0      		ldi r22,lo8(1)
+ 598 02b4 40E0      		ldi r20,lo8(0)
+ 599 02b6 50E0      		ldi r21,hi8(0)
+ 600 02b8 00D0      		rcall SerRead
+ 601               	.LM97:
+ 602 02ba 80E0      		ldi r24,lo8(.LC26)
+ 603 02bc 90E0      		ldi r25,hi8(.LC26)
+ 604 02be 00D0      		rcall SerPrint
+ 605               	.LM98:
+ 606 02c0 C801      		movw r24,r16
+ 607 02c2 00D0      		rcall SerPrint
+ 608               	.LM99:
+ 609 02c4 C801      		movw r24,r16
+ 610 02c6 00D0      		rcall ActionFromMsgs
+ 611 02c8 00C0      		rjmp .L36
+ 612               	.L35:
+ 613               	/* epilogue start */
+ 614               	.LM100:
+ 615 02ca 0F90      		pop __tmp_reg__
+ 616 02cc CF91      		pop r28
+ 617 02ce DF91      		pop r29
+ 618 02d0 1F91      		pop r17
+ 619 02d2 0F91      		pop r16
+ 620 02d4 FF90      		pop r15
+ 621 02d6 0895      		ret
+ 622               	.LFE2:
+ 623               		.size	SelfTest, .-SelfTest
+ 624               		.data
+ 625               		.type	C.0.1458, @object
+ 626               		.size	C.0.1458, 14
+ 627               	C.0.1458:
+ 628 0245 0000      		.word	0
+ 629 0247 2000      		.word	32
+ 630 0249 1000      		.word	16
+ 631 024b 0800      		.word	8
+ 632 024d 0400      		.word	4
+ 633 024f 0200      		.word	2
+ 634 0251 0100      		.word	1
+ 635               		.section	.debug_frame,"",@progbits
+ 636               	.Lframe0:
+ 637 0000 0C00 0000 		.long	.LECIE0-.LSCIE0
+ 638               	.LSCIE0:
+ 639 0004 FFFF FFFF 		.long	0xffffffff
+ 640 0008 01        		.byte	0x1
+ 641 0009 00        		.string	""
+ 642 000a 01        		.uleb128 0x1
+ 643 000b 7F        		.sleb128 -1
+ 644 000c 24        		.byte	0x24
+ 645 000d 0C        		.byte	0xc
+ 646 000e 20        		.uleb128 0x20
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 14
+
+
+ 647 000f 00        		.uleb128 0x0
+ 648               		.p2align	2
+ 649               	.LECIE0:
+ 650               	.LSFDE0:
+ 651 0010 0C00 0000 		.long	.LEFDE0-.LASFDE0
+ 652               	.LASFDE0:
+ 653 0014 0000 0000 		.long	.Lframe0
+ 654 0018 0000 0000 		.long	.LFB6
+ 655 001c 1A00 0000 		.long	.LFE6-.LFB6
+ 656               		.p2align	2
+ 657               	.LEFDE0:
+ 658               	.LSFDE2:
+ 659 0020 0C00 0000 		.long	.LEFDE2-.LASFDE2
+ 660               	.LASFDE2:
+ 661 0024 0000 0000 		.long	.Lframe0
+ 662 0028 0000 0000 		.long	.LFB5
+ 663 002c 1A00 0000 		.long	.LFE5-.LFB5
+ 664               		.p2align	2
+ 665               	.LEFDE2:
+ 666               	.LSFDE4:
+ 667 0030 0C00 0000 		.long	.LEFDE4-.LASFDE4
+ 668               	.LASFDE4:
+ 669 0034 0000 0000 		.long	.Lframe0
+ 670 0038 0000 0000 		.long	.LFB3
+ 671 003c 4200 0000 		.long	.LFE3-.LFB3
+ 672               		.p2align	2
+ 673               	.LEFDE4:
+ 674               	.LSFDE6:
+ 675 0040 0C00 0000 		.long	.LEFDE6-.LASFDE6
+ 676               	.LASFDE6:
+ 677 0044 0000 0000 		.long	.Lframe0
+ 678 0048 0000 0000 		.long	.LFB4
+ 679 004c 0402 0000 		.long	.LFE4-.LFB4
+ 680               		.p2align	2
+ 681               	.LEFDE6:
+ 682               	.LSFDE8:
+ 683 0050 0C00 0000 		.long	.LEFDE8-.LASFDE8
+ 684               	.LASFDE8:
+ 685 0054 0000 0000 		.long	.Lframe0
+ 686 0058 0000 0000 		.long	.LFB2
+ 687 005c 5E00 0000 		.long	.LFE2-.LFB2
+ 688               		.p2align	2
+ 689               	.LEFDE8:
+ 690               		.text
+ 691               	.Letext0:
+ 692               		.section	.debug_loc,"",@progbits
+ 693               	.Ldebug_loc0:
+ 694               	.LLST3:
+ 695 0000 3400 0000 		.long	.LVL0-.Ltext0
+ 696 0004 5000 0000 		.long	.LVL1-.Ltext0
+ 697 0008 0600      		.word	0x6
+ 698 000a 68        		.byte	0x68
+ 699 000b 93        		.byte	0x93
+ 700 000c 01        		.uleb128 0x1
+ 701 000d 69        		.byte	0x69
+ 702 000e 93        		.byte	0x93
+ 703 000f 01        		.uleb128 0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 15
+
+
+ 704 0010 0000 0000 		.long	0x0
+ 705 0014 0000 0000 		.long	0x0
+ 706               	.LLST4:
+ 707 0018 5C00 0000 		.long	.LVL2-.Ltext0
+ 708 001c 7400 0000 		.long	.LVL3-.Ltext0
+ 709 0020 0600      		.word	0x6
+ 710 0022 60        		.byte	0x60
+ 711 0023 93        		.byte	0x93
+ 712 0024 01        		.uleb128 0x1
+ 713 0025 61        		.byte	0x61
+ 714 0026 93        		.byte	0x93
+ 715 0027 01        		.uleb128 0x1
+ 716 0028 0000 0000 		.long	0x0
+ 717 002c 0000 0000 		.long	0x0
+ 718               	.LLST6:
+ 719 0030 7600 0000 		.long	.LVL4-.Ltext0
+ 720 0034 AE00 0000 		.long	.LVL5-.Ltext0
+ 721 0038 0600      		.word	0x6
+ 722 003a 68        		.byte	0x68
+ 723 003b 93        		.byte	0x93
+ 724 003c 01        		.uleb128 0x1
+ 725 003d 69        		.byte	0x69
+ 726 003e 93        		.byte	0x93
+ 727 003f 01        		.uleb128 0x1
+ 728 0040 AE00 0000 		.long	.LVL5-.Ltext0
+ 729 0044 7402 0000 		.long	.LVL16-.Ltext0
+ 730 0048 0600      		.word	0x6
+ 731 004a 58        		.byte	0x58
+ 732 004b 93        		.byte	0x93
+ 733 004c 01        		.uleb128 0x1
+ 734 004d 59        		.byte	0x59
+ 735 004e 93        		.byte	0x93
+ 736 004f 01        		.uleb128 0x1
+ 737 0050 0000 0000 		.long	0x0
+ 738 0054 0000 0000 		.long	0x0
+ 739               	.LLST7:
+ 740 0058 5A01 0000 		.long	.LVL6-.Ltext0
+ 741 005c BE01 0000 		.long	.LVL8-.Ltext0
+ 742 0060 0600      		.word	0x6
+ 743 0062 5C        		.byte	0x5c
+ 744 0063 93        		.byte	0x93
+ 745 0064 01        		.uleb128 0x1
+ 746 0065 5D        		.byte	0x5d
+ 747 0066 93        		.byte	0x93
+ 748 0067 01        		.uleb128 0x1
+ 749 0068 5002 0000 		.long	.LVL12-.Ltext0
+ 750 006c 6A02 0000 		.long	.LVL14-.Ltext0
+ 751 0070 0600      		.word	0x6
+ 752 0072 5C        		.byte	0x5c
+ 753 0073 93        		.byte	0x93
+ 754 0074 01        		.uleb128 0x1
+ 755 0075 5D        		.byte	0x5d
+ 756 0076 93        		.byte	0x93
+ 757 0077 01        		.uleb128 0x1
+ 758 0078 0000 0000 		.long	0x0
+ 759 007c 0000 0000 		.long	0x0
+ 760               	.LLST8:
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 16
+
+
+ 761 0080 5A01 0000 		.long	.LVL6-.Ltext0
+ 762 0084 BE01 0000 		.long	.LVL8-.Ltext0
+ 763 0088 0600      		.word	0x6
+ 764 008a 60        		.byte	0x60
+ 765 008b 93        		.byte	0x93
+ 766 008c 01        		.uleb128 0x1
+ 767 008d 61        		.byte	0x61
+ 768 008e 93        		.byte	0x93
+ 769 008f 01        		.uleb128 0x1
+ 770 0090 5002 0000 		.long	.LVL12-.Ltext0
+ 771 0094 6402 0000 		.long	.LVL13-.Ltext0
+ 772 0098 0600      		.word	0x6
+ 773 009a 60        		.byte	0x60
+ 774 009b 93        		.byte	0x93
+ 775 009c 01        		.uleb128 0x1
+ 776 009d 61        		.byte	0x61
+ 777 009e 93        		.byte	0x93
+ 778 009f 01        		.uleb128 0x1
+ 779 00a0 0000 0000 		.long	0x0
+ 780 00a4 0000 0000 		.long	0x0
+ 781               	.LLST9:
+ 782 00a8 E001 0000 		.long	.LVL9-.Ltext0
+ 783 00ac 6402 0000 		.long	.LVL13-.Ltext0
+ 784 00b0 0600      		.word	0x6
+ 785 00b2 60        		.byte	0x60
+ 786 00b3 93        		.byte	0x93
+ 787 00b4 01        		.uleb128 0x1
+ 788 00b5 61        		.byte	0x61
+ 789 00b6 93        		.byte	0x93
+ 790 00b7 01        		.uleb128 0x1
+ 791 00b8 0000 0000 		.long	0x0
+ 792 00bc 0000 0000 		.long	0x0
+ 793               		.section	.debug_info
+ 794 0000 8B01 0000 		.long	0x18b
+ 795 0004 0200      		.word	0x2
+ 796 0006 0000 0000 		.long	.Ldebug_abbrev0
+ 797 000a 04        		.byte	0x4
+ 798 000b 01        		.uleb128 0x1
+ 799 000c 0000 0000 		.long	.LASF17
+ 800 0010 01        		.byte	0x1
+ 801 0011 0000 0000 		.long	.LASF18
+ 802 0015 0000 0000 		.long	.LASF19
+ 803 0019 0000 0000 		.long	.Ltext0
+ 804 001d 0000 0000 		.long	.Letext0
+ 805 0021 0000 0000 		.long	.Ldebug_line0
+ 806 0025 02        		.uleb128 0x2
+ 807 0026 01        		.byte	0x1
+ 808 0027 06        		.byte	0x6
+ 809 0028 0000 0000 		.long	.LASF0
+ 810 002c 02        		.uleb128 0x2
+ 811 002d 01        		.byte	0x1
+ 812 002e 08        		.byte	0x8
+ 813 002f 0000 0000 		.long	.LASF1
+ 814 0033 03        		.uleb128 0x3
+ 815 0034 02        		.byte	0x2
+ 816 0035 05        		.byte	0x5
+ 817 0036 696E 7400 		.string	"int"
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 17
+
+
+ 818 003a 02        		.uleb128 0x2
+ 819 003b 02        		.byte	0x2
+ 820 003c 07        		.byte	0x7
+ 821 003d 0000 0000 		.long	.LASF2
+ 822 0041 02        		.uleb128 0x2
+ 823 0042 04        		.byte	0x4
+ 824 0043 05        		.byte	0x5
+ 825 0044 0000 0000 		.long	.LASF3
+ 826 0048 02        		.uleb128 0x2
+ 827 0049 04        		.byte	0x4
+ 828 004a 07        		.byte	0x7
+ 829 004b 0000 0000 		.long	.LASF4
+ 830 004f 02        		.uleb128 0x2
+ 831 0050 08        		.byte	0x8
+ 832 0051 05        		.byte	0x5
+ 833 0052 0000 0000 		.long	.LASF5
+ 834 0056 02        		.uleb128 0x2
+ 835 0057 08        		.byte	0x8
+ 836 0058 07        		.byte	0x7
+ 837 0059 0000 0000 		.long	.LASF6
+ 838 005d 04        		.uleb128 0x4
+ 839 005e 01        		.byte	0x1
+ 840 005f 0000 0000 		.long	.LASF7
+ 841 0063 01        		.byte	0x1
+ 842 0064 AF        		.byte	0xaf
+ 843 0065 01        		.byte	0x1
+ 844 0066 0000 0000 		.long	.LFB6
+ 845 006a 0000 0000 		.long	.LFE6
+ 846 006e 02        		.byte	0x2
+ 847 006f 90        		.byte	0x90
+ 848 0070 20        		.uleb128 0x20
+ 849 0071 04        		.uleb128 0x4
+ 850 0072 01        		.byte	0x1
+ 851 0073 0000 0000 		.long	.LASF8
+ 852 0077 01        		.byte	0x1
+ 853 0078 A8        		.byte	0xa8
+ 854 0079 01        		.byte	0x1
+ 855 007a 0000 0000 		.long	.LFB5
+ 856 007e 0000 0000 		.long	.LFE5
+ 857 0082 02        		.byte	0x2
+ 858 0083 90        		.byte	0x90
+ 859 0084 20        		.uleb128 0x20
+ 860 0085 05        		.uleb128 0x5
+ 861 0086 01        		.byte	0x1
+ 862 0087 0000 0000 		.long	.LASF9
+ 863 008b 01        		.byte	0x1
+ 864 008c 44        		.byte	0x44
+ 865 008d 01        		.byte	0x1
+ 866 008e 0000 0000 		.long	.LFB3
+ 867 0092 0000 0000 		.long	.LFE3
+ 868 0096 02        		.byte	0x2
+ 869 0097 90        		.byte	0x90
+ 870 0098 20        		.uleb128 0x20
+ 871 0099 C300 0000 		.long	0xc3
+ 872 009d 06        		.uleb128 0x6
+ 873 009e 6900      		.string	"i"
+ 874 00a0 01        		.byte	0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 18
+
+
+ 875 00a1 44        		.byte	0x44
+ 876 00a2 3300 0000 		.long	0x33
+ 877 00a6 0000 0000 		.long	.LLST3
+ 878 00aa 07        		.uleb128 0x7
+ 879 00ab 0000 0000 		.long	.LASF16
+ 880 00af 01        		.byte	0x1
+ 881 00b0 45        		.byte	0x45
+ 882 00b1 3300 0000 		.long	0x33
+ 883 00b5 08        		.uleb128 0x8
+ 884 00b6 6A00      		.string	"j"
+ 885 00b8 01        		.byte	0x1
+ 886 00b9 45        		.byte	0x45
+ 887 00ba 3300 0000 		.long	0x33
+ 888 00be 0000 0000 		.long	.LLST4
+ 889 00c2 00        		.byte	0x0
+ 890 00c3 05        		.uleb128 0x5
+ 891 00c4 01        		.byte	0x1
+ 892 00c5 0000 0000 		.long	.LASF10
+ 893 00c9 01        		.byte	0x1
+ 894 00ca 4C        		.byte	0x4c
+ 895 00cb 01        		.byte	0x1
+ 896 00cc 0000 0000 		.long	.LFB4
+ 897 00d0 0000 0000 		.long	.LFE4
+ 898 00d4 02        		.byte	0x2
+ 899 00d5 90        		.byte	0x90
+ 900 00d6 20        		.uleb128 0x20
+ 901 00d7 3201 0000 		.long	0x132
+ 902 00db 06        		.uleb128 0x6
+ 903 00dc 6D73 6700 		.string	"msg"
+ 904 00e0 01        		.byte	0x1
+ 905 00e1 4C        		.byte	0x4c
+ 906 00e2 3201 0000 		.long	0x132
+ 907 00e6 0000 0000 		.long	.LLST6
+ 908 00ea 09        		.uleb128 0x9
+ 909 00eb 0000 0000 		.long	.LASF11
+ 910 00ef 01        		.byte	0x1
+ 911 00f0 4D        		.byte	0x4d
+ 912 00f1 3F01 0000 		.long	0x13f
+ 913 00f5 02        		.byte	0x2
+ 914 00f6 8C        		.byte	0x8c
+ 915 00f7 01        		.sleb128 1
+ 916 00f8 0A        		.uleb128 0xa
+ 917 00f9 0000 0000 		.long	.LASF12
+ 918 00fd 01        		.byte	0x1
+ 919 00fe 4E        		.byte	0x4e
+ 920 00ff 3300 0000 		.long	0x33
+ 921 0103 0000 0000 		.long	.LLST7
+ 922 0107 0A        		.uleb128 0xa
+ 923 0108 0000 0000 		.long	.LASF13
+ 924 010c 01        		.byte	0x1
+ 925 010d 4F        		.byte	0x4f
+ 926 010e 3A00 0000 		.long	0x3a
+ 927 0112 0000 0000 		.long	.LLST8
+ 928 0116 08        		.uleb128 0x8
+ 929 0117 6900      		.string	"i"
+ 930 0119 01        		.byte	0x1
+ 931 011a 4F        		.byte	0x4f
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 19
+
+
+ 932 011b 3A00 0000 		.long	0x3a
+ 933 011f 0000 0000 		.long	.LLST9
+ 934 0123 09        		.uleb128 0x9
+ 935 0124 0000 0000 		.long	.LASF14
+ 936 0128 01        		.byte	0x1
+ 937 0129 50        		.byte	0x50
+ 938 012a 5201 0000 		.long	0x152
+ 939 012e 02        		.byte	0x2
+ 940 012f 8C        		.byte	0x8c
+ 941 0130 02        		.sleb128 2
+ 942 0131 00        		.byte	0x0
+ 943 0132 0B        		.uleb128 0xb
+ 944 0133 02        		.byte	0x2
+ 945 0134 3801 0000 		.long	0x138
+ 946 0138 02        		.uleb128 0x2
+ 947 0139 01        		.byte	0x1
+ 948 013a 08        		.byte	0x8
+ 949 013b 0000 0000 		.long	.LASF15
+ 950 013f 0C        		.uleb128 0xc
+ 951 0140 3801 0000 		.long	0x138
+ 952 0144 4F01 0000 		.long	0x14f
+ 953 0148 0D        		.uleb128 0xd
+ 954 0149 4F01 0000 		.long	0x14f
+ 955 014d 00        		.byte	0x0
+ 956 014e 00        		.byte	0x0
+ 957 014f 0E        		.uleb128 0xe
+ 958 0150 02        		.byte	0x2
+ 959 0151 07        		.byte	0x7
+ 960 0152 0C        		.uleb128 0xc
+ 961 0153 3300 0000 		.long	0x33
+ 962 0157 6201 0000 		.long	0x162
+ 963 015b 0D        		.uleb128 0xd
+ 964 015c 4F01 0000 		.long	0x14f
+ 965 0160 06        		.byte	0x6
+ 966 0161 00        		.byte	0x0
+ 967 0162 0F        		.uleb128 0xf
+ 968 0163 01        		.byte	0x1
+ 969 0164 0000 0000 		.long	.LASF20
+ 970 0168 01        		.byte	0x1
+ 971 0169 2C        		.byte	0x2c
+ 972 016a 01        		.byte	0x1
+ 973 016b 0000 0000 		.long	.LFB2
+ 974 016f 0000 0000 		.long	.LFE2
+ 975 0173 02        		.byte	0x2
+ 976 0174 90        		.byte	0x90
+ 977 0175 20        		.uleb128 0x20
+ 978 0176 10        		.uleb128 0x10
+ 979 0177 6900      		.string	"i"
+ 980 0179 01        		.byte	0x1
+ 981 017a 2D        		.byte	0x2d
+ 982 017b 3A00 0000 		.long	0x3a
+ 983 017f 09        		.uleb128 0x9
+ 984 0180 0000 0000 		.long	.LASF11
+ 985 0184 01        		.byte	0x1
+ 986 0185 2E        		.byte	0x2e
+ 987 0186 3F01 0000 		.long	0x13f
+ 988 018a 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 20
+
+
+ 989 018b 8C        		.byte	0x8c
+ 990 018c 01        		.sleb128 1
+ 991 018d 00        		.byte	0x0
+ 992 018e 00        		.byte	0x0
+ 993               		.section	.debug_abbrev
+ 994 0000 01        		.uleb128 0x1
+ 995 0001 11        		.uleb128 0x11
+ 996 0002 01        		.byte	0x1
+ 997 0003 25        		.uleb128 0x25
+ 998 0004 0E        		.uleb128 0xe
+ 999 0005 13        		.uleb128 0x13
+ 1000 0006 0B        		.uleb128 0xb
+ 1001 0007 03        		.uleb128 0x3
+ 1002 0008 0E        		.uleb128 0xe
+ 1003 0009 1B        		.uleb128 0x1b
+ 1004 000a 0E        		.uleb128 0xe
+ 1005 000b 11        		.uleb128 0x11
+ 1006 000c 01        		.uleb128 0x1
+ 1007 000d 12        		.uleb128 0x12
+ 1008 000e 01        		.uleb128 0x1
+ 1009 000f 10        		.uleb128 0x10
+ 1010 0010 06        		.uleb128 0x6
+ 1011 0011 00        		.byte	0x0
+ 1012 0012 00        		.byte	0x0
+ 1013 0013 02        		.uleb128 0x2
+ 1014 0014 24        		.uleb128 0x24
+ 1015 0015 00        		.byte	0x0
+ 1016 0016 0B        		.uleb128 0xb
+ 1017 0017 0B        		.uleb128 0xb
+ 1018 0018 3E        		.uleb128 0x3e
+ 1019 0019 0B        		.uleb128 0xb
+ 1020 001a 03        		.uleb128 0x3
+ 1021 001b 0E        		.uleb128 0xe
+ 1022 001c 00        		.byte	0x0
+ 1023 001d 00        		.byte	0x0
+ 1024 001e 03        		.uleb128 0x3
+ 1025 001f 24        		.uleb128 0x24
+ 1026 0020 00        		.byte	0x0
+ 1027 0021 0B        		.uleb128 0xb
+ 1028 0022 0B        		.uleb128 0xb
+ 1029 0023 3E        		.uleb128 0x3e
+ 1030 0024 0B        		.uleb128 0xb
+ 1031 0025 03        		.uleb128 0x3
+ 1032 0026 08        		.uleb128 0x8
+ 1033 0027 00        		.byte	0x0
+ 1034 0028 00        		.byte	0x0
+ 1035 0029 04        		.uleb128 0x4
+ 1036 002a 2E        		.uleb128 0x2e
+ 1037 002b 00        		.byte	0x0
+ 1038 002c 3F        		.uleb128 0x3f
+ 1039 002d 0C        		.uleb128 0xc
+ 1040 002e 03        		.uleb128 0x3
+ 1041 002f 0E        		.uleb128 0xe
+ 1042 0030 3A        		.uleb128 0x3a
+ 1043 0031 0B        		.uleb128 0xb
+ 1044 0032 3B        		.uleb128 0x3b
+ 1045 0033 0B        		.uleb128 0xb
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 21
+
+
+ 1046 0034 27        		.uleb128 0x27
+ 1047 0035 0C        		.uleb128 0xc
+ 1048 0036 11        		.uleb128 0x11
+ 1049 0037 01        		.uleb128 0x1
+ 1050 0038 12        		.uleb128 0x12
+ 1051 0039 01        		.uleb128 0x1
+ 1052 003a 40        		.uleb128 0x40
+ 1053 003b 0A        		.uleb128 0xa
+ 1054 003c 00        		.byte	0x0
+ 1055 003d 00        		.byte	0x0
+ 1056 003e 05        		.uleb128 0x5
+ 1057 003f 2E        		.uleb128 0x2e
+ 1058 0040 01        		.byte	0x1
+ 1059 0041 3F        		.uleb128 0x3f
+ 1060 0042 0C        		.uleb128 0xc
+ 1061 0043 03        		.uleb128 0x3
+ 1062 0044 0E        		.uleb128 0xe
+ 1063 0045 3A        		.uleb128 0x3a
+ 1064 0046 0B        		.uleb128 0xb
+ 1065 0047 3B        		.uleb128 0x3b
+ 1066 0048 0B        		.uleb128 0xb
+ 1067 0049 27        		.uleb128 0x27
+ 1068 004a 0C        		.uleb128 0xc
+ 1069 004b 11        		.uleb128 0x11
+ 1070 004c 01        		.uleb128 0x1
+ 1071 004d 12        		.uleb128 0x12
+ 1072 004e 01        		.uleb128 0x1
+ 1073 004f 40        		.uleb128 0x40
+ 1074 0050 0A        		.uleb128 0xa
+ 1075 0051 01        		.uleb128 0x1
+ 1076 0052 13        		.uleb128 0x13
+ 1077 0053 00        		.byte	0x0
+ 1078 0054 00        		.byte	0x0
+ 1079 0055 06        		.uleb128 0x6
+ 1080 0056 05        		.uleb128 0x5
+ 1081 0057 00        		.byte	0x0
+ 1082 0058 03        		.uleb128 0x3
+ 1083 0059 08        		.uleb128 0x8
+ 1084 005a 3A        		.uleb128 0x3a
+ 1085 005b 0B        		.uleb128 0xb
+ 1086 005c 3B        		.uleb128 0x3b
+ 1087 005d 0B        		.uleb128 0xb
+ 1088 005e 49        		.uleb128 0x49
+ 1089 005f 13        		.uleb128 0x13
+ 1090 0060 02        		.uleb128 0x2
+ 1091 0061 06        		.uleb128 0x6
+ 1092 0062 00        		.byte	0x0
+ 1093 0063 00        		.byte	0x0
+ 1094 0064 07        		.uleb128 0x7
+ 1095 0065 34        		.uleb128 0x34
+ 1096 0066 00        		.byte	0x0
+ 1097 0067 03        		.uleb128 0x3
+ 1098 0068 0E        		.uleb128 0xe
+ 1099 0069 3A        		.uleb128 0x3a
+ 1100 006a 0B        		.uleb128 0xb
+ 1101 006b 3B        		.uleb128 0x3b
+ 1102 006c 0B        		.uleb128 0xb
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 22
+
+
+ 1103 006d 49        		.uleb128 0x49
+ 1104 006e 13        		.uleb128 0x13
+ 1105 006f 00        		.byte	0x0
+ 1106 0070 00        		.byte	0x0
+ 1107 0071 08        		.uleb128 0x8
+ 1108 0072 34        		.uleb128 0x34
+ 1109 0073 00        		.byte	0x0
+ 1110 0074 03        		.uleb128 0x3
+ 1111 0075 08        		.uleb128 0x8
+ 1112 0076 3A        		.uleb128 0x3a
+ 1113 0077 0B        		.uleb128 0xb
+ 1114 0078 3B        		.uleb128 0x3b
+ 1115 0079 0B        		.uleb128 0xb
+ 1116 007a 49        		.uleb128 0x49
+ 1117 007b 13        		.uleb128 0x13
+ 1118 007c 02        		.uleb128 0x2
+ 1119 007d 06        		.uleb128 0x6
+ 1120 007e 00        		.byte	0x0
+ 1121 007f 00        		.byte	0x0
+ 1122 0080 09        		.uleb128 0x9
+ 1123 0081 34        		.uleb128 0x34
+ 1124 0082 00        		.byte	0x0
+ 1125 0083 03        		.uleb128 0x3
+ 1126 0084 0E        		.uleb128 0xe
+ 1127 0085 3A        		.uleb128 0x3a
+ 1128 0086 0B        		.uleb128 0xb
+ 1129 0087 3B        		.uleb128 0x3b
+ 1130 0088 0B        		.uleb128 0xb
+ 1131 0089 49        		.uleb128 0x49
+ 1132 008a 13        		.uleb128 0x13
+ 1133 008b 02        		.uleb128 0x2
+ 1134 008c 0A        		.uleb128 0xa
+ 1135 008d 00        		.byte	0x0
+ 1136 008e 00        		.byte	0x0
+ 1137 008f 0A        		.uleb128 0xa
+ 1138 0090 34        		.uleb128 0x34
+ 1139 0091 00        		.byte	0x0
+ 1140 0092 03        		.uleb128 0x3
+ 1141 0093 0E        		.uleb128 0xe
+ 1142 0094 3A        		.uleb128 0x3a
+ 1143 0095 0B        		.uleb128 0xb
+ 1144 0096 3B        		.uleb128 0x3b
+ 1145 0097 0B        		.uleb128 0xb
+ 1146 0098 49        		.uleb128 0x49
+ 1147 0099 13        		.uleb128 0x13
+ 1148 009a 02        		.uleb128 0x2
+ 1149 009b 06        		.uleb128 0x6
+ 1150 009c 00        		.byte	0x0
+ 1151 009d 00        		.byte	0x0
+ 1152 009e 0B        		.uleb128 0xb
+ 1153 009f 0F        		.uleb128 0xf
+ 1154 00a0 00        		.byte	0x0
+ 1155 00a1 0B        		.uleb128 0xb
+ 1156 00a2 0B        		.uleb128 0xb
+ 1157 00a3 49        		.uleb128 0x49
+ 1158 00a4 13        		.uleb128 0x13
+ 1159 00a5 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 23
+
+
+ 1160 00a6 00        		.byte	0x0
+ 1161 00a7 0C        		.uleb128 0xc
+ 1162 00a8 01        		.uleb128 0x1
+ 1163 00a9 01        		.byte	0x1
+ 1164 00aa 49        		.uleb128 0x49
+ 1165 00ab 13        		.uleb128 0x13
+ 1166 00ac 01        		.uleb128 0x1
+ 1167 00ad 13        		.uleb128 0x13
+ 1168 00ae 00        		.byte	0x0
+ 1169 00af 00        		.byte	0x0
+ 1170 00b0 0D        		.uleb128 0xd
+ 1171 00b1 21        		.uleb128 0x21
+ 1172 00b2 00        		.byte	0x0
+ 1173 00b3 49        		.uleb128 0x49
+ 1174 00b4 13        		.uleb128 0x13
+ 1175 00b5 2F        		.uleb128 0x2f
+ 1176 00b6 0B        		.uleb128 0xb
+ 1177 00b7 00        		.byte	0x0
+ 1178 00b8 00        		.byte	0x0
+ 1179 00b9 0E        		.uleb128 0xe
+ 1180 00ba 24        		.uleb128 0x24
+ 1181 00bb 00        		.byte	0x0
+ 1182 00bc 0B        		.uleb128 0xb
+ 1183 00bd 0B        		.uleb128 0xb
+ 1184 00be 3E        		.uleb128 0x3e
+ 1185 00bf 0B        		.uleb128 0xb
+ 1186 00c0 00        		.byte	0x0
+ 1187 00c1 00        		.byte	0x0
+ 1188 00c2 0F        		.uleb128 0xf
+ 1189 00c3 2E        		.uleb128 0x2e
+ 1190 00c4 01        		.byte	0x1
+ 1191 00c5 3F        		.uleb128 0x3f
+ 1192 00c6 0C        		.uleb128 0xc
+ 1193 00c7 03        		.uleb128 0x3
+ 1194 00c8 0E        		.uleb128 0xe
+ 1195 00c9 3A        		.uleb128 0x3a
+ 1196 00ca 0B        		.uleb128 0xb
+ 1197 00cb 3B        		.uleb128 0x3b
+ 1198 00cc 0B        		.uleb128 0xb
+ 1199 00cd 27        		.uleb128 0x27
+ 1200 00ce 0C        		.uleb128 0xc
+ 1201 00cf 11        		.uleb128 0x11
+ 1202 00d0 01        		.uleb128 0x1
+ 1203 00d1 12        		.uleb128 0x12
+ 1204 00d2 01        		.uleb128 0x1
+ 1205 00d3 40        		.uleb128 0x40
+ 1206 00d4 0A        		.uleb128 0xa
+ 1207 00d5 00        		.byte	0x0
+ 1208 00d6 00        		.byte	0x0
+ 1209 00d7 10        		.uleb128 0x10
+ 1210 00d8 34        		.uleb128 0x34
+ 1211 00d9 00        		.byte	0x0
+ 1212 00da 03        		.uleb128 0x3
+ 1213 00db 08        		.uleb128 0x8
+ 1214 00dc 3A        		.uleb128 0x3a
+ 1215 00dd 0B        		.uleb128 0xb
+ 1216 00de 3B        		.uleb128 0x3b
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 24
+
+
+ 1217 00df 0B        		.uleb128 0xb
+ 1218 00e0 49        		.uleb128 0x49
+ 1219 00e1 13        		.uleb128 0x13
+ 1220 00e2 00        		.byte	0x0
+ 1221 00e3 00        		.byte	0x0
+ 1222 00e4 00        		.byte	0x0
+ 1223               		.section	.debug_pubnames,"",@progbits
+ 1224 0000 6000 0000 		.long	0x60
+ 1225 0004 0200      		.word	0x2
+ 1226 0006 0000 0000 		.long	.Ldebug_info0
+ 1227 000a 8F01 0000 		.long	0x18f
+ 1228 000e 5D00 0000 		.long	0x5d
+ 1229 0012 4F70 7469 		.string	"OptionsMsgs"
+ 1229      6F6E 734D 
+ 1229      7367 7300 
+ 1230 001e 7100 0000 		.long	0x71
+ 1231 0022 4C45 444F 		.string	"LEDOptionsMsgs"
+ 1231      7074 696F 
+ 1231      6E73 4D73 
+ 1231      6773 00
+ 1232 0031 8500 0000 		.long	0x85
+ 1233 0035 536C 6565 		.string	"Sleep_more"
+ 1233      705F 6D6F 
+ 1233      7265 00
+ 1234 0040 C300 0000 		.long	0xc3
+ 1235 0044 4163 7469 		.string	"ActionFromMsgs"
+ 1235      6F6E 4672 
+ 1235      6F6D 4D73 
+ 1235      6773 00
+ 1236 0053 6201 0000 		.long	0x162
+ 1237 0057 5365 6C66 		.string	"SelfTest"
+ 1237      5465 7374 
+ 1237      00
+ 1238 0060 0000 0000 		.long	0x0
+ 1239               		.section	.debug_aranges,"",@progbits
+ 1240 0000 1C00 0000 		.long	0x1c
+ 1241 0004 0200      		.word	0x2
+ 1242 0006 0000 0000 		.long	.Ldebug_info0
+ 1243 000a 04        		.byte	0x4
+ 1244 000b 00        		.byte	0x0
+ 1245 000c 0000      		.word	0x0
+ 1246 000e 0000      		.word	0x0
+ 1247 0010 0000 0000 		.long	.Ltext0
+ 1248 0014 D802 0000 		.long	.Letext0-.Ltext0
+ 1249 0018 0000 0000 		.long	0x0
+ 1250 001c 0000 0000 		.long	0x0
+ 1251               		.section	.debug_line
+ 1252 0000 5803 0000 		.long	.LELT0-.LSLT0
+ 1253               	.LSLT0:
+ 1254 0004 0200      		.word	0x2
+ 1255 0006 1E00 0000 		.long	.LELTP0-.LASLTP0
+ 1256               	.LASLTP0:
+ 1257 000a 01        		.byte	0x1
+ 1258 000b 01        		.byte	0x1
+ 1259 000c F6        		.byte	0xf6
+ 1260 000d F5        		.byte	0xf5
+ 1261 000e 0A        		.byte	0xa
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 25
+
+
+ 1262 000f 00        		.byte	0x0
+ 1263 0010 01        		.byte	0x1
+ 1264 0011 01        		.byte	0x1
+ 1265 0012 01        		.byte	0x1
+ 1266 0013 01        		.byte	0x1
+ 1267 0014 00        		.byte	0x0
+ 1268 0015 00        		.byte	0x0
+ 1269 0016 00        		.byte	0x0
+ 1270 0017 01        		.byte	0x1
+ 1271 0018 00        		.byte	0x0
+ 1272 0019 5365 6C66 		.string	"SelfTest.c"
+ 1272      5465 7374 
+ 1272      2E63 00
+ 1273 0024 00        		.uleb128 0x0
+ 1274 0025 00        		.uleb128 0x0
+ 1275 0026 00        		.uleb128 0x0
+ 1276 0027 00        		.byte	0x0
+ 1277               	.LELTP0:
+ 1278 0028 00        		.byte	0x0
+ 1279 0029 05        		.uleb128 0x5
+ 1280 002a 02        		.byte	0x2
+ 1281 002b 0000 0000 		.long	.LM1
+ 1282 002f C2        		.byte	0xc2
+ 1283 0030 00        		.byte	0x0
+ 1284 0031 05        		.uleb128 0x5
+ 1285 0032 02        		.byte	0x2
+ 1286 0033 0000 0000 		.long	.LM2
+ 1287 0037 15        		.byte	0x15
+ 1288 0038 00        		.byte	0x0
+ 1289 0039 05        		.uleb128 0x5
+ 1290 003a 02        		.byte	0x2
+ 1291 003b 0000 0000 		.long	.LM3
+ 1292 003f 15        		.byte	0x15
+ 1293 0040 00        		.byte	0x0
+ 1294 0041 05        		.uleb128 0x5
+ 1295 0042 02        		.byte	0x2
+ 1296 0043 0000 0000 		.long	.LM4
+ 1297 0047 15        		.byte	0x15
+ 1298 0048 00        		.byte	0x0
+ 1299 0049 05        		.uleb128 0x5
+ 1300 004a 02        		.byte	0x2
+ 1301 004b 0000 0000 		.long	.LM5
+ 1302 004f 15        		.byte	0x15
+ 1303 0050 00        		.byte	0x0
+ 1304 0051 05        		.uleb128 0x5
+ 1305 0052 02        		.byte	0x2
+ 1306 0053 0000 0000 		.long	.LM6
+ 1307 0057 15        		.byte	0x15
+ 1308 0058 00        		.byte	0x0
+ 1309 0059 05        		.uleb128 0x5
+ 1310 005a 02        		.byte	0x2
+ 1311 005b 0000 0000 		.long	.LM7
+ 1312 005f 03        		.byte	0x3
+ 1313 0060 74        		.sleb128 -12
+ 1314 0061 01        		.byte	0x1
+ 1315 0062 00        		.byte	0x0
+ 1316 0063 05        		.uleb128 0x5
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 26
+
+
+ 1317 0064 02        		.byte	0x2
+ 1318 0065 0000 0000 		.long	.LM8
+ 1319 0069 15        		.byte	0x15
+ 1320 006a 00        		.byte	0x0
+ 1321 006b 05        		.uleb128 0x5
+ 1322 006c 02        		.byte	0x2
+ 1323 006d 0000 0000 		.long	.LM9
+ 1324 0071 15        		.byte	0x15
+ 1325 0072 00        		.byte	0x0
+ 1326 0073 05        		.uleb128 0x5
+ 1327 0074 02        		.byte	0x2
+ 1328 0075 0000 0000 		.long	.LM10
+ 1329 0079 15        		.byte	0x15
+ 1330 007a 00        		.byte	0x0
+ 1331 007b 05        		.uleb128 0x5
+ 1332 007c 02        		.byte	0x2
+ 1333 007d 0000 0000 		.long	.LM11
+ 1334 0081 15        		.byte	0x15
+ 1335 0082 00        		.byte	0x0
+ 1336 0083 05        		.uleb128 0x5
+ 1337 0084 02        		.byte	0x2
+ 1338 0085 0000 0000 		.long	.LM12
+ 1339 0089 15        		.byte	0x15
+ 1340 008a 00        		.byte	0x0
+ 1341 008b 05        		.uleb128 0x5
+ 1342 008c 02        		.byte	0x2
+ 1343 008d 0000 0000 		.long	.LM13
+ 1344 0091 03        		.byte	0x3
+ 1345 0092 977F      		.sleb128 -105
+ 1346 0094 01        		.byte	0x1
+ 1347 0095 00        		.byte	0x0
+ 1348 0096 05        		.uleb128 0x5
+ 1349 0097 02        		.byte	0x2
+ 1350 0098 0000 0000 		.long	.LM14
+ 1351 009c 17        		.byte	0x17
+ 1352 009d 00        		.byte	0x0
+ 1353 009e 05        		.uleb128 0x5
+ 1354 009f 02        		.byte	0x2
+ 1355 00a0 0000 0000 		.long	.LM15
+ 1356 00a4 15        		.byte	0x15
+ 1357 00a5 00        		.byte	0x0
+ 1358 00a6 05        		.uleb128 0x5
+ 1359 00a7 02        		.byte	0x2
+ 1360 00a8 0000 0000 		.long	.LM16
+ 1361 00ac 13        		.byte	0x13
+ 1362 00ad 00        		.byte	0x0
+ 1363 00ae 05        		.uleb128 0x5
+ 1364 00af 02        		.byte	0x2
+ 1365 00b0 0000 0000 		.long	.LM17
+ 1366 00b4 17        		.byte	0x17
+ 1367 00b5 00        		.byte	0x0
+ 1368 00b6 05        		.uleb128 0x5
+ 1369 00b7 02        		.byte	0x2
+ 1370 00b8 0000 0000 		.long	.LM18
+ 1371 00bc 16        		.byte	0x16
+ 1372 00bd 00        		.byte	0x0
+ 1373 00be 05        		.uleb128 0x5
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 27
+
+
+ 1374 00bf 02        		.byte	0x2
+ 1375 00c0 0000 0000 		.long	.LM19
+ 1376 00c4 18        		.byte	0x18
+ 1377 00c5 00        		.byte	0x0
+ 1378 00c6 05        		.uleb128 0x5
+ 1379 00c7 02        		.byte	0x2
+ 1380 00c8 0000 0000 		.long	.LM20
+ 1381 00cc 17        		.byte	0x17
+ 1382 00cd 00        		.byte	0x0
+ 1383 00ce 05        		.uleb128 0x5
+ 1384 00cf 02        		.byte	0x2
+ 1385 00d0 0000 0000 		.long	.LM21
+ 1386 00d4 15        		.byte	0x15
+ 1387 00d5 00        		.byte	0x0
+ 1388 00d6 05        		.uleb128 0x5
+ 1389 00d7 02        		.byte	0x2
+ 1390 00d8 0000 0000 		.long	.LM22
+ 1391 00dc 15        		.byte	0x15
+ 1392 00dd 00        		.byte	0x0
+ 1393 00de 05        		.uleb128 0x5
+ 1394 00df 02        		.byte	0x2
+ 1395 00e0 0000 0000 		.long	.LM23
+ 1396 00e4 15        		.byte	0x15
+ 1397 00e5 00        		.byte	0x0
+ 1398 00e6 05        		.uleb128 0x5
+ 1399 00e7 02        		.byte	0x2
+ 1400 00e8 0000 0000 		.long	.LM24
+ 1401 00ec 15        		.byte	0x15
+ 1402 00ed 00        		.byte	0x0
+ 1403 00ee 05        		.uleb128 0x5
+ 1404 00ef 02        		.byte	0x2
+ 1405 00f0 0000 0000 		.long	.LM25
+ 1406 00f4 15        		.byte	0x15
+ 1407 00f5 00        		.byte	0x0
+ 1408 00f6 05        		.uleb128 0x5
+ 1409 00f7 02        		.byte	0x2
+ 1410 00f8 0000 0000 		.long	.LM26
+ 1411 00fc 16        		.byte	0x16
+ 1412 00fd 00        		.byte	0x0
+ 1413 00fe 05        		.uleb128 0x5
+ 1414 00ff 02        		.byte	0x2
+ 1415 0100 0000 0000 		.long	.LM27
+ 1416 0104 15        		.byte	0x15
+ 1417 0105 00        		.byte	0x0
+ 1418 0106 05        		.uleb128 0x5
+ 1419 0107 02        		.byte	0x2
+ 1420 0108 0000 0000 		.long	.LM28
+ 1421 010c 15        		.byte	0x15
+ 1422 010d 00        		.byte	0x0
+ 1423 010e 05        		.uleb128 0x5
+ 1424 010f 02        		.byte	0x2
+ 1425 0110 0000 0000 		.long	.LM29
+ 1426 0114 15        		.byte	0x15
+ 1427 0115 00        		.byte	0x0
+ 1428 0116 05        		.uleb128 0x5
+ 1429 0117 02        		.byte	0x2
+ 1430 0118 0000 0000 		.long	.LM30
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 28
+
+
+ 1431 011c 15        		.byte	0x15
+ 1432 011d 00        		.byte	0x0
+ 1433 011e 05        		.uleb128 0x5
+ 1434 011f 02        		.byte	0x2
+ 1435 0120 0000 0000 		.long	.LM31
+ 1436 0124 15        		.byte	0x15
+ 1437 0125 00        		.byte	0x0
+ 1438 0126 05        		.uleb128 0x5
+ 1439 0127 02        		.byte	0x2
+ 1440 0128 0000 0000 		.long	.LM32
+ 1441 012c 15        		.byte	0x15
+ 1442 012d 00        		.byte	0x0
+ 1443 012e 05        		.uleb128 0x5
+ 1444 012f 02        		.byte	0x2
+ 1445 0130 0000 0000 		.long	.LM33
+ 1446 0134 18        		.byte	0x18
+ 1447 0135 00        		.byte	0x0
+ 1448 0136 05        		.uleb128 0x5
+ 1449 0137 02        		.byte	0x2
+ 1450 0138 0000 0000 		.long	.LM34
+ 1451 013c 15        		.byte	0x15
+ 1452 013d 00        		.byte	0x0
+ 1453 013e 05        		.uleb128 0x5
+ 1454 013f 02        		.byte	0x2
+ 1455 0140 0000 0000 		.long	.LM35
+ 1456 0144 15        		.byte	0x15
+ 1457 0145 00        		.byte	0x0
+ 1458 0146 05        		.uleb128 0x5
+ 1459 0147 02        		.byte	0x2
+ 1460 0148 0000 0000 		.long	.LM36
+ 1461 014c 15        		.byte	0x15
+ 1462 014d 00        		.byte	0x0
+ 1463 014e 05        		.uleb128 0x5
+ 1464 014f 02        		.byte	0x2
+ 1465 0150 0000 0000 		.long	.LM37
+ 1466 0154 15        		.byte	0x15
+ 1467 0155 00        		.byte	0x0
+ 1468 0156 05        		.uleb128 0x5
+ 1469 0157 02        		.byte	0x2
+ 1470 0158 0000 0000 		.long	.LM38
+ 1471 015c 16        		.byte	0x16
+ 1472 015d 00        		.byte	0x0
+ 1473 015e 05        		.uleb128 0x5
+ 1474 015f 02        		.byte	0x2
+ 1475 0160 0000 0000 		.long	.LM39
+ 1476 0164 15        		.byte	0x15
+ 1477 0165 00        		.byte	0x0
+ 1478 0166 05        		.uleb128 0x5
+ 1479 0167 02        		.byte	0x2
+ 1480 0168 0000 0000 		.long	.LM40
+ 1481 016c 15        		.byte	0x15
+ 1482 016d 00        		.byte	0x0
+ 1483 016e 05        		.uleb128 0x5
+ 1484 016f 02        		.byte	0x2
+ 1485 0170 0000 0000 		.long	.LM41
+ 1486 0174 15        		.byte	0x15
+ 1487 0175 00        		.byte	0x0
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 29
+
+
+ 1488 0176 05        		.uleb128 0x5
+ 1489 0177 02        		.byte	0x2
+ 1490 0178 0000 0000 		.long	.LM42
+ 1491 017c 15        		.byte	0x15
+ 1492 017d 00        		.byte	0x0
+ 1493 017e 05        		.uleb128 0x5
+ 1494 017f 02        		.byte	0x2
+ 1495 0180 0000 0000 		.long	.LM43
+ 1496 0184 17        		.byte	0x17
+ 1497 0185 00        		.byte	0x0
+ 1498 0186 05        		.uleb128 0x5
+ 1499 0187 02        		.byte	0x2
+ 1500 0188 0000 0000 		.long	.LM44
+ 1501 018c 15        		.byte	0x15
+ 1502 018d 00        		.byte	0x0
+ 1503 018e 05        		.uleb128 0x5
+ 1504 018f 02        		.byte	0x2
+ 1505 0190 0000 0000 		.long	.LM45
+ 1506 0194 15        		.byte	0x15
+ 1507 0195 00        		.byte	0x0
+ 1508 0196 05        		.uleb128 0x5
+ 1509 0197 02        		.byte	0x2
+ 1510 0198 0000 0000 		.long	.LM46
+ 1511 019c 19        		.byte	0x19
+ 1512 019d 00        		.byte	0x0
+ 1513 019e 05        		.uleb128 0x5
+ 1514 019f 02        		.byte	0x2
+ 1515 01a0 0000 0000 		.long	.LM47
+ 1516 01a4 11        		.byte	0x11
+ 1517 01a5 00        		.byte	0x0
+ 1518 01a6 05        		.uleb128 0x5
+ 1519 01a7 02        		.byte	0x2
+ 1520 01a8 0000 0000 		.long	.LM48
+ 1521 01ac 15        		.byte	0x15
+ 1522 01ad 00        		.byte	0x0
+ 1523 01ae 05        		.uleb128 0x5
+ 1524 01af 02        		.byte	0x2
+ 1525 01b0 0000 0000 		.long	.LM49
+ 1526 01b4 15        		.byte	0x15
+ 1527 01b5 00        		.byte	0x0
+ 1528 01b6 05        		.uleb128 0x5
+ 1529 01b7 02        		.byte	0x2
+ 1530 01b8 0000 0000 		.long	.LM50
+ 1531 01bc 15        		.byte	0x15
+ 1532 01bd 00        		.byte	0x0
+ 1533 01be 05        		.uleb128 0x5
+ 1534 01bf 02        		.byte	0x2
+ 1535 01c0 0000 0000 		.long	.LM51
+ 1536 01c4 17        		.byte	0x17
+ 1537 01c5 00        		.byte	0x0
+ 1538 01c6 05        		.uleb128 0x5
+ 1539 01c7 02        		.byte	0x2
+ 1540 01c8 0000 0000 		.long	.LM52
+ 1541 01cc 15        		.byte	0x15
+ 1542 01cd 00        		.byte	0x0
+ 1543 01ce 05        		.uleb128 0x5
+ 1544 01cf 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 30
+
+
+ 1545 01d0 0000 0000 		.long	.LM53
+ 1546 01d4 15        		.byte	0x15
+ 1547 01d5 00        		.byte	0x0
+ 1548 01d6 05        		.uleb128 0x5
+ 1549 01d7 02        		.byte	0x2
+ 1550 01d8 0000 0000 		.long	.LM54
+ 1551 01dc 15        		.byte	0x15
+ 1552 01dd 00        		.byte	0x0
+ 1553 01de 05        		.uleb128 0x5
+ 1554 01df 02        		.byte	0x2
+ 1555 01e0 0000 0000 		.long	.LM55
+ 1556 01e4 15        		.byte	0x15
+ 1557 01e5 00        		.byte	0x0
+ 1558 01e6 05        		.uleb128 0x5
+ 1559 01e7 02        		.byte	0x2
+ 1560 01e8 0000 0000 		.long	.LM56
+ 1561 01ec 0F        		.byte	0xf
+ 1562 01ed 00        		.byte	0x0
+ 1563 01ee 05        		.uleb128 0x5
+ 1564 01ef 02        		.byte	0x2
+ 1565 01f0 0000 0000 		.long	.LM57
+ 1566 01f4 1C        		.byte	0x1c
+ 1567 01f5 00        		.byte	0x0
+ 1568 01f6 05        		.uleb128 0x5
+ 1569 01f7 02        		.byte	0x2
+ 1570 01f8 0000 0000 		.long	.LM58
+ 1571 01fc 03        		.byte	0x3
+ 1572 01fd 72        		.sleb128 -14
+ 1573 01fe 01        		.byte	0x1
+ 1574 01ff 00        		.byte	0x0
+ 1575 0200 05        		.uleb128 0x5
+ 1576 0201 02        		.byte	0x2
+ 1577 0202 0000 0000 		.long	.LM59
+ 1578 0206 25        		.byte	0x25
+ 1579 0207 00        		.byte	0x0
+ 1580 0208 05        		.uleb128 0x5
+ 1581 0209 02        		.byte	0x2
+ 1582 020a 0000 0000 		.long	.LM60
+ 1583 020e 15        		.byte	0x15
+ 1584 020f 00        		.byte	0x0
+ 1585 0210 05        		.uleb128 0x5
+ 1586 0211 02        		.byte	0x2
+ 1587 0212 0000 0000 		.long	.LM61
+ 1588 0216 16        		.byte	0x16
+ 1589 0217 00        		.byte	0x0
+ 1590 0218 05        		.uleb128 0x5
+ 1591 0219 02        		.byte	0x2
+ 1592 021a 0000 0000 		.long	.LM62
+ 1593 021e 15        		.byte	0x15
+ 1594 021f 00        		.byte	0x0
+ 1595 0220 05        		.uleb128 0x5
+ 1596 0221 02        		.byte	0x2
+ 1597 0222 0000 0000 		.long	.LM63
+ 1598 0226 16        		.byte	0x16
+ 1599 0227 00        		.byte	0x0
+ 1600 0228 05        		.uleb128 0x5
+ 1601 0229 02        		.byte	0x2
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 31
+
+
+ 1602 022a 0000 0000 		.long	.LM64
+ 1603 022e 15        		.byte	0x15
+ 1604 022f 00        		.byte	0x0
+ 1605 0230 05        		.uleb128 0x5
+ 1606 0231 02        		.byte	0x2
+ 1607 0232 0000 0000 		.long	.LM65
+ 1608 0236 16        		.byte	0x16
+ 1609 0237 00        		.byte	0x0
+ 1610 0238 05        		.uleb128 0x5
+ 1611 0239 02        		.byte	0x2
+ 1612 023a 0000 0000 		.long	.LM66
+ 1613 023e 13        		.byte	0x13
+ 1614 023f 00        		.byte	0x0
+ 1615 0240 05        		.uleb128 0x5
+ 1616 0241 02        		.byte	0x2
+ 1617 0242 0000 0000 		.long	.LM67
+ 1618 0246 16        		.byte	0x16
+ 1619 0247 00        		.byte	0x0
+ 1620 0248 05        		.uleb128 0x5
+ 1621 0249 02        		.byte	0x2
+ 1622 024a 0000 0000 		.long	.LM68
+ 1623 024e 16        		.byte	0x16
+ 1624 024f 00        		.byte	0x0
+ 1625 0250 05        		.uleb128 0x5
+ 1626 0251 02        		.byte	0x2
+ 1627 0252 0000 0000 		.long	.LM69
+ 1628 0256 16        		.byte	0x16
+ 1629 0257 00        		.byte	0x0
+ 1630 0258 05        		.uleb128 0x5
+ 1631 0259 02        		.byte	0x2
+ 1632 025a 0000 0000 		.long	.LM70
+ 1633 025e 13        		.byte	0x13
+ 1634 025f 00        		.byte	0x0
+ 1635 0260 05        		.uleb128 0x5
+ 1636 0261 02        		.byte	0x2
+ 1637 0262 0000 0000 		.long	.LM71
+ 1638 0266 16        		.byte	0x16
+ 1639 0267 00        		.byte	0x0
+ 1640 0268 05        		.uleb128 0x5
+ 1641 0269 02        		.byte	0x2
+ 1642 026a 0000 0000 		.long	.LM72
+ 1643 026e 15        		.byte	0x15
+ 1644 026f 00        		.byte	0x0
+ 1645 0270 05        		.uleb128 0x5
+ 1646 0271 02        		.byte	0x2
+ 1647 0272 0000 0000 		.long	.LM73
+ 1648 0276 16        		.byte	0x16
+ 1649 0277 00        		.byte	0x0
+ 1650 0278 05        		.uleb128 0x5
+ 1651 0279 02        		.byte	0x2
+ 1652 027a 0000 0000 		.long	.LM74
+ 1653 027e 15        		.byte	0x15
+ 1654 027f 00        		.byte	0x0
+ 1655 0280 05        		.uleb128 0x5
+ 1656 0281 02        		.byte	0x2
+ 1657 0282 0000 0000 		.long	.LM75
+ 1658 0286 16        		.byte	0x16
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 32
+
+
+ 1659 0287 00        		.byte	0x0
+ 1660 0288 05        		.uleb128 0x5
+ 1661 0289 02        		.byte	0x2
+ 1662 028a 0000 0000 		.long	.LM76
+ 1663 028e 13        		.byte	0x13
+ 1664 028f 00        		.byte	0x0
+ 1665 0290 05        		.uleb128 0x5
+ 1666 0291 02        		.byte	0x2
+ 1667 0292 0000 0000 		.long	.LM77
+ 1668 0296 16        		.byte	0x16
+ 1669 0297 00        		.byte	0x0
+ 1670 0298 05        		.uleb128 0x5
+ 1671 0299 02        		.byte	0x2
+ 1672 029a 0000 0000 		.long	.LM78
+ 1673 029e 15        		.byte	0x15
+ 1674 029f 00        		.byte	0x0
+ 1675 02a0 05        		.uleb128 0x5
+ 1676 02a1 02        		.byte	0x2
+ 1677 02a2 0000 0000 		.long	.LM79
+ 1678 02a6 16        		.byte	0x16
+ 1679 02a7 00        		.byte	0x0
+ 1680 02a8 05        		.uleb128 0x5
+ 1681 02a9 02        		.byte	0x2
+ 1682 02aa 0000 0000 		.long	.LM80
+ 1683 02ae 15        		.byte	0x15
+ 1684 02af 00        		.byte	0x0
+ 1685 02b0 05        		.uleb128 0x5
+ 1686 02b1 02        		.byte	0x2
+ 1687 02b2 0000 0000 		.long	.LM81
+ 1688 02b6 15        		.byte	0x15
+ 1689 02b7 00        		.byte	0x0
+ 1690 02b8 05        		.uleb128 0x5
+ 1691 02b9 02        		.byte	0x2
+ 1692 02ba 0000 0000 		.long	.LM82
+ 1693 02be 15        		.byte	0x15
+ 1694 02bf 00        		.byte	0x0
+ 1695 02c0 05        		.uleb128 0x5
+ 1696 02c1 02        		.byte	0x2
+ 1697 02c2 0000 0000 		.long	.LM83
+ 1698 02c6 16        		.byte	0x16
+ 1699 02c7 00        		.byte	0x0
+ 1700 02c8 05        		.uleb128 0x5
+ 1701 02c9 02        		.byte	0x2
+ 1702 02ca 0000 0000 		.long	.LM84
+ 1703 02ce 15        		.byte	0x15
+ 1704 02cf 00        		.byte	0x0
+ 1705 02d0 05        		.uleb128 0x5
+ 1706 02d1 02        		.byte	0x2
+ 1707 02d2 0000 0000 		.long	.LM85
+ 1708 02d6 16        		.byte	0x16
+ 1709 02d7 00        		.byte	0x0
+ 1710 02d8 05        		.uleb128 0x5
+ 1711 02d9 02        		.byte	0x2
+ 1712 02da 0000 0000 		.long	.LM86
+ 1713 02de 03        		.byte	0x3
+ 1714 02df 867F      		.sleb128 -122
+ 1715 02e1 01        		.byte	0x1
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 33
+
+
+ 1716 02e2 00        		.byte	0x0
+ 1717 02e3 05        		.uleb128 0x5
+ 1718 02e4 02        		.byte	0x2
+ 1719 02e5 0000 0000 		.long	.LM87
+ 1720 02e9 17        		.byte	0x17
+ 1721 02ea 00        		.byte	0x0
+ 1722 02eb 05        		.uleb128 0x5
+ 1723 02ec 02        		.byte	0x2
+ 1724 02ed 0000 0000 		.long	.LM88
+ 1725 02f1 16        		.byte	0x16
+ 1726 02f2 00        		.byte	0x0
+ 1727 02f3 05        		.uleb128 0x5
+ 1728 02f4 02        		.byte	0x2
+ 1729 02f5 0000 0000 		.long	.LM89
+ 1730 02f9 16        		.byte	0x16
+ 1731 02fa 00        		.byte	0x0
+ 1732 02fb 05        		.uleb128 0x5
+ 1733 02fc 02        		.byte	0x2
+ 1734 02fd 0000 0000 		.long	.LM90
+ 1735 0301 17        		.byte	0x17
+ 1736 0302 00        		.byte	0x0
+ 1737 0303 05        		.uleb128 0x5
+ 1738 0304 02        		.byte	0x2
+ 1739 0305 0000 0000 		.long	.LM91
+ 1740 0309 16        		.byte	0x16
+ 1741 030a 00        		.byte	0x0
+ 1742 030b 05        		.uleb128 0x5
+ 1743 030c 02        		.byte	0x2
+ 1744 030d 0000 0000 		.long	.LM92
+ 1745 0311 17        		.byte	0x17
+ 1746 0312 00        		.byte	0x0
+ 1747 0313 05        		.uleb128 0x5
+ 1748 0314 02        		.byte	0x2
+ 1749 0315 0000 0000 		.long	.LM93
+ 1750 0319 11        		.byte	0x11
+ 1751 031a 00        		.byte	0x0
+ 1752 031b 05        		.uleb128 0x5
+ 1753 031c 02        		.byte	0x2
+ 1754 031d 0000 0000 		.long	.LM94
+ 1755 0321 15        		.byte	0x15
+ 1756 0322 00        		.byte	0x0
+ 1757 0323 05        		.uleb128 0x5
+ 1758 0324 02        		.byte	0x2
+ 1759 0325 0000 0000 		.long	.LM95
+ 1760 0329 15        		.byte	0x15
+ 1761 032a 00        		.byte	0x0
+ 1762 032b 05        		.uleb128 0x5
+ 1763 032c 02        		.byte	0x2
+ 1764 032d 0000 0000 		.long	.LM96
+ 1765 0331 15        		.byte	0x15
+ 1766 0332 00        		.byte	0x0
+ 1767 0333 05        		.uleb128 0x5
+ 1768 0334 02        		.byte	0x2
+ 1769 0335 0000 0000 		.long	.LM97
+ 1770 0339 15        		.byte	0x15
+ 1771 033a 00        		.byte	0x0
+ 1772 033b 05        		.uleb128 0x5
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 34
+
+
+ 1773 033c 02        		.byte	0x2
+ 1774 033d 0000 0000 		.long	.LM98
+ 1775 0341 15        		.byte	0x15
+ 1776 0342 00        		.byte	0x0
+ 1777 0343 05        		.uleb128 0x5
+ 1778 0344 02        		.byte	0x2
+ 1779 0345 0000 0000 		.long	.LM99
+ 1780 0349 15        		.byte	0x15
+ 1781 034a 00        		.byte	0x0
+ 1782 034b 05        		.uleb128 0x5
+ 1783 034c 02        		.byte	0x2
+ 1784 034d 0000 0000 		.long	.LM100
+ 1785 0351 18        		.byte	0x18
+ 1786 0352 00        		.byte	0x0
+ 1787 0353 05        		.uleb128 0x5
+ 1788 0354 02        		.byte	0x2
+ 1789 0355 0000 0000 		.long	.Letext0
+ 1790 0359 00        		.byte	0x0
+ 1791 035a 01        		.uleb128 0x1
+ 1792 035b 01        		.byte	0x1
+ 1793               	.LELT0:
+ 1794 035c 1600 0000 		.section	.debug_str,"MS",@progbits,1
+ 1794      0200 1000 
+ 1794      0000 0101 
+ 1794      FB0E 0A00 
+ 1794      0101 0101 
+ 1795               	.LASF20:
+ 1796 0000 5365 6C66 		.string	"SelfTest"
+ 1796      5465 7374 
+ 1796      00
+ 1797               	.LASF19:
+ 1798 0009 433A 5C55 		.string	"C:\\Users\\longc\\OneDrive\\Desktop\\sose18\\src"
+ 1798      7365 7273 
+ 1798      5C6C 6F6E 
+ 1798      6763 5C4F 
+ 1798      6E65 4472 
+ 1799               	.LASF1:
+ 1800 0034 756E 7369 		.string	"unsigned char"
+ 1800      676E 6564 
+ 1800      2063 6861 
+ 1800      7200 
+ 1801               	.LASF4:
+ 1802 0042 6C6F 6E67 		.string	"long unsigned int"
+ 1802      2075 6E73 
+ 1802      6967 6E65 
+ 1802      6420 696E 
+ 1802      7400 
+ 1803               	.LASF17:
+ 1804 0054 474E 5520 		.string	"GNU C 4.3.3"
+ 1804      4320 342E 
+ 1804      332E 3300 
+ 1805               	.LASF7:
+ 1806 0060 4F70 7469 		.string	"OptionsMsgs"
+ 1806      6F6E 734D 
+ 1806      7367 7300 
+ 1807               	.LASF18:
+ 1808 006c 5365 6C66 		.string	"SelfTest.c"
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 35
+
+
+ 1808      5465 7374 
+ 1808      2E63 00
+ 1809               	.LASF2:
+ 1810 0077 756E 7369 		.string	"unsigned int"
+ 1810      676E 6564 
+ 1810      2069 6E74 
+ 1810      00
+ 1811               	.LASF6:
+ 1812 0084 6C6F 6E67 		.string	"long long unsigned int"
+ 1812      206C 6F6E 
+ 1812      6720 756E 
+ 1812      7369 676E 
+ 1812      6564 2069 
+ 1813               	.LASF14:
+ 1814 009b 706F 6C6C 		.string	"pollRef"
+ 1814      5265 6600 
+ 1815               	.LASF11:
+ 1816 00a3 6461 7461 		.string	"dataMsg"
+ 1816      4D73 6700 
+ 1817               	.LASF5:
+ 1818 00ab 6C6F 6E67 		.string	"long long int"
+ 1818      206C 6F6E 
+ 1818      6720 696E 
+ 1818      7400 
+ 1819               	.LASF8:
+ 1820 00b9 4C45 444F 		.string	"LEDOptionsMsgs"
+ 1820      7074 696F 
+ 1820      6E73 4D73 
+ 1820      6773 00
+ 1821               	.LASF15:
+ 1822 00c8 6368 6172 		.string	"char"
+ 1822      00
+ 1823               	.LASF13:
+ 1824 00cd 696E 6465 		.string	"index"
+ 1824      7800 
+ 1825               	.LASF9:
+ 1826 00d3 536C 6565 		.string	"Sleep_more"
+ 1826      705F 6D6F 
+ 1826      7265 00
+ 1827               	.LASF3:
+ 1828 00de 6C6F 6E67 		.string	"long int"
+ 1828      2069 6E74 
+ 1828      00
+ 1829               	.LASF16:
+ 1830 00e7 6D69 6C6C 		.string	"millis"
+ 1830      6973 00
+ 1831               	.LASF0:
+ 1832 00ee 7369 676E 		.string	"signed char"
+ 1832      6564 2063 
+ 1832      6861 7200 
+ 1833               	.LASF12:
+ 1834 00fa 7377 6974 		.string	"switches"
+ 1834      6368 6573 
+ 1834      00
+ 1835               	.LASF10:
+ 1836 0103 4163 7469 		.string	"ActionFromMsgs"
+ 1836      6F6E 4672 
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 36
+
+
+ 1836      6F6D 4D73 
+ 1836      6773 00
+ 1837               	.global __do_copy_data
+GAS LISTING C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s 			page 37
+
+
+DEFINED SYMBOLS
+                            *ABS*:00000000 SelfTest.c
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:2      *ABS*:0000003f __SREG__
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:3      *ABS*:0000003e __SP_H__
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:4      *ABS*:0000003d __SP_L__
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:5      *ABS*:00000034 __CCP__
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:6      *ABS*:00000000 __tmp_reg__
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:7      *ABS*:00000001 __zero_reg__
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:28     .text:00000000 OptionsMsgs
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:66     .text:0000001a LEDOptionsMsgs
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:94     .text:00000034 Sleep_more
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:181    .text:00000076 ActionFromMsgs
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:627    .data:00000245 C.0.1458
+C:\Users\longc\AppData\Local\Temp/ccxO57Oe.s:553    .text:0000027a SelfTest
+
+UNDEFINED SYMBOLS
+SerPrint
+__divmodhi4
+Sleep
+MotorDir
+MotorSpeed
+SerRead
+StatusLED
+BackLED
+PollSwitch
+LEDTest
+LineTest
+SwitchTest
+Init
+FrontLED
+OdometrieTest
+MotorTest
+SerialTest
+__do_copy_data
